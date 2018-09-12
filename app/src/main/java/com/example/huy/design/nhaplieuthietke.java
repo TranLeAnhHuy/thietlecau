@@ -175,8 +175,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     }
     public void DTHHLienHopDaiHan(){
         //Bs
-        BsDT=Math.ceil(bi/(3*n));
-        BsDN=Math.ceil(bc/(3*n));
+        BsDT=(bi/(3*n));
+        BsDN=(bc/(3*n));
         //Alt
         //Chiều dày của BMC
         try {
@@ -189,8 +189,8 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuDayBMC.setError("Hãy nhập giá trị");
         }
-        AltDT=Math.ceil(Anc+BsDT*ts);
-        AltDN=Math.ceil(Anc+BsDN*ts);
+        AltDT=(Anc+BsDT*ts);
+        AltDN=(Anc+BsDN*ts);
 
         //Sltt
         //Chiều rộng bản cánh trên
@@ -273,19 +273,19 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuCaoDC.setError("Hãy nhập giá trị");
         }
-        SlttDT= Math.ceil(Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BsDT*ts*(D+0.5*ts));
-        SlttDN= Math.ceil(Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BsDN*ts*(D+0.5*ts));
+        SlttDT= (Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BsDT*ts*(D+0.5*ts));
+        SlttDN= (Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BsDN*ts*(D+0.5*ts));
 
         //Yltd
-        YltdDT=Math.ceil(SlttDT/AltDT);
-        YltdDN=Math.ceil(SlttDN/AltDN);
+        YltdDT=(SlttDT/AltDT);
+        YltdDN=(SlttDN/AltDN);
         Toast.makeText(nhaplieuthietke.this,""+YltdDN,Toast.LENGTH_LONG).show();
         //Yltt
         YlttDT=Math.ceil(D-YltdDT);
         YlttDN=Math.ceil(D-YltdDN);
         //Ilt
-        IltDT=Math.ceil((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDT-0.5*tfb),2)))+(BsDT*(Math.pow(ts,3))/12)+(BsDT*ts*(Math.pow((YlttDT+0.5*ts),2))));
-        IltDN=Math.ceil((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDN-0.5*tfb),2)))+(BsDN*(Math.pow(ts,3))/12)+(BsDN*ts*(Math.pow((YlttDN+0.5*ts),2))));
+        IltDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDT-0.5*tfb),2)))+(BsDT*(Math.pow(ts,3))/12)+(BsDT*ts*(Math.pow((YlttDT+0.5*ts),2))));
+        IltDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDN-0.5*tfb),2)))+(BsDN*(Math.pow(ts,3))/12)+(BsDN*ts*(Math.pow((YlttDN+0.5*ts),2))));
 
 
 
@@ -307,15 +307,15 @@ public class nhaplieuthietke extends AppCompatActivity {
         //Diện tích mặt cắt nguyên
         Anc = Adt;
         //Momen tĩnh đối với đáy dầm
-        Snct = Math.round((((Bft * tft) * (D - (tft / 2))) + ((Dw * tw) * (D - tft - (Dw / 2))) + ((Bfb * tfb) * (tfb / 2))));
+        Snct = (((Bft * tft) * (D - (tft / 2))) + ((Dw * tw) * (D - tft - (Dw / 2))) + ((Bfb * tfb) * (tfb / 2)));
         Toast.makeText(nhaplieuthietke.this, "" + Snct, Toast.LENGTH_LONG).show();
-        Yncd = Math.ceil(Snct / Anc);
+        Yncd = (Snct / Anc);
         Toast.makeText(nhaplieuthietke.this, "" + Yncd, Toast.LENGTH_LONG).show();
-        Ynct = Math.ceil(D - Yncd);
+        Ynct = (D - Yncd);
         Toast.makeText(nhaplieuthietke.this, "" + Ynct, Toast.LENGTH_LONG).show();
-        Inc = Math.ceil((Bft * (Math.pow(tft, 3)) / 12) + (Bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (Bfb * Math.pow(tfb, 3) / 12) + (Bfb * tfb) * Math.pow((Yncd - 0.5 * tfb), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfb - Yncd), 2));
+        Inc = ((Bft * (Math.pow(tft, 3)) / 12) + (Bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (Bfb * Math.pow(tfb, 3) / 12) + (Bfb * tfb) * Math.pow((Yncd - 0.5 * tfb), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfb - Yncd), 2));
         Toast.makeText(nhaplieuthietke.this, "" + Inc, Toast.LENGTH_LONG).show();
-        Sncd = Math.ceil(Anc * Ynct);
+        Sncd = (Anc * Ynct);
         Toast.makeText(nhaplieuthietke.this, "" + Sncd, Toast.LENGTH_LONG).show();
 
 
