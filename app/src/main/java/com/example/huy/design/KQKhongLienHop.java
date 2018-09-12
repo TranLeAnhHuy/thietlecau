@@ -33,9 +33,9 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtBsDT.setText(String.valueOf( KLHbundle.getDouble("BsDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BsDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BsDT")));
         txtBsDN.setText(String.valueOf(KLHbundle.getDouble("BsDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BsDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BsDN")));
         txtAltDT.setText(String.valueOf(KLHbundle.getDouble("AltDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AltDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AltDT")));
-        txtAltDN.setText(String.valueOf( KLHbundle.getDouble(" AltDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AltDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AltDN")));
-        txtSlttDT.setText(String.valueOf(KLHbundle.getDouble(" SlttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble(" SlttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble(" SlttDT")));
-        txtSlttDN.setText(String.valueOf( KLHbundle.getDouble(" SlttDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("SlttDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("SlttDN")));
+        txtAltDN.setText(String.valueOf( KLHbundle.getDouble("AltDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AltDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AltDN")));
+        txtSlttDT.setText(String.valueOf(KLHbundle.getDouble("SlttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("SlttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble(" SlttDT")));
+        txtSlttDN.setText(String.valueOf( KLHbundle.getDouble("SlttDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("SlttDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("SlttDN")));
         txtYltdDT.setText(String.valueOf( KLHbundle.getDouble("YltdDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YltdDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YltdDT")));
         txtYltdDN.setText(String.valueOf( KLHbundle.getDouble("YltdDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YltdDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YltdDN")));
         txtYlttDT.setText(String.valueOf( KLHbundle.getDouble("YlttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YlttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YlttDT")));
