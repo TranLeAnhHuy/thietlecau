@@ -31,7 +31,7 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtInc.setText(String.valueOf(KLHbundle.getDouble("Inc")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Inc")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Inc")));
         txtSncd.setText(String.valueOf( KLHbundle.getDouble("Sncd")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Sncd")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Sncd")));
         txtBsDT.setText(String.valueOf( KLHbundle.getDouble("BsDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BsDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BsDT")));
-        txtBsDN.setText(String.valueOf(KLHbundle.getDouble(" BsDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BsDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BsDN")));
+        txtBsDN.setText(String.valueOf(KLHbundle.getDouble("BsDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BsDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BsDN")));
         txtAltDT.setText(String.valueOf(KLHbundle.getDouble("AltDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AltDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AltDT")));
         txtAltDN.setText(String.valueOf( KLHbundle.getDouble(" AltDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AltDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AltDN")));
         txtSlttDT.setText(String.valueOf(KLHbundle.getDouble(" SlttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble(" SlttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble(" SlttDT")));

@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:layout_marginTop="5dp"
-        app:srcCompat="@drawable/pic_mainactiviti" />
+        android:src="@drawable/pic_mainactiviti" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
