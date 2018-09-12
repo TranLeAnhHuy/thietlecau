@@ -148,11 +148,11 @@ public class nhaplieuthietke extends AppCompatActivity {
                     KLHbundle.putDouble("Inc",Inc);
                     KLHbundle.putDouble("Sncd",Sncd);
                     KLHbundle.putDouble("BsDT",BsDT);
-                    KLHbundle.putDouble(" BsDN", BsDN);
+                    KLHbundle.putDouble("BsDN", BsDN);
                     KLHbundle.putDouble("AltDT",AltDT);
-                    KLHbundle.putDouble(" AltDN", AltDN);
-                    KLHbundle.putDouble(" SlttDT", SlttDT);
-                    KLHbundle.putDouble(" SlttDN", SlttDN);
+                    KLHbundle.putDouble("AltDN", AltDN);
+                    KLHbundle.putDouble("SlttDT", SlttDT);
+                    KLHbundle.putDouble("SlttDN", SlttDN);
                     KLHbundle.putDouble("YltdDT",YltdDT );
                     KLHbundle.putDouble("YltdDN",YltdDN);
                     KLHbundle.putDouble("YlttDT",YlttDT );
