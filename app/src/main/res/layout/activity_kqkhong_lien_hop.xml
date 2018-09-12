@@ -512,6 +512,276 @@
                 </TableLayout>
             </LinearLayout>
 
+            //Mặt cắt liên hợp ngắn hạn
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giai đoạn 2 - Mặt cắt liên hợp ngắn hạn"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16dp"
+                    android:textColor="#fb04069c"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                >
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    >
+                    <TableRow>
+                        <TextView
+                            android:text="ĐTHH"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"
+
+                            />
+                        <TextView
+                            android:text="Dầm trong"
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:text="Dầm ngoài"
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"
+
+                            />
+                        <TextView
+                            android:text="Đơn vị"
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"
+                            android:background="#b8d5f9"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Bs=Bi/n"
+                            android:padding="5dp"
+                            android:background="#dbe7f7"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"
+
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:id="@+id/txtBssDT"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:background="#dbe7f7"
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:id="@+id/txtBssDN"
+                            android:padding="5dp"
+                            android:gravity="center_horizontal"
+                            android:background="#dbe7f7"
+                            />
+                        <TextView
+                            android:text="mm"
+                            android:layout_marginLeft="2dp"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:background="#dbe7f7"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Ast"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:textStyle="bold"
+
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:id="@+id/txtAstDT"
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:id="@+id/txtAstDN"
+
+                            />
+                        <TextView
+                            android:text="mm2"
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Sstt"
+                            android:padding="5dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:textStyle="bold"
+
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:id="@+id/txtSsttDT"
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:gravity="center_horizontal"
+                            android:background="#dbe7f7"
+                            android:id="@+id/txtSsttDN"
+                            />
+                        <TextView
+                            android:text="mm3"
+                            android:layout_marginLeft="2dp"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:background="#dbe7f7"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Ystd"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"
+
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:gravity="center_horizontal"
+                            android:background="#b8d5f9"
+                            android:id="@+id/txtYstdDT"
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:id="@+id/txtYstdDN"
+
+                            />
+                        <TextView
+                            android:text="mm"
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Ystt"
+                            android:padding="5dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:textStyle="bold"
+
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:id="@+id/txtYsttDT"
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:background="#dbe7f7"
+                            android:id="@+id/txtYsttDN"
+                            />
+                        <TextView
+                            android:text="mm"
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:gravity="center_horizontal"
+                            android:background="#dbe7f7"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:text="Ist"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:textStyle="bold"
+
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:gravity="center_horizontal"
+                            android:background="#b8d5f9"
+                            android:id="@+id/txtIstDT"
+                            />
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:padding="5dp"
+                            android:gravity="center_horizontal"
+                            android:background="#b8d5f9"
+                            android:id="@+id/txtIstDN"
+
+                            />
+                        <TextView
+                            android:text="mm4"
+                            android:layout_marginLeft="2dp"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:background="#b8d5f9"
+                            />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+
+
 
 
 

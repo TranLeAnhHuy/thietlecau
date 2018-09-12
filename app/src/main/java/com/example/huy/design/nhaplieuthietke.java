@@ -17,16 +17,18 @@ public class nhaplieuthietke extends AppCompatActivity {
     EditText edtChieuDayBMC, edtChieuDayLopPhu, edtTytrongVLlamLopPhu, edtThepKetCau, edtModuynDanHoiThep, edtCuongDoChiuKeoMIN, edtCuongDoChayMIN;
     EditText edtTiTrongThep, edtSoLuongDamChu, edtKhoangCachGiuaDC, edtChieuDaiPhanHang, edtChieuCaoDC, edtChieuRongBanCanhTren, edtChieuDayBCT;
     EditText edtChieuRongBCD, edtChieuDayBCD, edtChieuDaySuonDam, edtChieuCaoSuon, edtSoLuongDamNgang1Nhip, edtTongSoDamNgang;
-   EditText edtKhoangCachTimDNĐenauDC, edtS2, edthn, edtLdn, edtbn, edttfdn, edttwdn, edthwdn, edta, edtnlkn, edthlkn, edtSlkn, edtb;
+   EditText edtYv,edtKhoangCachTimDNĐenauDC, edtS2, edthn, edtLdn, edtbn, edttfdn, edttwdn, edthwdn, edta, edtnlkn, edthlkn, edtSlkn, edtb;
     TextView txtDienTichDamThep, txtModuynDanHoiCuaBeTong, txtAdn, txtnlkd;
     Button btnTinhToan;
     double Adt, heSoHoatTai, L, Ls, Bxc, Blc, B, fc, yc, Ec, ts, taf, yaf, Es, Fu, Fy, ys, ndc, S, de, D, Bft, tft, Bfb, tfb, tw, Dw, ndn1, ndn, S1;
     double S2, hn, Ldn, bn, tfdn, twdn, hwdn, Adn, a, nlkn, hlkn, Slkn, b, nlkd, bi, bc, bi1, bi2, bi3, bii;
-    double bc1, bc2, bc3, bcc, n;
+    double bc1, bc2, bc3, bcc, n,Yv;
     // biến tính đặc trung hh gd 1
     double Snct, Yncd, Anc, Ynct, Inc, Sncd;
     // biến liên hợp dài hạn
     double BsDT, BsDN, AltDT,AltDN, SlttDT,SlttDN,YltdDT, YltdDN, YlttDT, YlttDN, IltDT, IltDN;
+    // Biến liên hợp ngắn hạn
+    double BssDT, BssDN, AstDT,AstDN, SsttDT,SsttDN,YstdDT, YstdDN, YsttDT, YsttDN, IstDT, IstDN;
     String bt;
 
 
@@ -98,6 +100,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtSlkn = (EditText) findViewById(R.id.edtSlkn);
         edtb = (EditText) findViewById(R.id.edtb);
         txtnlkd = (TextView) findViewById(R.id.txtnlkd);
+        edtYv = (EditText) findViewById(R.id.edtYv);
     }
 
     public void addEvents() {
@@ -108,7 +111,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             public void onClick(View v) {
                 bt = getIntent().getStringExtra("baitoan");
                 if (bt.equals("co")) {
-                    //bai toan tren LIÊN HỢP
+                    //bai toan tren  KHÔNG LIÊN HỢP
                     tinhToanDienTichThep();
                     tinhToanEBeTong();
                     tinhToanDienTichDamNgang();
@@ -124,7 +127,7 @@ public class nhaplieuthietke extends AppCompatActivity {
 
 
                 } else {
-                    // bai toan duoi KHÔNG LIÊN HỢP
+                    // bai toan duoi LIÊN HỢP
                     // tuy bai ma button tính xử lý công thức cho đúng
                     tinhToanDienTichThep();
                     tinhToanEBeTong();
@@ -136,6 +139,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhDTHHGiaiDoan1();
                     chuaBien();
                     DTHHLienHopDaiHan();
+                    DTHHLienHopNganHan();
 
 
                     // đóng gói và truyền dữ liệu
@@ -147,6 +151,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                     KLHbundle.putDouble("Ynct",Ynct);
                     KLHbundle.putDouble("Inc",Inc);
                     KLHbundle.putDouble("Sncd",Sncd);
+                    //dài hạn
                     KLHbundle.putDouble("BsDT",BsDT);
                     KLHbundle.putDouble("BsDN", BsDN);
                     KLHbundle.putDouble("AltDT",AltDT);
@@ -159,6 +164,19 @@ public class nhaplieuthietke extends AppCompatActivity {
                     KLHbundle.putDouble("YlttDN",YlttDN );
                     KLHbundle.putDouble("IltDT",IltDT );
                     KLHbundle.putDouble("IltDN",IltDN );
+                    // ngắn hạn
+                    KLHbundle.putDouble("BssDT",BssDT);
+                    KLHbundle.putDouble("BssDN", BssDN);
+                    KLHbundle.putDouble("AstDT",AstDT);
+                    KLHbundle.putDouble("AstDN", AstDN);
+                    KLHbundle.putDouble("SsttDT", SsttDT);
+                    KLHbundle.putDouble("SsttDN", SsttDN);
+                    KLHbundle.putDouble("YstdDT",YstdDT );
+                    KLHbundle.putDouble("YstdDN",YstdDN);
+                    KLHbundle.putDouble("YsttDT",YsttDT );
+                    KLHbundle.putDouble("YsttDN",YsttDN );
+                    KLHbundle.putDouble("IstDT",IstDT );
+                    KLHbundle.putDouble("IstDN",IstDN );
 
 
                     KLHintent.putExtra("KLHbundle",KLHbundle);
@@ -171,6 +189,134 @@ public class nhaplieuthietke extends AppCompatActivity {
 
             }
         });
+
+    }
+    public void DTHHLienHopNganHan(){
+        //Bss
+        BssDT=(bi/(n));
+        BssDN=(bc/(n));
+        //Ast
+        //Chiều dài đoạn vát
+        //Chiều dày của BMC
+        try {
+            Yv = Double.parseDouble(edtYv.getText().toString());
+
+            if (Yv < 0) {
+
+                edtYv.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtYv.setError("Hãy nhập giá trị");
+        }
+        //Chiều dày của BMC
+        try {
+            ts = Double.parseDouble(edtChieuDayBMC.getText().toString());
+
+            if (ts < 0) {
+
+                edtChieuDayBMC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuDayBMC.setError("Hãy nhập giá trị");
+        }
+        AstDT=(Anc+BssDT*ts);
+        AstDN=(Anc+BssDN*ts);
+
+        //Sstt
+        //Chiều rộng bản cánh trên
+        try {
+            Bft = Double.parseDouble(edtChieuRongBanCanhTren.getText().toString());
+
+            if (Bft < 0) {
+
+                edtChieuRongBanCanhTren.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuRongBanCanhTren.setError("Hãy nhập giá trị");
+        }
+        //Chiều dày bản cánh trên
+        try {
+            tft = Double.parseDouble(edtChieuDayBCT.getText().toString());
+
+            if (tft < 0) {
+
+                edtChieuDayBCT.setError("Hãy nhập giá trị");
+            }
+        } catch (Exception e) {
+            edtChieuDayBCT.setError("Hãy nhập giá trị");
+        }
+
+        //Chiều rộng bản cánh dưới
+        try {
+            Bfb = Double.parseDouble(edtChieuRongBCD.getText().toString());
+
+            if (Bfb < 0) {
+
+                edtChieuRongBCD.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuRongBCD.setError("Hãy nhập giá trị");
+        }
+
+        //Chiều dày bản cánh dưới
+        try {
+            tfb = Double.parseDouble(edtChieuDayBCD.getText().toString());
+
+            if (tfb < 0) {
+
+                edtChieuDayBCD.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuDayBCD.setError("Hãy nhập giá trị");
+        }
+        //Chiều dày sườn dầm
+        try {
+            tw = Double.parseDouble(edtChieuDaySuonDam.getText().toString());
+
+            if (tw < 0) {
+
+                edtChieuDaySuonDam.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuDaySuonDam.setError("Hãy nhập giá trị");
+        }
+
+        //Chiều cao sườn dầm
+        try {
+            Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
+
+            if (Dw < 0) {
+
+                edtChieuCaoSuon.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuCaoSuon.setError("Hãy nhập giá trị");
+        }
+        //Chiều cao dàm chủ
+        try {
+            D = Double.parseDouble(edtChieuCaoDC.getText().toString());
+
+            if (D < 0) {
+
+                edtChieuCaoDC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuCaoDC.setError("Hãy nhập giá trị");
+        }
+        SsttDT= (Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BssDT*ts*(D+0.5*ts));
+        SsttDN= (Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BssDN*ts*(D+0.5*ts));
+
+        //Ystd
+        YstdDT=(SsttDT/AstDT);
+        YstdDN=(SsttDN/AstDN);
+        Toast.makeText(nhaplieuthietke.this,""+YstdDN,Toast.LENGTH_LONG).show();
+        //Ystt
+        YsttDT=Math.ceil(D-YstdDT);
+        YsttDN=Math.ceil(D-YstdDN);
+        //Ist
+        IstDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDT-0.5*tfb),2)))+(BssDT*(Math.pow(ts,3))/12)+(BssDT*ts*(Math.pow((YsttDT+0.5*ts),2))));
+        IstDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDN-0.5*tfb),2)))+(BssDN*(Math.pow(ts,3))/12)+(BssDN*ts*(Math.pow((YsttDN+0.5*ts),2))));
+
 
     }
     public void DTHHLienHopDaiHan(){

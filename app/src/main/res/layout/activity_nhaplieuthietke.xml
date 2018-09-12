@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="5dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -259,6 +259,42 @@
             //Toomgr bề rộng của cầu
 
             <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:minWidth="100dp"
+                android:text="Tổng bề rộng của cầu"
+                android:textColor="#6c7070"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/edtTongBeRongCuaCau"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="29dp"
+
+                android:hint="16000"
+                android:inputType="numberDecimal"
+                android:minWidth="60dp"
+                android:textColor="#fb04069c"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:text="mm"
+                android:textColor="#6c7070"
+                android:textSize="16dp" />
+        </LinearLayout>
+            //Kích thước đoạn vát
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -268,17 +304,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
-                    android:text="Tổng bề rộng của cầu"
+                    android:text="Kích thước đoạn vát"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
                 <EditText
-                    android:id="@+id/edtTongBeRongCuaCau"
+                    android:id="@+id/edtYv"
                     android:layout_width="104dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="29dp"
-
-                    android:hint="16000"
+                    android:layout_marginLeft="40dp"
+                    android:hint="0"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -289,7 +324,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
-                    android:text="m"
+                    android:text="mm"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
             </LinearLayout>

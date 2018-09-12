@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
-
+//LIÊN HỢP
 public class KQKhongLienHop extends AppCompatActivity {
-    TextView txtAnc, txtSnct, txtYncd, txtYnct, txtInc, txtSncd, txtBsDT, txtBsDN, txtAltDT, txtAltDN, txtSlttDT;
-    TextView txtSlttDN, txtYltdDT, txtYltdDN, txtYlttDT, txtYlttDN, txtIltDT, txtIltDN;
+    TextView txtAnc, txtSnct, txtYncd, txtYnct, txtInc, txtSncd;
+    TextView txtBsDT, txtBsDN, txtAltDT, txtAltDN, txtSlttDT,txtSlttDN, txtYltdDT, txtYltdDN, txtYlttDT, txtYlttDN, txtIltDT, txtIltDN;
+    TextView txtBssDT, txtBssDN, txtAstDT, txtAstDN, txtSsttDT,txtSsttDN, txtYstdDT, txtYstdDN, txtYsttDT, txtYsttDN, txtIstDT, txtIstDN;
 
 
     @Override
@@ -30,6 +31,7 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtYnct.setText(String.valueOf(KLHbundle.getDouble("Ynct")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Ynct")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Ynct")));
         txtInc.setText(String.valueOf(KLHbundle.getDouble("Inc")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Inc")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Inc")));
         txtSncd.setText(String.valueOf( KLHbundle.getDouble("Sncd")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Sncd")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Sncd")));
+       //dài hạn
         txtBsDT.setText(String.valueOf( KLHbundle.getDouble("BsDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BsDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BsDT")));
         txtBsDN.setText(String.valueOf(KLHbundle.getDouble("BsDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BsDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BsDN")));
         txtAltDT.setText(String.valueOf(KLHbundle.getDouble("AltDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AltDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AltDT")));
@@ -42,7 +44,19 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtYlttDN.setText(String.valueOf( KLHbundle.getDouble("YlttDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YlttDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YlttDN")));
         txtIltDT.setText(String.valueOf( KLHbundle.getDouble("IltDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("IltDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("IltDT")));
         txtIltDN.setText(String.valueOf( KLHbundle.getDouble("IltDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("IltDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("IltDN")));
-
+        //ngắn hạn
+        txtBssDT.setText(String.valueOf( KLHbundle.getDouble("BssDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BssDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BssDT")));
+        txtBssDN.setText(String.valueOf(KLHbundle.getDouble("BssDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BssDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BssDN")));
+        txtAstDT.setText(String.valueOf(KLHbundle.getDouble("AstDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AstDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AstDT")));
+        txtAstDN.setText(String.valueOf( KLHbundle.getDouble("AstDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AstDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AstDN")));
+        txtSsttDT.setText(String.valueOf(KLHbundle.getDouble("SsttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("SsttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble(" SsttDT")));
+        txtSsttDN.setText(String.valueOf( KLHbundle.getDouble("SsttDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("SsttDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("SsttDN")));
+        txtYstdDT.setText(String.valueOf( KLHbundle.getDouble("YstdDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YstdDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YstdDT")));
+        txtYstdDN.setText(String.valueOf( KLHbundle.getDouble("YstdDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YstdDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YstdDN")));
+        txtYsttDT.setText(String.valueOf( KLHbundle.getDouble("YsttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YsttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YsttDT")));
+        txtYsttDN.setText(String.valueOf( KLHbundle.getDouble("YsttDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YsttDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YsttDN")));
+        txtIstDT.setText(String.valueOf( KLHbundle.getDouble("IstDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("IstDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("IstDT")));
+        txtIstDN.setText(String.valueOf( KLHbundle.getDouble("IstDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("IstDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("IstDN")));
 
     }
 
@@ -66,6 +80,19 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtYlttDN = (TextView) findViewById(R.id.txtYlttDN);
         txtIltDT = (TextView) findViewById(R.id.txtIltDT);
         txtIltDN = (TextView) findViewById(R.id.txtIltDN);
+        //liên hợp ngắn hạn
+        txtBssDT = (TextView) findViewById(R.id.txtBssDT);
+        txtBssDN = (TextView) findViewById(R.id.txtBssDN);
+        txtAstDT = (TextView) findViewById(R.id.txtAstDT);
+        txtAstDN = (TextView) findViewById(R.id.txtAstDN);
+        txtSsttDT = (TextView) findViewById(R.id.txtSsttDT);
+        txtSsttDN = (TextView) findViewById(R.id.txtSsttDN);
+        txtYstdDT = (TextView) findViewById(R.id.txtYstdDT);
+        txtYstdDN = (TextView) findViewById(R.id.txtYstdDN);
+        txtYsttDT = (TextView) findViewById(R.id.txtYsttDT);
+        txtYsttDN = (TextView) findViewById(R.id.txtYsttDN);
+        txtIstDT = (TextView) findViewById(R.id.txtIstDT);
+        txtIstDN = (TextView) findViewById(R.id.txtIstDN);
 
 
     }
