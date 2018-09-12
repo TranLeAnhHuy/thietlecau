@@ -29,6 +29,9 @@ public class nhaplieuthietke extends AppCompatActivity {
     double BsDT, BsDN, AltDT,AltDN, SlttDT,SlttDN,YltdDT, YltdDN, YlttDT, YlttDN, IltDT, IltDN;
     // Biến liên hợp ngắn hạn
     double BssDT, BssDN, AstDT,AstDN, SsttDT,SsttDN,YstdDT, YstdDN, YsttDT, YsttDN, IstDT, IstDN;
+    //Tĩnh tải giai đoạn 1 tác dụng lên mặt cắt ko liên hợp
+    double DCdc, DCbmc,DClkn1, DClkn2, DClkd,DCneo;
+
     String bt;
 
 
@@ -314,8 +317,10 @@ public class nhaplieuthietke extends AppCompatActivity {
         YsttDT=Math.ceil(D-YstdDT);
         YsttDN=Math.ceil(D-YstdDN);
         //Ist
-        IstDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDT-0.5*tfb),2)))+(BssDT*(Math.pow(ts,3))/12)+(BssDT*ts*(Math.pow((YsttDT+0.5*ts),2))));
-        IstDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDN-0.5*tfb),2)))+(BssDN*(Math.pow(ts,3))/12)+(BssDN*ts*(Math.pow((YsttDN+0.5*ts),2))));
+        IstDT=Inc+Anc*Math.pow(YstdDT-Yncd,2)+(BssDT*Math.pow(ts,3)/12)+BssDT*ts*Math.pow(0.5*ts+YsttDT+Yv,2);
+        IstDN=Inc+Anc*Math.pow(YstdDN-Yncd,2)+(BssDN*Math.pow(ts,3)/12)+BssDN*ts*Math.pow(0.5*ts+YsttDN+Yv,2);
+       /* IstDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDT-0.5*tfb),2)))+(BssDT*(Math.pow(ts,3))/12)+(BssDT*ts*(Math.pow((YsttDT+0.5*ts),2))));
+        IstDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDN-0.5*tfb),2)))+(BssDN*(Math.pow(ts,3))/12)+(BssDN*ts*(Math.pow((YsttDN+0.5*ts),2))));*/
 
 
     }
@@ -430,8 +435,10 @@ public class nhaplieuthietke extends AppCompatActivity {
         YlttDT=Math.ceil(D-YltdDT);
         YlttDN=Math.ceil(D-YltdDN);
         //Ilt
-        IltDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDT-0.5*tfb),2)))+(BsDT*(Math.pow(ts,3))/12)+(BsDT*ts*(Math.pow((YlttDT+0.5*ts),2))));
-        IltDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDN-0.5*tfb),2)))+(BsDN*(Math.pow(ts,3))/12)+(BsDN*ts*(Math.pow((YlttDN+0.5*ts),2))));
+        IltDT=Inc+Anc*Math.pow(YltdDT-Yncd,2)+(BsDT*Math.pow(ts,3)/12)+BsDT*ts*Math.pow(0.5*ts+YlttDT+Yv,2);
+        IltDN=Inc+Anc*Math.pow(YltdDN-Yncd,2)+(BsDN*Math.pow(ts,3)/12)+BsDN*ts*Math.pow(0.5*ts+YlttDN+Yv,2);
+        /*IltDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDT-0.5*tfb),2)))+(BsDT*(Math.pow(ts,3))/12)+(BsDT*ts*(Math.pow((YlttDT+0.5*ts),2))));
+        IltDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDN-0.5*tfb),2)))+(BsDN*(Math.pow(ts,3))/12)+(BsDN*ts*(Math.pow((YlttDN+0.5*ts),2))));*/
 
 
 

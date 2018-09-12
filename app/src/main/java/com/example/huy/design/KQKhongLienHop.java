@@ -3,6 +3,8 @@ package com.example.huy.design;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.SuperscriptSpan;
 import android.widget.TextView;
 //LIÊN HỢP
 public class KQKhongLienHop extends AppCompatActivity {
@@ -95,6 +97,42 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtIstDN = (TextView) findViewById(R.id.txtIstDN);
 
 
+    }
+
+    public static SpannableString roundString(double value, int places) {
+        double kq = round(value, places);
+        if (kq > 1000000) {
+            String s = String.valueOf(kq);
+            int count;
+            double kqMoi;
+            if (s.contains("E")) {
+                count = Integer.valueOf(s.substring(s.indexOf("E") + 1, s.length()));
+                kqMoi = round(Double.valueOf(s.substring(0, 6)), 4);
+            } else {
+                if (s.contains(".")) {
+                    count = s.indexOf(".") - 1;
+                } else {
+                    count = s.length() - 1;
+                }
+                kqMoi = round(kq / (long) Math.pow(10, count), 4);
+            }
+
+            SpannableString sp = new SpannableString(kqMoi + "*10" + count);
+            sp.setSpan(new SuperscriptSpan(), sp.length() - String.valueOf(count).length(), sp.length(), 0);
+
+            return sp;
+        } else {
+            return new SpannableString(String.valueOf(kq));
+        }
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 
 }
