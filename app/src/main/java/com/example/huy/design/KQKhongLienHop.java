@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.SuperscriptSpan;
 import android.widget.TextView;
+
 //LIÊN HỢP
 public class KQKhongLienHop extends AppCompatActivity {
     TextView txtAnc, txtSnct, txtYncd, txtYnct, txtInc, txtSncd;
-    TextView txtBsDT, txtBsDN, txtAltDT, txtAltDN, txtSlttDT,txtSlttDN, txtYltdDT, txtYltdDN, txtYlttDT, txtYlttDN, txtIltDT, txtIltDN;
-    TextView txtBssDT, txtBssDN, txtAstDT, txtAstDN, txtSsttDT,txtSsttDN, txtYstdDT, txtYstdDN, txtYsttDT, txtYsttDN, txtIstDT, txtIstDN;
+    TextView txtBsDT, txtBsDN, txtAltDT, txtAltDN, txtSlttDT, txtSlttDN, txtYltdDT, txtYltdDN, txtYlttDT, txtYlttDN, txtIltDT, txtIltDN;
+    TextView txtBssDT, txtBssDN, txtAstDT, txtAstDN, txtSsttDT, txtSsttDN, txtYstdDT, txtYstdDN, txtYsttDT, txtYsttDN, txtIstDT, txtIstDN;
 
 
     @Override
@@ -27,38 +28,38 @@ public class KQKhongLienHop extends AppCompatActivity {
         //Láy kết quả
         Intent KLHintent = getIntent();
         Bundle KLHbundle = KLHintent.getBundleExtra("KLHbundle");
-        txtAnc.setText(String.valueOf(KLHbundle.getDouble("Anc")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Anc")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Anc")));
-        txtSnct.setText(String.valueOf(KLHbundle.getDouble("Snct")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Snct")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Snct")));
-        txtYncd.setText(String.valueOf(KLHbundle.getDouble("Yncd")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Yncd")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Yncd")));
-        txtYnct.setText(String.valueOf(KLHbundle.getDouble("Ynct")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Ynct")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Ynct")));
-        txtInc.setText(String.valueOf(KLHbundle.getDouble("Inc")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Inc")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Inc")));
-        txtSncd.setText(String.valueOf( KLHbundle.getDouble("Sncd")).length() > 6 ? String.valueOf(KLHbundle.getDouble("Sncd")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("Sncd")));
-       //dài hạn
-        txtBsDT.setText(String.valueOf( KLHbundle.getDouble("BsDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BsDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BsDT")));
-        txtBsDN.setText(String.valueOf(KLHbundle.getDouble("BsDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BsDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BsDN")));
-        txtAltDT.setText(String.valueOf(KLHbundle.getDouble("AltDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AltDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AltDT")));
-        txtAltDN.setText(String.valueOf( KLHbundle.getDouble("AltDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AltDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AltDN")));
-        txtSlttDT.setText(String.valueOf(KLHbundle.getDouble("SlttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("SlttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble(" SlttDT")));
-        txtSlttDN.setText(String.valueOf( KLHbundle.getDouble("SlttDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("SlttDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("SlttDN")));
-        txtYltdDT.setText(String.valueOf( KLHbundle.getDouble("YltdDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YltdDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YltdDT")));
-        txtYltdDN.setText(String.valueOf( KLHbundle.getDouble("YltdDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YltdDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YltdDN")));
-        txtYlttDT.setText(String.valueOf( KLHbundle.getDouble("YlttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YlttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YlttDT")));
-        txtYlttDN.setText(String.valueOf( KLHbundle.getDouble("YlttDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YlttDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YlttDN")));
-        txtIltDT.setText(String.valueOf( KLHbundle.getDouble("IltDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("IltDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("IltDT")));
-        txtIltDN.setText(String.valueOf( KLHbundle.getDouble("IltDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("IltDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("IltDN")));
+        txtAnc.setText(roundString(KLHbundle.getDouble("Anc"), 4));
+        txtSnct.setText(roundString(KLHbundle.getDouble("Snct"), 4));
+        txtYncd.setText(roundString(KLHbundle.getDouble("Yncd"), 4));
+        txtYnct.setText(roundString(KLHbundle.getDouble("Ynct"), 4));
+        txtInc.setText(roundString(KLHbundle.getDouble("Inc"), 4));
+        txtSncd.setText(roundString(KLHbundle.getDouble("Sncd"), 4));
+        //dài hạn
+        txtBsDT.setText(roundString(KLHbundle.getDouble("BsDT"), 4));
+        txtBsDN.setText(roundString(KLHbundle.getDouble("BsDN"), 4));
+        txtAltDT.setText(roundString(KLHbundle.getDouble("AltDT"), 4));
+        txtAltDN.setText(roundString(KLHbundle.getDouble("AltDN"), 4));
+        txtSlttDT.setText(roundString(KLHbundle.getDouble("SlttDT"), 4));
+        txtSlttDN.setText(roundString(KLHbundle.getDouble("SlttDN"), 4));
+        txtYltdDT.setText(roundString(KLHbundle.getDouble("YltdDT"), 4));
+        txtYltdDN.setText(roundString(KLHbundle.getDouble("YltdDN"), 4));
+        txtYlttDT.setText(roundString(KLHbundle.getDouble("YlttDT"), 4));
+        txtYlttDN.setText(roundString(KLHbundle.getDouble("YlttDN"), 4));
+        txtIltDT.setText(roundString(KLHbundle.getDouble("IltDT"), 4));
+        txtIltDN.setText(roundString(KLHbundle.getDouble("IltDN"), 4));
         //ngắn hạn
-        txtBssDT.setText(String.valueOf( KLHbundle.getDouble("BssDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BssDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BssDT")));
-        txtBssDN.setText(String.valueOf(KLHbundle.getDouble("BssDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("BssDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("BssDN")));
-        txtAstDT.setText(String.valueOf(KLHbundle.getDouble("AstDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AstDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AstDT")));
-        txtAstDN.setText(String.valueOf( KLHbundle.getDouble("AstDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("AstDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("AstDN")));
-        txtSsttDT.setText(String.valueOf(KLHbundle.getDouble("SsttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("SsttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble(" SsttDT")));
-        txtSsttDN.setText(String.valueOf( KLHbundle.getDouble("SsttDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("SsttDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("SsttDN")));
-        txtYstdDT.setText(String.valueOf( KLHbundle.getDouble("YstdDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YstdDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YstdDT")));
-        txtYstdDN.setText(String.valueOf( KLHbundle.getDouble("YstdDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YstdDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YstdDN")));
-        txtYsttDT.setText(String.valueOf( KLHbundle.getDouble("YsttDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YsttDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YsttDT")));
-        txtYsttDN.setText(String.valueOf( KLHbundle.getDouble("YsttDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("YsttDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("YsttDN")));
-        txtIstDT.setText(String.valueOf( KLHbundle.getDouble("IstDT")).length() > 6 ? String.valueOf(KLHbundle.getDouble("IstDT")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("IstDT")));
-        txtIstDN.setText(String.valueOf( KLHbundle.getDouble("IstDN")).length() > 6 ? String.valueOf(KLHbundle.getDouble("IstDN")).substring(0, 6) : String.valueOf(KLHbundle.getDouble("IstDN")));
+        txtBssDT.setText(roundString(KLHbundle.getDouble("BssDT"), 4));
+        txtBssDN.setText(roundString(KLHbundle.getDouble("BssDN"), 4));
+        txtAstDT.setText(roundString(KLHbundle.getDouble("AstDT"), 4));
+        txtAstDN.setText(roundString(KLHbundle.getDouble("AstDN"), 4));
+        txtSsttDT.setText(roundString(KLHbundle.getDouble("SsttDT"), 4));
+        txtSsttDN.setText(roundString(KLHbundle.getDouble("SsttDN"), 4));
+        txtYstdDT.setText(roundString(KLHbundle.getDouble("YstdDT"), 4));
+        txtYstdDN.setText(roundString(KLHbundle.getDouble("YstdDN"), 4));
+        txtYsttDT.setText(roundString(KLHbundle.getDouble("YsttDT"), 4));
+        txtYsttDN.setText(roundString(KLHbundle.getDouble("YsttDN"), 4));
+        txtIstDT.setText(roundString(KLHbundle.getDouble("IstDT"), 4));
+        txtIstDN.setText(roundString(KLHbundle.getDouble("IstDN"), 4));
 
     }
 
@@ -134,5 +135,4 @@ public class KQKhongLienHop extends AppCompatActivity {
         long tmp = Math.round(value);
         return (double) tmp / factor;
     }
-
 }
