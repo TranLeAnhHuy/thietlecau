@@ -92,6 +92,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
+                    android:gravity="center_horizontal"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -131,6 +132,7 @@
                     android:hint="40"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
+                    android:gravity="center_horizontal"
                     android:paddingLeft="10dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -168,6 +170,7 @@
                     android:layout_marginLeft="18dp"
                     android:hint="39.4"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -203,6 +206,7 @@
                     android:layout_width="104dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
+                    android:gravity="center_horizontal"
                     android:hint="15"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
@@ -242,6 +246,7 @@
                     android:layout_marginLeft="73dp"
                     android:hint="500"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -277,6 +282,7 @@
                 android:layout_width="104dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="29dp"
+                android:gravity="center_horizontal"
 
                 android:hint="16000"
                 android:inputType="numberDecimal"
@@ -315,6 +321,7 @@
                     android:layout_marginLeft="40dp"
                     android:hint="0"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -328,6 +335,120 @@
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
             </LinearLayout>
+            //Trọng lượng neo
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Trọng lượng neo"
+
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtDCneo"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="65dp"
+                    android:hint="0.064"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="10dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="kN/m"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            //Trọng lượng lan can thép
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Trọng lượng lan can thép"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtDClcT"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:gravity="center_horizontal"
+                    android:hint="0,4"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="kN/m"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            //Trọng lượng lan can BT
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Trọng lượng lan can BT"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtDClcBT"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="19dp"
+                    android:gravity="center_horizontal"
+                    android:hint="6.825"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="kN/m"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
 
             // Loại liên kết sử dụng
 
@@ -345,17 +466,6 @@
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
-                <EditText
-                    android:id="@+id/edtLoaiLienKetSuDung"
-                    android:layout_width="173dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="38dp"
-                    android:layout_marginRight="5dp"
-
-                    android:hint="Bu Lông CĐC"
-                    android:minWidth="150dp"
-                    android:textColor="#fb04069c"
-                    android:textSize="16dp" />
             </LinearLayout>
 
             // Cấu tạo dầm chủ
@@ -374,13 +484,13 @@
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/edtCauTaoDamChu"
                     android:layout_width="173dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="63dp"
                     android:layout_marginRight="5dp"
-                    android:hint="Mặt ghép tổ hợp hàn"
+                    android:text="Mặt ghép tổ hợp hàn"
                     android:minWidth="150dp"
 
                     android:textColor="#fb04069c"
@@ -403,14 +513,13 @@
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/edtMatCatNgangDamChu"
                     android:layout_width="173dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="5dp"
-
-                    android:hint="Chữ I"
+                    android:text="Chữ I"
                     android:minWidth="150dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -454,6 +563,7 @@
                     android:id="@+id/edtCuongDoChiuNenCuaBeTong"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:layout_marginLeft="5dp"
 
                     android:hint="35"
@@ -495,6 +605,7 @@
                     android:layout_marginLeft="45dp"
                     android:hint="25"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
 
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -532,6 +643,7 @@
                     android:layout_marginLeft="25dp"
                     android:background="#f2f4f4"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -567,6 +679,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="57dp"
                     android:hint="269"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -604,6 +717,7 @@
                     android:layout_marginLeft="67dp"
                     android:hint="70"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -639,6 +753,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="23dp"
                     android:hint="22.5"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -694,6 +809,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
                     android:hint="ASTM A709M"
+                    android:gravity="center_horizontal"
                     android:minWidth="150dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -723,6 +839,7 @@
                     android:hint="200000"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
+                    android:gravity="center_horizontal"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -760,6 +877,7 @@
                     android:hint="485"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
+                    android:gravity="center_horizontal"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -795,6 +913,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="57dp"
                     android:hint="345"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -833,6 +952,7 @@
                     android:layout_marginLeft="93dp"
                     android:hint="78.5"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -905,6 +1025,7 @@
                     android:hint="8"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
+                    android:gravity="center_horizontal"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -933,6 +1054,7 @@
                     android:hint="2000"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
+                    android:gravity="center_horizontal"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -967,6 +1089,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="53dp"
                     android:hint="850"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -1003,6 +1126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="61dp"
                     android:hint="1750"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -1041,6 +1165,7 @@
                     android:hint="450"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
+                    android:gravity="center_horizontal"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -1075,6 +1200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="26dp"
                     android:hint="30"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -1111,6 +1237,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:hint="600"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -1147,6 +1274,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24dp"
                     android:hint="40"
+
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -1183,6 +1312,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="54dp"
                     android:hint="20"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -1220,6 +1350,7 @@
                     android:layout_marginLeft="54dp"
                     android:hint="1680"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -1255,6 +1386,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="67dp"
                     android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -1309,6 +1441,7 @@
                     android:hint="2"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
+                    android:gravity="center_horizontal"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -1344,6 +1477,7 @@
                     android:layout_marginLeft="62dp"
                     android:hint="14"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -1380,6 +1514,7 @@
                     android:layout_marginLeft="90dp"
                     android:hint="300"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -1413,6 +1548,7 @@
                     android:id="@+id/edtS2"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:layout_marginLeft="90dp"
                     android:hint="3200"
                     android:inputType="numberDecimal"
@@ -1451,6 +1587,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="53dp"
                     android:hint="600"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -1462,7 +1599,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="mm"
                     android:textColor="#6c7070"
-                    android:textSize="16dp" />
+                    android:textSize="14dp" />
             </LinearLayout>
 
             // Chiều dài 1 dầm ngang
@@ -1481,14 +1618,15 @@
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
-                <EditText
-                    android:id="@+id/edtLdn"
+                <TextView
+                    android:id="@+id/txtLdn"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="44dp"
-                    android:hint="1950"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
+                    android:background="#f2f4f4"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -1522,6 +1660,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="83dp"
+                    android:gravity="center_horizontal"
                     android:hint="300"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
@@ -1557,6 +1696,7 @@
                     android:id="@+id/edttfdn"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:layout_marginLeft="68dp"
                     android:hint="20"
                     android:inputType="numberDecimal"
@@ -1594,6 +1734,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="97dp"
+                    android:gravity="center_horizontal"
                     android:hint="14"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
@@ -1633,6 +1774,7 @@
                     android:hint="560"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
+                    android:gravity="center_horizontal"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -1668,6 +1810,7 @@
                     android:layout_marginLeft="87dp"
                     android:background="#f2f4f4"
                     android:minWidth="60dp"
+                    android:gravity="center_horizontal"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -1737,6 +1880,7 @@
                     android:layout_marginLeft="105dp"
                     android:hint="11"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="65dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -1747,7 +1891,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="/nhịp"
                     android:textColor="#6c7070"
-                    android:textSize="16dp" />
+                    android:textSize="14dp" />
             </LinearLayout>
             // tổng số hệ liên kết ngang trong 1 nhịp
 
@@ -1772,6 +1916,7 @@
                     android:layout_marginLeft="100dp"
                     android:hint="77"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -1805,6 +1950,7 @@
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
+                    android:gravity="center_horizontal"
                     android:hint="1170"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
@@ -1843,6 +1989,7 @@
                     android:layout_marginLeft="100dp"
                     android:hint="3300"
                     android:inputType="numberDecimal"
+                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -1912,6 +2059,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
                     android:hint="12"
+                    android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
@@ -1925,8 +2073,7 @@
                     android:textColor="#6c7070"
                     android:textSize="13dp" />
             </LinearLayout>
-            // Tổng số hệ liên kết dọc trong 1 nhịp
-
+            // diện tích thép goc
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1939,17 +2086,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
-                    android:text="Tổng số hệ liên kết dọc"
+                    android:text="Diện tích thép góc"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
-                <TextView
-                    android:id="@+id/txtnlkd"
+                <EditText
+                    android:id="@+id/edtAtg"
                     android:layout_width="83dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="45dp"
-                    android:background="#f2f4f4"
+                    android:layout_marginLeft="80dp"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
                     android:minWidth="60dp"
+                    android:hint="1920"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -1957,10 +2106,48 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="/nhịp"
+                    android:text="/mm2"
                     android:textColor="#6c7070"
                     android:textSize="13dp" />
             </LinearLayout>
+            // Tổng số hệ liên kết dọc trong 1 nhịp
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:minWidth="100dp"
+                android:text="Tổng số hệ liên kết dọc"
+                android:textColor="#6c7070"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtnlkd"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:background="#f2f4f4"
+                android:gravity="center_horizontal"
+                android:minWidth="60dp"
+                android:textColor="#fb04069c"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="/nhịp"
+                android:textColor="#6c7070"
+                android:textSize="13dp" />
+        </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1976,6 +2163,7 @@
                     android:layout_marginLeft="20dp"
                     android:background="#ed929b"
                     android:text="Trở về"
+                    android:onClick="btnTroVe"
                     android:textAllCaps="true"
                     android:textSize="16dp" />
 
@@ -1992,5 +2180,17 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <TextView
+        android:id="@+id/edtLoaiLienKetSuDung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="5dp"
+
+        android:minWidth="150dp"
+        android:text="Bu Lông CĐC"
+        android:textColor="#fb04069c"
+        android:textSize="16dp" />
 
 </LinearLayout>

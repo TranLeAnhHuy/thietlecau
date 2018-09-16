@@ -17,20 +17,22 @@ public class nhaplieuthietke extends AppCompatActivity {
     EditText edtChieuDayBMC, edtChieuDayLopPhu, edtTytrongVLlamLopPhu, edtThepKetCau, edtModuynDanHoiThep, edtCuongDoChiuKeoMIN, edtCuongDoChayMIN;
     EditText edtTiTrongThep, edtSoLuongDamChu, edtKhoangCachGiuaDC, edtChieuDaiPhanHang, edtChieuCaoDC, edtChieuRongBanCanhTren, edtChieuDayBCT;
     EditText edtChieuRongBCD, edtChieuDayBCD, edtChieuDaySuonDam, edtChieuCaoSuon, edtSoLuongDamNgang1Nhip, edtTongSoDamNgang;
-   EditText edtYv,edtKhoangCachTimDNĐenauDC, edtS2, edthn, edtLdn, edtbn, edttfdn, edttwdn, edthwdn, edta, edtnlkn, edthlkn, edtSlkn, edtb;
-    TextView txtDienTichDamThep, txtModuynDanHoiCuaBeTong, txtAdn, txtnlkd;
+    EditText edtYv, edtKhoangCachTimDNĐenauDC, edtS2, edthn, edtbn, edttfdn, edttwdn, edthwdn, edta, edtnlkn, edthlkn, edtSlkn, edtb,edtAtg;
+    TextView txtDienTichDamThep, txtModuynDanHoiCuaBeTong, txtAdn, txtnlkd, txtLdn;
     Button btnTinhToan;
+    EditText edtDCneo,edtDClcT, edtDClcBT;
     double Adt, heSoHoatTai, L, Ls, Bxc, Blc, B, fc, yc, Ec, ts, taf, yaf, Es, Fu, Fy, ys, ndc, S, de, D, Bft, tft, Bfb, tfb, tw, Dw, ndn1, ndn, S1;
     double S2, hn, Ldn, bn, tfdn, twdn, hwdn, Adn, a, nlkn, hlkn, Slkn, b, nlkd, bi, bc, bi1, bi2, bi3, bii;
-    double bc1, bc2, bc3, bcc, n,Yv;
+    double bc1, bc2, bc3, bcc, n, Yv;
     // biến tính đặc trung hh gd 1
     double Snct, Yncd, Anc, Ynct, Inc, Sncd;
     // biến liên hợp dài hạn
-    double BsDT, BsDN, AltDT,AltDN, SlttDT,SlttDN,YltdDT, YltdDN, YlttDT, YlttDN, IltDT, IltDN;
+    double BsDT, BsDN, AltDT, AltDN, SlttDT, SlttDN, YltdDT, YltdDN, YlttDT, YlttDN, IltDT, IltDN;
     // Biến liên hợp ngắn hạn
-    double BssDT, BssDN, AstDT,AstDN, SsttDT,SsttDN,YstdDT, YstdDN, YsttDT, YsttDN, IstDT, IstDN;
+    double BssDT, BssDN, AstDT, AstDN, SsttDT, SsttDN, YstdDT, YstdDN, YsttDT, YsttDN, IstDT, IstDN;
     //Tĩnh tải giai đoạn 1 tác dụng lên mặt cắt ko liên hợp
-    double DCdc, DCbmc,DClkn1, DClkn2, DClkd,DCneo;
+    double DCdc, DCbmc, DClkn1, DClkn2, DClkd, DCneo,Atg, DC1;
+    double DClcT, DClcBT,DClcDN,DClcDT;
 
     String bt;
 
@@ -60,9 +62,9 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtBeRongPhanXeChay = (EditText) findViewById(R.id.edtBeRongPhanXeChay);
         edtBeRongLanCan = (EditText) findViewById(R.id.edtBeRongLanCan);
         edtTongBeRongToanCuaCau = (EditText) findViewById(R.id.edtTongBeRongCuaCau);
-        edtLoaiLienKetSuDung = (EditText) findViewById(R.id.edtLoaiLienKetSuDung);
-        edtCauTaoDamChu = (EditText) findViewById(R.id.edtCauTaoDamChu);
-        edtMatCatNgangDamChu = (EditText) findViewById(R.id.edtMatCatNgangDamChu);
+   //     edtLoaiLienKetSuDung = (EditText) findViewById(R.id.edtLoaiLienKetSuDung);
+       // edtCauTaoDamChu = (EditText) findViewById(R.id.edtCauTaoDamChu);
+       // edtMatCatNgangDamChu = (EditText) findViewById(R.id.edtMatCatNgangDamChu);
         edtCuongDoChiuNenCuaBeTong = (EditText) findViewById(R.id.edtCuongDoChiuNenCuaBeTong);
         edtTiTrongCuaBeTong = (EditText) findViewById(R.id.edtTiTrongCuaBeTong);
         txtModuynDanHoiCuaBeTong = (TextView) findViewById(R.id.txtModuynDanHoiCuaBeTong);
@@ -91,7 +93,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtKhoangCachTimDNĐenauDC = (EditText) findViewById(R.id.edtKhoangCachTimDNĐenauDC);
         edtS2 = (EditText) findViewById(R.id.edtS2);
         edthn = (EditText) findViewById(R.id.edthn);
-        edtLdn = (EditText) findViewById(R.id.edtLdn);
+        txtLdn = (TextView) findViewById(R.id.txtLdn);
         edtbn = (EditText) findViewById(R.id.edtbn);
         edttfdn = (EditText) findViewById(R.id.edttfdn);
         edttwdn = (EditText) findViewById(R.id.edttwdn);
@@ -104,6 +106,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtb = (EditText) findViewById(R.id.edtb);
         txtnlkd = (TextView) findViewById(R.id.txtnlkd);
         edtYv = (EditText) findViewById(R.id.edtYv);
+        edtAtg = (EditText) findViewById(R.id.edtAtg);
     }
 
     public void addEvents() {
@@ -126,9 +129,6 @@ public class nhaplieuthietke extends AppCompatActivity {
                     chuaBien();
 
 
-
-
-
                 } else {
                     // bai toan duoi LIÊN HỢP
                     // tuy bai ma button tính xử lý công thức cho đúng
@@ -143,61 +143,250 @@ public class nhaplieuthietke extends AppCompatActivity {
                     chuaBien();
                     DTHHLienHopDaiHan();
                     DTHHLienHopNganHan();
+                    tinhtxtLdn();
+                    tinhKhoiLuongGD1();
+                    tinhKhoiLuongGD2();
 
 
                     // đóng gói và truyền dữ liệu
                     Intent KLHintent = new Intent(nhaplieuthietke.this, KQKhongLienHop.class);
-                    Bundle KLHbundle= new Bundle();
-                    KLHbundle.putDouble("Anc",Anc);
-                    KLHbundle.putDouble("Snct",Snct);
-                    KLHbundle.putDouble("Yncd",Yncd);
-                    KLHbundle.putDouble("Ynct",Ynct);
-                    KLHbundle.putDouble("Inc",Inc);
-                    KLHbundle.putDouble("Sncd",Sncd);
+                    Bundle KLHbundle = new Bundle();
+                    KLHbundle.putDouble("Anc", Anc);
+                    KLHbundle.putDouble("Snct", Snct);
+                    KLHbundle.putDouble("Yncd", Yncd);
+                    KLHbundle.putDouble("Ynct", Ynct);
+                    KLHbundle.putDouble("Inc", Inc);
+                    KLHbundle.putDouble("Sncd", Sncd);
                     //dài hạn
-                    KLHbundle.putDouble("BsDT",BsDT);
+                    KLHbundle.putDouble("BsDT", BsDT);
                     KLHbundle.putDouble("BsDN", BsDN);
-                    KLHbundle.putDouble("AltDT",AltDT);
+                    KLHbundle.putDouble("AltDT", AltDT);
                     KLHbundle.putDouble("AltDN", AltDN);
                     KLHbundle.putDouble("SlttDT", SlttDT);
                     KLHbundle.putDouble("SlttDN", SlttDN);
-                    KLHbundle.putDouble("YltdDT",YltdDT );
-                    KLHbundle.putDouble("YltdDN",YltdDN);
-                    KLHbundle.putDouble("YlttDT",YlttDT );
-                    KLHbundle.putDouble("YlttDN",YlttDN );
-                    KLHbundle.putDouble("IltDT",IltDT );
-                    KLHbundle.putDouble("IltDN",IltDN );
+                    KLHbundle.putDouble("YltdDT", YltdDT);
+                    KLHbundle.putDouble("YltdDN", YltdDN);
+                    KLHbundle.putDouble("YlttDT", YlttDT);
+                    KLHbundle.putDouble("YlttDN", YlttDN);
+                    KLHbundle.putDouble("IltDT", IltDT);
+                    KLHbundle.putDouble("IltDN", IltDN);
                     // ngắn hạn
-                    KLHbundle.putDouble("BssDT",BssDT);
+                    KLHbundle.putDouble("BssDT", BssDT);
                     KLHbundle.putDouble("BssDN", BssDN);
-                    KLHbundle.putDouble("AstDT",AstDT);
+                    KLHbundle.putDouble("AstDT", AstDT);
                     KLHbundle.putDouble("AstDN", AstDN);
                     KLHbundle.putDouble("SsttDT", SsttDT);
                     KLHbundle.putDouble("SsttDN", SsttDN);
-                    KLHbundle.putDouble("YstdDT",YstdDT );
-                    KLHbundle.putDouble("YstdDN",YstdDN);
-                    KLHbundle.putDouble("YsttDT",YsttDT );
-                    KLHbundle.putDouble("YsttDN",YsttDN );
-                    KLHbundle.putDouble("IstDT",IstDT );
-                    KLHbundle.putDouble("IstDN",IstDN );
+                    KLHbundle.putDouble("YstdDT", YstdDT);
+                    KLHbundle.putDouble("YstdDN", YstdDN);
+                    KLHbundle.putDouble("YsttDT", YsttDT);
+                    KLHbundle.putDouble("YsttDN", YsttDN);
+                    KLHbundle.putDouble("IstDT", IstDT);
+                    KLHbundle.putDouble("IstDN", IstDN);
 
 
-                    KLHintent.putExtra("KLHbundle",KLHbundle);
+                    KLHintent.putExtra("KLHbundle", KLHbundle);
                     startActivity(KLHintent);
 
 
                 }
 
 
-
             }
         });
 
     }
-    public void DTHHLienHopNganHan(){
+    public void tinhKhoiLuongGD2(){
+        //Trọng lượng lan can thép
+        try {
+            DClcT = Double.parseDouble(edtDClcT.getText().toString());
+
+            if (DClcT < 0) {
+
+                edtDClcT.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtDClcT.setError("Hãy nhập giá trị");
+        }
+        //Trọng lượng lan can BT
+        try {
+            DClcBT = Double.parseDouble(edtDClcBT.getText().toString());
+
+            if (DClcBT < 0) {
+
+                edtDClcBT.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtDClcBT.setError("Hãy nhập giá trị");
+        }
+        DClcDN=(DClcT+DClcBT)/ndc;
+        DClcDT=(DClcT+DClcBT)/ndc;
+        Toast.makeText(nhaplieuthietke.this,""+DClcDN,Toast.LENGTH_LONG).show();
+
+    }
+    public void tinhKhoiLuongGD1(){
+
+        //Moduyn đàn hồi thép
+        try {
+            Es = Double.parseDouble(edtModuynDanHoiThep.getText().toString());
+
+            if (Es < 0) {
+
+                edtModuynDanHoiThep.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtModuynDanHoiThep.setError("Hãy nhập giá trị");
+        }
+
+        // Chiều dài nhịp
+        try {
+            L = Double.parseDouble(edtChieuDaiNhip.getText().toString());
+
+            if (L < 0) {
+
+                edtChieuDaiNhip.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuDaiNhip.setError("Hãy nhập giá trị");
+        }
+        // neo
+        try {
+            DCneo = Double.parseDouble(edtDCneo.getText().toString());
+
+            if (DCneo < 0) {
+
+                edtDCneo.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtDCneo.setError("Hãy nhập giá trị");
+        }
+        // Tỉ trọng thép
+        try {
+            ys = Double.parseDouble(edtTiTrongThep.getText().toString());
+
+            if (ys < 0) {
+
+                edtTiTrongThep.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtTiTrongThep.setError("Hãy nhập giá trị");
+        }
+        DCdc=Adt*ys;
+        Toast.makeText(nhaplieuthietke.this,""+DCdc,Toast.LENGTH_LONG).show();
+        //Tỉ trọng của bê tông
+        try {
+            yc = Double.parseDouble(edtTiTrongCuaBeTong.getText().toString());
+
+            if (yc < 0) {
+
+                edtTiTrongCuaBeTong.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtTiTrongCuaBeTong.setError("Hãy nhập giá trị");
+        }
+        //Chiều dày của BMC
+        try {
+            ts = Double.parseDouble(edtChieuDayBMC.getText().toString());
+
+            if (ts < 0) {
+
+                edtChieuDayBMC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuDayBMC.setError("Hãy nhập giá trị");
+        }
+        //Khoảng cách giữa các dầm chủ
+        try {
+            S = Double.parseDouble(edtKhoangCachGiuaDC.getText().toString());
+
+            if (S < 0) {
+
+                edtKhoangCachGiuaDC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtKhoangCachGiuaDC.setError("Hãy nhập giá trị");
+        }
+        DCbmc=(yc*ts*S)/(Math.pow(10,6));
+        Toast.makeText(nhaplieuthietke.this, ""+DCbmc,Toast.LENGTH_LONG).show();
+
+        DClkn1=(Adn*Ldn*ys*2)/(L*Math.pow(10,9));
+        Toast.makeText(nhaplieuthietke.this,""+DClkn1,Toast.LENGTH_LONG).show();
+        //DClkn2=11*(2*(S-tw)+2*Math.sqrt(((S-tw)/2)*2+hlkn2)).Atg.ϒs)/(109.L)
+        //DClkn2=(Atg*ys*11*(2*(S-tw)+2*(Math.sqrt((Math.pow((S-tw)2,2)+Math.pow(hlkn,2)),2))))/(L*Math.pow(10,9));
+
+        //Diện tích thép góc
+        try {
+            Atg = Double.parseDouble(edtAtg.getText().toString());
+
+            if (Atg < 0) {
+
+                edtAtg.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtAtg.setError("Hãy nhập giá trị");
+        }
+        //Chiều dày sườn dầm
+        try {
+            tw = Double.parseDouble(edtChieuDaySuonDam.getText().toString());
+
+            if (tw < 0) {
+
+                edtChieuDaySuonDam.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuDaySuonDam.setError("Hãy nhập giá trị");
+        }
+        // Chiều cao hệ liên kết ngang
+        try {
+            hlkn = Double.parseDouble(edthlkn.getText().toString());
+
+            if (hlkn < 0) {
+
+                edthlkn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edthlkn.setError("Hãy nhập giá trị");
+        }
+         DClkn2= Atg*ys*11*(2*(S-tw)+2*Math.sqrt(Math.pow((S-tw)/2,2)+Math.pow(hlkn,2)))/(L*Math.pow(10,9));
+        Toast.makeText(nhaplieuthietke.this,""+DClkn2,Toast.LENGTH_LONG).show();
+        DClkd= 0;
+        DC1=DCdc+DCbmc+DClkn1+DClkn2+DClkd+DCneo;
+        Toast.makeText(nhaplieuthietke.this,""+DC1,Toast.LENGTH_LONG).show();
+
+    }
+
+    public void tinhtxtLdn() {
+        //Khoảng cách giữa các dầm chủ
+        try {
+            S = Double.parseDouble(edtKhoangCachGiuaDC.getText().toString());
+
+            if (S < 0) {
+
+                edtKhoangCachGiuaDC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtKhoangCachGiuaDC.setError("Hãy nhập giá trị");
+        }
+        //Chiều dày sườn dầm
+        try {
+            tw = Double.parseDouble(edtChieuDaySuonDam.getText().toString());
+
+            if (tw < 0) {
+
+                edtChieuDaySuonDam.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuDaySuonDam.setError("Hãy nhập giá trị");
+        }
+        Ldn=S-tw;
+        txtLdn.setText(""+Ldn);
+
+    }
+
+    public void DTHHLienHopNganHan() {
         //Bss
-        BssDT=(bi/(n));
-        BssDN=(bc/(n));
+        BssDT = (bi / (n));
+        BssDN = (bc / (n));
         //Ast
         //Chiều dài đoạn vát
         //Chiều dày của BMC
@@ -222,8 +411,8 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuDayBMC.setError("Hãy nhập giá trị");
         }
-        AstDT=(Anc+BssDT*ts);
-        AstDN=(Anc+BssDN*ts);
+        AstDT = (Anc + BssDT * ts);
+        AstDN = (Anc + BssDN * ts);
 
         //Sstt
         //Chiều rộng bản cánh trên
@@ -306,28 +495,29 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuCaoDC.setError("Hãy nhập giá trị");
         }
-        SsttDT= (Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BssDT*ts*(D+0.5*ts));
-        SsttDN= (Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BssDN*ts*(D+0.5*ts));
+        SsttDT = (Bft * tft * (D - (tft / 2)) + Dw * tw * (tfb + 0.5 * Dw) + Bfb * tfb * 0.5 * tfb + BssDT * ts * (D + 0.5 * ts));
+        SsttDN = (Bft * tft * (D - (tft / 2)) + Dw * tw * (tfb + 0.5 * Dw) + Bfb * tfb * 0.5 * tfb + BssDN * ts * (D + 0.5 * ts));
 
         //Ystd
-        YstdDT=(SsttDT/AstDT);
-        YstdDN=(SsttDN/AstDN);
-        Toast.makeText(nhaplieuthietke.this,""+YstdDN,Toast.LENGTH_LONG).show();
+        YstdDT = (SsttDT / AstDT);
+        YstdDN = (SsttDN / AstDN);
+        Toast.makeText(nhaplieuthietke.this, "" + YstdDN, Toast.LENGTH_LONG).show();
         //Ystt
-        YsttDT=Math.ceil(D-YstdDT);
-        YsttDN=Math.ceil(D-YstdDN);
+        YsttDT = Math.ceil(D - YstdDT);
+        YsttDN = Math.ceil(D - YstdDN);
         //Ist
-        IstDT=Inc+Anc*Math.pow(YstdDT-Yncd,2)+(BssDT*Math.pow(ts,3)/12)+BssDT*ts*Math.pow(0.5*ts+YsttDT+Yv,2);
-        IstDN=Inc+Anc*Math.pow(YstdDN-Yncd,2)+(BssDN*Math.pow(ts,3)/12)+BssDN*ts*Math.pow(0.5*ts+YsttDN+Yv,2);
+        IstDT = Inc + Anc * Math.pow(YstdDT - Yncd, 2) + (BssDT * Math.pow(ts, 3) / 12) + BssDT * ts * Math.pow(0.5 * ts + YsttDT + Yv, 2);
+        IstDN = Inc + Anc * Math.pow(YstdDN - Yncd, 2) + (BssDN * Math.pow(ts, 3) / 12) + BssDN * ts * Math.pow(0.5 * ts + YsttDN + Yv, 2);
        /* IstDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDT-0.5*tfb),2)))+(BssDT*(Math.pow(ts,3))/12)+(BssDT*ts*(Math.pow((YsttDT+0.5*ts),2))));
         IstDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDN-0.5*tfb),2)))+(BssDN*(Math.pow(ts,3))/12)+(BssDN*ts*(Math.pow((YsttDN+0.5*ts),2))));*/
 
 
     }
-    public void DTHHLienHopDaiHan(){
+
+    public void DTHHLienHopDaiHan() {
         //Bs
-        BsDT=(bi/(3*n));
-        BsDN=(bc/(3*n));
+        BsDT = (bi / (3 * n));
+        BsDN = (bc / (3 * n));
         //Alt
         //Chiều dày của BMC
         try {
@@ -340,8 +530,8 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuDayBMC.setError("Hãy nhập giá trị");
         }
-        AltDT=(Anc+BsDT*ts);
-        AltDN=(Anc+BsDN*ts);
+        AltDT = (Anc + BsDT * ts);
+        AltDN = (Anc + BsDN * ts);
 
         //Sltt
         //Chiều rộng bản cánh trên
@@ -424,22 +614,21 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuCaoDC.setError("Hãy nhập giá trị");
         }
-        SlttDT= (Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BsDT*ts*(D+0.5*ts));
-        SlttDN= (Bft*tft*(D-(tft/2))+Dw*tw*(tfb+0.5*Dw)+Bfb*tfb*0.5*tfb+BsDN*ts*(D+0.5*ts));
+        SlttDT = (Bft * tft * (D - (tft / 2)) + Dw * tw * (tfb + 0.5 * Dw) + Bfb * tfb * 0.5 * tfb + BsDT * ts * (D + 0.5 * ts));
+        SlttDN = (Bft * tft * (D - (tft / 2)) + Dw * tw * (tfb + 0.5 * Dw) + Bfb * tfb * 0.5 * tfb + BsDN * ts * (D + 0.5 * ts));
 
         //Yltd
-        YltdDT=(SlttDT/AltDT);
-        YltdDN=(SlttDN/AltDN);
-        Toast.makeText(nhaplieuthietke.this,""+YltdDN,Toast.LENGTH_LONG).show();
+        YltdDT = (SlttDT / AltDT);
+        YltdDN = (SlttDN / AltDN);
+        Toast.makeText(nhaplieuthietke.this, "" + YltdDN, Toast.LENGTH_LONG).show();
         //Yltt
-        YlttDT=Math.ceil(D-YltdDT);
-        YlttDN=Math.ceil(D-YltdDN);
+        YlttDT = Math.ceil(D - YltdDT);
+        YlttDN = Math.ceil(D - YltdDN);
         //Ilt
-        IltDT=Inc+Anc*Math.pow(YltdDT-Yncd,2)+(BsDT*Math.pow(ts,3)/12)+BsDT*ts*Math.pow(0.5*ts+YlttDT+Yv,2);
-        IltDN=Inc+Anc*Math.pow(YltdDN-Yncd,2)+(BsDN*Math.pow(ts,3)/12)+BsDN*ts*Math.pow(0.5*ts+YlttDN+Yv,2);
+        IltDT = Inc + Anc * Math.pow(YltdDT - Yncd, 2) + (BsDT * Math.pow(ts, 3) / 12) + BsDT * ts * Math.pow(0.5 * ts + YlttDT + Yv, 2);
+        IltDN = Inc + Anc * Math.pow(YltdDN - Yncd, 2) + (BsDN * Math.pow(ts, 3) / 12) + BsDN * ts * Math.pow(0.5 * ts + YlttDN + Yv, 2);
         /*IltDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDT-0.5*tfb),2)))+(BsDT*(Math.pow(ts,3))/12)+(BsDT*ts*(Math.pow((YlttDT+0.5*ts),2))));
         IltDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YlttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YltdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YltdDN-0.5*tfb),2)))+(BsDN*(Math.pow(ts,3))/12)+(BsDN*ts*(Math.pow((YlttDN+0.5*ts),2))));*/
-
 
 
     }
@@ -515,6 +704,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuDaySuonDam.setError("Hãy nhập giá trị");
         }
+
         //Chiều dày của BMC
         try {
             ts = Double.parseDouble(edtChieuDayBMC.getText().toString());
@@ -923,13 +1113,13 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
 
         //Loại liên kết sử dụng
-        String edtlienKetSuDung = edtLoaiLienKetSuDung.getText().toString();
+//        String edtlienKetSuDung = edtLoaiLienKetSuDung.getText().toString();
 
         //Cấu tạo dầm chủ
-        String edtcauTaoDamChu = edtCauTaoDamChu.getText().toString();
+    //    String edtcauTaoDamChu = edtCauTaoDamChu.getText().toString();
 
         //Mặt cắt ngang dầm chủ
-        String edtmatCatNgangDamChu = edtMatCatNgangDamChu.getText().toString();
+       // String edtmatCatNgangDamChu = edtMatCatNgangDamChu.getText().toString();
 
 
         //Chiều dày lớp phủ
@@ -1043,21 +1233,11 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edthn.setError("Hãy nhập giá trị");
         }
-
-
-        //Chiều dài dầm ngang
-        try {
-            Ldn = Double.parseDouble(edtLdn.getText().toString());
-
-            if (Ldn < 0) {
-
-                edtLdn.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtLdn.setError("Hãy nhập giá trị");
-        }
     }
 
-
+    public void btnTroVe(View view) {
+        Intent iTroVe = new Intent(nhaplieuthietke.this, MainActivity.class);
+        startActivity(iTroVe);
+    }
 }
 
