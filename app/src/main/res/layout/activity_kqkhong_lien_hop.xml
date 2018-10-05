@@ -1449,9 +1449,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:paddingRight="10dp"
                     android:text="<View more>"
                     android:textColor="#fb04069c"
+                    
                     android:textSize="16dp"
                     android:id="@+id/txtViewMoreMGD1"
                     android:textStyle="italic" />
