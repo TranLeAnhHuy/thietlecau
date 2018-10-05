@@ -39,6 +39,10 @@ public class nhaplieuthietke extends AppCompatActivity {
     double eM,mgSIM, mgMIM, Kg,mgMEM1lan,mgMEM2lan,mgDTM,mgDNM;
     //hệ số phân bố lực cắt
     double eV,mgSIV, mgMIV, mgMEV1lan,mgMEV2lan, mgDTV,mgDNV,mgPLVDT, mgPLVDN;
+    // nội lực tĩnh tải giai đoạn 1
+    double M11, M12, M13, M14 ,M15, M16, M17, M18, Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18; //
+    // TEXT nội lực tĩnh tải
+    TextView txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
 
     String bt;
 
@@ -119,6 +123,13 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtPL=(EditText) findViewById(R.id.edtPL);
         edtT=(EditText) findViewById(R.id.edtT);
        // edt=(EditText) findViewById(R.id.edt);
+        //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
+        txtMmaxCD1GD1 = (TextView) findViewById(R.id.txtMmaxCD1GD1);
+        txtMmaxSDGD1 = (TextView) findViewById(R.id.txtMmaxSDGD1);
+        txtQmaxCD1GD1 = (TextView) findViewById(R.id.txtQmaxCD1GD1);
+        txtQmaxSDGD1 = (TextView) findViewById(R.id.txtQmaxSDGD1);
+            //= (TextView) findViewById(R.id.);
+
 
     }
 
@@ -161,6 +172,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhKhoiLuongGD2();
                     tinhHeSoPhanBoLLTheoLanDoiVoiMomen();
                     tinhHeSoPhanBoLLTheoLanDoiVoiLucCat();
+                    tinhNoiLucTinhTaiGD1();
 
 
                     // đóng gói và truyền dữ liệu
@@ -231,6 +243,47 @@ public class nhaplieuthietke extends AppCompatActivity {
 
             }
         });
+
+    }
+    public void tinhNoiLucTinhTaiGD1(){
+        //Chiều dài nhịp tính toán
+        try {
+            Ls = Double.parseDouble(edtChieuDaiNhipTinhToan.getText().toString());
+
+            if (Ls < 0) {
+
+                edtChieuDaiNhipTinhToan.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuDaiNhipTinhToan.setError("Hãy nhập giá trị");
+        }
+
+        //tính momen CƯỜNG ĐỌ 1  TƯƠNG ỨNG MẶT CẮT 0, l/8 l/4 3l/8 l/2
+        M11= 1.25*(7/128)*Ls*Ls*DC1;
+        M12= 1.25*(3/32)*Ls*Ls*DC1;
+        M13= 1.25*(15/128)*Ls*Ls*DC1;
+        M14= 1.25*(1/8)*Ls*Ls*DC1;
+        // tính momen SỬ DỤNG TƯƠNG ỨNG MẶT CẮT 0, l/8 l/4 3l/8 l/2
+        M15= 1*(7/128)*Ls*Ls*DC1;
+        M16= 1*(3/32)*Ls*Ls*DC1;
+        M17= 1*(15/128)*Ls*Ls*DC1;
+        M18= 1*(1/8)*Ls*Ls*DC1;
+        // tính lực cắt CƯỜNG ĐỘ 1 TƯƠNG ỨNG MẶT CẮT l/2 3L/8 L/4 L/8 0
+        Q11= 1.25*0.125*Ls*Ls*DC1;
+        Q12= 1.25*0.25*Ls*Ls*DC1;
+        Q13= 1.25*0.375*Ls*Ls*DC1;
+        Q14= 1.25*0.5*Ls*Ls*DC1;
+        // tính lực cắt SỬ DỤNG TƯƠNG ỨNG MẶT CẮT l/2 3L/8 L/4 L/8 0
+        Q15= 1*0.125*Ls*Ls*DC1;
+        Q16= 1*0.25*Ls*Ls*DC1;
+        Q17= 1*0.375*Ls*Ls*DC1;
+        Q18= 1*0.5*Ls*Ls*DC1;
+        //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
+        txtMmaxCD1GD1.setText(""+ M14);
+        txtMmaxSDGD1.setText(""+ M18);
+        txtQmaxCD1GD1.setText(""+ Q14);
+        txtQmaxSDGD1.setText(""+ Q18);
+
 
     }
     public void tinhHeSoPhanBoLLTheoLanDoiVoiLucCat(){

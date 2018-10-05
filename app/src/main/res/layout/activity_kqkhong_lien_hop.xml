@@ -1366,9 +1366,10 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Giai đoạn 1"
+                    android:padding="5dp"
                     android:textSize="16dp"
                     android:gravity="center_horizontal"
                     android:textColor="#fff"
@@ -1443,15 +1444,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="<View more>"
+                    android:text="&lt;View more>"
                     android:textColor="#fb04069c"
-                    
+                    android:layout_marginLeft="245dp"
                     android:textSize="16dp"
                     android:id="@+id/txtViewMoreMGD1"
                     android:textStyle="italic" />
@@ -1531,8 +1533,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:paddingRight="10dp"
-                android:text="<View more>"
+                android:layout_marginLeft="245dp"
+                android:text="&lt;View more>"
                 android:textColor="#fb04069c"
                 android:textSize="16dp"
                 android:id="@+id/txtViewMoreQGD1"
