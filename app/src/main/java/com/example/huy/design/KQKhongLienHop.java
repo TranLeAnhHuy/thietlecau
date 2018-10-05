@@ -12,10 +12,14 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtAnc, txtSnct, txtYncd, txtYnct, txtInc, txtSncd;
     TextView txtBsDT, txtBsDN, txtAltDT, txtAltDN, txtSlttDT, txtSlttDN, txtYltdDT, txtYltdDN, txtYlttDT, txtYlttDN, txtIltDT, txtIltDN;
     TextView txtBssDT, txtBssDN, txtAstDT, txtAstDN, txtSsttDT, txtSsttDN, txtYstdDT, txtYstdDN, txtYsttDT, txtYsttDN, txtIstDT, txtIstDN;
+    TextView txtDC1DN, txtDC1DT, txtDC2DT, txtDC2DN, txtDCDT,txtDCDN;
+    TextView txtmgSIM, txtmgMIM, txtmgDTM,txtmgMEM1lan, txtmgMEM2lan, txtmgDNM,txtmgSIV, txtmgMIV, txtmgDTV, txtmgMEV1lan, txtmgMEV2lan, txtmgDNV;
+    TextView txtmgPLDT, txtmgPLDN;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kqkhong_lien_hop);
+        setContentView(R.layout.activity_kqkhong_lien_hop);///LIÊN HỢP
         addConrols();
         addEvents();
 
@@ -24,40 +28,70 @@ public class KQKhongLienHop extends AppCompatActivity {
 
     public void addEvents() {
         //Láy kết quả
-        Intent KLHintent = getIntent();
-        Bundle KLHbundle = KLHintent.getBundleExtra("KLHbundle");
-        txtAnc.setText(roundString(KLHbundle.getDouble("Anc"), 4));
-        txtSnct.setText(roundString(KLHbundle.getDouble("Snct"), 4));
-        txtYncd.setText(roundString(KLHbundle.getDouble("Yncd"), 4));
-        txtYnct.setText(roundString(KLHbundle.getDouble("Ynct"), 4));
-        txtInc.setText(roundString(KLHbundle.getDouble("Inc"), 4));
-        txtSncd.setText(roundString(KLHbundle.getDouble("Sncd"), 4));
+        Intent LHintent = getIntent();
+        Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+        txtAnc.setText(roundString(LHbundle.getDouble("Anc"), 4));
+        txtSnct.setText(roundString(LHbundle.getDouble("Snct"), 4));
+        txtYncd.setText(roundString(LHbundle.getDouble("Yncd"), 4));
+        txtYnct.setText(roundString(LHbundle.getDouble("Ynct"), 4));
+        txtInc.setText(roundString(LHbundle.getDouble("Inc"), 4));
+        txtSncd.setText(roundString(LHbundle.getDouble("Sncd"), 4));
         //dài hạn
-        txtBsDT.setText(roundString(KLHbundle.getDouble("BsDT"), 4));
-        txtBsDN.setText(roundString(KLHbundle.getDouble("BsDN"), 4));
-        txtAltDT.setText(roundString(KLHbundle.getDouble("AltDT"), 4));
-        txtAltDN.setText(roundString(KLHbundle.getDouble("AltDN"), 4));
-        txtSlttDT.setText(roundString(KLHbundle.getDouble("SlttDT"), 4));
-        txtSlttDN.setText(roundString(KLHbundle.getDouble("SlttDN"), 4));
-        txtYltdDT.setText(roundString(KLHbundle.getDouble("YltdDT"), 4));
-        txtYltdDN.setText(roundString(KLHbundle.getDouble("YltdDN"), 4));
-        txtYlttDT.setText(roundString(KLHbundle.getDouble("YlttDT"), 4));
-        txtYlttDN.setText(roundString(KLHbundle.getDouble("YlttDN"), 4));
-        txtIltDT.setText(roundString(KLHbundle.getDouble("IltDT"), 4));
-        txtIltDN.setText(roundString(KLHbundle.getDouble("IltDN"), 4));
+        txtBsDT.setText(roundString(LHbundle.getDouble("BsDT"), 4));
+        txtBsDN.setText(roundString(LHbundle.getDouble("BsDN"), 4));
+        txtAltDT.setText(roundString(LHbundle.getDouble("AltDT"), 4));
+        txtAltDN.setText(roundString(LHbundle.getDouble("AltDN"), 4));
+        txtSlttDT.setText(roundString(LHbundle.getDouble("SlttDT"), 4));
+        txtSlttDN.setText(roundString(LHbundle.getDouble("SlttDN"), 4));
+        txtYltdDT.setText(roundString(LHbundle.getDouble("YltdDT"), 4));
+        txtYltdDN.setText(roundString(LHbundle.getDouble("YltdDN"), 4));
+        txtYlttDT.setText(roundString(LHbundle.getDouble("YlttDT"), 4));
+        txtYlttDN.setText(roundString(LHbundle.getDouble("YlttDN"), 4));
+        txtIltDT.setText(roundString(LHbundle.getDouble("IltDT"), 4));
+        txtIltDN.setText(roundString(LHbundle.getDouble("IltDN"), 4));
         //ngắn hạn
-        txtBssDT.setText(roundString(KLHbundle.getDouble("BssDT"), 4));
-        txtBssDN.setText(roundString(KLHbundle.getDouble("BssDN"), 4));
-        txtAstDT.setText(roundString(KLHbundle.getDouble("AstDT"), 4));
-        txtAstDN.setText(roundString(KLHbundle.getDouble("AstDN"), 4));
-        txtSsttDT.setText(roundString(KLHbundle.getDouble("SsttDT"), 4));
-        txtSsttDN.setText(roundString(KLHbundle.getDouble("SsttDN"), 4));
-        txtYstdDT.setText(roundString(KLHbundle.getDouble("YstdDT"), 4));
-        txtYstdDN.setText(roundString(KLHbundle.getDouble("YstdDN"), 4));
-        txtYsttDT.setText(roundString(KLHbundle.getDouble("YsttDT"), 4));
-        txtYsttDN.setText(roundString(KLHbundle.getDouble("YsttDN"), 4));
-        txtIstDT.setText(roundString(KLHbundle.getDouble("IstDT"), 4));
-        txtIstDN.setText(roundString(KLHbundle.getDouble("IstDN"), 4));
+        txtBssDT.setText(roundString(LHbundle.getDouble("BssDT"), 4));
+        txtBssDN.setText(roundString(LHbundle.getDouble("BssDN"), 4));
+        txtAstDT.setText(roundString(LHbundle.getDouble("AstDT"), 4));
+        txtAstDN.setText(roundString(LHbundle.getDouble("AstDN"), 4));
+        txtSsttDT.setText(roundString(LHbundle.getDouble("SsttDT"), 4));
+        txtSsttDN.setText(roundString(LHbundle.getDouble("SsttDN"), 4));
+        txtYstdDT.setText(roundString(LHbundle.getDouble("YstdDT"), 4));
+        txtYstdDN.setText(roundString(LHbundle.getDouble("YstdDN"), 4));
+        txtYsttDT.setText(roundString(LHbundle.getDouble("YsttDT"), 4));
+        txtYsttDN.setText(roundString(LHbundle.getDouble("YsttDN"), 4));
+        txtIstDT.setText(roundString(LHbundle.getDouble("IstDT"), 4));
+        txtIstDN.setText(roundString(LHbundle.getDouble("IstDN"), 4));
+        // TĨNH
+        txtDC1DN.setText(roundString(LHbundle.getDouble("DC1"), 4));
+        txtDC1DT.setText(roundString(LHbundle.getDouble("DC1"), 4));
+        txtDC2DN.setText(roundString(LHbundle.getDouble("DC2DN"), 4));
+        txtDC2DT.setText(roundString(LHbundle.getDouble("DC2DT"), 4));
+        txtDCDN.setText(roundString(LHbundle.getDouble("DCDN"), 4));
+        txtDCDT.setText(roundString(LHbundle.getDouble("DCDT"), 4));
+        // hệ số phân phối ngang
+        txtmgSIV.setText(roundString(LHbundle.getDouble("mgSIV"), 4));
+        txtmgMIV.setText(roundString(LHbundle.getDouble("mgMIV"), 4));
+        txtmgMEV2lan.setText(roundString(LHbundle.getDouble("mgMEV2lan"), 4));
+        txtmgSIM.setText(roundString(LHbundle.getDouble("mgSIM"), 4));
+        txtmgMIM.setText(roundString(LHbundle.getDouble("mgMIM"), 4));
+        txtmgMEM2lan.setText(roundString(LHbundle.getDouble("mgMEM2lan"), 4));
+        txtmgDTM.setText(roundString(LHbundle.getDouble("mgDTM"), 4));
+        txtmgDTV.setText(roundString(LHbundle.getDouble("mgDTV"), 4));
+       txtmgMEV1lan.setText(roundString(LHbundle.getDouble("mgMEV1lan="), 4));
+        txtmgDNV.setText(roundString(LHbundle.getDouble("mgDNV"), 4));
+        txtmgMEM1lan.setText(roundString(LHbundle.getDouble("mgMEM1lan"), 4));
+        txtmgDNM.setText(roundString(LHbundle.getDouble("mgDNM"), 4));
+        txtmgPLDT.setText(roundString(LHbundle.getDouble("mgPLDT"), 4));
+        txtmgPLDN.setText(roundString(LHbundle.getDouble("mgPLDN"), 4));
+        //txt.setText(roundString(LHbundle.getDouble(""), 4));
+
+
+
+
+
+
+
 
     }
 
@@ -94,6 +128,35 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtYsttDN = (TextView) findViewById(R.id.txtYsttDN);
         txtIstDT = (TextView) findViewById(R.id.txtIstDT);
         txtIstDN = (TextView) findViewById(R.id.txtIstDN);
+        //tĩnh
+        txtDC1DN = (TextView) findViewById(R.id.txtDC1DN);
+        txtDC1DT = (TextView) findViewById(R.id.txtDC1DT);
+        txtDC2DN = (TextView) findViewById(R.id.txtDC2DN);
+        txtDC2DT = (TextView) findViewById(R.id.txtDC2DT);
+        txtDCDN = (TextView) findViewById(R.id.txtDCDN);
+        txtDCDT = (TextView) findViewById(R.id.txtDCDT);
+        // hệ số phân phối ngang
+        txtmgDTV= (TextView) findViewById(R.id.txtmgDTV);
+        txtmgSIM = (TextView) findViewById(R.id.txtmgSIM);
+        txtmgMIM = (TextView) findViewById(R.id.txtmgMIM);
+        txtmgDTM= (TextView) findViewById(R.id.txtmgDTM);
+        txtmgMEM1lan= (TextView) findViewById(R.id.txtmgMEM1lan);
+        txtmgMEM2lan= (TextView) findViewById(R.id.txtmgMEM2lan);
+        txtmgDNM= (TextView) findViewById(R.id.txtmgDNM);
+        txtmgSIV = (TextView) findViewById(R.id.txtmgSIV);
+        txtmgMIV= (TextView) findViewById(R.id.txtmgMIV);
+        txtmgMEV1lan= (TextView) findViewById(R.id.txtmgMEV1lan);
+        txtmgMEV2lan= (TextView) findViewById(R.id.txtmgMEV2lan);
+        txtmgDNV = (TextView) findViewById(R.id.txtmgDNV);
+        txtmgPLDN = (TextView) findViewById(R.id.txtmgPLDN);
+        txtmgPLDT = (TextView) findViewById(R.id.txtmgPLDT);
+        //txt = (TextView) findViewById(R.id.txt);
+
+
+
+
+
+
 
 
     }

@@ -57,13 +57,16 @@
                 android:layout_marginTop="15dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
                     android:text="Số liệu chung"
                     android:textAllCaps="true"
                     android:textSize="16dp"
+                    android:background="#fb04069c"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -223,6 +226,81 @@
                     android:textSize="16dp" />
             </LinearLayout>
 
+            //Chiều rộng phần người đi bộ
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:minWidth="100dp"
+                    android:text="Chiều rộng phần đi bộ"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtT"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:gravity="center_horizontal"
+                    android:hint="0"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="m"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            //Chiều rộng phần người đi bộ
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:minWidth="100dp"
+                    android:text="Hoạt tải người đi bộ"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtPL"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="center_horizontal"
+                    android:hint="0"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="m"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
             //Bề rộng lan can
 
             <LinearLayout
@@ -300,6 +378,7 @@
                 android:textSize="16dp" />
         </LinearLayout>
             //Kích thước đoạn vát
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -310,7 +389,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
-                    android:text="Kích thước đoạn vát"
+                    android:text="Chiều cao đoạn vát"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
@@ -318,10 +397,10 @@
                     android:id="@+id/edtYv"
                     android:layout_width="104dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="48dp"
+                    android:gravity="center_horizontal"
                     android:hint="0"
                     android:inputType="numberDecimal"
-                    android:gravity="center_horizontal"
                     android:minWidth="60dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -372,7 +451,7 @@
                     android:layout_marginRight="5dp"
                     android:text="kN/m"
                     android:textColor="#6c7070"
-                    android:textSize="16dp" />
+                    android:textSize="13dp" />
             </LinearLayout>
             //Trọng lượng lan can thép
 
@@ -409,7 +488,7 @@
                     android:layout_marginRight="5dp"
                     android:text="kN/m"
                     android:textColor="#6c7070"
-                    android:textSize="16dp" />
+                    android:textSize="13dp" />
             </LinearLayout>
             //Trọng lượng lan can BT
 
@@ -446,7 +525,7 @@
                     android:layout_marginRight="5dp"
                     android:text="kN/m"
                     android:textColor="#6c7070"
-                    android:textSize="16dp" />
+                    android:textSize="13dp" />
             </LinearLayout>
 
 
@@ -462,6 +541,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
+                    android:layout_marginTop="8dp"
                     android:text="Loại liên kết sử dụng"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
@@ -473,6 +553,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -502,6 +583,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -533,10 +615,13 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
+                    android:background="#fb04069c"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal"
                     android:text="Số liệu của bê tông bản mặt cầu"
                     android:textAllCaps="true"
                     android:textSize="16dp"
@@ -776,10 +861,13 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
+                    android:background="#fb04069c"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal"
                     android:text="Số liệu của thép dầm chủ"
                     android:textAllCaps="true"
                     android:textSize="16dp"
@@ -974,10 +1062,13 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
+                    android:background="#fb04069c"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal"
                     android:text="Lựa chọn hình dạng và kích thước mặt cắt"
                     android:textAllCaps="true"
                     android:textSize="15dp"
@@ -2161,7 +2252,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:background="#ed929b"
+                    android:background="#99f2171b"
                     android:text="Trở về"
                     android:onClick="btnTroVe"
                     android:textAllCaps="true"
