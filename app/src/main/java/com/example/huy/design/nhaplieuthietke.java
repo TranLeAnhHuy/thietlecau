@@ -24,6 +24,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     TextView txtDienTichDamThep, txtModuynDanHoiCuaBeTong, txtAdn, txtnlkd, txtLdn;
     Button btnTinhToan;
     EditText edtDCneo,edtDClcT, edtDClcBT, edtPL, edtT;
+    // TEXT nội lực tĩnh tải
+    TextView txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
     double Adt, heSoHoatTai, L, Ls, Bxc, Blc, B, fc, yc, Ec, ts, taf, yaf, Es, Fu, Fy, ys, ndc, S, de, D, Bft, tft, Bfb, tfb, tw, Dw, ndn1, ndn, S1;
     double S2, hn, Ldn, bn, tfdn, twdn, hwdn, Adn, a, nlkn, hlkn, Slkn, b, nlkd, bi, bc, bi1, bi2, bi3, bii;
     double bc1, bc2, bc3, bcc, n, Yv;
@@ -44,8 +46,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     double eV,mgSIV, mgMIV, mgMEV1lan,mgMEV2lan, mgDTV,mgDNV,mgPLVDT, mgPLVDN;
     // nội lực tĩnh tải giai đoạn 1
     double M11, M12, M13, M14 ,M15, M16, M17, M18, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18; //
-    // TEXT nội lực tĩnh tải
-    TextView txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
+
+
 
     String bt;
 
@@ -265,26 +267,29 @@ public class nhaplieuthietke extends AppCompatActivity {
         //tính momen CƯỜNG ĐỌ 1  TƯƠNG ỨNG MẶT CẮT 0, l/8 l/4 3l/8 l/2
         M11= 1.25*(7/128)*Ls*Ls*DC1;
         M12= 1.25*(3/32)*Ls*Ls*DC1;
-        M13= 1.25*(15)*Ls*Ls*DC1/128;
+        M13= 1.25*(15/128)*Ls*Ls*DC1;
         M14= 1.25*(1/8)*Ls*Ls*DC1;
-        txtMmaxCD1GD1.setText(""+M14);
+
         // tính momen SỬ DỤNG TƯƠNG ỨNG MẶT CẮT 0, l/8 l/4 3l/8 l/2
         M15= 1*(7/128)*Ls*Ls*DC1;
         M16= 1*(3/32)*Ls*Ls*DC1;
         M17= 1*(15/128)*Ls*Ls*DC1;
         M18= 1*(1/8)*Ls*Ls*DC1;
-        txtMmaxSDGD1.setText(""+M18);
+
         // tính lực cắt CƯỜNG ĐỘ 1 TƯƠNG ỨNG MẶT CẮT l/2 3L/8 L/4 L/8 0
         Q11= 1.25*0.125*Ls*Ls*DC1;
         Q12= 1.25*0.25*Ls*Ls*DC1;
         Q13= 1.25*0.375*Ls*Ls*DC1;
         Q14= 1.25*0.5*Ls*Ls*DC1;
-        txtQmaxCD1GD1.setText(""+Q14);
+
         // tính lực cắt SỬ DỤNG TƯƠNG ỨNG MẶT CẮT l/2 3L/8 L/4 L/8 0
         Q15= 1*0.125*Ls*Ls*DC1;
         Q16= 1*0.25*Ls*Ls*DC1;
         Q17= 1*0.375*Ls*Ls*DC1;
         Q18= 1*0.5*Ls*Ls*DC1;
+        txtMmaxCD1GD1.setText(""+M14);
+        txtMmaxSDGD1.setText(""+M18);
+        txtQmaxCD1GD1.setText(""+Q14);
         txtQmaxSDGD1.setText(""+Q18);
         //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
 
@@ -331,7 +336,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         mgPLVDN=1.2*0.5*T*(((S+de-Blc)/S)+((S+de-T-Blc)/S));
 
         //
-        mgMEV1lan=1.2*0.5*((2*S+2*de-2*Blc-2*T-2400)/S);
+        mgMEV1lan=0.5*((2*S+2*de-2*Blc-2*T-2400)/S);
         mgDNV=Math.max(mgMEV1lan, mgMEV2lan);
 
 
@@ -361,7 +366,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         mgMEM2lan= eM*mgMIM;
         Toast.makeText(nhaplieuthietke.this,""+mgMEM2lan,Toast.LENGTH_LONG).show();
         mgDTM= Math.max(mgSIM,mgMIM);
-        mgMEM1lan=1.2*0.5*((2*S+2*de-2*Blc-2*T-2400)/S);
+        mgMEM1lan=0.5*((2*S+2*de-2*Blc-2*T-2400)/S);
         mgDNM=Math.max(mgMEM1lan, mgMEM2lan);
 
     }
@@ -390,7 +395,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         DClcDN=(DClcT+DClcBT)/ndc;
         DClcDT=(DClcT+DClcBT)/ndc;
-        Toast.makeText(nhaplieuthietke.this,""+DClcDN,Toast.LENGTH_LONG).show();
+      //  Toast.makeText(nhaplieuthietke.this,""+DClcDN,Toast.LENGTH_LONG).show();
         //Tyr trọng VL lớp phủ
         try {
             yaf = Double.parseDouble(edtTytrongVLlamLopPhu.getText().toString());
@@ -437,7 +442,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         DW=(taf*yaf*Bxc)/(1000*ndc);
         DC2DN= DW+DClcDN;
         DC2DT= DW+DClcDT;
-        Toast.makeText(nhaplieuthietke.this,""+DC2DT,Toast.LENGTH_LONG).show();
+      //  Toast.makeText(nhaplieuthietke.this,""+DC2DT,Toast.LENGTH_LONG).show();
         DCDT=DC2DT+DC1;
         DCDN=DC2DN+DC1;
 
@@ -566,7 +571,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             edthlkn.setError("Hãy nhập giá trị");
         }
          DClkn2= Atg*ys*11*(2*(S-tw)+2*Math.sqrt(Math.pow((S-tw)/2,2)+Math.pow(hlkn,2)))/(L*Math.pow(10,9));
-        Toast.makeText(nhaplieuthietke.this,""+DClkn2,Toast.LENGTH_LONG).show();
+     //   Toast.makeText(nhaplieuthietke.this,""+DClkn2,Toast.LENGTH_LONG).show();
 
                //Khoảng cách tim dầm ngang dến hệ Liên kết ngang
         try {
@@ -622,7 +627,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         DClkd= Atg*ys*(2*(Math.sqrt(Math.pow(S-tw,2)+Math.pow(S2,2)))+10*(Math.sqrt(Math.pow(S-tw,2)+Math.pow(Slkn,2))))/(L*Math.pow(10,9));
         DC1=DCdc+DCbmc+DClkn1+DClkn2+DClkd+DCneo;
-        Toast.makeText(nhaplieuthietke.this,""+DC1,Toast.LENGTH_LONG).show();
+     //   Toast.makeText(nhaplieuthietke.this,""+DC1,Toast.LENGTH_LONG).show();
 
 
 

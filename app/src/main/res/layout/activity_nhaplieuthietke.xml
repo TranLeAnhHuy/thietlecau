@@ -2256,6 +2256,7 @@
                     android:text="Trở về"
                     android:onClick="btnTroVe"
                     android:textAllCaps="true"
+                    android:textColor="#fff"
                     android:textSize="16dp" />
 
                 <Button
@@ -2265,6 +2266,7 @@
                     android:layout_marginLeft="20dp"
                     android:background="#9df59d"
                     android:text="Tính toán"
+                    android:textColor="#fff"
                     android:textAllCaps="true"
                     android:textSize="16dp" />
             </LinearLayout>

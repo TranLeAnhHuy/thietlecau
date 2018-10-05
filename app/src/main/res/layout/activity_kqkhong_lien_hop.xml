@@ -1363,19 +1363,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Giai đoạn 1"
-                    android:padding="5dp"
-                    android:textSize="16dp"
-                    android:gravity="center_horizontal"
-                    android:textColor="#fff"
                     android:background="#fb04069c"
-                    android:textStyle="bold"
-                    />
+                    android:padding="5dp"
+                    android:text="Giai đoạn 1"
+                    android:textColor="#fff"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
             </LinearLayout>
             // momen lớn nhất CD1
             <LinearLayout
