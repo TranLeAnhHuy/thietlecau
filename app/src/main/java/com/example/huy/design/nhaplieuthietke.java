@@ -1,5 +1,6 @@
 package com.example.huy.design;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static java.lang.String.*;
 
 public class nhaplieuthietke extends AppCompatActivity {
     EditText edtTenDuAn, edtHoatTaiTieuChuan, edtChieuDaiNhip, edtChieuDaiNhipTinhToan, edtBeRongPhanXeChay, edtBeRongLanCan, edtTongBeRongToanCuaCau;
@@ -40,7 +43,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     //hệ số phân bố lực cắt
     double eV,mgSIV, mgMIV, mgMEV1lan,mgMEV2lan, mgDTV,mgDNV,mgPLVDT, mgPLVDN;
     // nội lực tĩnh tải giai đoạn 1
-    double M11, M12, M13, M14 ,M15, M16, M17, M18, Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18; //
+    double M11, M12, M13, M14 ,M15, M16, M17, M18, Q11, Q12, Q13, Q14, Q15, Q16, Q17, Q18; //
     // TEXT nội lực tĩnh tải
     TextView txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
 
@@ -245,6 +248,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         });
 
     }
+    @SuppressLint("SetTextI18n")
     public void tinhNoiLucTinhTaiGD1(){
         //Chiều dài nhịp tính toán
         try {
@@ -261,28 +265,31 @@ public class nhaplieuthietke extends AppCompatActivity {
         //tính momen CƯỜNG ĐỌ 1  TƯƠNG ỨNG MẶT CẮT 0, l/8 l/4 3l/8 l/2
         M11= 1.25*(7/128)*Ls*Ls*DC1;
         M12= 1.25*(3/32)*Ls*Ls*DC1;
-        M13= 1.25*(15/128)*Ls*Ls*DC1;
+        M13= 1.25*(15)*Ls*Ls*DC1/128;
         M14= 1.25*(1/8)*Ls*Ls*DC1;
+        txtMmaxCD1GD1.setText(""+M14);
         // tính momen SỬ DỤNG TƯƠNG ỨNG MẶT CẮT 0, l/8 l/4 3l/8 l/2
         M15= 1*(7/128)*Ls*Ls*DC1;
         M16= 1*(3/32)*Ls*Ls*DC1;
         M17= 1*(15/128)*Ls*Ls*DC1;
         M18= 1*(1/8)*Ls*Ls*DC1;
+        txtMmaxSDGD1.setText(""+M18);
         // tính lực cắt CƯỜNG ĐỘ 1 TƯƠNG ỨNG MẶT CẮT l/2 3L/8 L/4 L/8 0
         Q11= 1.25*0.125*Ls*Ls*DC1;
         Q12= 1.25*0.25*Ls*Ls*DC1;
         Q13= 1.25*0.375*Ls*Ls*DC1;
         Q14= 1.25*0.5*Ls*Ls*DC1;
+        txtQmaxCD1GD1.setText(""+Q14);
         // tính lực cắt SỬ DỤNG TƯƠNG ỨNG MẶT CẮT l/2 3L/8 L/4 L/8 0
         Q15= 1*0.125*Ls*Ls*DC1;
         Q16= 1*0.25*Ls*Ls*DC1;
         Q17= 1*0.375*Ls*Ls*DC1;
         Q18= 1*0.5*Ls*Ls*DC1;
+        txtQmaxSDGD1.setText(""+Q18);
         //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
-        txtMmaxCD1GD1.setText(""+ M14);
-        txtMmaxSDGD1.setText(""+ M18);
-        txtQmaxCD1GD1.setText(""+ Q14);
-        txtQmaxSDGD1.setText(""+ Q18);
+
+
+
 
 
     }
