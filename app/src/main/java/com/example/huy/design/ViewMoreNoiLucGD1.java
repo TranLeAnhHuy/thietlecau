@@ -19,8 +19,8 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
     private LineChart lineChart;
     private LineData lineData;
     ///   float x=0;
-//    float M1val[];
-//    float M2val[];
+   float M1val[]=new float[5];
+    float M2val[]=new float[5];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -31,24 +31,33 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
         Intent ViewMoreNOILUCGD1intent = getIntent();
         Bundle ViewMoreNOILUCGD1bundle = ViewMoreNOILUCGD1intent.getBundleExtra("ViewMoreNOILUCGD1bundle");
         // lấy dữ liệu
-        double M1= ViewMoreNOILUCGD1intent.getDoubleExtra("M1",0.0);
-        double M2= ViewMoreNOILUCGD1intent.getDoubleExtra("M2",0.0);
-        double M3= ViewMoreNOILUCGD1intent.getDoubleExtra("M3",0.0);
-        double M4= ViewMoreNOILUCGD1intent.getDoubleExtra("M4",0.0);
-        double M5= ViewMoreNOILUCGD1intent.getDoubleExtra("M5",0.0);
-        double M6= ViewMoreNOILUCGD1intent.getDoubleExtra("M6",0.0);
-        double M7= ViewMoreNOILUCGD1intent.getDoubleExtra("M7",0.0);
-        double M8= ViewMoreNOILUCGD1intent.getDoubleExtra("M8",0.0);
-        double Q1= ViewMoreNOILUCGD1intent.getDoubleExtra("Q1",0.0);
-        double Q2= ViewMoreNOILUCGD1intent.getDoubleExtra("Q2",0.0);
-        double Q3= ViewMoreNOILUCGD1intent.getDoubleExtra("Q3",0.0);
-        double Q4= ViewMoreNOILUCGD1intent.getDoubleExtra("Q4",0.0);
-        double Q5= ViewMoreNOILUCGD1intent.getDoubleExtra("Q5",0.0);
-        double Q6= ViewMoreNOILUCGD1intent.getDoubleExtra("Q6",0.0);
-        double Q7= ViewMoreNOILUCGD1intent.getDoubleExtra("Q7",0.0);
-        double Q8= ViewMoreNOILUCGD1intent.getDoubleExtra("Q8",0.0);
-        float M1val[] = {0f, (float)M1, (float)M2, (float)M3, (float)M4};
-        float M2val[] = {0f, (float)M5, (float)M6, (float)M7, (float)M8};
+        double M11= ViewMoreNOILUCGD1intent.getDoubleExtra("M11",0.0);
+        double M12= ViewMoreNOILUCGD1intent.getDoubleExtra("M12",0.0);
+        double M13= ViewMoreNOILUCGD1intent.getDoubleExtra("M13",0.0);
+        double M14= ViewMoreNOILUCGD1intent.getDoubleExtra("M14",0.0);
+        double M15= ViewMoreNOILUCGD1intent.getDoubleExtra("M15",0.0);
+        double M16= ViewMoreNOILUCGD1intent.getDoubleExtra("M16",0.0);
+        double M17= ViewMoreNOILUCGD1intent.getDoubleExtra("M17",0.0);
+        double M18= ViewMoreNOILUCGD1intent.getDoubleExtra("M18",0.0);
+        double Q11= ViewMoreNOILUCGD1intent.getDoubleExtra("Q11",0.0);
+        double Q12= ViewMoreNOILUCGD1intent.getDoubleExtra("Q12",0.0);
+        double Q13= ViewMoreNOILUCGD1intent.getDoubleExtra("Q13",0.0);
+        double Q14= ViewMoreNOILUCGD1intent.getDoubleExtra("Q14",0.0);
+        double Q15= ViewMoreNOILUCGD1intent.getDoubleExtra("Q15",0.0);
+        double Q16= ViewMoreNOILUCGD1intent.getDoubleExtra("Q16",0.0);
+        double Q17= ViewMoreNOILUCGD1intent.getDoubleExtra("Q17",0.0);
+        double Q18= ViewMoreNOILUCGD1intent.getDoubleExtra("Q18",0.0);
+        M1val[0] = 0f;
+        M1val[1] = (float)M11;
+        M1val[2] = (float)M12;
+        M1val[3] = (float)M13;
+        M1val[4] = (float)M14;
+        M2val[0] = 0f;
+        M2val[1] = (float)M15;
+        M2val[2] = (float)M16;
+        M2val[3] = (float)M17;
+        M2val[4] = (float)M18;
+
 
         lineChart= (LineChart) findViewById(R.id.linechartNoiLucGD1);
         lineData= new LineData(getXvalues(),getLineDataValues());
