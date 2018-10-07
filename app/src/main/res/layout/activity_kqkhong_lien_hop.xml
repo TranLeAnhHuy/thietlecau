@@ -1438,26 +1438,26 @@
                     android:text="kN.m"
                     android:textSize="14dp" />
             </LinearLayout>
-            // view momen
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+            <!--// view momen-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal"-->
 
-                >
+                <!--&gt;-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="&lt;View more>"
-                    android:textColor="#fb04069c"
-                    android:layout_marginLeft="245dp"
-                    android:textSize="16dp"
-                    android:id="@+id/txtViewMoreMGD1"
-                    android:textStyle="italic" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:text="&lt;View more>"-->
+                    <!--android:textColor="#fb04069c"-->
+                    <!--android:layout_marginLeft="245dp"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:id="@+id/txtViewMoreMGD1"-->
+                    <!--android:textStyle="italic" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
             // lực cắt lớn nhất CD1
             <LinearLayout
                 android:layout_width="match_parent"

@@ -25,7 +25,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     Button btnTinhToan;
     EditText edtDCneo,edtDClcT, edtDClcBT, edtPL, edtT;
     // TEXT nội lực tĩnh tải
-    TextView txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
+
     double Adt, heSoHoatTai, L, Ls, Bxc, Blc, B, fc, yc, Ec, ts, taf, yaf, Es, Fu, Fy, ys, ndc, S, de, D, Bft, tft, Bfb, tfb, tw, Dw, ndn1, ndn, S1;
     double S2, hn, Ldn, bn, tfdn, twdn, hwdn, Adn, a, nlkn, hlkn, Slkn, b, nlkd, bi, bc, bi1, bi2, bi3, bii;
     double bc1, bc2, bc3, bcc, n, Yv;
@@ -129,10 +129,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtT=(EditText) findViewById(R.id.edtT);
        // edt=(EditText) findViewById(R.id.edt);
         //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
-        txtMmaxCD1GD1 = (TextView) findViewById(R.id.txtMmaxCD1GD1);
-        txtMmaxSDGD1 = (TextView) findViewById(R.id.txtMmaxSDGD1);
-        txtQmaxCD1GD1 = (TextView) findViewById(R.id.txtQmaxCD1GD1);
-        txtQmaxSDGD1 = (TextView) findViewById(R.id.txtQmaxSDGD1);
+
             //= (TextView) findViewById(R.id.);
 
 
@@ -236,6 +233,35 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putDouble("mgDNM", mgDNM);
                     LHbundle.putDouble("mgPLDT",mgPLVDT );
                     LHbundle.putDouble("mgPLDN",mgPLVDN );
+                    LHbundle.putDouble("M14",M14 );
+                    LHbundle.putDouble("M18",M18 );
+                    LHbundle.putDouble("Q14",Q14 );
+                    LHbundle.putDouble("Q18",Q18 );
+
+
+
+                    // VIEW MORE NỘI LỰC GIAI ĐOẠN 1
+                    // đóng gói và truyền dữ liệu
+                    Intent ViewMoreNOILUCGD1intent = new Intent(nhaplieuthietke.this, ViewMoreNoiLucGD1.class);
+                    Bundle ViewMoreNOILUCGD1bundle = new Bundle();
+                    ViewMoreNOILUCGD1bundle.putDouble("M11",M11 );
+                    ViewMoreNOILUCGD1bundle.putDouble("M12",M12 );
+                    ViewMoreNOILUCGD1bundle.putDouble("M13",M13 );
+                    ViewMoreNOILUCGD1bundle.putDouble("M14",M14 );
+                    ViewMoreNOILUCGD1bundle.putDouble("M15",M15 );
+                    ViewMoreNOILUCGD1bundle.putDouble("M16",M16 );
+                    ViewMoreNOILUCGD1bundle.putDouble("M17",M17 );
+                    ViewMoreNOILUCGD1bundle.putDouble("M18",M18 );
+                    ViewMoreNOILUCGD1bundle.putDouble("Q11",Q11 );
+                    ViewMoreNOILUCGD1bundle.putDouble("Q12",Q12);
+                    ViewMoreNOILUCGD1bundle.putDouble("Q13",Q13 );
+                    ViewMoreNOILUCGD1bundle.putDouble("Q14",Q14 );
+                    ViewMoreNOILUCGD1bundle.putDouble("Q15",Q15 );
+                    ViewMoreNOILUCGD1bundle.putDouble("Q16",Q16 );
+                    ViewMoreNOILUCGD1bundle.putDouble("Q17",Q17 );
+                    ViewMoreNOILUCGD1bundle.putDouble("Q18",Q18 );
+
+
                    // LHbundle.putDouble("", );
 
 
@@ -265,16 +291,16 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
 
         //tính momen CƯỜNG ĐỌ 1  TƯƠNG ỨNG MẶT CẮT 0, l/8 l/4 3l/8 l/2
-        M11= 1.25*(7/128)*Ls*Ls*DC1;
-        M12= 1.25*(3/32)*Ls*Ls*DC1;
-        M13= 1.25*(15/128)*Ls*Ls*DC1;
-        M14= 1.25*(1/8)*Ls*Ls*DC1;
+        M11= 1.25*(7.0/128)*Ls*Ls*DC1;
+        M12= 1.25*(3.0/32)*Ls*Ls*DC1;
+        M13= 1.25*(15.0/128)*Ls*Ls*DC1;
+        M14= 1.25*(1.0/8)*Ls*Ls*DC1;
 
         // tính momen SỬ DỤNG TƯƠNG ỨNG MẶT CẮT 0, l/8 l/4 3l/8 l/2
-        M15= 1*(7/128)*Ls*Ls*DC1;
-        M16= 1*(3/32)*Ls*Ls*DC1;
-        M17= 1*(15/128)*Ls*Ls*DC1;
-        M18= 1*(1/8)*Ls*Ls*DC1;
+        M15= 1*(7.0/128)*Ls*Ls*DC1;
+        M16= 1*(3.0/32)*Ls*Ls*DC1;
+        M17= 1*(15.0/128)*Ls*Ls*DC1;
+        M18= 1*(1.0/8)*Ls*Ls*DC1;
 
         // tính lực cắt CƯỜNG ĐỘ 1 TƯƠNG ỨNG MẶT CẮT l/2 3L/8 L/4 L/8 0
         Q11= 1.25*0.125*Ls*Ls*DC1;
@@ -287,10 +313,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         Q16= 1*0.25*Ls*Ls*DC1;
         Q17= 1*0.375*Ls*Ls*DC1;
         Q18= 1*0.5*Ls*Ls*DC1;
-        txtMmaxCD1GD1.setText(""+M14);
-        txtMmaxSDGD1.setText(""+M18);
-        txtQmaxCD1GD1.setText(""+Q14);
-        txtQmaxSDGD1.setText(""+Q18);
+
         //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
 
 

@@ -19,7 +19,8 @@
         <activity android:name=".nhaplieuthietke" />
         <activity android:name=".thietke_dialog" />
         <activity android:name=".KQLienHop" />
-        <activity android:name=".KQKhongLienHop"></activity>
+        <activity android:name=".KQKhongLienHop" />
+        <activity android:name=".ViewMoreNoiLucGD1"></activity>
     </application>
 
 </manifest>

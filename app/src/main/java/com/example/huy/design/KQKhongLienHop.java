@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.SuperscriptSpan;
+import android.view.View;
 import android.widget.TextView;
 
 //LIÊN HỢP
@@ -15,6 +16,8 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtDC1DN, txtDC1DT, txtDC2DT, txtDC2DN, txtDCDT,txtDCDN;
     TextView txtmgSIM, txtmgMIM, txtmgDTM,txtmgMEM1lan, txtmgMEM2lan, txtmgDNM,txtmgSIV, txtmgMIV, txtmgDTV, txtmgMEV1lan, txtmgMEV2lan, txtmgDNV;
     TextView txtmgPLDT, txtmgPLDN;
+    TextView txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
+    TextView txtViewMoreQGD1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,20 +81,31 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtmgMEM2lan.setText(roundString(LHbundle.getDouble("mgMEM2lan"), 4));
         txtmgDTM.setText(roundString(LHbundle.getDouble("mgDTM"), 4));
         txtmgDTV.setText(roundString(LHbundle.getDouble("mgDTV"), 4));
-       txtmgMEV1lan.setText(roundString(LHbundle.getDouble("mgMEV1lan="), 4));
+        txtmgMEV1lan.setText(roundString(LHbundle.getDouble("mgMEV1lan="), 4));
         txtmgDNV.setText(roundString(LHbundle.getDouble("mgDNV"), 4));
         txtmgMEM1lan.setText(roundString(LHbundle.getDouble("mgMEM1lan"), 4));
         txtmgDNM.setText(roundString(LHbundle.getDouble("mgDNM"), 4));
         txtmgPLDT.setText(roundString(LHbundle.getDouble("mgPLDT"), 4));
         txtmgPLDN.setText(roundString(LHbundle.getDouble("mgPLDN"), 4));
+        // MOOIN LỰC TĨNH TẢI GD1
+        txtMmaxCD1GD1.setText(roundString(LHbundle.getDouble("M14"), 4));
+        txtMmaxSDGD1.setText(roundString(LHbundle.getDouble("M18"), 4));
+        txtQmaxCD1GD1.setText(roundString(LHbundle.getDouble("Q14"), 4));
+        txtQmaxSDGD1.setText(roundString(LHbundle.getDouble("Q18"), 4));
+
+
+
+
         //txt.setText(roundString(LHbundle.getDouble(""), 4));
-
-
-
-
-
-
-
+        viewMoreNoiLucGD1();
+    }
+   public void viewMoreNoiLucGD1(){
+       txtViewMoreQGD1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               setContentView(R.layout.activity_view_more_noi_luc_gd1);
+           }
+       });
 
     }
 
@@ -151,6 +165,13 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtmgPLDN = (TextView) findViewById(R.id.txtmgPLDN);
         txtmgPLDT = (TextView) findViewById(R.id.txtmgPLDT);
         //txt = (TextView) findViewById(R.id.txt);
+
+        // nội lực tĩnh tải gd1
+        txtMmaxCD1GD1 = (TextView) findViewById(R.id.txtMmaxCD1GD1);
+        txtMmaxSDGD1 = (TextView) findViewById(R.id.txtMmaxSDGD1);
+        txtQmaxCD1GD1 = (TextView) findViewById(R.id.txtQmaxCD1GD1);
+        txtQmaxSDGD1 = (TextView) findViewById(R.id.txtQmaxSDGD1);
+        txtViewMoreQGD1= (TextView) findViewById(R.id.txtViewMoreQGD1);
 
 
 
