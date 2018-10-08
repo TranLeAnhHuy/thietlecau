@@ -26,27 +26,32 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_more_noi_luc_gd1);
-
+//        Intent LHintent = getIntent();
+//        Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+//        txtAnc.setText(roundString(LHbundle.getDouble("Anc"), 4));
         //Láy kết quả
         Intent ViewMoreNOILUCGD1intent = getIntent();
         Bundle ViewMoreNOILUCGD1bundle = ViewMoreNOILUCGD1intent.getBundleExtra("ViewMoreNOILUCGD1bundle");
         // lấy dữ liệu
-        double M11= ViewMoreNOILUCGD1intent.getDoubleExtra("M11",0.0);
-        double M12= ViewMoreNOILUCGD1intent.getDoubleExtra("M12",0.0);
-        double M13= ViewMoreNOILUCGD1intent.getDoubleExtra("M13",0.0);
-        double M14= ViewMoreNOILUCGD1intent.getDoubleExtra("M14",0.0);
-        double M15= ViewMoreNOILUCGD1intent.getDoubleExtra("M15",0.0);
-        double M16= ViewMoreNOILUCGD1intent.getDoubleExtra("M16",0.0);
-        double M17= ViewMoreNOILUCGD1intent.getDoubleExtra("M17",0.0);
-        double M18= ViewMoreNOILUCGD1intent.getDoubleExtra("M18",0.0);
-        double Q11= ViewMoreNOILUCGD1intent.getDoubleExtra("Q11",0.0);
-        double Q12= ViewMoreNOILUCGD1intent.getDoubleExtra("Q12",0.0);
-        double Q13= ViewMoreNOILUCGD1intent.getDoubleExtra("Q13",0.0);
-        double Q14= ViewMoreNOILUCGD1intent.getDoubleExtra("Q14",0.0);
-        double Q15= ViewMoreNOILUCGD1intent.getDoubleExtra("Q15",0.0);
-        double Q16= ViewMoreNOILUCGD1intent.getDoubleExtra("Q16",0.0);
-        double Q17= ViewMoreNOILUCGD1intent.getDoubleExtra("Q17",0.0);
-        double Q18= ViewMoreNOILUCGD1intent.getDoubleExtra("Q18",0.0);
+        double M11= ViewMoreNOILUCGD1bundle.getDouble("M11",0.0);
+        double M12= ViewMoreNOILUCGD1bundle.getDouble("M12",0.0);
+        double M13= ViewMoreNOILUCGD1bundle.getDouble("M13",0.0);
+        double M14= ViewMoreNOILUCGD1bundle.getDouble("M14",0.0);
+        double M15= ViewMoreNOILUCGD1bundle.getDouble("M15",0.0);
+        double M16= ViewMoreNOILUCGD1bundle.getDouble("M16",0.0);
+        double M17= ViewMoreNOILUCGD1bundle.getDouble("M17",0.0);
+        double M18= ViewMoreNOILUCGD1bundle.getDouble("M18",0.0);
+
+        double Q11= ViewMoreNOILUCGD1bundle.getDouble("Q11",0.0);
+        double Q12= ViewMoreNOILUCGD1bundle.getDouble("Q12",0.0);
+        double Q13= ViewMoreNOILUCGD1bundle.getDouble("Q13",0.0);
+        double Q14= ViewMoreNOILUCGD1bundle.getDouble("Q14",0.0);
+        double Q15= ViewMoreNOILUCGD1bundle.getDouble("Q15",0.0);
+        double Q16= ViewMoreNOILUCGD1bundle.getDouble("Q16",0.0);
+        double Q17= ViewMoreNOILUCGD1bundle.getDouble("Q17",0.0);
+        double Q18= ViewMoreNOILUCGD1bundle.getDouble("Q18",0.0);
+
+
         M1val[0] = 0f;
         M1val[1] = (float)M11;
         M1val[2] = (float)M12;
@@ -120,6 +125,8 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
         //xvalues.set(Color.BLUE);
         return xvalues;
     }
+  //  System.out.println("M11");
 
 
 }
+
