@@ -19,7 +19,7 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
     private LineChart lineChart;
     private LineData lineData;
     ///   float x=0;
-   float M1val[]=new float[5];
+    float M1val[]=new float[5];
     float M2val[]=new float[5];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
