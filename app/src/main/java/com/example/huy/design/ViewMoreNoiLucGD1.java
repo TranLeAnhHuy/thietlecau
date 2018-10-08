@@ -18,9 +18,12 @@ import java.util.List;
 public class ViewMoreNoiLucGD1 extends AppCompatActivity {
     private LineChart lineChart;
     private LineData lineData;
+    double M11,M12,M13,M14,M15,M16,M17,M18,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18;
     ///   float x=0;
     float M1val[]=new float[5];
     float M2val[]=new float[5];
+    float Q1val[]=new float[5];
+    float Q2val[]=new float[5];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -33,24 +36,23 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
         Intent ViewMoreNOILUCGD1intent = getIntent();
         Bundle ViewMoreNOILUCGD1bundle = ViewMoreNOILUCGD1intent.getBundleExtra("ViewMoreNOILUCGD1bundle");
         // lấy dữ liệu
-        double M11= ViewMoreNOILUCGD1bundle.getDouble("M11",0.0);
-        double M12= ViewMoreNOILUCGD1bundle.getDouble("M12",0.0);
-        double M13= ViewMoreNOILUCGD1bundle.getDouble("M13",0.0);
-        double M14= ViewMoreNOILUCGD1bundle.getDouble("M14",0.0);
-        double M15= ViewMoreNOILUCGD1bundle.getDouble("M15",0.0);
-        double M16= ViewMoreNOILUCGD1bundle.getDouble("M16",0.0);
-        double M17= ViewMoreNOILUCGD1bundle.getDouble("M17",0.0);
-        double M18= ViewMoreNOILUCGD1bundle.getDouble("M18",0.0);
+        M11= ViewMoreNOILUCGD1bundle.getDouble("M11",0.0);
+        M12= ViewMoreNOILUCGD1bundle.getDouble("M12",0.0);
+        M13= ViewMoreNOILUCGD1bundle.getDouble("M13",0.0);
+        M14= ViewMoreNOILUCGD1bundle.getDouble("M14",0.0);
+        M15= ViewMoreNOILUCGD1bundle.getDouble("M15",0.0);
+        M16= ViewMoreNOILUCGD1bundle.getDouble("M16",0.0);
+        M17= ViewMoreNOILUCGD1bundle.getDouble("M17",0.0);
+        M18= ViewMoreNOILUCGD1bundle.getDouble("M18",0.0);
 
-        double Q11= ViewMoreNOILUCGD1bundle.getDouble("Q11",0.0);
-        double Q12= ViewMoreNOILUCGD1bundle.getDouble("Q12",0.0);
-        double Q13= ViewMoreNOILUCGD1bundle.getDouble("Q13",0.0);
-        double Q14= ViewMoreNOILUCGD1bundle.getDouble("Q14",0.0);
-        double Q15= ViewMoreNOILUCGD1bundle.getDouble("Q15",0.0);
-        double Q16= ViewMoreNOILUCGD1bundle.getDouble("Q16",0.0);
-        double Q17= ViewMoreNOILUCGD1bundle.getDouble("Q17",0.0);
-        double Q18= ViewMoreNOILUCGD1bundle.getDouble("Q18",0.0);
-
+        Q11= ViewMoreNOILUCGD1bundle.getDouble("Q11",0.0);
+        Q12= ViewMoreNOILUCGD1bundle.getDouble("Q12",0.0);
+        Q13= ViewMoreNOILUCGD1bundle.getDouble("Q13",0.0);
+        Q14= ViewMoreNOILUCGD1bundle.getDouble("Q14",0.0);
+        Q15= ViewMoreNOILUCGD1bundle.getDouble("Q15",0.0);
+        Q16= ViewMoreNOILUCGD1bundle.getDouble("Q16",0.0);
+        Q17= ViewMoreNOILUCGD1bundle.getDouble("Q17",0.0);
+        Q18= ViewMoreNOILUCGD1bundle.getDouble("Q18",0.0);
 
         M1val[0] = 0f;
         M1val[1] = (float)M11;
@@ -63,6 +65,18 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
         M2val[3] = (float)M17;
         M2val[4] = (float)M18;
 
+        Q1val[0]= (float)Q14;
+        Q1val[1]= (float)Q13;
+        Q1val[2]= (float)Q12;
+        Q1val[3]= (float)Q11;
+        Q1val[4]= 0f;
+        Q2val[0]=(float)Q18;
+        Q2val[1]=(float)Q17;
+        Q2val[2]=(float)Q16;
+        Q2val[3]=(float)Q15;
+        Q2val[4]= 0f;
+
+
 
         lineChart= (LineChart) findViewById(R.id.linechartNoiLucGD1);
         lineData= new LineData(getXvalues(),getLineDataValues());
@@ -70,18 +84,28 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
         lineChart.setDescription("Biểu đồ Momen và lực cắt ");
         lineChart.setDescriptionTextSize(20f);
         lineChart.setDescriptionColor(Color.DKGRAY);
-        lineChart.animateY(5000);
+        lineChart.setBackgroundColor(Color.BLACK);
+        lineChart.animateY(7000);
         lineChart.invalidate();
+
     }
     private List<ILineDataSet> getLineDataValues() {
         ArrayList<ILineDataSet> lineDataSets = null;
         ArrayList<Entry> entryArrayList = new ArrayList<>();
         ArrayList<Entry> M2entryArrayList = new ArrayList<>();
+        ArrayList<Entry> Q1entryArrayList = new ArrayList<>();
+        ArrayList<Entry> Q2entryArrayList = new ArrayList<>();
         for (int i =0; i< M1val.length;i++){
             entryArrayList.add(new Entry(M1val[i],i));
         }
         for (int i =0; i<M2val.length;i++){
             M2entryArrayList.add(new Entry(M2val[i],i));
+        }
+        for (int i =0; i<Q1val.length;i++){
+            Q1entryArrayList.add(new Entry(Q1val[i],i));
+        }
+        for (int i =0; i<Q2val.length;i++){
+            Q2entryArrayList.add(new Entry(Q2val[i],i));
         }
 //        Entry e1 = new Entry(x,0);
 //        Entry e2 = new Entry(3000f,1);
@@ -106,10 +130,24 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
         lineDataSetM2.setCircleRadius(7);
         lineDataSetM2.setValueTextColor(Color.RED);
 
+        LineDataSet lineDataSetQ1= new LineDataSet(Q1entryArrayList, "Q1 kN");
+        lineDataSetQ1.setColor(Color.GREEN);
+        lineDataSetQ1.setCircleColor(Color.GREEN);
+        lineDataSetQ1.setCircleRadius(7);
+        lineDataSetQ1.setValueTextColor(Color.GREEN);
+
+        LineDataSet lineDataSetQ2= new LineDataSet(Q2entryArrayList, "Q2 kN");
+        lineDataSetQ2.setColor(Color.WHITE);
+        lineDataSetQ2.setCircleColor(Color.WHITE);
+        lineDataSetQ2.setCircleRadius(7);
+        lineDataSetQ2.setValueTextColor(Color.WHITE);
+
 
         lineDataSets= new ArrayList<>();
         lineDataSets.add(lineDataSet);
         lineDataSets.add(lineDataSetM2);
+        lineDataSets.add(lineDataSetQ1);
+        lineDataSets.add(lineDataSetQ2);
 
 
         return lineDataSets;
