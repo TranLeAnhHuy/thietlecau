@@ -238,37 +238,8 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putDouble("Q14",Q14 );
                     LHbundle.putDouble("Q18",Q18 );
 
-
-
-                    // VIEW MORE NỘI LỰC GIAI ĐOẠN 1
-                    // đóng gói và truyền dữ liệu
-                    Intent ViewMoreNOILUCGD1intent = new Intent(nhaplieuthietke.this, ViewMoreNoiLucGD1.class);
-                    Bundle ViewMoreNOILUCGD1bundle = new Bundle();
-                    ViewMoreNOILUCGD1bundle.putDouble("M11",M11 );
-                    ViewMoreNOILUCGD1bundle.putDouble("M12",M12 );
-                    ViewMoreNOILUCGD1bundle.putDouble("M13",M13 );
-                    ViewMoreNOILUCGD1bundle.putDouble("M14",M14 );
-                    ViewMoreNOILUCGD1bundle.putDouble("M15",M15 );
-                    ViewMoreNOILUCGD1bundle.putDouble("M16",M16 );
-                    ViewMoreNOILUCGD1bundle.putDouble("M17",M17 );
-                    ViewMoreNOILUCGD1bundle.putDouble("M18",M18 );
-                    ViewMoreNOILUCGD1bundle.putDouble("Q11",Q11 );
-                    ViewMoreNOILUCGD1bundle.putDouble("Q12",Q12);
-                    ViewMoreNOILUCGD1bundle.putDouble("Q13",Q13 );
-                    ViewMoreNOILUCGD1bundle.putDouble("Q14",Q14 );
-                    ViewMoreNOILUCGD1bundle.putDouble("Q15",Q15 );
-                    ViewMoreNOILUCGD1bundle.putDouble("Q16",Q16 );
-                    ViewMoreNOILUCGD1bundle.putDouble("Q17",Q17 );
-                    ViewMoreNOILUCGD1bundle.putDouble("Q18",Q18 );
-
-
-                   // LHbundle.putDouble("", );
-
-
                     LHintent.putExtra("LHbundle", LHbundle);
                     startActivity(LHintent);
-
-
                 }
 
 

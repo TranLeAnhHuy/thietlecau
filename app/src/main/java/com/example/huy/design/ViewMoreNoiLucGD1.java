@@ -33,26 +33,25 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
 //        Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
 //        txtAnc.setText(roundString(LHbundle.getDouble("Anc"), 4));
         //Láy kết quả
-        Intent ViewMoreNOILUCGD1intent = getIntent();
-        Bundle ViewMoreNOILUCGD1bundle = ViewMoreNOILUCGD1intent.getBundleExtra("ViewMoreNOILUCGD1bundle");
+        Intent ViewMoreNOILUCGD1bundle = getIntent();
         // lấy dữ liệu
-        M11= ViewMoreNOILUCGD1bundle.getDouble("M11",0.0);
-        M12= ViewMoreNOILUCGD1bundle.getDouble("M12",0.0);
-        M13= ViewMoreNOILUCGD1bundle.getDouble("M13",0.0);
-        M14= ViewMoreNOILUCGD1bundle.getDouble("M14",0.0);
-        M15= ViewMoreNOILUCGD1bundle.getDouble("M15",0.0);
-        M16= ViewMoreNOILUCGD1bundle.getDouble("M16",0.0);
-        M17= ViewMoreNOILUCGD1bundle.getDouble("M17",0.0);
-        M18= ViewMoreNOILUCGD1bundle.getDouble("M18",0.0);
+        M11= ViewMoreNOILUCGD1bundle.getDoubleExtra("M11",0.0);
+        M12= ViewMoreNOILUCGD1bundle.getDoubleExtra("M12",0.0);
+        M13= ViewMoreNOILUCGD1bundle.getDoubleExtra("M13",0.0);
+        M14= ViewMoreNOILUCGD1bundle.getDoubleExtra("M14",0.0);
+        M15= ViewMoreNOILUCGD1bundle.getDoubleExtra("M15",0.0);
+        M16= ViewMoreNOILUCGD1bundle.getDoubleExtra("M16",0.0);
+        M17= ViewMoreNOILUCGD1bundle.getDoubleExtra("M17",0.0);
+        M18= ViewMoreNOILUCGD1bundle.getDoubleExtra("M18",0.0);
 
-        Q11= ViewMoreNOILUCGD1bundle.getDouble("Q11",0.0);
-        Q12= ViewMoreNOILUCGD1bundle.getDouble("Q12",0.0);
-        Q13= ViewMoreNOILUCGD1bundle.getDouble("Q13",0.0);
-        Q14= ViewMoreNOILUCGD1bundle.getDouble("Q14",0.0);
-        Q15= ViewMoreNOILUCGD1bundle.getDouble("Q15",0.0);
-        Q16= ViewMoreNOILUCGD1bundle.getDouble("Q16",0.0);
-        Q17= ViewMoreNOILUCGD1bundle.getDouble("Q17",0.0);
-        Q18= ViewMoreNOILUCGD1bundle.getDouble("Q18",0.0);
+        Q11= ViewMoreNOILUCGD1bundle.getDoubleExtra("Q11",0.0);
+        Q12= ViewMoreNOILUCGD1bundle.getDoubleExtra("Q12",0.0);
+        Q13= ViewMoreNOILUCGD1bundle.getDoubleExtra("Q13",0.0);
+        Q14= ViewMoreNOILUCGD1bundle.getDoubleExtra("Q14",0.0);
+        Q15= ViewMoreNOILUCGD1bundle.getDoubleExtra("Q15",0.0);
+        Q16= ViewMoreNOILUCGD1bundle.getDoubleExtra("Q16",0.0);
+        Q17= ViewMoreNOILUCGD1bundle.getDoubleExtra("Q17",0.0);
+        Q18= ViewMoreNOILUCGD1bundle.getDoubleExtra("Q18",0.0);
 
         M1val[0] = 0f;
         M1val[1] = (float)M11;

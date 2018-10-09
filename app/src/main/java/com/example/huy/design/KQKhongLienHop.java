@@ -13,10 +13,10 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtAnc, txtSnct, txtYncd, txtYnct, txtInc, txtSncd;
     TextView txtBsDT, txtBsDN, txtAltDT, txtAltDN, txtSlttDT, txtSlttDN, txtYltdDT, txtYltdDN, txtYlttDT, txtYlttDN, txtIltDT, txtIltDN;
     TextView txtBssDT, txtBssDN, txtAstDT, txtAstDN, txtSsttDT, txtSsttDN, txtYstdDT, txtYstdDN, txtYsttDT, txtYsttDN, txtIstDT, txtIstDN;
-    TextView txtDC1DN, txtDC1DT, txtDC2DT, txtDC2DN, txtDCDT,txtDCDN;
-    TextView txtmgSIM, txtmgMIM, txtmgDTM,txtmgMEM1lan, txtmgMEM2lan, txtmgDNM,txtmgSIV, txtmgMIV, txtmgDTV, txtmgMEV1lan, txtmgMEV2lan, txtmgDNV;
+    TextView txtDC1DN, txtDC1DT, txtDC2DT, txtDC2DN, txtDCDT, txtDCDN;
+    TextView txtmgSIM, txtmgMIM, txtmgDTM, txtmgMEM1lan, txtmgMEM2lan, txtmgDNM, txtmgSIV, txtmgMIV, txtmgDTV, txtmgMEV1lan, txtmgMEV2lan, txtmgDNV;
     TextView txtmgPLDT, txtmgPLDN;
-    TextView txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
+    TextView txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1;
     TextView txtViewMoreQGD1;
 
     @Override
@@ -94,18 +94,35 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtQmaxSDGD1.setText(roundString(LHbundle.getDouble("Q18"), 4));
 
 
-
-
         //txt.setText(roundString(LHbundle.getDouble(""), 4));
         viewMoreNoiLucGD1();
     }
-   public void viewMoreNoiLucGD1(){
-       txtViewMoreQGD1.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               setContentView(R.layout.activity_view_more_noi_luc_gd1);
-           }
-       });
+
+    public void viewMoreNoiLucGD1() {
+        txtViewMoreQGD1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ViewMoreNOILUCGD1bundle = new Intent(KQKhongLienHop.this, ViewMoreNoiLucGD1.class);
+                //TODO lấy dữ liệu tính toán ráp vào, tạm thời a để 11,13
+                ViewMoreNOILUCGD1bundle.putExtra("M11", 11.0);
+                ViewMoreNOILUCGD1bundle.putExtra("M12", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("M13", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("M14", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("M15", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("M16", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("M17", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("M18", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("Q11", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("Q12", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("Q13", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("Q14", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("Q15", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("Q16", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("Q17", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("Q18", 13.0);
+                startActivity(ViewMoreNOILUCGD1bundle);
+            }
+        });
 
     }
 
@@ -150,17 +167,17 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtDCDN = (TextView) findViewById(R.id.txtDCDN);
         txtDCDT = (TextView) findViewById(R.id.txtDCDT);
         // hệ số phân phối ngang
-        txtmgDTV= (TextView) findViewById(R.id.txtmgDTV);
+        txtmgDTV = (TextView) findViewById(R.id.txtmgDTV);
         txtmgSIM = (TextView) findViewById(R.id.txtmgSIM);
         txtmgMIM = (TextView) findViewById(R.id.txtmgMIM);
-        txtmgDTM= (TextView) findViewById(R.id.txtmgDTM);
-        txtmgMEM1lan= (TextView) findViewById(R.id.txtmgMEM1lan);
-        txtmgMEM2lan= (TextView) findViewById(R.id.txtmgMEM2lan);
-        txtmgDNM= (TextView) findViewById(R.id.txtmgDNM);
+        txtmgDTM = (TextView) findViewById(R.id.txtmgDTM);
+        txtmgMEM1lan = (TextView) findViewById(R.id.txtmgMEM1lan);
+        txtmgMEM2lan = (TextView) findViewById(R.id.txtmgMEM2lan);
+        txtmgDNM = (TextView) findViewById(R.id.txtmgDNM);
         txtmgSIV = (TextView) findViewById(R.id.txtmgSIV);
-        txtmgMIV= (TextView) findViewById(R.id.txtmgMIV);
-        txtmgMEV1lan= (TextView) findViewById(R.id.txtmgMEV1lan);
-        txtmgMEV2lan= (TextView) findViewById(R.id.txtmgMEV2lan);
+        txtmgMIV = (TextView) findViewById(R.id.txtmgMIV);
+        txtmgMEV1lan = (TextView) findViewById(R.id.txtmgMEV1lan);
+        txtmgMEV2lan = (TextView) findViewById(R.id.txtmgMEV2lan);
         txtmgDNV = (TextView) findViewById(R.id.txtmgDNV);
         txtmgPLDN = (TextView) findViewById(R.id.txtmgPLDN);
         txtmgPLDT = (TextView) findViewById(R.id.txtmgPLDT);
@@ -171,13 +188,7 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtMmaxSDGD1 = (TextView) findViewById(R.id.txtMmaxSDGD1);
         txtQmaxCD1GD1 = (TextView) findViewById(R.id.txtQmaxCD1GD1);
         txtQmaxSDGD1 = (TextView) findViewById(R.id.txtQmaxSDGD1);
-        txtViewMoreQGD1= (TextView) findViewById(R.id.txtViewMoreQGD1);
-
-
-
-
-
-
+        txtViewMoreQGD1 = (TextView) findViewById(R.id.txtViewMoreQGD1);
 
 
     }
