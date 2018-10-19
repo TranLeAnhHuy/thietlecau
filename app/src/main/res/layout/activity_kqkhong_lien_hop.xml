@@ -9,54 +9,56 @@
     tools:context=".KQKhongLienHop">
 
 
-
     <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
-            //hiển thị kết quả đặt trưng hình học
-            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-                android:layout_marginTop="5dp">
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
 
-            <TextView
+            //hiển thị kết quả đặt trưng hình học
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Đặc trưng hình học"
-                android:textAllCaps="true"
-                android:textSize="20dp"
-                android:textColor="#fff"
-                android:background="#99f2171b"
-                android:gravity="center_horizontal"
-                android:textStyle="bold" />
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#99f2171b"
+                    android:gravity="center_horizontal"
+                    android:text="Đặc trưng hình học"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             //hiển thị kết quả đặt trưng hình học
 
             <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Giai đoạn 1 - Mặt cắt nguyên"
-                android:layout_marginTop="10dp"
-                android:textSize="16dp"
-                android:textColor="#fb04069c"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-              </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Giai đoạn 1 - Mặt cắt nguyên"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
             // diện tích
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Diện tích mặt cắt nguyên"
-                                        android:textSize="16dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -77,8 +79,8 @@
                     android:layout_height="27dp"
                     android:layout_marginLeft="36dp"
                     android:background="#f2f4f4"
-                    android:minWidth="84dp"
                     android:gravity="center_horizontal"
+                    android:minWidth="84dp"
                     android:textColor="#fb04069c"
                     android:textSize="14dp" />
 
@@ -92,6 +94,7 @@
 
             </LinearLayout>
             //Momen tĩnh đối với đáy dầm
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,11 +112,11 @@
                     android:id="@+id/txtSnct"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:minWidth="84dp"
                     android:layout_marginLeft="10dp"
-                    android:textColor="#fb04069c"
                     android:background="#f2f4f4"
                     android:gravity="center_horizontal"
+                    android:minWidth="84dp"
+                    android:textColor="#fb04069c"
                     android:textSize="14dp" />
 
                 <TextView
@@ -125,6 +128,7 @@
 
             </LinearLayout>
             //Khoảng cách từ trục trung hòa đến thớ chịu kéo
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -158,71 +162,74 @@
 
             </LinearLayout>
             //Khoảng cách từ trục trung hòa đến thớ chịu nén
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="KC từ TTH đến thớ chịu nén"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtYnct"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:minWidth="84dp"
-                android:layout_marginLeft="14dp"
-                android:gravity="center_horizontal"
-                android:textColor="#fb04069c"
-                android:background="#f2f4f4"
-                android:textSize="14dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="KC từ TTH đến thớ chịu nén"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="05dp"
-                android:text="mm"
-                android:textSize="14dp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/txtYnct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="14dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="84dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="mm"
+                    android:textSize="14dp" />
+            </LinearLayout>
 
             //Momen quan tính dầm thép đối với trục trung hòa
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Momen quan tính dầm thép"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtInc"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:minWidth="84dp"
-                android:layout_marginLeft="18dp"
-                android:textColor="#fb04069c"
-                android:background="#f2f4f4"
-                android:gravity="center_horizontal"
-                android:textSize="14dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen quan tính dầm thép"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="05dp"
-                android:text="mm4"
-                android:textSize="14dp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/txtInc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="18dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="84dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="mm4"
+                    android:textSize="14dp" />
+            </LinearLayout>
             //Momen tĩnh đối với thớ chịu nén max
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -240,11 +247,11 @@
                     android:id="@+id/txtSncd"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:minWidth="75dp"
                     android:layout_marginLeft="10dp"
-                    android:gravity="center_horizontal"
-                    android:textColor="#fb04069c"
                     android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="75dp"
+                    android:textColor="#fb04069c"
                     android:textSize="14dp" />
 
                 <TextView
@@ -254,6 +261,7 @@
                     android:text="mm3"
                     android:textSize="14dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -262,10 +270,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Giai đoạn 2 - Mặt cắt liên hợp dài hạn"
                     android:layout_marginTop="10dp"
-                    android:textSize="16dp"
+                    android:text="Giai đoạn 2 - Mặt cắt liên hợp dài hạn"
                     android:textColor="#fb04069c"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -273,256 +281,273 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                >
+                android:orientation="horizontal">
 
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:stretchColumns="*"
-                    >
+                    android:stretchColumns="*">
+
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="ĐTHH"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Dầm trong"
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            />
-                        <TextView
+                            android:padding="5dp"
                             android:text="Dầm ngoài"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Đơn vị"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:textStyle="bold"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
-                            />
+                            android:textStyle="bold" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Bs=Bi/n"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtBsDT"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
+                            android:layout_marginLeft="2dp"
                             android:background="#dbe7f7"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtBsDN"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#dbe7f7"
-                            />
-                        <TextView
-                            android:text="mm"
                             android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:background="#dbe7f7"
-                            />
+                            android:text="mm" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text=""
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
-                            android:gravity="center_horizontal"
                             android:textStyle="bold"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
-                            android:gravity="center_horizontal"
                             android:id="@+id/txtAltDT"
-                            />
-                        <TextView
-
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+
                             android:id="@+id/txtAltDN"
-
-                            />
-                        <TextView
-                            android:text="mm2"
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp"
+
                             />
-                    </TableRow>
-                    <TableRow>
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="mm2" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Sltt"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
                             android:textStyle="bold"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
                             android:id="@+id/txtSlttDT"
-                            />
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#dbe7f7"
                             android:id="@+id/txtSlttDN"
-                            />
-                        <TextView
-                            android:text="mm3"
                             android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:background="#dbe7f7"
-                            />
+                            android:text="mm3" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Yltd"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
                             android:id="@+id/txtYltdDT"
-                            />
-                        <TextView
-
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+
                             android:id="@+id/txtYltdDN"
-
-                            />
-                        <TextView
-                            android:text="mm"
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp"
+
                             />
-                    </TableRow>
-                    <TableRow>
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="mm" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Yltt"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
                             android:textStyle="bold"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
                             android:id="@+id/txtYlttDT"
-                            />
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
                             android:id="@+id/txtYlttDN"
-                            />
-                        <TextView
-                            android:text="mm"
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
                             android:background="#dbe7f7"
-                            />
-                    </TableRow>
-                    <TableRow>
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
-                            android:text="Ilt"
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
                             android:padding="5dp"
+                            android:text="mm" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="Ilt"
                             android:textStyle="bold"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
                             android:id="@+id/txtIltDT"
-                            />
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
                             android:id="@+id/txtIltDN"
-
-                            />
-                        <TextView
-                            android:text="mm4"
                             android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:background="#b8d5f9"
+
                             />
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="mm4" />
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
 
             //Mặt cắt liên hợp ngắn hạn
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -531,10 +556,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Giai đoạn 2 - Mặt cắt liên hợp ngắn hạn"
                     android:layout_marginTop="10dp"
-                    android:textSize="16dp"
+                    android:text="Giai đoạn 2 - Mặt cắt liên hợp ngắn hạn"
                     android:textColor="#fb04069c"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -542,242 +567,258 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                >
+                android:orientation="horizontal">
 
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:stretchColumns="*"
-                    >
+                    android:stretchColumns="*">
+
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="ĐTHH"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Dầm trong"
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            />
-                        <TextView
+                            android:padding="5dp"
                             android:text="Dầm ngoài"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Đơn vị"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:textStyle="bold"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
-                            />
+                            android:textStyle="bold" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Bs=Bi/n"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtBssDT"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
+                            android:layout_marginLeft="2dp"
                             android:background="#dbe7f7"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtBssDN"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#dbe7f7"
-                            />
-                        <TextView
-                            android:text="mm"
                             android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:background="#dbe7f7"
-                            />
+                            android:text="mm" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Ast"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
-                            android:gravity="center_horizontal"
                             android:textStyle="bold"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
-                            android:gravity="center_horizontal"
                             android:id="@+id/txtAstDT"
-                            />
-                        <TextView
-
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+
                             android:id="@+id/txtAstDN"
-
-                            />
-                        <TextView
-                            android:text="mm2"
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp"
+
                             />
-                    </TableRow>
-                    <TableRow>
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="mm2" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Sstt"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
                             android:textStyle="bold"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
                             android:id="@+id/txtSsttDT"
-                            />
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#dbe7f7"
                             android:id="@+id/txtSsttDN"
-                            />
-                        <TextView
-                            android:text="mm3"
                             android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:background="#dbe7f7"
-                            />
+                            android:text="mm3" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Ystd"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
                             android:id="@+id/txtYstdDT"
-                            />
-                        <TextView
-
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+
                             android:id="@+id/txtYstdDN"
-
-                            />
-                        <TextView
-                            android:text="mm"
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp"
+
                             />
-                    </TableRow>
-                    <TableRow>
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="mm" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Ystt"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
                             android:textStyle="bold"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
                             android:id="@+id/txtYsttDT"
-                            />
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
                             android:id="@+id/txtYsttDN"
-                            />
-                        <TextView
-                            android:text="mm"
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
                             android:background="#dbe7f7"
-                            />
-                    </TableRow>
-                    <TableRow>
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
-                            android:text="Ist"
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
                             android:padding="5dp"
+                            android:text="mm" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="Ist"
                             android:textStyle="bold"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
                             android:id="@+id/txtIstDT"
-                            />
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
                             android:id="@+id/txtIstDN"
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
 
                             />
 
@@ -791,11 +832,12 @@
                 </TableLayout>
             </LinearLayout>
             //Tải trọng
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -809,6 +851,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
             //tĩnh tải
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -817,10 +860,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tĩnh tải"
                     android:layout_marginTop="10dp"
-                    android:textSize="16dp"
+                    android:text="Tĩnh tải"
                     android:textColor="#fb04069c"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -829,84 +872,86 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                >
+                android:orientation="horizontal">
 
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:stretchColumns="*"
-                    >
+                    android:stretchColumns="*">
 
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Loại TT"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Dầm trong"
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            />
-                        <TextView
+                            android:padding="5dp"
                             android:text="Dầm ngoài"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Đơn vị"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:textStyle="bold"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
-                            />
+                            android:textStyle="bold" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="DC1"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtDC1DT"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
+                            android:layout_marginLeft="2dp"
                             android:background="#dbe7f7"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtDC1DN"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#dbe7f7"
-                            />
-                        <TextView
-                            android:text="kN/m"
                             android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:background="#dbe7f7"
-                            />
+                            android:text="kN/m" />
                     </TableRow>
 
                     <TableRow>
@@ -946,45 +991,48 @@
                             android:padding="5dp"
                             android:text="kN/m" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
-                            android:text="Tổng"
-                            android:padding="5dp"
                             android:background="#dbe7f7"
                             android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="Tổng"
                             android:textStyle="bold"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
                             android:id="@+id/txtDCDT"
-                            />
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
-                            android:background="#dbe7f7"
                             android:id="@+id/txtDCDN"
-                            />
-                        <TextView
-                            android:text="kN/m"
                             android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:background="#dbe7f7"
-                            />
+                            android:text="kN/m" />
                     </TableRow>
 
                 </TableLayout>
             </LinearLayout>
 
             //Hoạt tải
-                 <LinearLayout
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -992,10 +1040,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hoạt tải - Hệ số phân bố ngang"
                     android:layout_marginTop="10dp"
-                    android:textSize="16dp"
+                    android:text="Hoạt tải - Hệ số phân bố ngang"
                     android:textColor="#fb04069c"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -1004,94 +1052,98 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                >
+                android:orientation="horizontal">
 
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:stretchColumns="*"
-                    >
+                    android:stretchColumns="*">
+
                     <TableRow>
 
                         <TextView
                             android:layout_width="24dp"
-                            android:textColor="#fb04069c"
+                            android:layout_span="4"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:layout_span="4"
                             android:text="Hoạt tải LL"
+                            android:textColor="#fb04069c"
                             android:textStyle="bold" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Momen\n "
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="1 làn\n    "
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            />
-                        <TextView
+                            android:padding="5dp"
                             android:text="2 hoặc \n nhiều làn"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="HSPBN \n tính toán"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:textStyle="bold"
-                            android:gravity="center_horizontal"
-                            android:background="#b8d5f9"
-                            />
+                            android:textStyle="bold" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Dầm trong"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtmgSIM"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
+                            android:layout_marginLeft="2dp"
                             android:background="#dbe7f7"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtmgMIM"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
+                            android:layout_marginLeft="2dp"
                             android:background="#dbe7f7"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
                             android:id="@+id/txtmgDTM"
                             android:layout_marginLeft="2dp"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
                             android:background="#dbe7f7"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
                     </TableRow>
 
                     <TableRow>
@@ -1125,80 +1177,84 @@
                             />
 
                         <TextView
+                            android:id="@+id/txtmgDNM"
                             android:layout_marginLeft="2dp"
                             android:background="#b8d5f9"
                             android:gravity="center_horizontal"
-                            android:padding="5dp"
-                            android:id="@+id/txtmgDNM" />
+                            android:padding="5dp" />
                     </TableRow>
 
                     <TableRow>
+
                         <TextView
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Lực căt\n "
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="1 làn\n "
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:layout_marginLeft="2dp"
-                            android:padding="5dp"
                             android:background="#dbe7f7"
                             android:gravity="center_horizontal"
-                            android:textStyle="bold"
-                            />
-                        <TextView
+                            android:padding="5dp"
                             android:text="2 hoặc \n nhiều làn"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:background="#dbe7f7"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="HSPBN \n tính toán"
-                            android:layout_marginLeft="2dp"
-                            android:padding="5dp"
-                            android:textStyle="bold"
-                            android:gravity="center_horizontal"
-                            android:background="#dbe7f7"
-                            />
+                            android:textStyle="bold" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Dầm trong"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtmgSIV"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
+                            android:layout_marginLeft="2dp"
                             android:background="#b8d5f9"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
 
-                            android:layout_marginLeft="2dp"
                             android:id="@+id/txtmgMIV"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
+                            android:layout_marginLeft="2dp"
                             android:background="#b8d5f9"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
+
                         <TextView
                             android:id="@+id/txtmgDTV"
                             android:layout_marginLeft="2dp"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
                     </TableRow>
 
                     <TableRow>
@@ -1227,59 +1283,62 @@
                             android:layout_marginLeft="2dp"
                             android:background="#dbe7f7"
                             android:gravity="center_horizontal"
-                            android:padding="5dp"
-                            />
-                        <TextView
-                            android:layout_marginLeft="2dp"
+                            android:padding="5dp" />
 
+                        <TextView
+                            android:id="@+id/txtmgDNV"
+
+                            android:layout_marginLeft="2dp"
                             android:background="#dbe7f7"
                             android:gravity="center_horizontal"
-                            android:padding="5dp"
-                            android:id="@+id/txtmgDNV" />
+                            android:padding="5dp" />
                     </TableRow>
+
                     <TableRow>
 
                         <TextView
                             android:layout_width="24dp"
-                            android:textColor="#fb04069c"
+                            android:layout_span="4"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:layout_span="4"
                             android:text="Hoạt tải PL"
+                            android:textColor="#fb04069c"
                             android:textStyle="bold" />
                     </TableRow>
+
                     <TableRow>
+
                         <TextView
+                            android:background="#b8d5f9"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
                             android:text="Dầm trong"
-                            android:padding="5dp"
-                            android:background="#b8d5f9"
                             android:textStyle="bold"
-                            android:gravity="center_horizontal"
 
                             />
+
                         <TextView
 
                             android:layout_marginLeft="2dp"
-                            android:text="-"
+                            android:background="#b8d5f9"
                             android:gravity="center_horizontal"
                             android:padding="5dp"
-                            android:background="#b8d5f9"
-                            />
+                            android:text="-" />
+
                         <TextView
 
                             android:layout_marginLeft="2dp"
-                            android:text="-"
-                            android:padding="5dp"
-                            android:gravity="center_horizontal"
                             android:background="#b8d5f9"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="-" />
+
                         <TextView
                             android:id="@+id/txtmgPLDT"
                             android:layout_marginLeft="2dp"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
                             android:background="#b8d5f9"
-                            />
+                            android:gravity="center_horizontal"
+                            android:padding="5dp" />
                     </TableRow>
 
                     <TableRow>
@@ -1298,49 +1357,50 @@
                             android:layout_marginLeft="2dp"
                             android:background="#dbe7f7"
                             android:gravity="center_horizontal"
-                            android:text="-"
+                            android:padding="5dp"
+                            android:text="-" />
+
+                        <TextView
+
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
+                            android:padding="5dp"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/txtmgPLDN"
+
+                            android:layout_marginLeft="2dp"
+                            android:background="#dbe7f7"
+                            android:gravity="center_horizontal"
                             android:padding="5dp" />
-
-                        <TextView
-
-                            android:layout_marginLeft="2dp"
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
-                            android:text="-"
-                            />
-                        <TextView
-                            android:layout_marginLeft="2dp"
-
-                            android:background="#dbe7f7"
-                            android:gravity="center_horizontal"
-                            android:padding="5dp"
-                            android:id="@+id/txtmgPLDN" />
                     </TableRow>
 
                 </TableLayout>
             </LinearLayout>
             //Nội lực
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="nội lực"
-                    android:textAllCaps="true"
-                    android:textSize="20dp"
                     android:background="#99f2171b"
                     android:gravity="center_horizontal"
+                    android:text="nội lực"
+                    android:textAllCaps="true"
                     android:textColor="#fff"
-                    android:textStyle="bold"
-                    />
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
             </LinearLayout>
             ////android:textColor="#fb04069c"
             //Nội lực - ưng suất tĩnh tải
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1352,14 +1412,14 @@
                     android:layout_height="wrap_content"
                     android:text="nội lực - ứng suất tĩnh tải"
                     android:textAllCaps="true"
-                    android:textSize="16dp"
                     android:textColor="#fb04069c"
-                    android:textStyle="bold"
-                    />
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             //Giai doan 1
             //Nội lực tĩnh tải
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1377,6 +1437,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
             // momen lớn nhất CD1
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1396,10 +1457,11 @@
                     android:layout_height="27dp"
                     android:layout_marginLeft="10dp"
                     android:background="#f2f4f4"
-                    android:minWidth="100dp"
                     android:gravity="center_horizontal"
+                    android:minWidth="100dp"
                     android:textColor="#fb04069c"
                     android:textSize="14dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1408,6 +1470,7 @@
                     android:textSize="14dp" />
             </LinearLayout>
             // momen lớn nhất SD
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1427,10 +1490,11 @@
                     android:layout_height="27dp"
                     android:layout_marginLeft="20dp"
                     android:background="#f2f4f4"
-                    android:minWidth="100dp"
                     android:gravity="center_horizontal"
+                    android:minWidth="100dp"
                     android:textColor="#fb04069c"
                     android:textSize="14dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1438,27 +1502,9 @@
                     android:text="kN.m"
                     android:textSize="14dp" />
             </LinearLayout>
-            <!--// view momen-->
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="horizontal"-->
 
-                <!--&gt;-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="5dp"-->
-                    <!--android:text="&lt;View more>"-->
-                    <!--android:textColor="#fb04069c"-->
-                    <!--android:layout_marginLeft="245dp"-->
-                    <!--android:textSize="16dp"-->
-                    <!--android:id="@+id/txtViewMoreMGD1"-->
-                    <!--android:textStyle="italic" />-->
-
-            <!--</LinearLayout>-->
             // lực cắt lớn nhất CD1
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1478,10 +1524,11 @@
                     android:layout_height="27dp"
                     android:layout_marginLeft="10dp"
                     android:background="#f2f4f4"
-                    android:minWidth="100dp"
                     android:gravity="center_horizontal"
+                    android:minWidth="100dp"
                     android:textColor="#fb04069c"
                     android:textSize="14dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1491,6 +1538,7 @@
             </LinearLayout>
 
             // lực cắt lớn nhất SD
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1510,10 +1558,11 @@
                     android:layout_height="27dp"
                     android:layout_marginLeft="20dp"
                     android:background="#f2f4f4"
-                    android:minWidth="100dp"
                     android:gravity="center_horizontal"
+                    android:minWidth="100dp"
                     android:textColor="#fb04069c"
                     android:textSize="14dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1521,45 +1570,986 @@
                     android:text="kN"
                     android:textSize="14dp" />
             </LinearLayout>
-        // view lực cắt
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            // view lực cắt
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewMoreQGD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="245dp"
+                    android:layout_marginTop="5dp"
+                    android:text="&lt;View more>"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            //ưng suất tĩnh tải giai đoạn 1
+            // ứng suất thớ trên lớn nhất CD1
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ trên max TTGH CĐ1"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtftmaxCD1GD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            // momen lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ dưới max TTGH CD1"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtfdmaxCD1GD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="7dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // ứng suất thớ trên max SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ trên max TTGH SD"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtftmaxSDGD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // ứng suất thớ dưới lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ dưới max TTGH SD"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtfdmaxSDGD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            // view ứng suất
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewMorefGD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="245dp"
+                    android:layout_marginTop="5dp"
+                    android:text="&lt;View more>"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            //Giai doan 2
+            //Nội lực tĩnh tải
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="245dp"
-                android:text="&lt;View more>"
-                android:textColor="#fb04069c"
-                android:textSize="16dp"
-                android:id="@+id/txtViewMoreQGD1"
-                android:textStyle="italic" />
-        </LinearLayout>
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fb04069c"
+                    android:padding="5dp"
+                    android:text="Giai đoạn 2"
+                    android:textColor="#fff"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            // momen lớn nhất CD1
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen max TTGH CĐ1"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtMmaxCD1GD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            // momen lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen max TTGH SD"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtMmaxSDGD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // lực cắt lớn nhất CD1
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Lực cắt max TTGH CĐ1"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtQmaxCD1GD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // lực cắt lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Lực cắt max TTGH SD"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtQmaxSDGD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            // view lực cắt
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewMoreQGD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="245dp"
+                    android:layout_marginTop="5dp"
+                    android:text="&lt;View more>"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            //ưng suất tĩnh tải giai đoạn 1
+            // ứng suất thớ trên lớn nhất CD1
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ trên max TTGH CĐ1 DT"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtftmaxDTCD1GD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="90dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            // momen lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ dưới max TTGH CD1 DT"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtfdmaxDTCD1GD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="7dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="90dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // ứng suất thớ trên max SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ trên max TTGH SD DT"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtftmaxDTSDGD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="90dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // ứng suất thớ dưới lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ dưới max TTGH SD DT"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtfdmaxDTSDGD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="18dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="90dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            //
+            // ứng suất thớ trên lớn nhất CD1
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ trên max TTGH CĐ1 DN"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtftmaxDNCD1GD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="90dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            // momen lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ dưới max TTGH CD1 DN"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtfdmaxDNCD1GD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="7dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="90dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // ứng suất thớ trên max SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ trên max TTGH SD DN"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtftmaxDNSDGD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="90dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // ứng suất thớ dưới lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="US thớ dưới max TTGH SD DN"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtfdmaxDNSDGD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="18dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="90dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
 
 
+            // view ứng suất
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewMorefGD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="245dp"
+                    android:layout_marginTop="5dp"
+                    android:text="&lt;View more>"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="italic" />
+            </LinearLayout>
 
 
+            //
+            //Giai doan 1
+            //Nội lực tĩnh tải
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fb04069c"
+                    android:padding="5dp"
+                    android:text="Tổng hợp nội lực do tĩnh tải"
+                    android:textColor="#fff"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            // momen lớn nhất CD1
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen max TTGH CĐ1"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtMmax3CD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            // momen lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen max TTGH SD"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtMmax3SD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // lực cắt lớn nhất CD1
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Lực cắt max TTGH CĐ1"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtQmax3CD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            // lực cắt lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Lực cắt max TTGH SD"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtQmax3SD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            // view nội lực 3
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewMoreMV3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="245dp"
+                    android:layout_marginTop="5dp"
+                    android:text="&lt;View more>"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="italic" />
+            </LinearLayout>
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="nội lực hoạt tải "
+                    android:textAllCaps="true"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            // momen lớn nhất CD1
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen max DT TTCĐ1"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtMmax4DTCD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
 
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen max DN TTCĐ1"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtMmax4DNCD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            // momen lớn nhất SD
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen max DT TTSD"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtMmax4DTSD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen max DN TTSD"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtMmax4DNSD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
 
 
+            // view nội lực 4
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-
-
-
-
-
-
-
+                <TextView
+                    android:id="@+id/txtViewMoreMV4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="245dp"
+                    android:layout_marginTop="5dp"
+                    android:text="&lt;View more>"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="italic" />
+            </LinearLayout>
 
 
         </LinearLayout>

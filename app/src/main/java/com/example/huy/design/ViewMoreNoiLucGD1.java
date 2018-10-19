@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -16,22 +18,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewMoreNoiLucGD1 extends AppCompatActivity {
-    private LineChart lineChart;
-    private LineData lineData;
+    private LineChart lineChart,lineChartV;
+    private LineData lineData,lineDataV;
     double M11,M12,M13,M14,M15,M16,M17,M18,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18;
     ///   float x=0;
     float M1val[]=new float[5];
     float M2val[]=new float[5];
     float Q1val[]=new float[5];
     float Q2val[]=new float[5];
+    Button btnSaveNoiLucGD1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_more_noi_luc_gd1);
-//        Intent LHintent = getIntent();
-//        Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
-//        txtAnc.setText(roundString(LHbundle.getDouble("Anc"), 4));
+        btnSaveNoiLucGD1=(Button) findViewById(R.id.btnSaveNoiLucGD1) ;
+
         //Láy kết quả
         Intent ViewMoreNOILUCGD1bundle = getIntent();
         // lấy dữ liệu
@@ -75,84 +76,113 @@ public class ViewMoreNoiLucGD1 extends AppCompatActivity {
         Q2val[3]=(float)Q15;
         Q2val[4]= 0f;
 
-
-
         lineChart= (LineChart) findViewById(R.id.linechartNoiLucGD1);
         lineData= new LineData(getXvalues(),getLineDataValues());
         lineChart.setData(lineData);
-        lineChart.setDescription("Biểu đồ Momen và lực cắt ");
+        lineChart.setDescription("Biểu đồ Momen GD1");
         lineChart.setDescriptionTextSize(20f);
         lineChart.setDescriptionColor(Color.DKGRAY);
-        lineChart.setBackgroundColor(Color.BLACK);
+       // lineChart.setBackgroundColor(Color.BLACK);
         lineChart.animateY(7000);
         lineChart.invalidate();
+        lineChart.setDrawGridBackground(true);
+        lineChart.setDrawBorders(true);
+        lineChart.setDescriptionTextSize(14);
+
+        lineChartV= (LineChart) findViewById(R.id.linechartV);
+        lineDataV= new LineData(getXvaluesV(),getLineDataValuesV());
+        lineChartV.setData(lineDataV);
+        lineChartV.setDescription("Biểu đồ Lực cắt GD1");
+        lineChartV.setDescriptionTextSize(20f);
+        lineChartV.setDescriptionColor(Color.DKGRAY);
+        // lineChart.setBackgroundColor(Color.BLACK);
+        lineChartV.animateY(7000);
+        lineChartV.invalidate();
+        lineChartV.setDrawGridBackground(true);
+        lineChartV.setDrawBorders(true);
+        lineChartV.setDescriptionTextSize(14);
 
     }
     private List<ILineDataSet> getLineDataValues() {
         ArrayList<ILineDataSet> lineDataSets = null;
         ArrayList<Entry> entryArrayList = new ArrayList<>();
         ArrayList<Entry> M2entryArrayList = new ArrayList<>();
-        ArrayList<Entry> Q1entryArrayList = new ArrayList<>();
-        ArrayList<Entry> Q2entryArrayList = new ArrayList<>();
+
         for (int i =0; i< M1val.length;i++){
             entryArrayList.add(new Entry(M1val[i],i));
         }
         for (int i =0; i<M2val.length;i++){
             M2entryArrayList.add(new Entry(M2val[i],i));
         }
-        for (int i =0; i<Q1val.length;i++){
-            Q1entryArrayList.add(new Entry(Q1val[i],i));
-        }
-        for (int i =0; i<Q2val.length;i++){
-            Q2entryArrayList.add(new Entry(Q2val[i],i));
-        }
-//        Entry e1 = new Entry(x,0);
-//        Entry e2 = new Entry(3000f,1);
-//        Entry e3 = new Entry(-50000f,2);
-//        Entry e4 = new Entry(89865f,3);
-//        Entry e5 = new Entry(40000f,4);
-//        entryArrayList.add(e1);
-//        entryArrayList.add(e2);
-//        entryArrayList.add(e3);
-//        entryArrayList.add(e4);
-//        entryArrayList.add(e5);
-        LineDataSet lineDataSet= new LineDataSet(entryArrayList, "M1 kN.m");
+
+        LineDataSet lineDataSet= new LineDataSet(entryArrayList, "M TTGH CD1");
         lineDataSet.setColor(Color.BLUE);
         lineDataSet.setCircleColor(Color.BLUE);
         lineDataSet.setCircleRadius(7);
         lineDataSet.setValueTextColor(Color.BLUE);
 
 
-        LineDataSet lineDataSetM2= new LineDataSet(M2entryArrayList, "M2 kN.m");
-        lineDataSetM2.setColor(Color.RED);
-        lineDataSetM2.setCircleColor(Color.RED);
+        LineDataSet lineDataSetM2= new LineDataSet(M2entryArrayList, "M TTGH SD");
+        lineDataSetM2.setColor(Color.BLACK);
+        lineDataSetM2.setCircleColor(Color.BLACK);
         lineDataSetM2.setCircleRadius(7);
-        lineDataSetM2.setValueTextColor(Color.RED);
-
-        LineDataSet lineDataSetQ1= new LineDataSet(Q1entryArrayList, "Q1 kN");
-        lineDataSetQ1.setColor(Color.GREEN);
-        lineDataSetQ1.setCircleColor(Color.GREEN);
-        lineDataSetQ1.setCircleRadius(7);
-        lineDataSetQ1.setValueTextColor(Color.GREEN);
-
-        LineDataSet lineDataSetQ2= new LineDataSet(Q2entryArrayList, "Q2 kN");
-        lineDataSetQ2.setColor(Color.WHITE);
-        lineDataSetQ2.setCircleColor(Color.WHITE);
-        lineDataSetQ2.setCircleRadius(7);
-        lineDataSetQ2.setValueTextColor(Color.WHITE);
-
+        lineDataSetM2.setValueTextColor(Color.BLACK);
 
         lineDataSets= new ArrayList<>();
         lineDataSets.add(lineDataSet);
         lineDataSets.add(lineDataSetM2);
-        lineDataSets.add(lineDataSetQ1);
-        lineDataSets.add(lineDataSetQ2);
+
 
 
         return lineDataSets;
     }
 
     private List<String> getXvalues() {
+        ArrayList<String> xvalues = new ArrayList<>();
+        xvalues.add("0");
+        xvalues.add("L/8");
+        xvalues.add("L/4");
+        xvalues.add("3L/8");
+        xvalues.add("L/2");
+        //xvalues.set(Color.BLUE);
+        return xvalues;
+    }
+    private List<ILineDataSet> getLineDataValuesV() {
+        ArrayList<ILineDataSet> lineDataSetsV = null;
+           ArrayList<Entry> Q1entryArrayList = new ArrayList<>();
+        ArrayList<Entry> Q2entryArrayList = new ArrayList<>();
+
+        for (int i =0; i<Q1val.length;i++){
+            Q1entryArrayList.add(new Entry(Q1val[i],i));
+        }
+        for (int i =0; i<Q2val.length;i++){
+            Q2entryArrayList.add(new Entry(Q2val[i],i));
+        }
+//
+
+        LineDataSet lineDataSetQ1= new LineDataSet(Q1entryArrayList, "V TTGH CD1");
+        lineDataSetQ1.setColor(Color.RED);
+        lineDataSetQ1.setCircleColor(Color.RED);
+        lineDataSetQ1.setCircleRadius(7);
+        lineDataSetQ1.setValueTextColor(Color.RED);
+
+        LineDataSet lineDataSetQ2= new LineDataSet(Q2entryArrayList, "V TTGH SD");
+        lineDataSetQ2.setColor(Color.MAGENTA);
+        lineDataSetQ2.setCircleColor(Color.MAGENTA);
+        lineDataSetQ2.setCircleRadius(7);
+        lineDataSetQ2.setValueTextColor(Color.MAGENTA);
+
+
+        lineDataSetsV= new ArrayList<>();
+
+        lineDataSetsV.add(lineDataSetQ1);
+        lineDataSetsV.add(lineDataSetQ2);
+
+
+        return lineDataSetsV;
+    }
+
+    private List<String> getXvaluesV() {
         ArrayList<String> xvalues = new ArrayList<>();
         xvalues.add("0");
         xvalues.add("L/8");

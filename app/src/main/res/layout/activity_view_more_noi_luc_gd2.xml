@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ViewMoreNoiLucGD1">
+    tools:context=".ViewMoreNoiLucGD2">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,8 +18,9 @@
             <com.github.mikephil.charting.charts.LineChart
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:id="@+id/linechartNoiLucGD1"
+                android:id="@+id/linechartNoiLucGD2"
                 >
+
             </com.github.mikephil.charting.charts.LineChart>
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/linechartV"
@@ -31,14 +32,6 @@
     </ScrollView>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SAVE"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:id="@+id/btnSaveNoiLucGD1"
-        />
 
 
 </LinearLayout>

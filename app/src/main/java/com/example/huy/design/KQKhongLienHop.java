@@ -18,6 +18,13 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtmgPLDT, txtmgPLDN;
     TextView txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1;
     TextView txtViewMoreQGD1;
+    TextView txtftmaxCD1GD1,txtfdmaxCD1GD1,txtftmaxSDGD1,txtfdmaxSDGD1,txtViewMorefGD1;
+    TextView txtMmaxCD1GD2, txtMmaxSDGD2, txtQmaxCD1GD2, txtQmaxSDGD2;
+    TextView txtViewMoreQGD2,txtViewMorefGD2;
+    TextView txtfdmaxDTSDGD2,txtftmaxDTSDGD2,txtfdmaxDTCD1GD2,txtftmaxDTCD1GD2;
+    TextView txtfdmaxDNSDGD2,txtftmaxDNSDGD2,txtfdmaxDNCD1GD2,txtftmaxDNCD1GD2;
+    TextView txtMmax3CD1,txtMmax3SD, txtQmax3CD1,txtQmax3SD,txtViewMoreMV3;
+    TextView txtMmax4DNSD,txtMmax4DTSD,txtMmax4DNCD1,txtMmax4DTCD1, txtViewMoreMV4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,35 +99,286 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtMmaxSDGD1.setText(roundString(LHbundle.getDouble("M18"), 4));
         txtQmaxCD1GD1.setText(roundString(LHbundle.getDouble("Q14"), 4));
         txtQmaxSDGD1.setText(roundString(LHbundle.getDouble("Q18"), 4));
+        // ứng suất tĩnh tải GD1   txtftmaxCD1GD1,txtfdmaxCD1GD1,txtftmaxSDGD1,txtfdmaxSDGD1,txtViewMorefGD1;
+        txtftmaxCD1GD1.setText(roundString(LHbundle.getDouble("f14"), 4));
+        txtfdmaxCD1GD1.setText(roundString(LHbundle.getDouble("f18"), 4));
+        txtftmaxSDGD1.setText(roundString(LHbundle.getDouble("f112"), 4));
+        txtfdmaxSDGD1.setText(roundString(LHbundle.getDouble("f116"), 4));
+        // MOOIN LỰC TĨNH TẢI GD2
+        txtMmaxCD1GD2.setText(roundString(LHbundle.getDouble("M24"), 4));
+        txtMmaxSDGD2.setText(roundString(LHbundle.getDouble("M28"), 4));
+        txtQmaxCD1GD2.setText(roundString(LHbundle.getDouble("Q24"), 4));
+        txtQmaxSDGD2.setText(roundString(LHbundle.getDouble("Q28"), 4));
+//        txtfdmaxDTSDGD2,txtftmaxDTSDGD2,txtfdmaxDTCD1GD2,txtftmaxDTCD1GD2;
+        txtfdmaxDTSDGD2.setText(roundString(LHbundle.getDouble("f216"), 4));
+        txtftmaxDTSDGD2.setText(roundString(LHbundle.getDouble("f212"), 4));
+        txtfdmaxDTCD1GD2.setText(roundString(LHbundle.getDouble("f28"), 4));
+        txtftmaxDTCD1GD2.setText(roundString(LHbundle.getDouble("f24"), 4));
+
+        txtfdmaxDNSDGD2.setText(roundString(LHbundle.getDouble("f232"), 4));
+        txtftmaxDNSDGD2.setText(roundString(LHbundle.getDouble("f228"), 4));
+        txtfdmaxDNCD1GD2.setText(roundString(LHbundle.getDouble("f224"), 4));
+        txtftmaxDNCD1GD2.setText(roundString(LHbundle.getDouble("f220"), 4));
+
+        //txtMmax3CD1,txtMmax3SD, txtQmax3CD1,txtQmax3SD;
+        txtMmax3CD1.setText(roundString(LHbundle.getDouble("M34"), 4));
+        txtMmax3SD.setText(roundString(LHbundle.getDouble("M38"), 4));
+        txtQmax3CD1.setText(roundString(LHbundle.getDouble("Q34"), 4));
+        txtQmax3SD.setText(roundString(LHbundle.getDouble("Q38"), 4));
+        //txtMmax4DNSD,txtMmax4DTSD,txtMmax4DNCD1,txtMmax4DTCD1, txtViewMoreMV4;
+        txtMmax4DNSD.setText(roundString(LHbundle.getDouble("M416"), 4));
+        txtMmax4DTSD.setText(roundString(LHbundle.getDouble("M412"), 4));
+        txtMmax4DNCD1.setText(roundString(LHbundle.getDouble("M48"), 4));
+        txtMmax4DTCD1.setText(roundString(LHbundle.getDouble("M44"), 4));
+
+
+
+//        .setText(roundString(LHbundle.getDouble(""), 4));
+
+
 
 
         //txt.setText(roundString(LHbundle.getDouble(""), 4));
         viewMoreNoiLucGD1();
+        viewMorefGD1();
+        viewMoreNoiLucGD2();
+        viewMorefGD2();
+        viewMoreNoiLuc3();
+        viewMoreNoiLuc4();
+
+    }
+    public void viewMoreNoiLuc4(){
+        txtViewMoreMV4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+                Intent ViewMoreNoiLuc4bundle = new Intent(KQKhongLienHop.this, ViewMoreNoiLuc4.class);
+                ViewMoreNoiLuc4bundle.putExtra("M41", LHbundle.getDouble("M41"));
+                ViewMoreNoiLuc4bundle.putExtra("M42", LHbundle.getDouble("M42"));
+                ViewMoreNoiLuc4bundle.putExtra("M43", LHbundle.getDouble("M43"));
+                ViewMoreNoiLuc4bundle.putExtra("M44", LHbundle.getDouble("M44"));
+                ViewMoreNoiLuc4bundle.putExtra("M45", LHbundle.getDouble("M45"));
+                ViewMoreNoiLuc4bundle.putExtra("M46", LHbundle.getDouble("M46"));
+                ViewMoreNoiLuc4bundle.putExtra("M47", LHbundle.getDouble("M47"));
+                ViewMoreNoiLuc4bundle.putExtra("M48", LHbundle.getDouble("M48"));
+                ViewMoreNoiLuc4bundle.putExtra("M49", LHbundle.getDouble("M49"));
+                ViewMoreNoiLuc4bundle.putExtra("M410", LHbundle.getDouble("M410"));
+                ViewMoreNoiLuc4bundle.putExtra("M411", LHbundle.getDouble("M411"));
+                ViewMoreNoiLuc4bundle.putExtra("M412", LHbundle.getDouble("M412"));
+                ViewMoreNoiLuc4bundle.putExtra("M413", LHbundle.getDouble("M413"));
+                ViewMoreNoiLuc4bundle.putExtra("M414", LHbundle.getDouble("M414"));
+                ViewMoreNoiLuc4bundle.putExtra("M415", LHbundle.getDouble("M415"));
+                ViewMoreNoiLuc4bundle.putExtra("M416", LHbundle.getDouble("M416"));
+                ViewMoreNoiLuc4bundle.putExtra("Q41", LHbundle.getDouble("Q41"));
+                ViewMoreNoiLuc4bundle.putExtra("Q42", LHbundle.getDouble("Q42"));
+                ViewMoreNoiLuc4bundle.putExtra("Q43", LHbundle.getDouble("Q43"));
+                ViewMoreNoiLuc4bundle.putExtra("Q44", LHbundle.getDouble("Q44"));
+                ViewMoreNoiLuc4bundle.putExtra("Q45", LHbundle.getDouble("Q45"));
+                ViewMoreNoiLuc4bundle.putExtra("Q46", LHbundle.getDouble("Q46"));
+                ViewMoreNoiLuc4bundle.putExtra("Q47", LHbundle.getDouble("Q47"));
+                ViewMoreNoiLuc4bundle.putExtra("Q48", LHbundle.getDouble("Q48"));
+                ViewMoreNoiLuc4bundle.putExtra("Q49", LHbundle.getDouble("Q49"));
+                ViewMoreNoiLuc4bundle.putExtra("Q410", LHbundle.getDouble("Q410"));
+                ViewMoreNoiLuc4bundle.putExtra("Q411", LHbundle.getDouble("Q411"));
+                ViewMoreNoiLuc4bundle.putExtra("Q412", LHbundle.getDouble("Q412"));
+                ViewMoreNoiLuc4bundle.putExtra("Q413", LHbundle.getDouble("Q413"));
+                ViewMoreNoiLuc4bundle.putExtra("Q414", LHbundle.getDouble("Q414"));
+                ViewMoreNoiLuc4bundle.putExtra("Q415", LHbundle.getDouble("Q415"));
+                ViewMoreNoiLuc4bundle.putExtra("Q416", LHbundle.getDouble("Q416"));
+                ViewMoreNoiLuc4bundle.putExtra("Q417", LHbundle.getDouble("Q417"));
+                ViewMoreNoiLuc4bundle.putExtra("Q418", LHbundle.getDouble("Q418"));
+                ViewMoreNoiLuc4bundle.putExtra("Q419", LHbundle.getDouble("Q419"));
+                ViewMoreNoiLuc4bundle.putExtra("Q420", LHbundle.getDouble("Q420"));
+                ViewMoreNoiLuc4bundle.putExtra("Q421", LHbundle.getDouble("Q421"));
+                ViewMoreNoiLuc4bundle.putExtra("Q422", LHbundle.getDouble("Q422"));
+                ViewMoreNoiLuc4bundle.putExtra("Q423", LHbundle.getDouble("Q423"));
+                ViewMoreNoiLuc4bundle.putExtra("Q424", LHbundle.getDouble("Q424"));
+                ViewMoreNoiLuc4bundle.putExtra("Q425", LHbundle.getDouble("Q425"));
+                ViewMoreNoiLuc4bundle.putExtra("Q426", LHbundle.getDouble("Q426"));
+                ViewMoreNoiLuc4bundle.putExtra("Q427", LHbundle.getDouble("Q427"));
+                ViewMoreNoiLuc4bundle.putExtra("Q428", LHbundle.getDouble("Q428"));
+                ViewMoreNoiLuc4bundle.putExtra("Q429", LHbundle.getDouble("Q429"));
+                ViewMoreNoiLuc4bundle.putExtra("Q430", LHbundle.getDouble("Q430"));
+                ViewMoreNoiLuc4bundle.putExtra("Q431", LHbundle.getDouble("Q431"));
+                ViewMoreNoiLuc4bundle.putExtra("Q432", LHbundle.getDouble("Q432"));
+                ViewMoreNoiLuc4bundle.putExtra("Q433", LHbundle.getDouble("Q433"));
+                ViewMoreNoiLuc4bundle.putExtra("Q434", LHbundle.getDouble("Q434"));
+                ViewMoreNoiLuc4bundle.putExtra("Q435", LHbundle.getDouble("Q435"));
+                ViewMoreNoiLuc4bundle.putExtra("Q436", LHbundle.getDouble("Q436"));
+                ViewMoreNoiLuc4bundle.putExtra("Q437", LHbundle.getDouble("Q437"));
+                ViewMoreNoiLuc4bundle.putExtra("Q438", LHbundle.getDouble("Q438"));
+                ViewMoreNoiLuc4bundle.putExtra("Q439", LHbundle.getDouble("Q439"));
+                ViewMoreNoiLuc4bundle.putExtra("Q440", LHbundle.getDouble("Q440"));
+
+                startActivity(ViewMoreNoiLuc4bundle);
+
+            }
+        });
+    }
+    public void viewMoreNoiLuc3(){
+        txtViewMoreMV3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+                Intent ViewMoreNoiLuc3bundle = new Intent(KQKhongLienHop.this, ViewMoreNoiLuc3.class);
+                ViewMoreNoiLuc3bundle.putExtra("M31", LHbundle.getDouble("M31"));
+                ViewMoreNoiLuc3bundle.putExtra("M32", LHbundle.getDouble("M32"));
+                ViewMoreNoiLuc3bundle.putExtra("M33", LHbundle.getDouble("M33"));
+                ViewMoreNoiLuc3bundle.putExtra("M34", LHbundle.getDouble("M34"));
+                ViewMoreNoiLuc3bundle.putExtra("M35", LHbundle.getDouble("M35"));
+                ViewMoreNoiLuc3bundle.putExtra("M36", LHbundle.getDouble("M36"));
+                ViewMoreNoiLuc3bundle.putExtra("M37", LHbundle.getDouble("M37"));
+                ViewMoreNoiLuc3bundle.putExtra("M38", LHbundle.getDouble("M38"));
+                ViewMoreNoiLuc3bundle.putExtra("Q31", LHbundle.getDouble("Q31"));
+                ViewMoreNoiLuc3bundle.putExtra("Q32", LHbundle.getDouble("Q32"));
+                ViewMoreNoiLuc3bundle.putExtra("Q33", LHbundle.getDouble("Q33"));
+                ViewMoreNoiLuc3bundle.putExtra("Q34", LHbundle.getDouble("Q34"));
+                ViewMoreNoiLuc3bundle.putExtra("Q35", LHbundle.getDouble("Q35"));
+                ViewMoreNoiLuc3bundle.putExtra("Q36", LHbundle.getDouble("Q36"));
+                ViewMoreNoiLuc3bundle.putExtra("Q37", LHbundle.getDouble("Q37"));
+                ViewMoreNoiLuc3bundle.putExtra("Q38", LHbundle.getDouble("Q38"));
+
+
+                startActivity(ViewMoreNoiLuc3bundle);
+            }
+        });
+    }
+    public void viewMorefGD2(){
+        txtViewMorefGD2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+                Intent ViewMoreUngSuatGD2bundle = new Intent(KQKhongLienHop.this, ViewMoreUngSuatGD2.class);
+                ViewMoreUngSuatGD2bundle.putExtra("f21", LHbundle.getDouble("f21"));
+                ViewMoreUngSuatGD2bundle.putExtra("f22", LHbundle.getDouble("f22"));
+                ViewMoreUngSuatGD2bundle.putExtra("f23", LHbundle.getDouble("f23"));
+                ViewMoreUngSuatGD2bundle.putExtra("f24", LHbundle.getDouble("f24"));
+                ViewMoreUngSuatGD2bundle.putExtra("f25", LHbundle.getDouble("f25"));
+                ViewMoreUngSuatGD2bundle.putExtra("f26", LHbundle.getDouble("f26"));
+                ViewMoreUngSuatGD2bundle.putExtra("f27", LHbundle.getDouble("f27"));
+                ViewMoreUngSuatGD2bundle.putExtra("f28", LHbundle.getDouble("f28"));
+                ViewMoreUngSuatGD2bundle.putExtra("f29", LHbundle.getDouble("f29"));
+                ViewMoreUngSuatGD2bundle.putExtra("f210", LHbundle.getDouble("f210"));
+                ViewMoreUngSuatGD2bundle.putExtra("f211", LHbundle.getDouble("f211"));
+                ViewMoreUngSuatGD2bundle.putExtra("f212", LHbundle.getDouble("f212"));
+                ViewMoreUngSuatGD2bundle.putExtra("f213", LHbundle.getDouble("f213"));
+                ViewMoreUngSuatGD2bundle.putExtra("f214", LHbundle.getDouble("f214"));
+                ViewMoreUngSuatGD2bundle.putExtra("f215", LHbundle.getDouble("f215"));
+                ViewMoreUngSuatGD2bundle.putExtra("f216", LHbundle.getDouble("f216"));
+                ViewMoreUngSuatGD2bundle.putExtra("f217", LHbundle.getDouble("f217"));
+                ViewMoreUngSuatGD2bundle.putExtra("f218", LHbundle.getDouble("f218"));
+                ViewMoreUngSuatGD2bundle.putExtra("f219", LHbundle.getDouble("f219"));
+                ViewMoreUngSuatGD2bundle.putExtra("f220", LHbundle.getDouble("f220"));
+                ViewMoreUngSuatGD2bundle.putExtra("f221", LHbundle.getDouble("f221"));
+                ViewMoreUngSuatGD2bundle.putExtra("f222", LHbundle.getDouble("f222"));
+                ViewMoreUngSuatGD2bundle.putExtra("f223", LHbundle.getDouble("f223"));
+                ViewMoreUngSuatGD2bundle.putExtra("f224", LHbundle.getDouble("f224"));
+                ViewMoreUngSuatGD2bundle.putExtra("f225", LHbundle.getDouble("f225"));
+                ViewMoreUngSuatGD2bundle.putExtra("f226", LHbundle.getDouble("f226"));
+                ViewMoreUngSuatGD2bundle.putExtra("f227", LHbundle.getDouble("f227"));
+                ViewMoreUngSuatGD2bundle.putExtra("f228", LHbundle.getDouble("f228"));
+                ViewMoreUngSuatGD2bundle.putExtra("f229", LHbundle.getDouble("f229"));
+                ViewMoreUngSuatGD2bundle.putExtra("f230", LHbundle.getDouble("f230"));
+                ViewMoreUngSuatGD2bundle.putExtra("f231", LHbundle.getDouble("f231"));
+                ViewMoreUngSuatGD2bundle.putExtra("f232", LHbundle.getDouble("f232"));
+
+                startActivity(ViewMoreUngSuatGD2bundle);
+            }
+        });
+
+    }
+    public void viewMoreNoiLucGD2(){
+        txtViewMoreQGD2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+                Intent ViewMoreNOILUCGD2bundle = new Intent(KQKhongLienHop.this, ViewMoreNoiLucGD2.class);
+                //TODO lấy dữ liệu tính toán ráp vào, tạm thời a để 11,13
+                ViewMoreNOILUCGD2bundle.putExtra("M21", LHbundle.getDouble("M21"));
+                ViewMoreNOILUCGD2bundle.putExtra("M22", LHbundle.getDouble("M22"));
+                ViewMoreNOILUCGD2bundle.putExtra("M23", LHbundle.getDouble("M23"));
+                ViewMoreNOILUCGD2bundle.putExtra("M24", LHbundle.getDouble("M24"));
+                ViewMoreNOILUCGD2bundle.putExtra("M25", LHbundle.getDouble("M25"));
+                ViewMoreNOILUCGD2bundle.putExtra("M26", LHbundle.getDouble("M26"));
+                ViewMoreNOILUCGD2bundle.putExtra("M27", LHbundle.getDouble("M27"));
+                ViewMoreNOILUCGD2bundle.putExtra("M28", LHbundle.getDouble("M28"));
+                ViewMoreNOILUCGD2bundle.putExtra("Q21", LHbundle.getDouble("Q21"));
+                ViewMoreNOILUCGD2bundle.putExtra("Q22", LHbundle.getDouble("Q22"));
+                ViewMoreNOILUCGD2bundle.putExtra("Q23", LHbundle.getDouble("Q23"));
+                ViewMoreNOILUCGD2bundle.putExtra("Q24", LHbundle.getDouble("Q24"));
+                ViewMoreNOILUCGD2bundle.putExtra("Q25", LHbundle.getDouble("Q25"));
+                ViewMoreNOILUCGD2bundle.putExtra("Q26", LHbundle.getDouble("Q26"));
+                ViewMoreNOILUCGD2bundle.putExtra("Q27", LHbundle.getDouble("Q27"));
+                ViewMoreNOILUCGD2bundle.putExtra("Q28", LHbundle.getDouble("Q28"));
+                startActivity(ViewMoreNOILUCGD2bundle);
+
+            }
+        });
+
+    }
+
+    public void viewMorefGD1(){
+        txtViewMorefGD1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+                Intent ViewMoreUNGSUATGD1bundle = new Intent(KQKhongLienHop.this, ViewMoreUngSuatGD1.class);
+                ViewMoreUNGSUATGD1bundle.putExtra("f11", LHbundle.getDouble("f11"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f12", LHbundle.getDouble("f12"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f13", LHbundle.getDouble("f13"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f14", LHbundle.getDouble("f14"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f15", LHbundle.getDouble("f15"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f16", LHbundle.getDouble("f16"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f17", LHbundle.getDouble("f17"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f18", LHbundle.getDouble("f18"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f19", LHbundle.getDouble("f19"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f110", LHbundle.getDouble("f110"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f111", LHbundle.getDouble("f111"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f112", LHbundle.getDouble("f112"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f113", LHbundle.getDouble("f113"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f114", LHbundle.getDouble("f114"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f115", LHbundle.getDouble("f115"));
+                ViewMoreUNGSUATGD1bundle.putExtra("f116", LHbundle.getDouble("f116"));
+
+
+                startActivity(ViewMoreUNGSUATGD1bundle);
+
+            }
+        });
+
     }
 
     public void viewMoreNoiLucGD1() {
         txtViewMoreQGD1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
                 Intent ViewMoreNOILUCGD1bundle = new Intent(KQKhongLienHop.this, ViewMoreNoiLucGD1.class);
                 //TODO lấy dữ liệu tính toán ráp vào, tạm thời a để 11,13
-                ViewMoreNOILUCGD1bundle.putExtra("M11", 11.0);
-                ViewMoreNOILUCGD1bundle.putExtra("M12", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("M13", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("M14", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("M15", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("M16", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("M17", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("M18", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("Q11", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("Q12", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("Q13", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("Q14", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("Q15", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("Q16", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("Q17", 13.0);
-                ViewMoreNOILUCGD1bundle.putExtra("Q18", 13.0);
+                ViewMoreNOILUCGD1bundle.putExtra("M11", LHbundle.getDouble("M11"));
+                ViewMoreNOILUCGD1bundle.putExtra("M12", LHbundle.getDouble("M12"));
+                ViewMoreNOILUCGD1bundle.putExtra("M13", LHbundle.getDouble("M13"));
+                ViewMoreNOILUCGD1bundle.putExtra("M14", LHbundle.getDouble("M14"));
+                ViewMoreNOILUCGD1bundle.putExtra("M15", LHbundle.getDouble("M15"));
+                ViewMoreNOILUCGD1bundle.putExtra("M16", LHbundle.getDouble("M16"));
+                ViewMoreNOILUCGD1bundle.putExtra("M17", LHbundle.getDouble("M17"));
+                ViewMoreNOILUCGD1bundle.putExtra("M18", LHbundle.getDouble("M18"));
+                ViewMoreNOILUCGD1bundle.putExtra("Q11", LHbundle.getDouble("Q11"));
+                ViewMoreNOILUCGD1bundle.putExtra("Q12", LHbundle.getDouble("Q12"));
+                ViewMoreNOILUCGD1bundle.putExtra("Q13", LHbundle.getDouble("Q13"));
+                ViewMoreNOILUCGD1bundle.putExtra("Q14", LHbundle.getDouble("Q14"));
+                ViewMoreNOILUCGD1bundle.putExtra("Q15", LHbundle.getDouble("Q15"));
+                ViewMoreNOILUCGD1bundle.putExtra("Q16", LHbundle.getDouble("Q16"));
+                ViewMoreNOILUCGD1bundle.putExtra("Q17", LHbundle.getDouble("Q17"));
+                ViewMoreNOILUCGD1bundle.putExtra("Q18", LHbundle.getDouble("Q18"));
                 startActivity(ViewMoreNOILUCGD1bundle);
+
             }
         });
 
@@ -189,6 +447,43 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtQmaxCD1GD1 = (TextView) findViewById(R.id.txtQmaxCD1GD1);
         txtQmaxSDGD1 = (TextView) findViewById(R.id.txtQmaxSDGD1);
         txtViewMoreQGD1 = (TextView) findViewById(R.id.txtViewMoreQGD1);
+        // ứng suất tĩnh tải dg1
+        txtftmaxCD1GD1 = (TextView) findViewById(R.id.txtftmaxCD1GD1);
+        txtfdmaxCD1GD1 = (TextView) findViewById(R.id.txtfdmaxCD1GD1);
+        txtftmaxSDGD1 = (TextView) findViewById(R.id.txtftmaxSDGD1);
+        txtfdmaxSDGD1 = (TextView) findViewById(R.id.txtfdmaxSDGD1);
+        txtViewMorefGD1= (TextView) findViewById(R.id.txtViewMorefGD1);
+        // nội lực tĩnh tải gd2
+        txtMmaxCD1GD2 = (TextView) findViewById(R.id.txtMmaxCD1GD2);
+        txtMmaxSDGD2 = (TextView) findViewById(R.id.txtMmaxSDGD2);
+        txtQmaxCD1GD2 = (TextView) findViewById(R.id.txtQmaxCD1GD2);
+        txtQmaxSDGD2 = (TextView) findViewById(R.id.txtQmaxSDGD2);
+        txtViewMoreQGD2 = (TextView) findViewById(R.id.txtViewMoreQGD2);
+        txtViewMorefGD2=(TextView) findViewById(R.id.txtViewMorefGD2);
+//        txtfdmaxDTSDGD2,txtftmaxDTSDGD2,txtfdmaxDTCD1GD2,txtftmaxDTCD1GD2;
+        txtfdmaxDTSDGD2 =(TextView) findViewById(R.id.txtfdmaxDTSDGD2);
+        txtftmaxDTSDGD2=(TextView) findViewById(R.id.txtftmaxDTSDGD2);
+        txtfdmaxDTCD1GD2=(TextView) findViewById(R.id.txtfdmaxDTCD1GD2);
+        txtftmaxDTCD1GD2 =(TextView) findViewById(R.id.txtftmaxDTCD1GD2);
+        txtfdmaxDNSDGD2 =(TextView) findViewById(R.id.txtfdmaxDNSDGD2);
+        txtftmaxDNSDGD2=(TextView) findViewById(R.id.txtftmaxDNSDGD2);
+        txtfdmaxDNCD1GD2=(TextView) findViewById(R.id.txtfdmaxDNCD1GD2);
+        txtftmaxDNCD1GD2 =(TextView) findViewById(R.id.txtftmaxDNCD1GD2);
+
+        //txtMmax3CD1,txtMmax3SD, txtQmax3CD1,txtQmax3SD;
+        txtMmax3CD1=(TextView) findViewById(R.id.txtMmax3CD1);
+        txtMmax3SD=(TextView) findViewById(R.id.txtMmax3SD);
+        txtQmax3CD1=(TextView) findViewById(R.id.txtQmax3CD1);
+        txtQmax3SD=(TextView) findViewById(R.id.txtQmax3SD);
+        txtViewMoreMV3=(TextView) findViewById(R.id.txtViewMoreMV3);
+        //txtMmax4DNSD,txtMmax4DTSD,txtMmax4DNCD1,txtMmax4DTCD1, txtViewMoreMV4;
+        txtMmax4DNSD=(TextView) findViewById(R.id.txtMmax4DNSD);
+        txtMmax4DTSD=(TextView) findViewById(R.id.txtMmax4DTSD);
+        txtMmax4DNCD1=(TextView) findViewById(R.id.txtMmax4DNCD1);
+        txtMmax4DTCD1 =(TextView) findViewById(R.id.txtMmax4DTCD1);
+        txtViewMoreMV4 =(TextView) findViewById(R.id.txtViewMoreMV4);
+//           =(TextView) findViewById(R.id.);
+
 
 
     }

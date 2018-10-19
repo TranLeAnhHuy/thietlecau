@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ViewMoreNoiLucGD1">
+    tools:context=".ViewMoreUngSuatGD2"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,29 +15,24 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/linechartUngSuatDTGD2"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:id="@+id/linechartNoiLucGD1"
-                >
+                android:layout_height="400dp">
             </com.github.mikephil.charting.charts.LineChart>
             <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/linechartV"
+                android:id="@+id/linechartUngSuatDNGD2"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:layout_marginTop="20dp">
             </com.github.mikephil.charting.charts.LineChart>
         </LinearLayout>
+
+
+
+
+
+
+
     </ScrollView>
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SAVE"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:id="@+id/btnSaveNoiLucGD1"
-        />
-
 
 </LinearLayout>

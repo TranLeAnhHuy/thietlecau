@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.huy.design">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +22,12 @@
         <activity android:name=".thietke_dialog" />
         <activity android:name=".KQLienHop" />
         <activity android:name=".KQKhongLienHop" />
-        <activity android:name=".ViewMoreNoiLucGD1"></activity>
+        <activity android:name=".ViewMoreNoiLucGD1" />
+        <activity android:name=".ViewMoreUngSuatGD1" />
+        <activity android:name=".ViewMoreNoiLucGD2" />
+        <activity android:name=".ViewMoreUngSuatGD2" />
+        <activity android:name=".ViewMoreNoiLuc3" />
+        <activity android:name=".ViewMoreNoiLuc4"></activity>
     </application>
 
 </manifest>
