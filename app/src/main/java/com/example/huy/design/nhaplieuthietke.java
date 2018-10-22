@@ -61,14 +61,20 @@ public class nhaplieuthietke extends AppCompatActivity {
     double Q431,Q432,Q433,Q434,Q435,Q436,Q437,Q438,Q439,Q440;
     double m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12,m13,m14,m15,m16;
     double q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,q20,q21,q22,q23,q24,q25,q26,q27,q28,q29,q30,q31,q32,q33,q34,q35,q36,q37,q38,q39,q40;
-    float M1val[]=new float[5];
-    float M2val[]=new float[5];
-    float M3val[]=new float[5];
-    float M4val[]=new float[5];
-    float Q1val[]=new float[5];
-    float Q2val[]=new float[5];
-    float Q3val[]=new float[5];
-    float Q4val[]=new float[5];
+    //co ngót
+    double ks, M51,M52,f51,f52,f53,f54;
+    //mỏi
+    double M61,M62,M63,M64,Q61,Q62,Q63,Q64,Q65,Q66,Q67,Q68,Q69,Q610;
+
+
+//    float M1val[]=new float[5];
+//    float M2val[]=new float[5];
+//    float M3val[]=new float[5];
+//    float M4val[]=new float[5];
+//    float Q1val[]=new float[5];
+//    float Q2val[]=new float[5];
+//    float Q3val[]=new float[5];
+//    float Q4val[]=new float[5];
 
 
 
@@ -151,6 +157,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtDClcBT=(EditText) findViewById(R.id.edtDClcBT);
         edtPL=(EditText) findViewById(R.id.edtPL);
         edtT=(EditText) findViewById(R.id.edtT);
+
        // edt=(EditText) findViewById(R.id.edt);
         //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
 
@@ -204,6 +211,8 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhUngSuatTinhTaiGD2();
                     tinhNoiLuc1va2();
                     tinhNoiLuc4();
+                    tinhNoiLuc5();
+                    tinhNoiLuc6();
 
 
                     // đóng gói và truyền dữ liệu
@@ -418,6 +427,28 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putDouble("Q438",Q438 );
                     LHbundle.putDouble("Q439",Q439 );
                     LHbundle.putDouble("Q440",Q440 );
+                    LHbundle.putDouble("Q440",Q440 );
+                    LHbundle.putDouble("M51",M51 );
+                    LHbundle.putDouble("M52",M52);
+                    LHbundle.putDouble("f51",f51);
+                    LHbundle.putDouble("f52",f52);
+                    LHbundle.putDouble("f53",f53);
+                    LHbundle.putDouble("f54",f54);
+                    LHbundle.putDouble("M61",M61 );
+                    LHbundle.putDouble("M62",M62 );
+                    LHbundle.putDouble("M63",M63 );
+                    LHbundle.putDouble("M64",M64 );
+                    LHbundle.putDouble("Q61",Q61 );
+                    LHbundle.putDouble("Q62",Q62 );
+                    LHbundle.putDouble("Q63",Q63 );
+                    LHbundle.putDouble("Q64",Q64 );
+                    LHbundle.putDouble("Q65",Q65 );
+                    LHbundle.putDouble("Q66",Q66 );
+                    LHbundle.putDouble("Q67",Q67 );
+                    LHbundle.putDouble("Q68",Q68 );
+                    LHbundle.putDouble("Q69",Q69 );
+                    LHbundle.putDouble("Q610",Q610 );
+
 
 
 
@@ -430,97 +461,369 @@ public class nhaplieuthietke extends AppCompatActivity {
         });
 
     }
+    public void  tinhNoiLuc6(){
+        //L/8
+
+        if ((7*Ls/8)-13.3>0){
+            M61=(7.0/64)*Ls*heSoHoatTai*145+(1.0/8)*((7*Ls/8)-9)*heSoHoatTai*145+(1.0/8)*((7*Ls/8)-13.3)*heSoHoatTai*35;
+            Toast.makeText(nhaplieuthietke.this,""+M61,Toast.LENGTH_LONG).show();
+        }
+        else if((7*Ls/8)-13.3<=0 && (7*Ls/8)-9>0) {
+            M61=(7.0/64)*Ls*heSoHoatTai*145+(1.0/8)*((7*Ls/8)-9)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M61,Toast.LENGTH_LONG).show();
+        }
+        else if( (7*Ls/8)-9<=0) {
+            M61=(7.0/64)*Ls*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M61,Toast.LENGTH_LONG).show();
+        }
+        ///L/4
+
+        if ((3*Ls/4)-13.3>0){
+            M62=(3.0/16)*Ls*145*heSoHoatTai+(1.0/4)*((3*Ls/4)-9)*145*heSoHoatTai+(1.0/4)*((3*Ls/4)-13.3)*35*heSoHoatTai;
+
+            Toast.makeText(nhaplieuthietke.this,""+M62,Toast.LENGTH_LONG).show();
+        }
+        else if((3*Ls/4)-13.3<=0 && (3*Ls/4)-9>0) {
+            M62=(3.0/16)*Ls*145*heSoHoatTai+(1.0/4)*((3*Ls/4)-9)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M62,Toast.LENGTH_LONG).show();
+
+        }
+        else if((3*Ls/4)-9<=0) {
+            M62=(3.0/16)*Ls*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M62,Toast.LENGTH_LONG).show();
+
+        }
+
+        //3L/8
+
+        if ((5*Ls/8)-9>0 && (3*Ls/8)-4.3>0){
+            M63=(15.0/64)*Ls*145*heSoHoatTai+(3.0/8)*((5*Ls/8)-9)*145*heSoHoatTai+(5.0/8)*((3*Ls/8)-4.3)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
+        }
+        else if((5*Ls/8)-9<=0 && (3*Ls/8)-4.3<=0) {
+            M63=(15.0/64)*Ls*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
+
+        }
+        else if((5*Ls/8)-9>0 && (3*Ls/8)-4.3<=0) {
+            M63=(15.0/64)*Ls*145*heSoHoatTai+(3.0/8)*((5*Ls/8)-9)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
+        }
+        else if((5*Ls/8)-9<=0 && (3*Ls/8)-4.3>0) {
+            M63=(15.0/64)*Ls*145*heSoHoatTai+(5.0/8)*((3*Ls/8)-4.3)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
+        }
+        //L/2
+
+
+
+        if ((Ls/2)-9>0){
+            M64=(1.0/4)*Ls*145*heSoHoatTai+(1.0/2)*((Ls/2)-9)*145*heSoHoatTai+(1.0/2)*((Ls/2)-4.3)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
+        }
+        else if((Ls/2)-9<=0 && (Ls/2)-4.3>0) {
+            M64=(1.0/4)*Ls*145*heSoHoatTai+(1.0/2)*(((Ls/2)-4.3)*35)*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
+        }
+        else if((Ls/2)-4.3<=0) {
+            M64=(1.0/4)*Ls*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
+        }
+
+        // lực cắt
+
+        // GỐI
+
+        if (Ls-13.3>0){
+            Q61=145*heSoHoatTai+((Ls-9)/Ls)*145*heSoHoatTai+((Ls-13.3)/Ls)*35*heSoHoatTai;
+                       Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
+        }
+        else if(Ls-13.3<=0 && Ls-9>0) {
+            Q61=145*heSoHoatTai+((Ls-9)/Ls)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
+        }
+        else if( Ls-9<=0) {
+            Q61=145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
+                  }
+                  //l/8
+
+
+        if ((7*Ls/8)-13.3>0){
+            Q62=(7.0/8)*145*heSoHoatTai+(((7*Ls/8)-9)/Ls)*145*heSoHoatTai+(((7*Ls/8)-13.3)/Ls)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
+        }
+        else if((7*Ls/8)-13.3<=0 && (7*Ls/8)-9>0) {
+            Q62=(7.0/8)*145*heSoHoatTai+(((7*Ls/8)-9)/Ls)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
+
+        }
+        else if((7*Ls/8)-9<=0) {
+            Q62=(7.0/8)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
+        }
+        //l/4
+
+        if ((3*Ls/4)-13.3>0){
+            Q63=(3.0/4)*145*heSoHoatTai+(((3*Ls/4)-9)/Ls)*145*heSoHoatTai+(((3*Ls/4)-13.3)/Ls)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q63,Toast.LENGTH_LONG).show();
+        }
+        else if((3*Ls/4)-13.3<=0 && (3*Ls/4)-9>0) {
+            Q63=(3.0/4)*145*heSoHoatTai+(((3*Ls/4)-9)/Ls)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q63,Toast.LENGTH_LONG).show();
+
+        }
+        else if( (3*Ls/4)-9<=0) {
+            Q63=(3.0/4)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q63,Toast.LENGTH_LONG).show();
+        }
+        //3l/8
+
+        if ((5*Ls/8)-13.3>0){
+            Q64=(5.0/8)*145*heSoHoatTai+(((5*Ls/8)-9)/Ls)*145*heSoHoatTai+(((5*Ls/8)-13.3)/Ls)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q64,Toast.LENGTH_LONG).show();
+        }
+        else if((5*Ls/8)-13.3<=0 && (5*Ls/8)-9>0) {
+            Q64=(5.0/8)*145*heSoHoatTai+(((5*Ls/8)-9)/Ls)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q64,Toast.LENGTH_LONG).show();
+
+        }
+        else if((5*Ls/8)-9<=0) {
+            Q64=(5.0/8)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q64,Toast.LENGTH_LONG).show();
+        }
+
+        //L/2
+//        Nếu Ls/2-13,3>0
+//        Q5=(1/2).145+(Ls/2-9)/Ls.145+(Ls/2-13,3)/Ls.35
+//        Nếu Ls/2-13,3<=0 và Ls/2-9>0
+//        Q5=(1/2).145+(Ls/2-9)/Ls.145
+//        Nếu Ls/2-9<=0
+//        Q5=(1/2).145
+        if ((Ls/2)-13.3>0){
+            Q65=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai+(((Ls/2)-13.3)/Ls)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q65,Toast.LENGTH_LONG).show();
+        }
+        else if((Ls/2)-13.3<=0 && (Ls/2)-9>0) {
+            Q65=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q65,Toast.LENGTH_LONG).show();
+
+        }
+        else if((Ls/2)-9<=0) {
+            Q65=(1.0/2)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q65,Toast.LENGTH_LONG).show();
+        }
+        //
+        Q66=0;
+///
+        if ((Ls/8)-13.3>0){
+            Q67=(1.0/8)*145*heSoHoatTai+(((Ls/8)-9)/Ls)*145*heSoHoatTai+(((Ls/8)-13.3)/Ls)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
+        }
+        else if((Ls/8)-13.3<=0 && (Ls/8)-9>0) {
+            Q67=(1.0/8)*145*heSoHoatTai+(((Ls/8)-4.3)/Ls)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
+        }
+        else if((Ls/8)-9<=0) {
+            Q67=(1.0/8)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
+             }
+
+
+        if ((Ls/4)-13.3>0){
+            Q68=(1.0/4)*145*heSoHoatTai+(((Ls/4)-9)/Ls)*145*heSoHoatTai+(((Ls/4)-13.3)/Ls)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
+        }
+        else if((Ls/4)-13.3<=0 && (Ls/4)-9>0) {
+            Q68=(1.0/4)*145*heSoHoatTai+(((Ls/4)-9)/Ls)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
+        }
+        else if( (Ls/4)-9<=0) {
+            Q68=(1.0/4)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
+        }
+
+
+        if ((3*Ls/8)-13.3>0){
+            Q69=(3.0/8)*145*heSoHoatTai+(((3*Ls/8)-9)/Ls)*145*heSoHoatTai+(((3*Ls/8)-13.3)/Ls)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
+        }
+        else if((3*Ls/8)-13.3<=0 && (3*Ls/8)-9>0) {
+            Q69=(3.0/8)*145*heSoHoatTai+(((3*Ls/8)-9)/Ls)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
+        }
+        else if((3*Ls/8)-9<=0) {
+            Q69=(3.0/8)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
+        }
+
+
+        if ((Ls/2)-13.3>0){
+            Q610=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai+(((Ls/2)-13.3)/Ls)*35*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
+        }
+        else if( (Ls/2)-13.3<=0 && (Ls/2)-9>0) {
+            Q610=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
+
+        }
+        else if((Ls/2)-9<=0) {
+            Q610=(1.0/2)*145*heSoHoatTai;
+            Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
+        }
+
+    }
+    public void tinhNoiLuc5(){
+        // nọi lực do CO NGÓT
+
+        // tính hệ số ks t=10000
+
+        if ((ts/2) < 25){
+            ks=1.04;
+            //  Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
+            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+        }
+        else if((ts/2)>= 25 && (ts/2) < 38) {
+            ks=1+((38.0-ts/2)*(1.04-1))/(38.0-25.0);
+               Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+        }
+        else if((ts/2)>=38 && (ts/2) < 50) {
+            ks=0.97+((50.0-ts/2)*(1-0.97))/(50.0-38.0);
+            //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
+            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+        }
+        else if((ts/2) >= 50 && (ts/2) <75) {
+            ks=0.84+((75.0-ts/2)*(0.97-0.84))/(75.0-50.0);
+            //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
+            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+        }
+        else if((ts/2) >=75 && (ts/2) <100) {
+            ks=0.74+((100.0-ts/2)*(0.84-0.74))/(100.0-75.0);
+            //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
+            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+        }
+        else if((ts/2)>=100 && (ts/2) <125) {
+            ks=0.63+((125.0-ts/2)*(0.74-0.63))/(125.0-100.0);
+            //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
+            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+        }
+        else if((ts/2)>=125 && (ts/2)<150) {
+            ks=0.55+((150.0-ts/2)*(0.63-0.55))/(150.0-125.0);
+            //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
+            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+        }
+        else if((ts/2)>=150) {
+            ks=0.55;
+            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+            //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
+        }
+
+        // momen co ngót
+//        Dầm trong	M1=(Es.Anc.(Yltd(dầm trong)-Yncd(dầm trong)).ks.kh.t.0,51.10-3)/(35+t)
+        M51= ((Es*Anc*(YltdDT-Yncd)*ks*1*10000*0.51*(1.0/(1000)))/(35+10000))/1000000;
+
+        M52= ((Es*Anc*(YltdDN-Yncd)*ks*1*10000*0.51*(1.0/(1000)))/(35+10000))/1000000;
+
+        // DẦM TRONG
+//
+        f51= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDT)-(Anc*(YltdDT-Yncd)*(YlttDT/IltDT))-1);
+        f52= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDT)-(Anc*(YltdDT-Yncd)*(YltdDT/IltDT))-1);
+        f53= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDN)-(Anc*(YltdDN-Yncd)*(YlttDN/IltDN))-1);
+        f54= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDN)-(Anc*(YltdDN-Yncd)*(YltdDN/IltDN))-1);
+
+
+    }
     public void tinhNoiLuc4(){
         // phần ni tính xe 3 trục
         //L/8
 
         if ( ((7.0/8)*Ls-8.6 ) > 0){
-            m1 =(7.0/64)*Ls*145+(1.0/8)*((7.0/8)*Ls-4.3)*145+(1.0/8)*((7.0/8)*Ls-8.6)*35;
+            m1 =(7.0/64)*Ls*heSoHoatTai*145+(1.0/8)*((7.0/8)*Ls-4.3)*heSoHoatTai*145+(1.0/8)*((7.0/8)*Ls-8.6)*heSoHoatTai*35;
           //  Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
         }
         else if ((7.0*Ls/8)-4.3 <= 0) {
-            m1 =(7.0/64)*Ls*145+(1.0/8)*((7.0/8)*Ls-4.3)*145;
+            m1 =(7.0/64)*Ls*heSoHoatTai*145+(1.0/8)*((7.0/8)*Ls-4.3)*145*heSoHoatTai;
          //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
         }
         //L/4
 
         if ( ((3*Ls/4)-8.6) > 0){
-            m2 =(3.0/16)*Ls*145+(1.0/4)*((3*Ls/4)-4.3)*145+(1.0/4)*((3*Ls/4)-8.6)*35;
-             Toast.makeText(nhaplieuthietke.this,""+m2,Toast.LENGTH_LONG).show();
+            m2 =(3.0/16)*Ls*145*heSoHoatTai+(1.0/4)*((3*Ls/4)-4.3)*145*heSoHoatTai+(1.0/4)*((3*Ls/4)-8.6)*35*heSoHoatTai;
+         //    Toast.makeText(nhaplieuthietke.this,""+m2,Toast.LENGTH_LONG).show();
         }
         else if ((3*Ls/4)-4.3 <= 0) {
-            m2 =(3.0/16)*Ls*145;
-              Toast.makeText(nhaplieuthietke.this,""+m2,Toast.LENGTH_LONG).show();
+            m2 =(3.0/16)*Ls*145*heSoHoatTai;
+        //      Toast.makeText(nhaplieuthietke.this,""+m2,Toast.LENGTH_LONG).show();
         }
         else if(((3*Ls/4)-4.3)> 0 && ((3*Ls/4)-8.6) <= 0){
-            m2=(3.0/16)*Ls*145+(1.0/4)*((3*Ls/4)-4.3)*145;
-            Toast.makeText(nhaplieuthietke.this,""+m2,Toast.LENGTH_LONG).show();
+            m2=(3.0/16)*Ls*145*heSoHoatTai+(1.0/4)*((3*Ls/4)-4.3)*145*heSoHoatTai;
+        //    Toast.makeText(nhaplieuthietke.this,""+m2,Toast.LENGTH_LONG).show();
         }
         //3L/8
 
         if ((3*Ls/8)-4.3>0){
-            m3 =(15.0/64)*Ls*145+(3.0/8)*((5*Ls/8)-4.3)*145+(5.0/8)*((3*Ls/8)-4.3)*35;
-            Toast.makeText(nhaplieuthietke.this,""+m3,Toast.LENGTH_LONG).show();
+            m3 =(15.0/64)*Ls*145*heSoHoatTai+(3.0/8)*((5*Ls/8)-4.3)*145*heSoHoatTai+(5.0/8)*((3*Ls/8)-4.3)*35*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+m3,Toast.LENGTH_LONG).show();
         }
         else if ((5*Ls/8)-4.3<=0) {
-            m3 =(15.0/64)*Ls*145;
-            Toast.makeText(nhaplieuthietke.this,""+m2,Toast.LENGTH_LONG).show();
+            m3 =(15.0/64)*Ls*145*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+m2,Toast.LENGTH_LONG).show();
         }
         else if(((3*Ls/8)-4.3)<=0 && ((5*Ls/8)-4.3>0)){
-            m3=(15.0/64)*Ls*145+((3.0/8)*(5*Ls/8)-4.3)*145;
-            Toast.makeText(nhaplieuthietke.this,""+m3,Toast.LENGTH_LONG).show();
+            m3=(15.0/64)*Ls*145*heSoHoatTai+((3.0/8)*(5*Ls/8)-4.3)*145*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+m3,Toast.LENGTH_LONG).show();
         }
         //L/2
 
         if ( ( (Ls/2)-4.3) <= 0){
-            m4 =(1.0/4)*Ls*145;
-           Toast.makeText(nhaplieuthietke.this,""+m4,Toast.LENGTH_LONG).show();
+            m4 =(1.0/4)*Ls*145*heSoHoatTai;
+        //   Toast.makeText(nhaplieuthietke.this,""+m4,Toast.LENGTH_LONG).show();
         }
         else if ( (Ls/2)-4.3 > 0) {
-            m4 =(1.0/4)*Ls*145+(1.0/2)*((Ls/2)-4.3)*145+(1.0/2)*((Ls/2)-4.3)*35;
-           Toast.makeText(nhaplieuthietke.this,""+m4,Toast.LENGTH_LONG).show();
+           m4 =(1.0/4)*Ls*145*heSoHoatTai+(1.0/2)*((Ls/2)-4.3)*145*heSoHoatTai+(1.0/2)*((Ls/2)-4.3)*35*heSoHoatTai;
+        //   Toast.makeText(nhaplieuthietke.this,""+m4,Toast.LENGTH_LONG).show();
         }
 
         //cái ni do xe 2 trục gây ra
         // L/8
 
         if ( (7*Ls/8)-1.2 <=0){
-            m5 =(7.0/64)*Ls*110;
-            Toast.makeText(nhaplieuthietke.this,""+m5,Toast.LENGTH_LONG).show();
+            m5 =(7.0/64)*Ls*110*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+m5,Toast.LENGTH_LONG).show();
         }
         else if ((7*Ls/8)-1.2 >0) {
-            m5 =(7.0/64)*Ls*110+(1.0/8)*((7*Ls/8)-1.2)*110;
-            Toast.makeText(nhaplieuthietke.this,""+m5,Toast.LENGTH_LONG).show();
+            m5 =(7.0/64)*Ls*110*heSoHoatTai+(1.0/8)*((7*Ls/8)-1.2)*110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+m5,Toast.LENGTH_LONG).show();
         }
         //L/4
 
         if ( (3*Ls/4)-1.2>0){
-            m6 =(3.0/16)*Ls*110+(1.0/4)*((3*Ls/4)-1.2)*110;
-            Toast.makeText(nhaplieuthietke.this,""+m6,Toast.LENGTH_LONG).show();
+            m6 =(3.0/16)*Ls*110*heSoHoatTai+(1.0/4)*((3*Ls/4)-1.2)*110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+m6,Toast.LENGTH_LONG).show();
         }
         else if ((3*Ls/4)-1.2<=0) {
-            m6 =(3.0/16)*Ls*110;
-            Toast.makeText(nhaplieuthietke.this,""+m6,Toast.LENGTH_LONG).show();
+            m6 =(3.0/16)*Ls*110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+m6,Toast.LENGTH_LONG).show();
         }
         //3L/8
 
         if ((5*Ls/8)-1.2>0){
-            m7 =(15.0/64)*Ls*110+(3.0/8)*((5*Ls/8)-1.2)*110;
-            Toast.makeText(nhaplieuthietke.this,""+m7,Toast.LENGTH_LONG).show();
+            m7 =(15.0/64)*Ls*110*heSoHoatTai+(3.0/8)*((5*Ls/8)-1.2)*110*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+m7,Toast.LENGTH_LONG).show();
         }
         else if ((5*Ls/8)-1.2 <=0) {
-            m7 =(15.0/64)*Ls*110;
-            Toast.makeText(nhaplieuthietke.this,""+m7,Toast.LENGTH_LONG).show();
+            m7 =(15.0/64)*Ls*110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+m7,Toast.LENGTH_LONG).show();
         }
         //L/2
 
         if ((Ls/2)-1.2>0){
-            m8 =(1.0/4)*Ls*110+(1.0/2)*((Ls/2)-1.2)*110;
-            Toast.makeText(nhaplieuthietke.this,""+m8,Toast.LENGTH_LONG).show();
+            m8 =(1.0/4)*Ls*110*heSoHoatTai+(1.0/2)*((Ls/2)-1.2)*110*heSoHoatTai;
+        //    Toast.makeText(nhaplieuthietke.this,""+m8,Toast.LENGTH_LONG).show();
         }
         else if ((Ls/2)-1.2<=0) {
-            m8 =(1.0/4)*Ls*110;
-            Toast.makeText(nhaplieuthietke.this,""+m8,Toast.LENGTH_LONG).show();
+            m8 =(1.0/4)*Ls*110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+m8,Toast.LENGTH_LONG).show();
         }
         // tải trọng làn
         m9=(651.0/1280)*Ls*Ls;
@@ -561,76 +864,76 @@ public class nhaplieuthietke extends AppCompatActivity {
 
 
         if (Ls-8.6 >0){
-            q1 =145+((Ls-4.3)/Ls)*145+((Ls-8.6)/Ls)*35;
-            Toast.makeText(nhaplieuthietke.this,""+q1,Toast.LENGTH_LONG).show();
+            q1 =145*heSoHoatTai+((Ls-4.3)/Ls)*145*heSoHoatTai+((Ls-8.6)/Ls)*35*heSoHoatTai;
+       //     Toast.makeText(nhaplieuthietke.this,""+q1,Toast.LENGTH_LONG).show();
         }
         else if (Ls-8.6<=0 && Ls-4.3>0) {
-            q1 =145+((Ls-4.3)/Ls)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q1,Toast.LENGTH_LONG).show();
+            q1 =145*heSoHoatTai+((Ls-4.3)/Ls)*145*heSoHoatTai;
+         //   Toast.makeText(nhaplieuthietke.this,""+q1,Toast.LENGTH_LONG).show();
         }
         else if(Ls-4.3<=0){
-            q1 =145;
-            Toast.makeText(nhaplieuthietke.this,""+q1,Toast.LENGTH_LONG).show();
+            q1 =145*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q1,Toast.LENGTH_LONG).show();
         }
         //L/8
 
         if ((7*Ls/8)-8.6>0){
-            q2 =(7.0/8)*145+(((7*Ls/8)-4.3)/Ls)*145+(((7*Ls/8)-8.6)/Ls)*35;
-            Toast.makeText(nhaplieuthietke.this,""+q2,Toast.LENGTH_LONG).show();
+            q2 =(7.0/8)*145*heSoHoatTai+(((7*Ls/8)-4.3)/Ls)*145*heSoHoatTai+(((7*Ls/8)-8.6)/Ls)*35*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q2,Toast.LENGTH_LONG).show();
         }
         else if ((7*Ls/8)-8.6<=0 && (7*Ls/8)-4.3>0) {
-            q2 =(7.0/8)*145+(((7*Ls/8)-4.3)/Ls)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q2,Toast.LENGTH_LONG).show();
+            q2 =(7.0/8)*145*heSoHoatTai+(((7*Ls/8)-4.3)/Ls)*145*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q2,Toast.LENGTH_LONG).show();
         }
         else if((7*Ls/8)-4.3<=0){
-            q2 =(7.0/8)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q2,Toast.LENGTH_LONG).show();
+            q2 =(7.0/8)*145*heSoHoatTai;
+         //   Toast.makeText(nhaplieuthietke.this,""+q2,Toast.LENGTH_LONG).show();
         }
 
         //L/4
 
         if ((3*Ls/4)-8.6>0){
-            q3 =(3.0/4)*145+(((3*Ls/4)-4.3)/Ls)*145+(((3*Ls/4)-8.6)/Ls)*35;
-            Toast.makeText(nhaplieuthietke.this,""+q3,Toast.LENGTH_LONG).show();
+            q3 =(3.0/4)*145*heSoHoatTai+(((3*Ls/4)-4.3)/Ls)*145*heSoHoatTai+(((3*Ls/4)-8.6)/Ls)*35*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q3,Toast.LENGTH_LONG).show();
         }
         else if ((3*Ls/4)-8.6<=0 && (3*Ls/4)-4.3>0) {
-            q3 =(3.0/4)*145+(((3*Ls/4)-4.3)/Ls)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q3,Toast.LENGTH_LONG).show();
+            q3 =(3.0/4)*145*heSoHoatTai+(((3*Ls/4)-4.3)/Ls)*145*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q3,Toast.LENGTH_LONG).show();
         }
         else if((3*Ls/4)-4.3<=0){
-            q3 =(3.0/4)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q3,Toast.LENGTH_LONG).show();
+            q3 =(3.0/4)*145*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q3,Toast.LENGTH_LONG).show();
         }
 
         //3L/8
 
 
         if ((5*Ls/8)-8.6>0){
-            q4 =(5.0/8)*145+(((5*Ls/8)-4.3)/Ls)*145+(((5*Ls/8)-8.6)/Ls)*35;
-            Toast.makeText(nhaplieuthietke.this,""+q4,Toast.LENGTH_LONG).show();
+            q4 =(5.0/8)*145*heSoHoatTai+(((5*Ls/8)-4.3)/Ls)*145*heSoHoatTai+(((5*Ls/8)-8.6)/Ls)*35*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q4,Toast.LENGTH_LONG).show();
         }
         else if ((5*Ls/8)-8.6<=0 && (5*Ls/8)-4.3>0) {
-            q4 =(5.0/8)*145+(((5*Ls/8)-4.3)/Ls)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q4,Toast.LENGTH_LONG).show();
+            q4 =(5.0/8)*145*heSoHoatTai+(((5*Ls/8)-4.3)/Ls)*145*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q4,Toast.LENGTH_LONG).show();
         }
         else if((5*Ls/8)-4.3<=0){
-            q4 =(5.0/8)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q4,Toast.LENGTH_LONG).show();
+            q4 =(5.0/8)*145*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q4,Toast.LENGTH_LONG).show();
         }
 
         // L/2
 
         if ((Ls/2)-8.6>0){
-            q5 =(1.0/2)*145+(((Ls/2)-4.3)/Ls)*145+(((Ls/2)-8.6)/Ls)*35;
-            Toast.makeText(nhaplieuthietke.this,""+q5,Toast.LENGTH_LONG).show();
+            q5 =(1.0/2)*145*heSoHoatTai+(((Ls/2)-4.3)/Ls)*145*heSoHoatTai+(((Ls/2)-8.6)/Ls)*35*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q5,Toast.LENGTH_LONG).show();
         }
         else if ((Ls/2)-8.6 <= 0 && (Ls/2)-4.3>0) {
-            q5 =(1.0/2)*145+(((Ls/2)-4.3)/Ls)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q5,Toast.LENGTH_LONG).show();
+            q5 =(1.0/2)*145*heSoHoatTai+(((Ls/2)-4.3)/Ls)*145*heSoHoatTai;
+       //     Toast.makeText(nhaplieuthietke.this,""+q5,Toast.LENGTH_LONG).show();
         }
         else if((Ls/2)-4.3<=0){
-            q5 =(1.0/2)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q5,Toast.LENGTH_LONG).show();
+            q5 =(1.0/2)*145*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q5,Toast.LENGTH_LONG).show();
         }
 
         // lực cắt ÂM
@@ -639,58 +942,58 @@ public class nhaplieuthietke extends AppCompatActivity {
         // L/8
 //
         if (((Ls/8)-8.6>0)){
-            q7 =(1.0/8)*145+(((Ls/8)-4.3)/Ls)*145+((Ls/8-8.6)/Ls)*35;
-            Toast.makeText(nhaplieuthietke.this,""+q7,Toast.LENGTH_LONG).show();
+            q7 =(1.0/8)*145*heSoHoatTai+(((Ls/8)-4.3)/Ls)*145*heSoHoatTai+((Ls/8-8.6)/Ls)*35*heSoHoatTai;
+        //    Toast.makeText(nhaplieuthietke.this,""+q7,Toast.LENGTH_LONG).show();
         }else if ( (Ls/8)-8.6 <= 0 && (Ls/8)-4.3 > 0) {
-            q7 =(1.0/8)*145+(((Ls/8)-4.3)/Ls)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q8,Toast.LENGTH_LONG).show();
+            q7 =(1.0/8)*145*heSoHoatTai+(((Ls/8)-4.3)/Ls)*145*heSoHoatTai;
+         //   Toast.makeText(nhaplieuthietke.this,""+q8,Toast.LENGTH_LONG).show();
         }
         else if((Ls/8)-4.3<=0){
-            q7 =(1.0/8)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q7,Toast.LENGTH_LONG).show();
+            q7 =(1.0/8)*145*heSoHoatTai;
+         //   Toast.makeText(nhaplieuthietke.this,""+q7,Toast.LENGTH_LONG).show();
         }
 
         // L/4
 
 
         if ((Ls/4)-8.6>0){
-            q8 =(1.0/4)*145+(((Ls/4)-4.3)/Ls)*145+(((Ls/4)-8.6)/Ls)*35;
-            Toast.makeText(nhaplieuthietke.this,""+q8,Toast.LENGTH_LONG).show();
+            q8 =(1.0/4)*145*heSoHoatTai+(((Ls/4)-4.3)/Ls)*145*heSoHoatTai+(((Ls/4)-8.6)/Ls)*35*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q8,Toast.LENGTH_LONG).show();
         }else if ((Ls/4)-8.6 <= 0 && (Ls/4)-4.3 > 0) {
-            q8 =(1.0/4)*145+(((Ls/4)-4.3)/Ls)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q8,Toast.LENGTH_LONG).show();
+            q8 =(1.0/4)*145*heSoHoatTai+(((Ls/4)-4.3)/Ls)*145*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q8,Toast.LENGTH_LONG).show();
         }
         else if((Ls/4)-4.3<=0){
-            q8 =(1.0/4)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q8,Toast.LENGTH_LONG).show();
+            q8 =(1.0/4)*145*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q8,Toast.LENGTH_LONG).show();
         }
 
         //3L/8
 
         if ((3*Ls/8)-8.6>0){
-            q9 =(3.0/8)*145+(((3*Ls/8)-4.3)/Ls)*145+(((3*Ls/8)-8.6)/Ls)*35;
-            Toast.makeText(nhaplieuthietke.this,""+q9,Toast.LENGTH_LONG).show();
+            q9 =(3.0/8)*145*heSoHoatTai+(((3*Ls/8)-4.3)/Ls)*145*heSoHoatTai+(((3*Ls/8)-8.6)/Ls)*35*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q9,Toast.LENGTH_LONG).show();
         }else if ((3*Ls/8)-8.6 <= 0 && (3*Ls/8)-4.3>0) {
-            q9 =(3.0/8)*145+(((3*Ls/8)-4.3)/Ls)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q9,Toast.LENGTH_LONG).show();
+            q9 =(3.0/8)*145*heSoHoatTai+(((3*Ls/8)-4.3)/Ls)*145*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q9,Toast.LENGTH_LONG).show();
         }
         else if((3*Ls/8)-4.3 <= 0){
-            q9 =(3.0/8)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q9,Toast.LENGTH_LONG).show();
+            q9 =(3.0/8)*145*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q9,Toast.LENGTH_LONG).show();
         }
 
         //L/2
 
         if ((Ls/2)-8.6>0){
-            q10 =(1.0/2)*145+(((Ls/2)-4.3)/Ls)*145+(((Ls/2)-8.6)/Ls)*35;
-            Toast.makeText(nhaplieuthietke.this,""+q10,Toast.LENGTH_LONG).show();
+            q10 =(1.0/2)*145*heSoHoatTai+(((Ls/2)-4.3)/Ls)*145*heSoHoatTai+(((Ls/2)-8.6)/Ls)*35*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q10,Toast.LENGTH_LONG).show();
         }else if ((Ls/2)-8.6 <= 0 && (Ls/2)-4.3>0) {
-            q10 =(10/2)*145+(((Ls/2)-4.3)/Ls)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q10,Toast.LENGTH_LONG).show();
+            q10 =(10/2)*145*heSoHoatTai+(((Ls/2)-4.3)/Ls)*145*heSoHoatTai;
+            //Toast.makeText(nhaplieuthietke.this,""+q10,Toast.LENGTH_LONG).show();
         }
         else if((Ls/2)-4.3<=0){
-            q10 =(1.0/2)*145;
-            Toast.makeText(nhaplieuthietke.this,""+q10,Toast.LENGTH_LONG).show();
+            q10 =(1.0/2)*145*heSoHoatTai;
+            //Toast.makeText(nhaplieuthietke.this,""+q10,Toast.LENGTH_LONG).show();
         }
 
         //lực cắt do xe 2 trục
@@ -700,48 +1003,48 @@ public class nhaplieuthietke extends AppCompatActivity {
         // gối
 
         if (Ls-1.2 > 0){
-            q11 = 110+((Ls-1.2)/Ls)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q11,Toast.LENGTH_LONG).show();
+            q11 = 110*heSoHoatTai+((Ls-1.2)/Ls)*110*heSoHoatTai;
+            //Toast.makeText(nhaplieuthietke.this,""+q11,Toast.LENGTH_LONG).show();
         }else if (Ls-1.2<=0) {
-            q11 =110;
-            Toast.makeText(nhaplieuthietke.this,""+q11,Toast.LENGTH_LONG).show();
+            q11 =110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q11,Toast.LENGTH_LONG).show();
         }
         // L/8
 
         if ((7*Ls/8)-1.2>0){
-            q12=(7.0/8)*110+(((7*Ls/8)-1.2)/Ls)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q12,Toast.LENGTH_LONG).show();
+            q12=(7.0/8)*110*heSoHoatTai+(((7*Ls/8)-1.2)/Ls)*110*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q12,Toast.LENGTH_LONG).show();
         }else if ((7*Ls/8)-1.2<=0) {
-            q12 =(7.0/8)*110;
+            q12 =(7.0/8)*110*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+q12,Toast.LENGTH_LONG).show();
         }
 
         //L/4
 
         if ((3*Ls/4)-1.2 >0){
-            q13=(3.0/4)*110+(((3*Ls/4)-1.2)/Ls)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q13,Toast.LENGTH_LONG).show();
+            q13=(3.0/4)*110*heSoHoatTai+(((3*Ls/4)-1.2)/Ls)*110*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q13,Toast.LENGTH_LONG).show();
         }else if ((3*Ls/4)-1.2<=0) {
-            q13 =(3.0/4)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q13,Toast.LENGTH_LONG).show();
+            q13 =(3.0/4)*110*heSoHoatTai;
+            //Toast.makeText(nhaplieuthietke.this,""+q13,Toast.LENGTH_LONG).show();
         }
         //3L/8
 
         if ( (5*Ls/8)-1.2>0){
-            q14=(5.0/8)*110+(((5*Ls/8)-1.2)/Ls)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q14,Toast.LENGTH_LONG).show();
+            q14=(5.0/8)*110*heSoHoatTai+(((5*Ls/8)-1.2)/Ls)*110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q14,Toast.LENGTH_LONG).show();
         }else if ((5*Ls/8)-1.2<=0) {
-            q14 =(5.0/8)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q14,Toast.LENGTH_LONG).show();
+            q14 =(5.0/8)*110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q14,Toast.LENGTH_LONG).show();
         }
         //L/2
 
         if ((Ls/2)-1.2>0){
-            q15=(1.0/2)*110+(((Ls/2)-1.2)/Ls)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q15,Toast.LENGTH_LONG).show();
+            q15=(1.0/2)*110*heSoHoatTai+(((Ls/2)-1.2)/Ls)*110*heSoHoatTai;
+         //   Toast.makeText(nhaplieuthietke.this,""+q15,Toast.LENGTH_LONG).show();
         }else if ((Ls/2)-1.2<=0) {
-            q15 =(1.0/2)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q15,Toast.LENGTH_LONG).show();
+            q15 =(1.0/2)*110*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q15,Toast.LENGTH_LONG).show();
         }
 
 
@@ -753,41 +1056,41 @@ public class nhaplieuthietke extends AppCompatActivity {
         //L/8
 
         if ((Ls/8)-1.2>0){
-            q17=(1.0/8)*110+(((Ls/8)-1.2)/Ls)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q17,Toast.LENGTH_LONG).show();
+            q17=(1.0/8)*110*heSoHoatTai+(((Ls/8)-1.2)/Ls)*110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q17,Toast.LENGTH_LONG).show();
         }else if ((Ls/8)-1.2<=0) {
-            q17 =(1.0/8)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q17,Toast.LENGTH_LONG).show();
+            q17 =(1.0/8)*110*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q17,Toast.LENGTH_LONG).show();
         }
 
         // L/4
 
 
         if ((Ls/4)-1.2>0){
-            q18=(1.0/4)*110+(((Ls/4)-1.2)/Ls)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q18,Toast.LENGTH_LONG).show();
+            q18=(1.0/4)*110*heSoHoatTai+(((Ls/4)-1.2)/Ls)*110*heSoHoatTai;
+         //   Toast.makeText(nhaplieuthietke.this,""+q18,Toast.LENGTH_LONG).show();
         }else if ((Ls/4)-1.2<=0) {
-            q18 =(1.0/4)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q18,Toast.LENGTH_LONG).show();
+            q18 =(1.0/4)*110*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q18,Toast.LENGTH_LONG).show();
         }
 
         //3l/8
 
         if ((3*Ls/8)-1.2>0){
-            q19=(3.0/8)*110+(((3*Ls/8)-1.2)/Ls)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q19,Toast.LENGTH_LONG).show();
+            q19=(3.0/8)*110*heSoHoatTai+(((3*Ls/8)-1.2)/Ls)*110*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q19,Toast.LENGTH_LONG).show();
         }else if ((3*Ls/8)-1.2<=0) {
-            q19 =(3/8)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q19,Toast.LENGTH_LONG).show();
+            q19 =(3/8)*110*heSoHoatTai;
+           // Toast.makeText(nhaplieuthietke.this,""+q19,Toast.LENGTH_LONG).show();
         }
         //l/2
 
         if ((Ls/2)-1.2>0){
-            q20=(1.0/2)*110+(((Ls/2)-1.2)/Ls)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q20,Toast.LENGTH_LONG).show();
+            q20=(1.0/2)*110*heSoHoatTai+(((Ls/2)-1.2)/Ls)*110*heSoHoatTai;
+         //   Toast.makeText(nhaplieuthietke.this,""+q20,Toast.LENGTH_LONG).show();
         }else if ((Ls/2)-1.2<=0) {
-            q20 =(1.0/2)*110;
-            Toast.makeText(nhaplieuthietke.this,""+q20,Toast.LENGTH_LONG).show();
+            q20 =(1.0/2)*110*heSoHoatTai;
+          //  Toast.makeText(nhaplieuthietke.this,""+q20,Toast.LENGTH_LONG).show();
         }
 
         // lực cắt do tải trọng làn
@@ -1129,10 +1432,10 @@ public class nhaplieuthietke extends AppCompatActivity {
         // Dầm trong
         ////1 làn chất tải
         mgSIM=0.06+(Math.pow(S/4300,0.4))*(Math.pow(S/(L*1000),0.3))*(Math.pow((Kg/(L*1000*Math.pow(ts,3))),0.1));
-        Toast.makeText(nhaplieuthietke.this,""+mgSIM,Toast.LENGTH_LONG).show();
+    //   Toast.makeText(nhaplieuthietke.this,""+mgSIM,Toast.LENGTH_LONG).show();
         ////2 hoặc nhiều làn xe chất tải
         mgMIM=0.075+(Math.pow(S/2900,0.6))*(Math.pow(S/(L*1000),0.2))*(Math.pow((Kg/(L*1000*Math.pow(ts,3))),0.1));
-        Toast.makeText(nhaplieuthietke.this,""+mgMIM,Toast.LENGTH_LONG).show();
+      //  Toast.makeText(nhaplieuthietke.this,""+mgMIM,Toast.LENGTH_LONG).show();
         double e1;
         e1=0.77+(de/2800);
         if (e1>=1){
@@ -1141,7 +1444,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             eM =1;
         }
         mgMEM2lan= eM*mgMIM;
-        Toast.makeText(nhaplieuthietke.this,""+mgMEM2lan,Toast.LENGTH_LONG).show();
+      //  Toast.makeText(nhaplieuthietke.this,""+mgMEM2lan,Toast.LENGTH_LONG).show();
         mgDTM= Math.max(mgSIM,mgMIM);
         mgMEM1lan=0.5*((2*S+2*de-2*Blc-2*T-2400)/S);
         mgDNM=Math.max(mgMEM1lan, mgMEM2lan);
@@ -1272,7 +1575,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             edtTiTrongThep.setError("Hãy nhập giá trị");
         }
         DCdc=Adt*ys/Math.pow(10,6);
-        Toast.makeText(nhaplieuthietke.this,""+DCdc,Toast.LENGTH_LONG).show();
+       // Toast.makeText(nhaplieuthietke.this,""+DCdc,Toast.LENGTH_LONG).show();
         //Tỉ trọng của bê tông
         try {
             yc = Double.parseDouble(edtTiTrongCuaBeTong.getText().toString());
@@ -1307,10 +1610,10 @@ public class nhaplieuthietke extends AppCompatActivity {
             edtKhoangCachGiuaDC.setError("Hãy nhập giá trị");
         }
         DCbmc=(yc*ts*S)/(Math.pow(10,6));
-        Toast.makeText(nhaplieuthietke.this, ""+DCbmc,Toast.LENGTH_LONG).show();
+      //  Toast.makeText(nhaplieuthietke.this, ""+DCbmc,Toast.LENGTH_LONG).show();
 
         DClkn1=(Adn*Ldn*ys*2)/(L*Math.pow(10,9));
-        Toast.makeText(nhaplieuthietke.this,""+DClkn1,Toast.LENGTH_LONG).show();
+        //Toast.makeText(nhaplieuthietke.this,""+DClkn1,Toast.LENGTH_LONG).show();
         //DClkn2=11*(2*(S-tw)+2*Math.sqrt(((S-tw)/2)*2+hlkn2)).Atg.ϒs)/(109.L)
         //DClkn2=(Atg*ys*11*(2*(S-tw)+2*(Math.sqrt((Math.pow((S-tw)2,2)+Math.pow(hlkn,2)),2))))/(L*Math.pow(10,9));
 
@@ -1556,7 +1859,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         //Ystd
         YstdDT = (SsttDT / AstDT);
         YstdDN = (SsttDN / AstDN);
-        Toast.makeText(nhaplieuthietke.this, "" + YstdDN, Toast.LENGTH_LONG).show();
+        //Toast.makeText(nhaplieuthietke.this, "" + YstdDN, Toast.LENGTH_LONG).show();
         //Ystt
         YsttDT = Math.ceil(D - YstdDT);
         YsttDN = Math.ceil(D - YstdDN);
@@ -1675,7 +1978,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         //Yltd
         YltdDT = (SlttDT / AltDT);
         YltdDN = (SlttDN / AltDN);
-        Toast.makeText(nhaplieuthietke.this, "" + YltdDN, Toast.LENGTH_LONG).show();
+      //  Toast.makeText(nhaplieuthietke.this, "" + YltdDN, Toast.LENGTH_LONG).show();
         //Yltt
         YlttDT = Math.ceil(D - YltdDT);
         YlttDN = Math.ceil(D - YltdDN);
@@ -1705,15 +2008,15 @@ public class nhaplieuthietke extends AppCompatActivity {
         Anc = Adt;
         //Momen tĩnh đối với đáy dầm
         Snct = (((Bft * tft) * (D - (tft / 2))) + ((Dw * tw) * (D - tft - (Dw / 2))) + ((Bfb * tfb) * (tfb / 2)));
-        Toast.makeText(nhaplieuthietke.this, "" + Snct, Toast.LENGTH_LONG).show();
+      //  Toast.makeText(nhaplieuthietke.this, "" + Snct, Toast.LENGTH_LONG).show();
         Yncd = (Snct / Anc);
-        Toast.makeText(nhaplieuthietke.this, "" + Yncd, Toast.LENGTH_LONG).show();
+       // Toast.makeText(nhaplieuthietke.this, "" + Yncd, Toast.LENGTH_LONG).show();
         Ynct = (D - Yncd);
-        Toast.makeText(nhaplieuthietke.this, "" + Ynct, Toast.LENGTH_LONG).show();
+       // Toast.makeText(nhaplieuthietke.this, "" + Ynct, Toast.LENGTH_LONG).show();
         Inc = ((Bft * (Math.pow(tft, 3)) / 12) + (Bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (Bfb * Math.pow(tfb, 3) / 12) + (Bfb * tfb) * Math.pow((Yncd - 0.5 * tfb), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfb - Yncd), 2));
-        Toast.makeText(nhaplieuthietke.this, "" + Inc, Toast.LENGTH_LONG).show();
+      //  Toast.makeText(nhaplieuthietke.this, "" + Inc, Toast.LENGTH_LONG).show();
         Sncd = (Anc * Ynct);
-        Toast.makeText(nhaplieuthietke.this, "" + Sncd, Toast.LENGTH_LONG).show();
+       // Toast.makeText(nhaplieuthietke.this, "" + Sncd, Toast.LENGTH_LONG).show();
 
 
     }
@@ -1731,7 +2034,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             edtModuynDanHoiThep.setError("Hãy nhập giá trị");
         }
         n = Math.ceil(Es / Ec);
-        Toast.makeText(nhaplieuthietke.this, "n=" + n, Toast.LENGTH_LONG).show();
+    //    Toast.makeText(nhaplieuthietke.this, "n=" + n, Toast.LENGTH_LONG).show();
     }
 
     // bản cánh biên đủ biến
@@ -1798,7 +2101,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         bc3 = de;
         bcc = Math.min(bc1, bc2);
         bc = (0.5 * bi) + Math.min(bcc, bc3);
-        Toast.makeText(nhaplieuthietke.this, "bc=" + bc, Toast.LENGTH_LONG).show();
+     //   Toast.makeText(nhaplieuthietke.this, "bc=" + bc, Toast.LENGTH_LONG).show();
     }
 
     // BỀ RỘNG HỮU HIỆU ĐỦ BIẾN
@@ -1864,7 +2167,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         bi3 = S;
         bii = Math.min(bi1, bi2);
         bi = Math.min(bii, bi3);
-        Toast.makeText(nhaplieuthietke.this, "bi=" + bi, Toast.LENGTH_LONG).show();
+      //  Toast.makeText(nhaplieuthietke.this, "bi=" + bi, Toast.LENGTH_LONG).show();
     }
 
     // TÍNH SỐ HỆ LIÊN KẾT DỌC ĐỦ BIẾN

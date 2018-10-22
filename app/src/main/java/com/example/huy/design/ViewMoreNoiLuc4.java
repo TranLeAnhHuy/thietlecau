@@ -191,6 +191,7 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
         lineChartM4.setDrawGridBackground(true);
         lineChartM4.setDrawBorders(true);
         lineChartM4.setDescriptionTextSize(14);
+        lineChartM4.getAxisRight().setEnabled(false);
 
         lineChartV41= (LineChart) findViewById(R.id.linechartV41);
         lineDataV41= new LineData(getXvaluesV41(),getLineDataValuesV41());
@@ -204,6 +205,7 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
         lineChartV41.setDrawGridBackground(true);
         lineChartV41.setDrawBorders(true);
         lineChartV41.setDescriptionTextSize(14);
+        lineChartV41.getAxisRight().setEnabled(false);
 
 
         lineChartV42= (LineChart) findViewById(R.id.linechartV42);
@@ -218,6 +220,7 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
         lineChartV42.setDrawGridBackground(true);
         lineChartV42.setDrawBorders(true);
         lineChartV42.setDescriptionTextSize(14);
+        lineChartV42.getAxisRight().setEnabled(false);
     }
     private List<ILineDataSet> getLineDataValuesV42() {
         ArrayList<ILineDataSet> lineDataSetsV42 = null;

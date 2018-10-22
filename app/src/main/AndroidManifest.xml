@@ -27,7 +27,8 @@
         <activity android:name=".ViewMoreNoiLucGD2" />
         <activity android:name=".ViewMoreUngSuatGD2" />
         <activity android:name=".ViewMoreNoiLuc3" />
-        <activity android:name=".ViewMoreNoiLuc4"></activity>
+        <activity android:name=".ViewMoreNoiLuc4" />
+        <activity android:name=".ViewMoreNoiLuc6"></activity>
     </application>
 
 </manifest>

@@ -25,6 +25,8 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtfdmaxDNSDGD2,txtftmaxDNSDGD2,txtfdmaxDNCD1GD2,txtftmaxDNCD1GD2;
     TextView txtMmax3CD1,txtMmax3SD, txtQmax3CD1,txtQmax3SD,txtViewMoreMV3;
     TextView txtMmax4DNSD,txtMmax4DTSD,txtMmax4DNCD1,txtMmax4DTCD1, txtViewMoreMV4;
+    TextView txtM52,txtM51,txtf51,txtf52,txtf53,txtf54;
+    TextView txtM64,txtQ64,txtViewMoreMV6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +132,16 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtMmax4DTSD.setText(roundString(LHbundle.getDouble("M412"), 4));
         txtMmax4DNCD1.setText(roundString(LHbundle.getDouble("M48"), 4));
         txtMmax4DTCD1.setText(roundString(LHbundle.getDouble("M44"), 4));
+        txtM51.setText(roundString(LHbundle.getDouble("M51"), 4));
+        txtM52.setText(roundString(LHbundle.getDouble("M52"), 4));
+        txtf51.setText(roundString(LHbundle.getDouble("f51"), 4));
+        txtf52.setText(roundString(LHbundle.getDouble("f52"), 4));
+        txtf53.setText(roundString(LHbundle.getDouble("f53"), 4));
+        txtf54.setText(roundString(LHbundle.getDouble("f54"), 4));
+        // mỏi
+        txtM64.setText(roundString(LHbundle.getDouble("M64"), 4));
+        txtQ64.setText(roundString(LHbundle.getDouble("Q61"), 4));
+
 
 
 
@@ -145,6 +157,38 @@ public class KQKhongLienHop extends AppCompatActivity {
         viewMorefGD2();
         viewMoreNoiLuc3();
         viewMoreNoiLuc4();
+        viewMoreNoiLuc6();
+
+    }
+    public void  viewMoreNoiLuc6(){
+        txtViewMoreMV6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+                Intent ViewMoreNoiLuc6bundle = new Intent(KQKhongLienHop.this, ViewMoreNoiLuc6.class);
+                ViewMoreNoiLuc6bundle.putExtra("M61", LHbundle.getDouble("M61"));
+                ViewMoreNoiLuc6bundle.putExtra("M62", LHbundle.getDouble("M62"));
+                ViewMoreNoiLuc6bundle.putExtra("M63", LHbundle.getDouble("M63"));
+                ViewMoreNoiLuc6bundle.putExtra("M64", LHbundle.getDouble("M64"));
+                ViewMoreNoiLuc6bundle.putExtra("Q61", LHbundle.getDouble("Q61"));
+                ViewMoreNoiLuc6bundle.putExtra("Q62", LHbundle.getDouble("Q62"));
+                ViewMoreNoiLuc6bundle.putExtra("Q63", LHbundle.getDouble("Q63"));
+                ViewMoreNoiLuc6bundle.putExtra("Q64", LHbundle.getDouble("Q64"));
+                ViewMoreNoiLuc6bundle.putExtra("Q65", LHbundle.getDouble("Q65"));
+                ViewMoreNoiLuc6bundle.putExtra("Q66", LHbundle.getDouble("Q66"));
+                ViewMoreNoiLuc6bundle.putExtra("Q67", LHbundle.getDouble("Q67"));
+                ViewMoreNoiLuc6bundle.putExtra("Q68", LHbundle.getDouble("Q68"));
+                ViewMoreNoiLuc6bundle.putExtra("Q69", LHbundle.getDouble("Q69"));
+                ViewMoreNoiLuc6bundle.putExtra("Q610", LHbundle.getDouble("Q610"));
+
+
+
+                startActivity(ViewMoreNoiLuc6bundle);
+
+
+            }
+        });
 
     }
     public void viewMoreNoiLuc4(){
@@ -482,6 +526,17 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtMmax4DNCD1=(TextView) findViewById(R.id.txtMmax4DNCD1);
         txtMmax4DTCD1 =(TextView) findViewById(R.id.txtMmax4DTCD1);
         txtViewMoreMV4 =(TextView) findViewById(R.id.txtViewMoreMV4);
+        // co ngót nhiệt độ
+        txtM52=(TextView) findViewById(R.id.txtM52);
+        txtM51=(TextView) findViewById(R.id.txtM51);
+         txtf51=(TextView) findViewById(R.id.txtf51);
+         txtf52 =(TextView) findViewById(R.id.txtf52);
+          txtf53 =(TextView) findViewById(R.id.txtf53);
+           txtf54 =(TextView) findViewById(R.id.txtf54);
+           // mỏi
+          txtM64=(TextView) findViewById(R.id.txtM64);
+        txtQ64=(TextView) findViewById(R.id.txtV64);
+        txtViewMoreMV6=(TextView) findViewById(R.id.txtViewMoreMV6);
 //           =(TextView) findViewById(R.id.);
 
 

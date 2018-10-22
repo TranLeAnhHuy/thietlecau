@@ -1410,7 +1410,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="nội lực - ứng suất tĩnh tải"
+                    android:text="nội lực - ứng suất  do tĩnh tải gây ra "
                     android:textAllCaps="true"
                     android:textColor="#fb04069c"
                     android:textSize="16dp"
@@ -1709,8 +1709,8 @@
                 <TextView
                     android:id="@+id/txtfdmaxSDGD1"
                     android:layout_width="wrap_content"
-                    android:layout_height="27dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="18dp"
                     android:background="#f2f4f4"
                     android:gravity="center_horizontal"
                     android:minWidth="100dp"
@@ -2172,7 +2172,7 @@
                     android:id="@+id/txtfdmaxDNSDGD2"
                     android:layout_width="wrap_content"
                     android:layout_height="27dp"
-                    android:layout_marginLeft="18dp"
+                    android:layout_marginLeft="16dp"
                     android:background="#f2f4f4"
                     android:gravity="center_horizontal"
                     android:minWidth="90dp"
@@ -2391,7 +2391,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="nội lực hoạt tải "
+                    android:text="nội lực do hoạt tải gây ra "
                     android:textAllCaps="true"
                     android:textColor="#fb04069c"
                     android:textSize="16dp"
@@ -2450,7 +2450,7 @@
                     android:id="@+id/txtMmax4DNCD1"
                     android:layout_width="wrap_content"
                     android:layout_height="27dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="8dp"
                     android:background="#f2f4f4"
                     android:gravity="center_horizontal"
                     android:minWidth="100dp"
@@ -2516,7 +2516,7 @@
                     android:id="@+id/txtMmax4DNSD"
                     android:layout_width="wrap_content"
                     android:layout_height="27dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="18dp"
                     android:background="#f2f4f4"
                     android:gravity="center_horizontal"
                     android:minWidth="100dp"
@@ -2550,6 +2550,324 @@
                     android:textSize="16dp"
                     android:textStyle="italic" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="nội lực - US do co ngót nhiệt độ gây ra"
+                    android:textAllCaps="true"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            // momen lớn nhất CD1
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen Dầm trong"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtM51"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="45dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen Dầm ngoài"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtM52"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="45dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Ứng suất thớ trên DT"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtf51"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="29dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Ứng suất thớ dưới DT"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtf52"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="26dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Ứng suất thớ trên DN"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtf53"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="29dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Ứng suất thớ dưới DN"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtf54"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="26dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="MPa"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="nội lực - úng suất ở trạng thái mỏi"
+                    android:textAllCaps="true"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Momen max TTGH mỏi"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtM64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="12dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN.m"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            //
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Lực cắt max TTGH mỏi"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtV64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="12dp"
+                    android:background="#f2f4f4"
+                    android:gravity="center_horizontal"
+                    android:minWidth="100dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:text="kN"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtViewMoreMV6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="245dp"
+                    android:layout_marginTop="5dp"
+                    android:text="&lt;View more>"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+
+
+
+
+
 
 
         </LinearLayout>
