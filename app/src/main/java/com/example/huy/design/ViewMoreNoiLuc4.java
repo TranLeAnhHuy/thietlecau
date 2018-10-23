@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewMoreNoiLuc4 extends AppCompatActivity {
-    private LineChart lineChartM4,lineChartV41,lineChartV42;
-    private LineData lineDataM4,lineDataV41,lineDataV42;
+    private LineChart lineChartM4,lineChartV41;
+    private LineData lineDataM4,lineDataV41;
     double M41,M42,M43,M44,M45,M46,M47,M48,M49,M410,M411,M412,M413,M414,M415,M416;
     double Q41,Q42,Q43,Q44,Q45,Q46,Q47,Q48,Q49,Q410,Q411,Q412,Q413,Q414,Q415,Q416;
     double Q417,Q418,Q419,Q420,Q421,Q422,Q423,Q424,Q425,Q426,Q427,Q428,Q429,Q430;
@@ -155,28 +155,28 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
         // lực cắt âm
         //// dầm trong cd1
         Q5val[0]=(float)Q421;
-        Q5val[1]=(float)Q422;
-        Q5val[2]=(float)Q423;
-        Q5val[3]=(float)Q424;
-        Q5val[4]=(float)Q425;
+        Q5val[1]=-(float)Q422;
+        Q5val[2]=-(float)Q423;
+        Q5val[3]=-(float)Q424;
+        Q5val[4]=-(float)Q425;
         ///dầm trong sử dụng
         Q6val[0]=(float)Q426;
-        Q6val[1]=(float)Q427;
-        Q6val[2]=(float)Q428;
-        Q6val[3]=(float)Q429;
-        Q6val[4]=(float)Q430;
+        Q6val[1]=-(float)Q427;
+        Q6val[2]=-(float)Q428;
+        Q6val[3]=-(float)Q429;
+        Q6val[4]=-(float)Q430;
         ///dầm ngoài sử dung
         Q7val[0]=(float)Q431;
-        Q7val[1]=(float)Q432;
-        Q7val[2]=(float)Q433;
-        Q7val[3]=(float)Q434;
-        Q7val[4]=(float)Q435;
+        Q7val[1]=-(float)Q432;
+        Q7val[2]=-(float)Q433;
+        Q7val[3]=-(float)Q434;
+        Q7val[4]=-(float)Q435;
         ////dầm ngoài cd1
         Q8val[0]=(float)Q436;
-        Q8val[1]=(float)Q437;
-        Q8val[2]=(float)Q438;
-        Q8val[3]=(float)Q439;
-        Q8val[4]=(float)Q440;
+        Q8val[1]=-(float)Q437;
+        Q8val[2]=-(float)Q438;
+        Q8val[3]=-(float)Q439;
+        Q8val[4]=-(float)Q440;
 
 
         lineChartM4= (LineChart) findViewById(R.id.linechartM4);
@@ -196,10 +196,10 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
         lineChartV41= (LineChart) findViewById(R.id.linechartV41);
         lineDataV41= new LineData(getXvaluesV41(),getLineDataValuesV41());
         lineChartV41.setData(lineDataV41);
-        lineChartV41.setDescription("Biểu đồ Lực cắt dương do Hoạt tải gây ra");
+        lineChartV41.setDescription("Biểu đồ Lực cắt do Hoạt tải gây ra");
         lineChartV41.setDescriptionTextSize(20f);
-        lineChartV41.setDescriptionColor(Color.DKGRAY);
-        // lineChart.setBackgroundColor(Color.BLACK);
+        lineChartV41.setDescriptionColor(Color.BLACK);
+//        lineChartV41.setBackgroundColor(Color.BLACK);
         lineChartV41.animateY(7000);
         lineChartV41.invalidate();
         lineChartV41.setDrawGridBackground(true);
@@ -207,93 +207,93 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
         lineChartV41.setDescriptionTextSize(14);
         lineChartV41.getAxisRight().setEnabled(false);
 
-
-        lineChartV42= (LineChart) findViewById(R.id.linechartV42);
-        lineDataV42= new LineData(getXvaluesV42(),getLineDataValuesV42());
-        lineChartV42.setData(lineDataV42);
-        lineChartV42.setDescription("Biểu đồ Lực cắt âm do Hoạt tải gây ra");
-        lineChartV42.setDescriptionTextSize(20f);
-        lineChartV42.setDescriptionColor(Color.DKGRAY);
-        // lineChart.setBackgroundColor(Color.BLACK);
-        lineChartV42.animateY(7000);
-        lineChartV42.invalidate();
-        lineChartV42.setDrawGridBackground(true);
-        lineChartV42.setDrawBorders(true);
-        lineChartV42.setDescriptionTextSize(14);
-        lineChartV42.getAxisRight().setEnabled(false);
+//
+//        lineChartV42= (LineChart) findViewById(R.id.linechartV42);
+//        lineDataV42= new LineData(getXvaluesV42(),getLineDataValuesV42());
+//        lineChartV42.setData(lineDataV42);
+//        lineChartV42.setDescription("Biểu đồ Lực cắt âm do Hoạt tải gây ra");
+//        lineChartV42.setDescriptionTextSize(20f);
+//        lineChartV42.setDescriptionColor(Color.DKGRAY);
+//        // lineChart.setBackgroundColor(Color.BLACK);
+//        lineChartV42.animateY(7000);
+//        lineChartV42.invalidate();
+//        lineChartV42.setDrawGridBackground(true);
+//        lineChartV42.setDrawBorders(true);
+//        lineChartV42.setDescriptionTextSize(14);
+//        lineChartV42.getAxisRight().setEnabled(false);
     }
-    private List<ILineDataSet> getLineDataValuesV42() {
-        ArrayList<ILineDataSet> lineDataSetsV42 = null;
-        ArrayList<Entry> entryArrayList = new ArrayList<>();
-        ArrayList<Entry> Q2entryArrayList = new ArrayList<>();
-        ArrayList<Entry> Q3entryArrayList = new ArrayList<>();
-        ArrayList<Entry> Q4entryArrayList = new ArrayList<>();
-
-        for (int i =0; i< Q5val.length;i++){
-            entryArrayList.add(new Entry(Q5val[i],i));
-        }
-        for (int i =0; i<Q6val.length;i++){
-            Q2entryArrayList.add(new Entry(Q6val[i],i));
-        }
-        for (int i =0; i<Q7val.length;i++){
-            Q3entryArrayList.add(new Entry(Q7val[i],i));
-        }
-        for (int i =0; i<Q8val.length;i++){
-            Q4entryArrayList.add(new Entry(Q8val[i],i));
-        }
-
-        LineDataSet lineDataSet= new LineDataSet(entryArrayList, "V DT TTCD1");
-        lineDataSet.setColor(Color.BLUE);
-        lineDataSet.setCircleColor(Color.BLUE);
-        lineDataSet.setCircleRadius(4);
-        lineDataSet.setValueTextSize(11f);
-        lineDataSet.setValueTextColor(Color.BLUE);
-
-
-        LineDataSet lineDataSetM2= new LineDataSet(Q2entryArrayList, "V DT TTSD");
-        lineDataSetM2.setColor(Color.BLACK);
-        lineDataSetM2.setCircleColor(Color.BLACK);
-        lineDataSetM2.setCircleRadius(4);
-        lineDataSetM2.setValueTextSize(11f);
-        lineDataSetM2.setValueTextColor(Color.BLACK);
-
-
-        LineDataSet lineDataSetM3= new LineDataSet(Q3entryArrayList, "V DN TTSD");
-        lineDataSetM3.setColor(Color.MAGENTA);
-        lineDataSetM3.setCircleColor(Color.MAGENTA);
-        lineDataSetM3.setCircleRadius(4);
-        lineDataSetM3.setValueTextSize(11f);
-        lineDataSetM3.setValueTextColor(Color.MAGENTA);
-
-
-        LineDataSet lineDataSetM4= new LineDataSet(Q4entryArrayList, "V DN TTCD1");
-        lineDataSetM4.setColor(Color.RED);
-        lineDataSetM4.setCircleColor(Color.RED);
-        lineDataSetM4.setCircleRadius(4);
-        lineDataSetM4.setValueTextSize(11f);
-        lineDataSetM4.setValueTextColor(Color.RED);
-
-
-
-        lineDataSetsV42= new ArrayList<>();
-        lineDataSetsV42.add(lineDataSet);
-        lineDataSetsV42.add(lineDataSetM2);
-        lineDataSetsV42.add(lineDataSetM3);
-        lineDataSetsV42.add(lineDataSetM4);
-
-        return lineDataSetsV42;
-    }
-
-    private List<String> getXvaluesV42() {
-        ArrayList<String> xvalues = new ArrayList<>();
-        xvalues.add("0");
-        xvalues.add("L/8");
-        xvalues.add("L/4");
-        xvalues.add("3L/8");
-        xvalues.add("L/2");
-        //xvalues.set(Color.BLUE);
-        return xvalues;
-    }
+//    private List<ILineDataSet> getLineDataValuesV42() {
+//        ArrayList<ILineDataSet> lineDataSetsV42 = null;
+//        ArrayList<Entry> entryArrayList = new ArrayList<>();
+//        ArrayList<Entry> Q2entryArrayList = new ArrayList<>();
+//        ArrayList<Entry> Q3entryArrayList = new ArrayList<>();
+//        ArrayList<Entry> Q4entryArrayList = new ArrayList<>();
+//
+//        for (int i =0; i< Q5val.length;i++){
+//            entryArrayList.add(new Entry(Q5val[i],i));
+//        }
+//        for (int i =0; i<Q6val.length;i++){
+//            Q2entryArrayList.add(new Entry(Q6val[i],i));
+//        }
+//        for (int i =0; i<Q7val.length;i++){
+//            Q3entryArrayList.add(new Entry(Q7val[i],i));
+//        }
+//        for (int i =0; i<Q8val.length;i++){
+//            Q4entryArrayList.add(new Entry(Q8val[i],i));
+//        }
+//
+//        LineDataSet lineDataSet= new LineDataSet(entryArrayList, "V DT TTCD1");
+//        lineDataSet.setColor(Color.YELLOW);
+//        lineDataSet.setCircleColor(Color.YELLOW);
+//        lineDataSet.setCircleRadius(4);
+//        lineDataSet.setValueTextSize(11f);
+//        lineDataSet.setValueTextColor(Color.YELLOW);
+//
+//
+//        LineDataSet lineDataSetM2= new LineDataSet(Q2entryArrayList, "V DT TTSD");
+//        lineDataSetM2.setColor(Color.GREEN);
+//        lineDataSetM2.setCircleColor(Color.GREEN);
+//        lineDataSetM2.setCircleRadius(4);
+//        lineDataSetM2.setValueTextSize(11f);
+//        lineDataSetM2.setValueTextColor(Color.GREEN);
+//
+//
+//        LineDataSet lineDataSetM3= new LineDataSet(Q3entryArrayList, "V DN TTSD");
+//        lineDataSetM3.setColor(Color.CYAN);
+//        lineDataSetM3.setCircleColor(Color.CYAN);
+//        lineDataSetM3.setCircleRadius(4);
+//        lineDataSetM3.setValueTextSize(11f);
+//        lineDataSetM3.setValueTextColor(Color.CYAN);
+//
+//
+//        LineDataSet lineDataSetM4= new LineDataSet(Q4entryArrayList, "V DN TTCD1");
+//        lineDataSetM4.setColor(Color.LTGRAY);
+//        lineDataSetM4.setCircleColor(Color.LTGRAY);
+//        lineDataSetM4.setCircleRadius(4);
+//        lineDataSetM4.setValueTextSize(11f);
+//        lineDataSetM4.setValueTextColor(Color.LTGRAY);
+//
+//
+//
+//        lineDataSetsV42= new ArrayList<>();
+//        lineDataSetsV42.add(lineDataSet);
+//        lineDataSetsV42.add(lineDataSetM2);
+//        lineDataSetsV42.add(lineDataSetM3);
+//        lineDataSetsV42.add(lineDataSetM4);
+//
+//        return lineDataSetsV42;
+//    }
+//
+//    private List<String> getXvaluesV42() {
+//        ArrayList<String> xvalues = new ArrayList<>();
+//        xvalues.add("0");
+//        xvalues.add("L/8");
+//        xvalues.add("L/4");
+//        xvalues.add("3L/8");
+//        xvalues.add("L/2");
+//        //xvalues.set(Color.BLUE);
+//        return xvalues;
+//    }
 
     private List<ILineDataSet> getLineDataValuesV41() {
         ArrayList<ILineDataSet> lineDataSetsV41 = null;
@@ -301,6 +301,11 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
         ArrayList<Entry> Q2entryArrayList = new ArrayList<>();
         ArrayList<Entry> Q3entryArrayList = new ArrayList<>();
         ArrayList<Entry> Q4entryArrayList = new ArrayList<>();
+
+        ArrayList<Entry> Q5entryArrayList = new ArrayList<>();
+        ArrayList<Entry> Q6entryArrayList = new ArrayList<>();
+        ArrayList<Entry> Q7entryArrayList = new ArrayList<>();
+        ArrayList<Entry> Q8entryArrayList = new ArrayList<>();
 
         for (int i =0; i< Q1val.length;i++){
             entryArrayList.add(new Entry(Q1val[i],i));
@@ -315,36 +320,84 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
             Q4entryArrayList.add(new Entry(Q4val[i],i));
         }
 
+        for (int i =0; i< Q5val.length;i++){
+            Q5entryArrayList.add(new Entry(Q5val[i],i));
+        }
+        for (int i =0; i<Q6val.length;i++){
+            Q6entryArrayList.add(new Entry(Q6val[i],i));
+        }
+        for (int i =0; i<Q7val.length;i++){
+            Q7entryArrayList.add(new Entry(Q7val[i],i));
+        }
+        for (int i =0; i<Q8val.length;i++){
+            Q8entryArrayList.add(new Entry(Q8val[i],i));
+        }
+
         LineDataSet lineDataSet= new LineDataSet(entryArrayList, "V DT TTCD1");
-        lineDataSet.setColor(Color.BLUE);
-        lineDataSet.setCircleColor(Color.BLUE);
+        lineDataSet.setColor(Color.YELLOW);
+        lineDataSet.setCircleColor(Color.YELLOW);
         lineDataSet.setCircleRadius(4);
         lineDataSet.setValueTextSize(11f);
-        lineDataSet.setValueTextColor(Color.BLUE);
+        lineDataSet.setValueTextColor(Color.YELLOW);
 
 
         LineDataSet lineDataSetM2= new LineDataSet(Q2entryArrayList, "V DT TTSD");
-        lineDataSetM2.setColor(Color.BLACK);
-        lineDataSetM2.setCircleColor(Color.BLACK);
+        lineDataSetM2.setColor(Color.GREEN);
+        lineDataSetM2.setCircleColor(Color.GREEN);
         lineDataSetM2.setCircleRadius(4);
         lineDataSetM2.setValueTextSize(11f);
-        lineDataSetM2.setValueTextColor(Color.BLACK);
+        lineDataSetM2.setValueTextColor(Color.GREEN);
 
 
-        LineDataSet lineDataSetM3= new LineDataSet(Q3entryArrayList, "V DN TTCD1");
-        lineDataSetM3.setColor(Color.MAGENTA);
-        lineDataSetM3.setCircleColor(Color.MAGENTA);
+        LineDataSet lineDataSetM3= new LineDataSet(Q3entryArrayList, "V DN TTSD");
+        lineDataSetM3.setColor(Color.CYAN);
+        lineDataSetM3.setCircleColor(Color.CYAN);
         lineDataSetM3.setCircleRadius(4);
         lineDataSetM3.setValueTextSize(11f);
-        lineDataSetM3.setValueTextColor(Color.MAGENTA);
+        lineDataSetM3.setValueTextColor(Color.CYAN);
 
 
-        LineDataSet lineDataSetM4= new LineDataSet(Q4entryArrayList, "V DN TTSD");
-        lineDataSetM4.setColor(Color.RED);
-        lineDataSetM4.setCircleColor(Color.RED);
+        LineDataSet lineDataSetM4= new LineDataSet(Q4entryArrayList, "V DN TTCD1\n");
+        lineDataSetM4.setColor(Color.LTGRAY);
+        lineDataSetM4.setCircleColor(Color.LTGRAY);
         lineDataSetM4.setCircleRadius(4);
         lineDataSetM4.setValueTextSize(11f);
-        lineDataSetM4.setValueTextColor(Color.RED);
+        lineDataSetM4.setValueTextColor(Color.LTGRAY);
+
+
+
+
+
+        LineDataSet lineDataSetM5= new LineDataSet(Q5entryArrayList, "V DT TTCD1");
+        lineDataSetM5.setColor(Color.BLUE);
+        lineDataSetM5.setCircleColor(Color.BLUE);
+        lineDataSetM5.setCircleRadius(4);
+        lineDataSetM5.setValueTextSize(11f);
+        lineDataSetM5.setValueTextColor(Color.BLUE);
+
+
+        LineDataSet lineDataSetM6= new LineDataSet(Q6entryArrayList, "V DT TTSD");
+        lineDataSetM6.setColor(Color.BLACK);
+        lineDataSetM6.setCircleColor(Color.BLACK);
+        lineDataSetM6.setCircleRadius(4);
+        lineDataSetM6.setValueTextSize(11f);
+        lineDataSetM6.setValueTextColor(Color.BLACK);
+
+
+        LineDataSet lineDataSetM7= new LineDataSet(Q7entryArrayList, "V DN TTCD1");
+        lineDataSetM7.setColor(Color.MAGENTA);
+        lineDataSetM7.setCircleColor(Color.MAGENTA);
+        lineDataSetM7.setCircleRadius(4);
+        lineDataSetM7.setValueTextSize(11f);
+        lineDataSetM7.setValueTextColor(Color.MAGENTA);
+
+
+        LineDataSet lineDataSetM8= new LineDataSet(Q8entryArrayList, "V DN TTSD");
+        lineDataSetM8.setColor(Color.RED);
+        lineDataSetM8.setCircleColor(Color.RED);
+        lineDataSetM8.setCircleRadius(4);
+        lineDataSetM8.setValueTextSize(11f);
+        lineDataSetM8.setValueTextColor(Color.RED);
 
 
 
@@ -353,6 +406,10 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
         lineDataSetsV41.add(lineDataSetM2);
         lineDataSetsV41.add(lineDataSetM3);
         lineDataSetsV41.add(lineDataSetM4);
+        lineDataSetsV41.add(lineDataSetM5);
+        lineDataSetsV41.add(lineDataSetM6);
+        lineDataSetsV41.add(lineDataSetM7);
+        lineDataSetsV41.add(lineDataSetM8);
 
         return lineDataSetsV41;
     }

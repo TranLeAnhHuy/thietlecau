@@ -17,20 +17,15 @@
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/linechartM4"
                 android:layout_width="match_parent"
-                android:layout_height="400dp">
+                android:layout_height="500dp">
             </com.github.mikephil.charting.charts.LineChart>
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/linechartV41"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="500dp"
                 android:layout_marginTop="20dp">
             </com.github.mikephil.charting.charts.LineChart>
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/linechartV42"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="20dp">
-            </com.github.mikephil.charting.charts.LineChart>
+
         </LinearLayout>
     </ScrollView>
 

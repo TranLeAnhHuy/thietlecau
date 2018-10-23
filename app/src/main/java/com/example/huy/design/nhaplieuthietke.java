@@ -65,6 +65,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     double ks, M51,M52,f51,f52,f53,f54;
     //mỏi
     double M61,M62,M63,M64,Q61,Q62,Q63,Q64,Q65,Q66,Q67,Q68,Q69,Q610;
+    //tổng hợp
+    double M71,M72,M73,M74,M75,M76,M77,M78,M79,M710,M711,M712,M713,M714,M715,M716,M717,M718,M719,M720,M721,M722,M723,M724;
 
 
 //    float M1val[]=new float[5];
@@ -213,6 +215,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhNoiLuc4();
                     tinhNoiLuc5();
                     tinhNoiLuc6();
+                    tinhNoiLuc7();
 
 
                     // đóng gói và truyền dữ liệu
@@ -434,15 +437,18 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putDouble("f52",f52);
                     LHbundle.putDouble("f53",f53);
                     LHbundle.putDouble("f54",f54);
+
                     LHbundle.putDouble("M61",M61 );
                     LHbundle.putDouble("M62",M62 );
                     LHbundle.putDouble("M63",M63 );
                     LHbundle.putDouble("M64",M64 );
+
                     LHbundle.putDouble("Q61",Q61 );
                     LHbundle.putDouble("Q62",Q62 );
                     LHbundle.putDouble("Q63",Q63 );
                     LHbundle.putDouble("Q64",Q64 );
                     LHbundle.putDouble("Q65",Q65 );
+
                     LHbundle.putDouble("Q66",Q66 );
                     LHbundle.putDouble("Q67",Q67 );
                     LHbundle.putDouble("Q68",Q68 );
@@ -459,6 +465,49 @@ public class nhaplieuthietke extends AppCompatActivity {
                 }
             }
         });
+
+    }
+    public void tinhNoiLuc7(){
+        // CD1 DẦM TRONG
+
+        M71=(M31+M41+M51*1.2)*1.05;
+        M72=(M32+M42+M51*1.2)*1.05;
+        M73=(M33+M43+M51*1.2)*1.05;
+        M74=(M34+M44+M51*1.2)*1.05;
+
+        // CD1 Dầm Ngoài
+        M75=(M31+M45+M52*1.2)*1.05;
+        M76=(M32+M46+M52*1.2)*1.05;
+        M77=(M33+M47+M52*1.2)*1.05;
+        M78=(M34+M48+M52*1.2)*1.05;
+// SD dầm trong
+        M79=(M35+M49+M51*1.2);
+        M710=(M36+M410+M51*1.2);
+        M711=(M37+M411+M51*1.2);
+        M712=(M38+M412+M51*1.2);
+        //SD dầm ngoài
+        M713=(M35+M413+M52*1.2);
+        M714=(M36+M414+M52*1.2);
+        M715=(M37+M415+M52*1.2);
+        M716=(M38+M416+M52*1.2);
+        // mỏi dầm trong
+        M717=0.75*1.15*M61*mgSIM;
+        M718=0.75*1.15*M62*mgSIM;
+        M719=0.75*1.15*M63*mgSIM;
+        M720=0.75*1.15*M64*mgSIM;
+        //mỏi dầm ngoài
+        M721=0.75*1.15*M61*mgMEM1lan;
+        M722=0.75*1.15*M62*mgMEM1lan;
+        M723=0.75*1.15*M63*mgMEM1lan;
+        M724=0.75*1.15*M64*mgMEM1lan;
+
+
+
+
+
+
+
+
 
     }
     public void  tinhNoiLuc6(){
@@ -1176,42 +1225,6 @@ public class nhaplieuthietke extends AppCompatActivity {
         Q438=(1.25*Math.max(q8,q18)+q28+q38)*1.75*mgDNV;
         Q439=(1.25*Math.max(q9,q19)+q29+q39)*1.75*mgDNV;
         Q440=(1.25*Math.max(q10,q20)+q30+q40)*1.75*mgDNV;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
