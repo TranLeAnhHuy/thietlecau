@@ -1,18 +1,26 @@
 package com.example.huy.design;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
+//import android.annotation.SuppressLint;
+//import android.content.Intent;
+//import android.os.Bundle;
+//import android.support.v7.app.AppCompatActivity;
+//import android.text.InputFilter;
+//import android.view.View;
+//import android.widget.Button;
+//import android.widget.EditText;
+//import android.widget.TextView;
+//import android.widget.Toast;
+
+
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import static java.lang.String.*;
 
 public class nhaplieuthietke extends AppCompatActivity {
     EditText edtTenDuAn, edtHoatTaiTieuChuan, edtChieuDaiNhip, edtChieuDaiNhipTinhToan, edtBeRongPhanXeChay, edtBeRongLanCan, edtTongBeRongToanCuaCau;
@@ -67,6 +75,21 @@ public class nhaplieuthietke extends AppCompatActivity {
     double M61,M62,M63,M64,Q61,Q62,Q63,Q64,Q65,Q66,Q67,Q68,Q69,Q610;
     //tổng hợp
     double M71,M72,M73,M74,M75,M76,M77,M78,M79,M710,M711,M712,M713,M714,M715,M716,M717,M718,M719,M720,M721,M722,M723,M724;
+    double Q71,Q72,Q73,Q74,Q75,Q76,Q77,Q78,Q79,Q710,Q711,Q712,Q713,Q714,Q715,Q716,Q717,Q718,Q719,Q720,Q721,Q722,Q723,Q724,Q725,Q726,Q727,Q728,Q729,Q730;
+    // kiểm toán
+    double my,myy, Ystt, Ystd,My ;
+    //cốt thép ở BMC
+    double Dtt, St, Stbmc, N1, Dtd, Sd, Sdbmc,N2;
+    // tính thông số
+    double Ps, Pc, Pt,Pw,Prt,Prb;
+    // trục trung hòa dẻo
+    double Dcp,Mp;
+    // momen dẻo
+    double Dp,beta, Dphay, Mn, Mr;
+    EditText edtd0;
+    double d0, k,c, V1n, V2n, R, Vr;
+
+
 
 
 //    float M1val[]=new float[5];
@@ -159,6 +182,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtDClcBT=(EditText) findViewById(R.id.edtDClcBT);
         edtPL=(EditText) findViewById(R.id.edtPL);
         edtT=(EditText) findViewById(R.id.edtT);
+        edtd0 = (EditText) findViewById(R.id.edtd0);
 
        // edt=(EditText) findViewById(R.id.edt);
         //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
@@ -216,6 +240,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhNoiLuc5();
                     tinhNoiLuc6();
                     tinhNoiLuc7();
+                    kiemtoan();
 
 
                     // đóng gói và truyền dữ liệu
@@ -455,11 +480,65 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putDouble("Q69",Q69 );
                     LHbundle.putDouble("Q610",Q610 );
 
+                    // tổng hợp
+                    LHbundle.putDouble("M71",M71 );
+                    LHbundle.putDouble("M72",M72 );
+                    LHbundle.putDouble("M73",M73 );
+                    LHbundle.putDouble("M74",M74 );
+                    LHbundle.putDouble("M75",M75 );
+                    LHbundle.putDouble("M76",M76 );
+                    LHbundle.putDouble("M77",M77 );
+                    LHbundle.putDouble("M78",M78 );
+                    LHbundle.putDouble("M79",M79 );
+                    LHbundle.putDouble("M710",M710 );
+                    LHbundle.putDouble("M711",M711 );
+                    LHbundle.putDouble("M712",M712 );
+                    LHbundle.putDouble("M713",M713 );
+                    LHbundle.putDouble("M714",M714 );
+                    LHbundle.putDouble("M715",M715 );
+                    LHbundle.putDouble("M716",M716 );
+                    LHbundle.putDouble("M717",M717 );
+                    LHbundle.putDouble("M718",M718 );
+                    LHbundle.putDouble("M719",M719 );
+                    LHbundle.putDouble("M720",M720 );
+                    LHbundle.putDouble("M721",M721 );
+                    LHbundle.putDouble("M722",M722 );
+                    LHbundle.putDouble("M723",M723 );
+                    LHbundle.putDouble("M724",M724 );
+                    LHbundle.putDouble("Q71",Q71 );
+                    LHbundle.putDouble("Q72",Q72 );
+                    LHbundle.putDouble("Q73",Q73 );
+                    LHbundle.putDouble("Q74",Q74 );
+                    LHbundle.putDouble("Q75",Q75 );
+                    LHbundle.putDouble("Q76",Q76 );
+                    LHbundle.putDouble("Q77",Q77 );
+                    LHbundle.putDouble("Q78",Q78 );
+                    LHbundle.putDouble("Q79",Q79 );
+                    LHbundle.putDouble("Q710",Q710 );
+                    LHbundle.putDouble("Q711",Q711 );
+                    LHbundle.putDouble("Q712",Q712 );
+                    LHbundle.putDouble("Q713",Q713 );
+                    LHbundle.putDouble("Q714",Q714 );
+                    LHbundle.putDouble("Q715",Q715 );
+                    LHbundle.putDouble("Q716",Q716 );
+                    LHbundle.putDouble("Q717",Q717 );
+                    LHbundle.putDouble("Q718",Q718 );
+                    LHbundle.putDouble("Q719",Q719 );
+                    LHbundle.putDouble("Q720",Q720 );
+                    LHbundle.putDouble("Q721",Q721 );
+                    LHbundle.putDouble("Q722",Q722 );
+                    LHbundle.putDouble("Q723",Q723 );
+                    LHbundle.putDouble("Q724",Q724 );
+                    LHbundle.putDouble("Q725",Q725 );
+                    LHbundle.putDouble("Q726",Q726 );
+                    LHbundle.putDouble("Q727",Q727 );
+                    LHbundle.putDouble("Q728",Q728 );
+                    LHbundle.putDouble("Q729",Q729 );
+                    LHbundle.putDouble("Q730",Q730 );
 
 
-
-
-                   // LHbundle.putDouble("M4",M4 );
+                    
+                    // LHbundle.putDouble("M4",M4 );
                     LHintent.putExtra("LHbundle", LHbundle);
                     startActivity(LHintent);
                 }
@@ -467,9 +546,154 @@ public class nhaplieuthietke extends AppCompatActivity {
         });
 
     }
+    public  void tinhToanTDChac(){
+        // tính các thông số
+        N1=N2=13;
+        Dtt=Dtd=16;
+        St=55;
+        Stbmc=150;
+        Sd=65;
+        Sdbmc=150;
+////
+        Ps=0.85*fc*bi*ts;
+        Pc=Fy*Bft*tft;
+        Pt= Fy*Bfb*tfb;
+        Pw= Fy*Dw*tw;
+        Prt= 400* N1*3.14*Dtt*Dtt *0.25;
+        Prb= 400*N2*3.14*Dtd*Dtd *0.25;
+        // xác định trục trung hòa dẻo
+        if ((Pt+Pw)>(Ps+Pc+Prt+Prb)){
+            Dcp=(Dw/2)*((Pt+Pw-Pc-Ps-Prt-Prb)/Pw);
+            Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
+        }
+        else if ((Pt+Pw< Ps+Pc+Prt+Prb && Pt+Pw +Pc> Ps+Prt+Prb)){
+            Dcp=(tft/2)*((Pt+Pw+Pc-Ps-Prt-Prb)/Pc);
+            Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
+        }
+        else if ((Pt+Pw+Pc+Ps)>(Prt+Prb)){
+            Dcp=(ts/2)*((Pt+Pw+Pc+Ps-Prt-Prb)/Ps);
+            Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
+        }
+        // momen dẻo
+        Mp=(Ps*(Dcp+tft+Yv+ts/2)+Prt*(Dcp+tft+Yv+ts-St)+Prb*(Dcp+tft+Yv+ts+Sd)+Pc*(Dcp+tft/2)+Pt*(Dw-Dcp+tfb/2)+Pw*(Math.abs(-Dcp+Dw/2)))*(1.0/1000000);
+
+        Toast.makeText(nhaplieuthietke.this,""+Mp,Toast.LENGTH_LONG).show();
+        Dp=Dcp+tft+Yv+ts;
+
+        if (Fy == 345){
+            Dphay=(0.7*(D+ts+Yv))/7.5;
+            beta=0.7;
+        }
+        else if (Fy==250){
+            Dphay=(0.9*(D+ts+Yv))/7.5;
+            beta=0.9;
+        }
+
+        if (Dphay< Dp && Dp <= 5*Dphay){
+            Mn=((5.0*Mp)-0.85*My)/4.0+(((0.85*My)-Mp)/4.0)*(Dp/Dphay);
+            Toast.makeText(nhaplieuthietke.this,""+Mn,Toast.LENGTH_LONG).show();
+        }
+        else if (Dp<Dphay){
+            Mn=Mp;
+            Toast.makeText(nhaplieuthietke.this,""+Mn,Toast.LENGTH_LONG).show();
+        }
+        // momen kháng uốn
+        Mr=Mn;
+        // kiểm tra sức kháng uốn
+        if(Mr-Math.max(M74,M78)>0){
+            Toast.makeText(nhaplieuthietke.this,"thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(nhaplieuthietke.this,"không thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
+        }
+        //
+
+        //Cường đọ chịu kéo nhỏ nhất
+        try {
+            d0 = Double.parseDouble(edtd0.getText().toString());
+
+            if (d0 < 0) {
+
+                edtd0.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtd0.setError("Hãy nhập giá trị");
+        }
+
+        //tính hệ số k
+        k= 5+(5/(Math.pow(d0/Dw, 2)));
+        // tính c
+        if(((Dw/tw)-1.1*Math.sqrt(Es*k/Fy))<=0){
+            c=1;
+        }
+        else if (((Dw/tw)-1.1*Math.sqrt(Es*k/Fy))>=0&&((((Dw/tw)-1.38*Math.sqrt(Es*k/Fy))<=0)))
+        {
+            c=(1.1*tw/Dw)*(Math.sqrt(Es*k/Fy));
+
+        }else if ((Dw/tw)-1.38*Math.sqrt(Es*k/Fy)>=0){
+            c=(1.52/(Math.pow(Dw/tw,2)))*(Es*k/Fy);
+        }
+        //tính sức kháng uốn
+
+
+    }
+
+    public void   kiemTraTCgi(){
+
+        // kiểm tra bản bụng đặc chắc
+        double x1,x2;
+        x1= (2*Dcp/tw)-3.76*Math.sqrt(Es/Fy);
+        x2=(Bft/(0.5*tft))-0.382*Math.sqrt(Es/Fy);
+
+        if (x2<=0){
+            //ok
+
+        }else {
+            Toast.makeText(nhaplieuthietke.this,"Chọn lại tiết diện bản cánh",Toast.LENGTH_LONG).show();
+        }
+
+
+        // kiểm tra tiết diện CHẮC, KHÔNG CHẮC, MÃNH
+        if (x1<=0){
+            // TIẾT DIỆN CHẮC
+            tinhToanTDChac();
+
+        }else  {
+            // TD ko chắc
+        }
+
+    }
+
+    public void  ktTiLeCauTaoChung(){
+        double t;
+       t=(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12));
+        if (t>=0.1 && t<=0.9){
+                  }
+        else {
+            Toast.makeText(nhaplieuthietke.this,"Chọn lại tiết diện",Toast.LENGTH_LONG).show();
+        }
+    }
+    public void tinhMomenChay(){
+        if (IstDN>IstDT){
+            Ystt=YsttDN;
+            Ystd=YstdDN;
+              }
+        else{
+            Ystt=YsttDT;
+            Ystd=YstdDT;
+        }
+        my=((Fy-(Math.abs(f14+Math.max(f220,f24)-Math.min(f51,f53))))*Math.max(IstDT,IstDN))/(Ystt*1000000);
+        myy=((Fy-(Math.abs(f18+Math.max(f224,f28)+Math.max(f52,f54))))*Math.max(IstDT,IstDN))/(Ystd*1000000);
+        My= M14 + Math.max(M51,M52)+M24+Math.min(my,myy);
+    }
+    public void   kiemtoan(){
+        tinhMomenChay();
+        ktTiLeCauTaoChung();
+        kiemTraTCgi();
+
+    }
     public void tinhNoiLuc7(){
         // CD1 DẦM TRONG
-
         M71=(M31+M41+M51*1.2)*1.05;
         M72=(M32+M42+M51*1.2)*1.05;
         M73=(M33+M43+M51*1.2)*1.05;
@@ -501,14 +725,42 @@ public class nhaplieuthietke extends AppCompatActivity {
         M723=0.75*1.15*M63*mgMEM1lan;
         M724=0.75*1.15*M64*mgMEM1lan;
 
-
-
-
-
-
-
-
-
+        // CD1 DẦM TRONG
+        Q71=(Q31+Q41)*0.95;
+        Q72=(Q32+Q42)*0.95;
+        Q73=(Q33+Q43)*0.95;
+        Q74=(Q34+Q44)*0.95;
+        Q75=Q45*0.95;
+        //CD1 DẦM NGOÀI
+        Q76=(Q31+Q46)*0.95;
+        Q77=(Q32+Q47)*0.95;
+        Q78=(Q33+Q48)*0.95;
+        Q79=(Q34+Q49)*0.95;
+        Q710=Q410*0.95;
+        //sd DẦM TRONG
+        Q711=Q35+Q411;
+        Q712=Q36+Q412;
+        Q713=Q37+Q413;
+        Q714=Q38+Q414;
+        Q715=Q415;
+        //SD DẦM NGOÀI
+        Q716=Q35+Q416;
+        Q717=Q36+Q417;
+        Q718=Q37+Q418;
+        Q719=Q38+Q419;
+        Q720=Q420;
+        // MỎI DẦM TRONG
+        Q721=0.75*1.15*Q61*mgSIV;
+        Q722=0.75*1.15*Q62*mgSIV;
+        Q723=0.75*1.15*Q63*mgSIV;
+        Q724=0.75*1.15*Q64*mgSIV;
+        Q725=0.75*1.15*Q65*mgSIV;
+        // mỏi dầm ngoài
+        Q726=0.75*1.15*Q61*mgMEV1lan;
+        Q727=0.75*1.15*Q62*mgMEV1lan;
+        Q728=0.75*1.15*Q63*mgMEV1lan;
+        Q729=0.75*1.15*Q64*mgMEV1lan;
+        Q730=0.75*1.15*Q65*mgMEV1lan;
     }
     public void  tinhNoiLuc6(){
         //L/8
@@ -563,9 +815,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
         }
         //L/2
-
-
-
         if ((Ls/2)-9>0){
             M64=(1.0/4)*Ls*145*heSoHoatTai+(1.0/2)*((Ls/2)-9)*145*heSoHoatTai+(1.0/2)*((Ls/2)-4.3)*35*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
@@ -596,8 +845,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
                   }
                   //l/8
-
-
         if ((7*Ls/8)-13.3>0){
             Q62=(7.0/8)*145*heSoHoatTai+(((7*Ls/8)-9)/Ls)*145*heSoHoatTai+(((7*Ls/8)-13.3)/Ls)*35*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
@@ -677,8 +924,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             Q67=(1.0/8)*145*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
              }
-
-
         if ((Ls/4)-13.3>0){
             Q68=(1.0/4)*145*heSoHoatTai+(((Ls/4)-9)/Ls)*145*heSoHoatTai+(((Ls/4)-13.3)/Ls)*35*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
@@ -691,8 +936,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             Q68=(1.0/4)*145*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
         }
-
-
         if ((3*Ls/8)-13.3>0){
             Q69=(3.0/8)*145*heSoHoatTai+(((3*Ls/8)-9)/Ls)*145*heSoHoatTai+(((3*Ls/8)-13.3)/Ls)*35*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
@@ -705,8 +948,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             Q69=(3.0/8)*145*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
         }
-
-
         if ((Ls/2)-13.3>0){
             Q610=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai+(((Ls/2)-13.3)/Ls)*35*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
@@ -714,13 +955,11 @@ public class nhaplieuthietke extends AppCompatActivity {
         else if( (Ls/2)-13.3<=0 && (Ls/2)-9>0) {
             Q610=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
-
         }
         else if((Ls/2)-9<=0) {
             Q610=(1.0/2)*145*heSoHoatTai;
             Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
         }
-
     }
     public void tinhNoiLuc5(){
         // nọi lực do CO NGÓT
@@ -766,7 +1005,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
             //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
         }
-
         // momen co ngót
 //        Dầm trong	M1=(Es.Anc.(Yltd(dầm trong)-Yncd(dầm trong)).ks.kh.t.0,51.10-3)/(35+t)
         M51= ((Es*Anc*(YltdDT-Yncd)*ks*1*10000*0.51*(1.0/(1000)))/(35+10000))/1000000;
@@ -776,11 +1014,10 @@ public class nhaplieuthietke extends AppCompatActivity {
         // DẦM TRONG
 //
         f51= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDT)-(Anc*(YltdDT-Yncd)*(YlttDT/IltDT))-1);
-        f52= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDT)-(Anc*(YltdDT-Yncd)*(YltdDT/IltDT))-1);
+        f52= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDT)+(Anc*(YltdDT-Yncd)*(YltdDT/IltDT))-1);
+
         f53= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDN)-(Anc*(YltdDN-Yncd)*(YlttDN/IltDN))-1);
-        f54= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDN)-(Anc*(YltdDN-Yncd)*(YltdDN/IltDN))-1);
-
-
+        f54= Es*((ks*10000*1*0.51*(1.0/1000))/(35+10000))*((Anc/AltDN)+(Anc*(YltdDN-Yncd)*(YltdDN/IltDN))-1);
     }
     public void tinhNoiLuc4(){
         // phần ni tính xe 3 trục
@@ -823,7 +1060,6 @@ public class nhaplieuthietke extends AppCompatActivity {
            // Toast.makeText(nhaplieuthietke.this,""+m3,Toast.LENGTH_LONG).show();
         }
         //L/2
-
         if ( ( (Ls/2)-4.3) <= 0){
             m4 =(1.0/4)*Ls*145*heSoHoatTai;
         //   Toast.makeText(nhaplieuthietke.this,""+m4,Toast.LENGTH_LONG).show();
@@ -832,7 +1068,6 @@ public class nhaplieuthietke extends AppCompatActivity {
            m4 =(1.0/4)*Ls*145*heSoHoatTai+(1.0/2)*((Ls/2)-4.3)*145*heSoHoatTai+(1.0/2)*((Ls/2)-4.3)*35*heSoHoatTai;
         //   Toast.makeText(nhaplieuthietke.this,""+m4,Toast.LENGTH_LONG).show();
         }
-
         //cái ni do xe 2 trục gây ra
         // L/8
 
@@ -910,8 +1145,6 @@ public class nhaplieuthietke extends AppCompatActivity {
         //V DƯƠNG
 
         // tại gối
-
-
         if (Ls-8.6 >0){
             q1 =145*heSoHoatTai+((Ls-4.3)/Ls)*145*heSoHoatTai+((Ls-8.6)/Ls)*35*heSoHoatTai;
        //     Toast.makeText(nhaplieuthietke.this,""+q1,Toast.LENGTH_LONG).show();
@@ -938,9 +1171,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             q2 =(7.0/8)*145*heSoHoatTai;
          //   Toast.makeText(nhaplieuthietke.this,""+q2,Toast.LENGTH_LONG).show();
         }
-
         //L/4
-
         if ((3*Ls/4)-8.6>0){
             q3 =(3.0/4)*145*heSoHoatTai+(((3*Ls/4)-4.3)/Ls)*145*heSoHoatTai+(((3*Ls/4)-8.6)/Ls)*35*heSoHoatTai;
           //  Toast.makeText(nhaplieuthietke.this,""+q3,Toast.LENGTH_LONG).show();
@@ -953,10 +1184,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             q3 =(3.0/4)*145*heSoHoatTai;
            // Toast.makeText(nhaplieuthietke.this,""+q3,Toast.LENGTH_LONG).show();
         }
-
         //3L/8
-
-
         if ((5*Ls/8)-8.6>0){
             q4 =(5.0/8)*145*heSoHoatTai+(((5*Ls/8)-4.3)/Ls)*145*heSoHoatTai+(((5*Ls/8)-8.6)/Ls)*35*heSoHoatTai;
            // Toast.makeText(nhaplieuthietke.this,""+q4,Toast.LENGTH_LONG).show();
@@ -969,9 +1197,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             q4 =(5.0/8)*145*heSoHoatTai;
            // Toast.makeText(nhaplieuthietke.this,""+q4,Toast.LENGTH_LONG).show();
         }
-
         // L/2
-
         if ((Ls/2)-8.6>0){
             q5 =(1.0/2)*145*heSoHoatTai+(((Ls/2)-4.3)/Ls)*145*heSoHoatTai+(((Ls/2)-8.6)/Ls)*35*heSoHoatTai;
            // Toast.makeText(nhaplieuthietke.this,""+q5,Toast.LENGTH_LONG).show();
@@ -984,7 +1210,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             q5 =(1.0/2)*145*heSoHoatTai;
           //  Toast.makeText(nhaplieuthietke.this,""+q5,Toast.LENGTH_LONG).show();
         }
-
         // lực cắt ÂM
         // GÔI
         q6=0;
@@ -1001,10 +1226,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             q7 =(1.0/8)*145*heSoHoatTai;
          //   Toast.makeText(nhaplieuthietke.this,""+q7,Toast.LENGTH_LONG).show();
         }
-
         // L/4
-
-
         if ((Ls/4)-8.6>0){
             q8 =(1.0/4)*145*heSoHoatTai+(((Ls/4)-4.3)/Ls)*145*heSoHoatTai+(((Ls/4)-8.6)/Ls)*35*heSoHoatTai;
           //  Toast.makeText(nhaplieuthietke.this,""+q8,Toast.LENGTH_LONG).show();
@@ -2606,7 +2828,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             edthn.setError("Hãy nhập giá trị");
         }
     }
-
     public void btnTroVe(View view) {
         Intent iTroVe = new Intent(nhaplieuthietke.this, MainActivity.class);
         startActivity(iTroVe);

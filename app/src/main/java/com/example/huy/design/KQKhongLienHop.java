@@ -3,9 +3,12 @@ package com.example.huy.design;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.SpannableString;
+import android.text.TextWatcher;
 import android.text.style.SuperscriptSpan;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 //LIÊN HỢP
@@ -27,6 +30,8 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtMmax4DNSD,txtMmax4DTSD,txtMmax4DNCD1,txtMmax4DTCD1, txtViewMoreMV4;
     TextView txtM52,txtM51,txtf51,txtf52,txtf53,txtf54;
     TextView txtM64,txtQ64,txtViewMoreMV6;
+    TextView txtViewMoreMV7;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,7 +163,102 @@ public class KQKhongLienHop extends AppCompatActivity {
         viewMoreNoiLuc3();
         viewMoreNoiLuc4();
         viewMoreNoiLuc6();
+        viewNoiLuc7();
 
+
+    }
+//    public void kiemToan(){
+//        edtd0.addTextChangedListener(new TextWatcher() {
+//                        @Override
+//                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                        }
+//
+//                        @Override
+//                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//                        }
+//
+//                        @Override
+//                        public void afterTextChanged(Editable s) {
+//                            // code khi text thay đôi
+//
+//                            // đóng gói và truyền dữ liệu
+//                            Intent d0intent = new Intent(KQKhongLienHop.this, nhaplieuthietke.class);
+//                            Bundle d0bundle = new Bundle();
+//                            d0bundle.putDouble("d0", d0);
+//                            d0intent.putExtra("d0bundle", d0bundle);
+//                            startActivity(d0intent);
+//                        }
+//                    });
+
+    public void  viewNoiLuc7(){
+        txtViewMoreMV7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+                Intent ViewMoreNoiLuc7bundle = new Intent(KQKhongLienHop.this, ViewMoreNoiLuc7.class);
+                ViewMoreNoiLuc7bundle.putExtra("M71", LHbundle.getDouble("M71"));
+                ViewMoreNoiLuc7bundle.putExtra("M72", LHbundle.getDouble("M72"));
+                ViewMoreNoiLuc7bundle.putExtra("M73", LHbundle.getDouble("M73"));
+                ViewMoreNoiLuc7bundle.putExtra("M74", LHbundle.getDouble("M74"));
+                ViewMoreNoiLuc7bundle.putExtra("M75", LHbundle.getDouble("M75"));
+                ViewMoreNoiLuc7bundle.putExtra("M76", LHbundle.getDouble("M76"));
+                ViewMoreNoiLuc7bundle.putExtra("M77", LHbundle.getDouble("M77"));
+                ViewMoreNoiLuc7bundle.putExtra("M78", LHbundle.getDouble("M78"));
+                ViewMoreNoiLuc7bundle.putExtra("M79", LHbundle.getDouble("M79"));
+                ViewMoreNoiLuc7bundle.putExtra("M710", LHbundle.getDouble("M710"));
+                ViewMoreNoiLuc7bundle.putExtra("M711", LHbundle.getDouble("M711"));
+                ViewMoreNoiLuc7bundle.putExtra("M712", LHbundle.getDouble("M712"));
+                ViewMoreNoiLuc7bundle.putExtra("M713", LHbundle.getDouble("M713"));
+                ViewMoreNoiLuc7bundle.putExtra("M714", LHbundle.getDouble("M714"));
+                ViewMoreNoiLuc7bundle.putExtra("M715", LHbundle.getDouble("M715"));
+                ViewMoreNoiLuc7bundle.putExtra("M716", LHbundle.getDouble("M716"));
+                ViewMoreNoiLuc7bundle.putExtra("M717", LHbundle.getDouble("M717"));
+                ViewMoreNoiLuc7bundle.putExtra("M718", LHbundle.getDouble("M718"));
+                ViewMoreNoiLuc7bundle.putExtra("M719", LHbundle.getDouble("M719"));
+                ViewMoreNoiLuc7bundle.putExtra("M720", LHbundle.getDouble("M720"));
+                ViewMoreNoiLuc7bundle.putExtra("M721", LHbundle.getDouble("M721"));
+                ViewMoreNoiLuc7bundle.putExtra("M722", LHbundle.getDouble("M722"));
+                ViewMoreNoiLuc7bundle.putExtra("M723", LHbundle.getDouble("M723"));
+                ViewMoreNoiLuc7bundle.putExtra("M724", LHbundle.getDouble("M724"));
+
+                ViewMoreNoiLuc7bundle.putExtra("Q71", LHbundle.getDouble("Q71"));
+                ViewMoreNoiLuc7bundle.putExtra("Q72", LHbundle.getDouble("Q72"));
+                ViewMoreNoiLuc7bundle.putExtra("Q73", LHbundle.getDouble("Q73"));
+                ViewMoreNoiLuc7bundle.putExtra("Q74", LHbundle.getDouble("Q74"));
+                ViewMoreNoiLuc7bundle.putExtra("Q75", LHbundle.getDouble("Q75"));
+                ViewMoreNoiLuc7bundle.putExtra("Q76", LHbundle.getDouble("Q76"));
+                ViewMoreNoiLuc7bundle.putExtra("Q77", LHbundle.getDouble("Q77"));
+                ViewMoreNoiLuc7bundle.putExtra("Q78", LHbundle.getDouble("Q78"));
+                ViewMoreNoiLuc7bundle.putExtra("Q79", LHbundle.getDouble("Q79"));
+                ViewMoreNoiLuc7bundle.putExtra("Q710", LHbundle.getDouble("Q710"));
+                ViewMoreNoiLuc7bundle.putExtra("Q711", LHbundle.getDouble("Q711"));
+                ViewMoreNoiLuc7bundle.putExtra("Q712", LHbundle.getDouble("Q712"));
+                ViewMoreNoiLuc7bundle.putExtra("Q713", LHbundle.getDouble("Q713"));
+                ViewMoreNoiLuc7bundle.putExtra("Q714", LHbundle.getDouble("Q714"));
+                ViewMoreNoiLuc7bundle.putExtra("Q715", LHbundle.getDouble("Q715"));
+                ViewMoreNoiLuc7bundle.putExtra("Q716", LHbundle.getDouble("Q716"));
+                ViewMoreNoiLuc7bundle.putExtra("Q717", LHbundle.getDouble("Q717"));
+                ViewMoreNoiLuc7bundle.putExtra("Q718", LHbundle.getDouble("Q718"));
+                ViewMoreNoiLuc7bundle.putExtra("Q719", LHbundle.getDouble("Q719"));
+                ViewMoreNoiLuc7bundle.putExtra("Q720", LHbundle.getDouble("Q720"));
+                ViewMoreNoiLuc7bundle.putExtra("Q721", LHbundle.getDouble("Q721"));
+                ViewMoreNoiLuc7bundle.putExtra("Q722", LHbundle.getDouble("Q722"));
+                ViewMoreNoiLuc7bundle.putExtra("Q723", LHbundle.getDouble("Q723"));
+                ViewMoreNoiLuc7bundle.putExtra("Q724", LHbundle.getDouble("Q724"));
+                ViewMoreNoiLuc7bundle.putExtra("Q725", LHbundle.getDouble("Q725"));
+                ViewMoreNoiLuc7bundle.putExtra("Q726", LHbundle.getDouble("Q726"));
+                ViewMoreNoiLuc7bundle.putExtra("Q727", LHbundle.getDouble("Q727"));
+                ViewMoreNoiLuc7bundle.putExtra("Q728", LHbundle.getDouble("Q728"));
+                ViewMoreNoiLuc7bundle.putExtra("Q729", LHbundle.getDouble("Q729"));
+                ViewMoreNoiLuc7bundle.putExtra("Q730", LHbundle.getDouble("Q730"));
+
+                startActivity(ViewMoreNoiLuc7bundle);
+
+            }
+        });
     }
     public void  viewMoreNoiLuc6(){
         txtViewMoreMV6.setOnClickListener(new View.OnClickListener() {
@@ -529,15 +629,20 @@ public class KQKhongLienHop extends AppCompatActivity {
         // co ngót nhiệt độ
         txtM52=(TextView) findViewById(R.id.txtM52);
         txtM51=(TextView) findViewById(R.id.txtM51);
-         txtf51=(TextView) findViewById(R.id.txtf51);
-         txtf52 =(TextView) findViewById(R.id.txtf52);
-          txtf53 =(TextView) findViewById(R.id.txtf53);
-           txtf54 =(TextView) findViewById(R.id.txtf54);
+        txtf51=(TextView) findViewById(R.id.txtf51);
+        txtf52 =(TextView) findViewById(R.id.txtf52);
+        txtf53 =(TextView) findViewById(R.id.txtf53);
+        txtf54 =(TextView) findViewById(R.id.txtf54);
            // mỏi
-          txtM64=(TextView) findViewById(R.id.txtM64);
+        txtM64=(TextView) findViewById(R.id.txtM64);
         txtQ64=(TextView) findViewById(R.id.txtV64);
         txtViewMoreMV6=(TextView) findViewById(R.id.txtViewMoreMV6);
+
+        // tổng
+        txtViewMoreMV7 =(TextView) findViewById(R.id.txtViewMoreMV7);
 //           =(TextView) findViewById(R.id.);
+//
+
 
 
 

@@ -295,7 +295,7 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
 //        return xvalues;
 //    }
 
-    private List<ILineDataSet> getLineDataValuesV41() {
+      private List<ILineDataSet> getLineDataValuesV41() {
         ArrayList<ILineDataSet> lineDataSetsV41 = null;
         ArrayList<Entry> entryArrayList = new ArrayList<>();
         ArrayList<Entry> Q2entryArrayList = new ArrayList<>();
@@ -334,35 +334,35 @@ public class ViewMoreNoiLuc4 extends AppCompatActivity {
         }
 
         LineDataSet lineDataSet= new LineDataSet(entryArrayList, "V DT TTCD1");
-        lineDataSet.setColor(Color.YELLOW);
-        lineDataSet.setCircleColor(Color.YELLOW);
+        lineDataSet.setColor(Color.parseColor("#8e24aa"));
+        lineDataSet.setCircleColor(Color.parseColor("#8e24aa"));
         lineDataSet.setCircleRadius(4);
         lineDataSet.setValueTextSize(11f);
-        lineDataSet.setValueTextColor(Color.YELLOW);
+        lineDataSet.setValueTextColor(Color.parseColor("#8e24aa"));
 
 
         LineDataSet lineDataSetM2= new LineDataSet(Q2entryArrayList, "V DT TTSD");
-        lineDataSetM2.setColor(Color.GREEN);
-        lineDataSetM2.setCircleColor(Color.GREEN);
+        lineDataSetM2.setColor(Color.parseColor("#FFF4C908"));
+        lineDataSetM2.setCircleColor(Color.parseColor("#FFF4C908"));
         lineDataSetM2.setCircleRadius(4);
         lineDataSetM2.setValueTextSize(11f);
-        lineDataSetM2.setValueTextColor(Color.GREEN);
+        lineDataSetM2.setValueTextColor(Color.parseColor("#FFF4C908"));
 
 
         LineDataSet lineDataSetM3= new LineDataSet(Q3entryArrayList, "V DN TTSD");
-        lineDataSetM3.setColor(Color.CYAN);
-        lineDataSetM3.setCircleColor(Color.CYAN);
+        lineDataSetM3.setColor(Color.parseColor("#FFEF0667"));
+        lineDataSetM3.setCircleColor(Color.parseColor("#FFEF0667"));
         lineDataSetM3.setCircleRadius(4);
         lineDataSetM3.setValueTextSize(11f);
-        lineDataSetM3.setValueTextColor(Color.CYAN);
+        lineDataSetM3.setValueTextColor(Color.parseColor("#FFEF0667"));
 
 
         LineDataSet lineDataSetM4= new LineDataSet(Q4entryArrayList, "V DN TTCD1\n");
-        lineDataSetM4.setColor(Color.LTGRAY);
-        lineDataSetM4.setCircleColor(Color.LTGRAY);
+        lineDataSetM4.setColor(Color.parseColor("#FF2E8326"));
+        lineDataSetM4.setCircleColor(Color.parseColor("#FF2E8326"));
         lineDataSetM4.setCircleRadius(4);
         lineDataSetM4.setValueTextSize(11f);
-        lineDataSetM4.setValueTextColor(Color.LTGRAY);
+        lineDataSetM4.setValueTextColor(Color.parseColor("#FF2E8326"));
 
 
 
