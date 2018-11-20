@@ -198,6 +198,7 @@ public class KQKhongLienHop extends AppCompatActivity {
                 Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
                 Intent ViewNoiLucbundle = new Intent(KQKhongLienHop.this, ViewNoiLuc.class);
                 //nội lực 1
+                ///
                 ViewNoiLucbundle.putExtra("M11", LHbundle.getDouble("M11"));
                 ViewNoiLucbundle.putExtra("M12", LHbundle.getDouble("M12"));
                 ViewNoiLucbundle.putExtra("M13", LHbundle.getDouble("M13"));
