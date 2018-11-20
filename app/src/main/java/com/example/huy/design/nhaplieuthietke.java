@@ -1,17 +1,6 @@
 package com.example.huy.design;
 
-//import android.annotation.SuppressLint;
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.support.v7.app.AppCompatActivity;
-//import android.text.InputFilter;
-//import android.view.View;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.TextView;
-//import android.widget.Toast;
-
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +11,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//
+//import android.content.Intent;
+//import android.os.Bundle;
+//import android.support.v7.app.AppCompatActivity;
+//import android.text.InputFilter;
+//import android.view.View;
+//import android.widget.Button;
+//import android.widget.EditText;
+//import android.widget.TextView;
+//import android.widget.Toast;
+//import android.annotation.SuppressLint;
 public class nhaplieuthietke extends AppCompatActivity {
     EditText edtTenDuAn, edtHoatTaiTieuChuan, edtChieuDaiNhip, edtChieuDaiNhipTinhToan, edtBeRongPhanXeChay, edtBeRongLanCan, edtTongBeRongToanCuaCau;
     EditText edtLoaiLienKetSuDung, edtCauTaoDamChu, edtMatCatNgangDamChu, edtCuongDoChiuNenCuaBeTong, edtTiTrongCuaBeTong, edtModuynDanHoiCuaBeTong;
@@ -85,12 +85,10 @@ public class nhaplieuthietke extends AppCompatActivity {
     // trục trung hòa dẻo
     double Dcp,Mp;
     // momen dẻo
-    double Dp,beta, Dphay, Mn, Mr;
+    double Dp,beta, Dphay, Mn, Mr,Mu;
     EditText edtd0;
-    double d0, k,c, V1n, V2n, R, Vr;
-
-
-
+    double d0, k,c, V1n, V2n,r, Vr,Vp;
+    double fcf,f;
 
 //    float M1val[]=new float[5];
 //    float M2val[]=new float[5];
@@ -103,7 +101,6 @@ public class nhaplieuthietke extends AppCompatActivity {
 
 
 
-
     String bt;
 
 
@@ -111,6 +108,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhaplieuthietke);
+
         //check chỗ này nè e
         // nếu activity ni có cái button nó tính toán sao thì em em để lệnh trong if else này
         // à tốt hơn e để ì else này trong sự kiện tính của button á, a để đây để ví dụ thôi
@@ -240,6 +238,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhNoiLuc5();
                     tinhNoiLuc6();
                     tinhNoiLuc7();
+                    viewNoiLuc();
                     kiemtoan();
 
 
@@ -546,6 +545,9 @@ public class nhaplieuthietke extends AppCompatActivity {
         });
 
     }
+    public void  viewNoiLuc(){
+
+    }
     public  void tinhToanTDChac(){
         // tính các thông số
         N1=N2=13;
@@ -633,7 +635,46 @@ public class nhaplieuthietke extends AppCompatActivity {
         }else if ((Dw/tw)-1.38*Math.sqrt(Es*k/Fy)>=0){
             c=(1.52/(Math.pow(Dw/tw,2)))*(Es*k/Fy);
         }
+        //
+        r= Math.min(1, (0.4*(Mr-Mu)/(Mr-0.75*My)));
+        //momen uốn lớn nhất
+        Mu= Math.max(M74,M78);
+        //
+        Vp=0.58*Fy*Dw*tw*0.001;
         //tính sức kháng uốn
+        if (Mu-0.5*Mp <0 ){
+//            V1n, V2n,r, Vr;
+            V1n= (0.58*Fy*Dw*tw)*(c+((0.87*(1-c))/(Math.sqrt(1+Math.pow(d0/Dw,2)))));
+            Vr=V1n;
+
+        } else if(Mu-0.5*Mp >0){
+            V2n=r*((0.58*Fy*Dw*tw)*(c+((0.87*(1-c))/(Math.sqrt(1+Math.pow(d0/Dw,2))))));
+            Vr=V2n;
+        }
+        // kiểm tra
+        if (Vr-Math.max(Q71,Q76)>0){
+            Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+        }
+        else if((Math.max(Q71,Q76)-c*Vp) <0){
+            Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(nhaplieuthietke.this,"dầm không đủ khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+        }
+
+        //
+        if ((2.0/((D-tft-Ystd)*tw))-5.7*(Math.sqrt(Es/Fy))<=0){
+            fcf=Fy;
+        }else if ((2.0/((D-tft-Ystd)*tw))-5.7*(Math.sqrt(Es/Fy))>0){
+            fcf=32.5*Es*Math.pow(tw/(2*(D-tft-Ystd)),2);
+        }
+        // tính ứng suất
+        f=-f112-Math.max(f228,f212)-2*(1000000*YlttDT*Math.max(M720,M724))/IltDT;
+        // kiểm tra ứng suất
+        if (f-Fy <=0){
+            Toast.makeText(nhaplieuthietke.this,"ứng suất dầm thoả",Toast.LENGTH_LONG).show();
+        }
+
 
 
     }
@@ -726,37 +767,37 @@ public class nhaplieuthietke extends AppCompatActivity {
         M724=0.75*1.15*M64*mgMEM1lan;
 
         // CD1 DẦM TRONG
-        Q71=(Q31+Q41)*0.95;
-        Q72=(Q32+Q42)*0.95;
-        Q73=(Q33+Q43)*0.95;
-        Q74=(Q34+Q44)*0.95;
+        Q71=(Q34+Q41)*0.95;
+        Q72=(Q33+Q42)*0.95;
+        Q73=(Q32+Q43)*0.95;
+        Q74=(Q31+Q44)*0.95;
         Q75=Q45*0.95;
         //CD1 DẦM NGOÀI
-        Q76=(Q31+Q46)*0.95;
+        Q76=(Q31+Q46)*0.95;//
         Q77=(Q32+Q47)*0.95;
         Q78=(Q33+Q48)*0.95;
         Q79=(Q34+Q49)*0.95;
         Q710=Q410*0.95;
         //sd DẦM TRONG
-        Q711=Q35+Q411;
-        Q712=Q36+Q412;
-        Q713=Q37+Q413;
-        Q714=Q38+Q414;
+        Q711=Q38+Q411;//
+        Q712=Q37+Q412;
+        Q713=Q36+Q413;
+        Q714=Q35+Q414;
         Q715=Q415;
         //SD DẦM NGOÀI
-        Q716=Q35+Q416;
+        Q716=Q35+Q416;//
         Q717=Q36+Q417;
         Q718=Q37+Q418;
         Q719=Q38+Q419;
         Q720=Q420;
         // MỎI DẦM TRONG
-        Q721=0.75*1.15*Q61*mgSIV;
+        Q721=0.75*1.15*Q61*mgSIV;//
         Q722=0.75*1.15*Q62*mgSIV;
         Q723=0.75*1.15*Q63*mgSIV;
         Q724=0.75*1.15*Q64*mgSIV;
         Q725=0.75*1.15*Q65*mgSIV;
         // mỏi dầm ngoài
-        Q726=0.75*1.15*Q61*mgMEV1lan;
+        Q726=0.75*1.15*Q61*mgMEV1lan;//
         Q727=0.75*1.15*Q62*mgMEV1lan;
         Q728=0.75*1.15*Q63*mgMEV1lan;
         Q729=0.75*1.15*Q64*mgMEV1lan;
