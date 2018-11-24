@@ -30,7 +30,11 @@
         <activity android:name=".ViewMoreNoiLuc4" />
         <activity android:name=".ViewMoreNoiLuc6" />
         <activity android:name=".ViewMoreNoiLuc7" />
-        <activity android:name=".ViewNoiLuc"></activity>
+        <activity android:name=".ViewNoiLuc" />
+        <activity android:name=".ViewKiemToan" />
+        <activity android:name=".kiemdinh_dialog" />
+        <activity android:name=".KiemDinhNhanh" />
+        <activity android:name=".KiemDinhTheoAASHTO"></activity>
     </application>
 
 </manifest>

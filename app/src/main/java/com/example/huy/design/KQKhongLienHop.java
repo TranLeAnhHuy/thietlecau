@@ -1,4 +1,4 @@
-﻿package com.example.huy.design;
+package com.example.huy.design;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,6 +34,8 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtM74, txtM78, txtM712, txtM716, txtM720, txtM724;
     TextView txtQ71, txtQ76, txtQ711, txtQ716, txtQ721, txtQ726;
     TextView txtviewNoiLuc;
+    TextView  txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8;
+    TextView txtViewKiemToan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,6 +163,10 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtQ721.setText(roundString(LHbundle.getDouble("Q721"), 4));
         txtQ726.setText(roundString(LHbundle.getDouble("Q726"), 4));
 
+        //////////////////////////////////kiểm toán //////////////////////
+
+
+
         //        .setText(roundString(LHbundle.getDouble(""), 4));
 
         //txt.setText(roundString(LHbundle.getDouble(""), 4));
@@ -173,6 +179,30 @@ public class KQKhongLienHop extends AppCompatActivity {
         //        viewMoreNoiLuc6();
         viewNoiLuc7();
         viewNoiLuc();
+        viewKiemToan();
+    }
+    public void viewKiemToan(){
+        txtViewKiemToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+
+                Intent ViewKiemToanbundle = new Intent(KQKhongLienHop.this, ViewKiemToan.class);
+                Bundle KTBundle = new Bundle();
+                KTBundle.putString("txtKT1", LHbundle.getString("txtKT1"));
+                KTBundle.putString("txtKT2", LHbundle.getString("txtKT2"));
+                KTBundle.putString("txtKT3", LHbundle.getString("txtKT3"));
+                KTBundle.putString("txtKT4", LHbundle.getString("txtKT4"));
+                KTBundle.putString("txtKT5", LHbundle.getString("txtKT5"));
+                KTBundle.putString("txtKT6", LHbundle.getString("txtKT6"));
+                KTBundle.putString("txtKT7", LHbundle.getString("txtKT7"));
+
+
+                ViewKiemToanbundle.putExtra("LHbundle", KTBundle);
+                startActivity(ViewKiemToanbundle);
+            }
+        });
     }
 
     public void viewNoiLuc() {
@@ -426,6 +456,7 @@ public class KQKhongLienHop extends AppCompatActivity {
                 newBundle.putDouble("Q728", LHbundle.getDouble("Q728"));
                 newBundle.putDouble("Q729", LHbundle.getDouble("Q729"));
                 newBundle.putDouble("Q730", LHbundle.getDouble("Q730"));
+
 
                 ViewNoiLucbundle.putExtra("LHbundle", newBundle);
                 startActivity(ViewNoiLucbundle);
@@ -920,6 +951,14 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtQ721 = (TextView) findViewById(R.id.txtQ721);
         txtQ726 = (TextView) findViewById(R.id.txtQ726);
         txtviewNoiLuc = (TextView) findViewById(R.id.txtviewNoiLuc);
+        ////////////////////KIỂM TOÁN////////////////////////////////////////
+
+        ///
+        txtViewKiemToan = (TextView) findViewById(R.id.txtViewKiemToan);
+
+
+
+
 
         //           =(TextView) findViewById(R.id.);
         //

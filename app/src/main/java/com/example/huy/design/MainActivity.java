@@ -37,6 +37,49 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void thietKe(View view) {
+        // button kiểm định
+        btn_KiemDinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Dialog kiemdinh_dialog = new Dialog(MainActivity.this); // khai báo nó hiển thị ở màn hình chính đang đứng
+                kiemdinh_dialog.setCancelable(false);// nếu bấm ra khỏi dialog thì ko thực thi
+                kiemdinh_dialog.setContentView(R.layout.activity_kiemdinh_dialog); // et đến layout của dialog đã thiết kế
+                // Khai báo thuộc tính của đối tượng trong dialog
+                Button btnKDnhanh = (Button) kiemdinh_dialog.findViewById(R.id.btnKDnhanh);
+                Button btnKDtheoAashto = (Button) kiemdinh_dialog.findViewById(R.id.btnKDtheoAashto);
+
+
+                btnKDnhanh.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent iKDnhanh = new Intent(MainActivity.this, KiemDinhNhanh.class);
+                        startActivity(iKDnhanh);
+                    }
+                });
+
+                btnKDtheoAashto.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent iAA = new Intent(MainActivity.this, KiemDinhTheoAASHTO.class);
+
+                        startActivity(iAA);
+
+                    }
+                });
+                Button btn_Huy_Dialog = (Button)kiemdinh_dialog.findViewById(R.id.button_Huy_Dialog);
+                kiemdinh_dialog.show();
+                btn_Huy_Dialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        kiemdinh_dialog.cancel();
+                    }
+                });
+
+            }
+        });
+
+
         // đây là function điều khiển
         btn_ThietKe.setOnClickListener(new View.OnClickListener() {
             @Override

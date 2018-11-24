@@ -89,6 +89,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     EditText edtd0;
     double d0, k,c, V1n, V2n,r, Vr,Vp;
     double fcf,f;
+    // sTring
+    String txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8;
 
 //    float M1val[]=new float[5];
 //    float M2val[]=new float[5];
@@ -240,8 +242,6 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhNoiLuc7();
                     viewNoiLuc();
                     kiemtoan();
-
-
                     // đóng gói và truyền dữ liệu
                     Intent LHintent = new Intent(nhaplieuthietke.this, KQKhongLienHop.class);
                     Bundle LHbundle = new Bundle();
@@ -534,7 +534,16 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putDouble("Q728",Q728 );
                     LHbundle.putDouble("Q729",Q729 );
                     LHbundle.putDouble("Q730",Q730 );
-
+///////////////////////////////////////////////////////////////////////////////////
+                    LHbundle.putString("txtKT1",txtKT1 );
+                    LHbundle.putString("txtKT2",txtKT2 );
+                    LHbundle.putString("txtKT3",txtKT3 );
+                    LHbundle.putString("txtKT4",txtKT4 );
+                    LHbundle.putString("txtKT5",txtKT5 );
+                    LHbundle.putString("txtKT5",txtKT5 );
+                    LHbundle.putString("txtKT6",txtKT6 );
+                    LHbundle.putString("txtKT7",txtKT7 );
+                    LHbundle.putString("txtKT8",txtKT8 );
 
                     
                     // LHbundle.putDouble("M4",M4 );
@@ -566,20 +575,25 @@ public class nhaplieuthietke extends AppCompatActivity {
         // xác định trục trung hòa dẻo
         if ((Pt+Pw)>(Ps+Pc+Prt+Prb)){
             Dcp=(Dw/2)*((Pt+Pw-Pc-Ps-Prt-Prb)/Pw);
-            Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
+            txtKT4="Pt+Pw="+""+(float)Math.round((Pt+Pw)* 1000)/1000 +">"+"Ps+Pc+Prt+Prb= "+(float)Math.round(((Pt+Pw-Pc-Ps-Prt-Prb)/Pw)* 1000)/1000+"\n   Trục trung hòa dẻo nằm ở bản bụng"+"\n   Dcp=" +""+(float)Math.round((Dcp* 1000)/1000);
+          // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
         }
         else if ((Pt+Pw< Ps+Pc+Prt+Prb && Pt+Pw +Pc> Ps+Prt+Prb)){
             Dcp=(tft/2)*((Pt+Pw+Pc-Ps-Prt-Prb)/Pc);
-            Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
+            txtKT4="Pt+Pw="+""+(float)Math.round((Pt+Pw)* 1000)/1000 +"<"+"Ps+Pc+Prt+Prb= "+(float)Math.round((Ps+Pc+Prt+Prb)* 1000)/1000+"\n   Trục trung hòa dẻo nằm ở bản cánh trên"+"\n   Dcp=" +""+(float)Math.round((Dcp* 1000)/1000);
+                // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
         }
         else if ((Pt+Pw+Pc+Ps)>(Prt+Prb)){
             Dcp=(ts/2)*((Pt+Pw+Pc+Ps-Prt-Prb)/Ps);
-            Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
+            txtKT4="Trục trung hòa dẻo nằm ở bản bê tông";
+           /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
         }
+
+
         // momen dẻo
         Mp=(Ps*(Dcp+tft+Yv+ts/2)+Prt*(Dcp+tft+Yv+ts-St)+Prb*(Dcp+tft+Yv+ts+Sd)+Pc*(Dcp+tft/2)+Pt*(Dw-Dcp+tfb/2)+Pw*(Math.abs(-Dcp+Dw/2)))*(1.0/1000000);
 
-        Toast.makeText(nhaplieuthietke.this,""+Mp,Toast.LENGTH_LONG).show();
+        Toast.makeText(nhaplieuthietke.this,"Mp="+Mp,Toast.LENGTH_LONG).show();
         Dp=Dcp+tft+Yv+ts;
 
         if (Fy == 345){
@@ -593,20 +607,24 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         if (Dphay< Dp && Dp <= 5*Dphay){
             Mn=((5.0*Mp)-0.85*My)/4.0+(((0.85*My)-Mp)/4.0)*(Dp/Dphay);
-            Toast.makeText(nhaplieuthietke.this,""+Mn,Toast.LENGTH_LONG).show();
+            Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
         }
         else if (Dp<Dphay){
             Mn=Mp;
-            Toast.makeText(nhaplieuthietke.this,""+Mn,Toast.LENGTH_LONG).show();
+            Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
         }
         // momen kháng uốn
         Mr=Mn;
+        //momen uốn lớn nhất
+        Mu= Math.max(M74,M78);
         // kiểm tra sức kháng uốn
         if(Mr-Math.max(M74,M78)>0){
-            Toast.makeText(nhaplieuthietke.this,"thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
+            txtKT5="Thỏa điều kiện sức kháng uốn, Mr="+""+Mr+">= Mu"+""+Mu;
+         //   Toast.makeText(nhaplieuthietke.this,"thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
         }
         else{
-            Toast.makeText(nhaplieuthietke.this,"không thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
+            txtKT5="Không thỏa điều kiện sức kháng uốn, Mr="+""+Mr+"<Mu"+""+Mu;
+         //   Toast.makeText(nhaplieuthietke.this,"không thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
         }
         //
 
@@ -637,8 +655,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         //
         r= Math.min(1, (0.4*(Mr-Mu)/(Mr-0.75*My)));
-        //momen uốn lớn nhất
-        Mu= Math.max(M74,M78);
+
         //
         Vp=0.58*Fy*Dw*tw*0.001;
         //tính sức kháng uốn
@@ -653,13 +670,17 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         // kiểm tra
         if (Vr-Math.max(Q71,Q76)>0){
-            Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+            txtKT6="dầm chịu được khả năng chịu kháng uốn";
+
+           // Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
         }
         else if((Math.max(Q71,Q76)-c*Vp) <0){
-            Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+            txtKT6="dầm chịu được khả năng chịu kháng uốn";
+            //Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
         }
         else{
-            Toast.makeText(nhaplieuthietke.this,"dầm không đủ khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+            txtKT6="Dầm không chịu được khả năng kháng uốn";
+         //   Toast.makeText(nhaplieuthietke.this,"dầm không đủ khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
         }
 
         //
@@ -672,7 +693,8 @@ public class nhaplieuthietke extends AppCompatActivity {
         f=-f112-Math.max(f228,f212)-2*(1000000*YlttDT*Math.max(M720,M724))/IltDT;
         // kiểm tra ứng suất
         if (f-Fy <=0){
-            Toast.makeText(nhaplieuthietke.this,"ứng suất dầm thoả",Toast.LENGTH_LONG).show();
+            txtKT7="ứng suất dầm thoả";
+           // Toast.makeText(nhaplieuthietke.this,"ứng suất dầm thoả",Toast.LENGTH_LONG).show();
         }
 
 
@@ -684,36 +706,56 @@ public class nhaplieuthietke extends AppCompatActivity {
         // kiểm tra bản bụng đặc chắc
         double x1,x2;
         x1= (2*Dcp/tw)-3.76*Math.sqrt(Es/Fy);
-        x2=(Bft/(0.5*tft))-0.382*Math.sqrt(Es/Fy);
+        x2=(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy);
+
 
         if (x2<=0){
             //ok
+            txtKT3="(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy)= "+""+(float)Math.round(x2* 1000)/1000 +"<= 0"+"\n   Kích thước bản cánh trên đạt";
 
         }else {
-            Toast.makeText(nhaplieuthietke.this,"Chọn lại tiết diện bản cánh",Toast.LENGTH_LONG).show();
-        }
+//            Toast.makeText(nhaplieuthietke.this,"Chọn lại tiết diện bản cánh",Toast.LENGTH_LONG).show();
+            txtKT3="(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy)= "+""+(float)Math.round(x2* 1000)/1000 +"> 0"+"\n   Kích thước bản cánh trên không đạt";
 
+        }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // kiểm tra tiết diện CHẮC, KHÔNG CHẮC, MÃNH
         if (x1<=0){
             // TIẾT DIỆN CHẮC
             tinhToanTDChac();
+            txtKT2="(2*Dcp/tw)-3.76*Math.sqrt(Es/Fy)= "+""+(float)Math.round(x1* 1000)/1000 +"<= 0"+"\n   Loại tiết diện Chắc";
 
         }else  {
             // TD ko chắc
+            txtKT2="Loại tiết diện Không Chắc";
         }
 
     }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void  ktTiLeCauTaoChung(){
         double t;
        t=(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12));
         if (t>=0.1 && t<=0.9){
-                  }
+            // kích thước bản biên hợp lý
+            txtKT1="0.1<= "+"(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +" <= 0.9"+"\n   Kích thước bản biên dưới đạt";
+            }
+        else if (t<0.1){
+            txtKT1="(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +" < 0.1"+"\n  Tăng bề dày bản biên dưới hoặc tăng bề rộng bản biên dưới";
+            // tăng bề dày bản biên dưới hoặc tăng bề rộng bản biên dưới
+         //   Toast.makeText(nhaplieuthietke.this,"Chọn lại tiết diện",Toast.LENGTH_LONG).show();
+        }
+        else if (t>0.9 ){
+            // giảm bề rộng bản biên dưới
+            txtKT1="(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +" > 0.9"+"\n  Giảm bề rộng bản biên dưới";
+
+        }
         else {
-            Toast.makeText(nhaplieuthietke.this,"Chọn lại tiết diện",Toast.LENGTH_LONG).show();
+            // chọn lại bản biên dưới
+            txtKT1="(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +"\n  Chọn lại bản biên dưới";
         }
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void tinhMomenChay(){
         if (IstDN>IstDT){
             Ystt=YsttDN;

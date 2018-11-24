@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".kiemdinh_dialog">
+    <TextView
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Chọn loại kiểm định"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/btnKDnhanh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Kiểm định nhanh"
+        android:textAllCaps="true"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        />
+
+    <Button
+        android:id="@+id/btnKDtheoAashto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="true"
+        android:background="@color/colorPrimaryDark"
+        android:text="Kiểm định theo AASHTO"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        />
+    <Button
+        android:id="@+id/button_Huy_Dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#99f2171b"
+        android:text="HỦY"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="30dp"
+        android:textSize="15dp" />
+
+
+</LinearLayout>
