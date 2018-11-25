@@ -41,6 +41,7 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
                     @Override
                     public void onSelect(File file) {
                         myFile = file;
+                        // xử lý đọc file ở đây
                     }
                 }).fileType(FileType.TEXT).show();
             }
