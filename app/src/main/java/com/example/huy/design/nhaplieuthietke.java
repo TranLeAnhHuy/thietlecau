@@ -709,7 +709,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         if ((((2*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)<=0){
             txtKT8="Vách đứng ổn định lực cắt =========================";
         }else{
-            txtKT8="Vách đứng mất ổn định lực cắt////////////////////////////////";
+            txtKT8="Vách đứng mất ổn định lực cắt///////////////////";
         }
         // tính biên độ ứng suất do xe tải mỏi gây ra
         Dentaf= (Ystd*Math.max(M720,M724)*1000000)/(Math.max(IstDT,IstDN));
