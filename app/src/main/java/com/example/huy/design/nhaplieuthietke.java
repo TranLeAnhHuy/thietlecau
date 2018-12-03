@@ -91,6 +91,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     double fcf,f;
     // sTring
     String txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8;
+    double Dentaf;
 
 //    float M1val[]=new float[5];
 //    float M2val[]=new float[5];
@@ -575,12 +576,12 @@ public class nhaplieuthietke extends AppCompatActivity {
         // xác định trục trung hòa dẻo
         if ((Pt+Pw)>(Ps+Pc+Prt+Prb)){
             Dcp=(Dw/2)*((Pt+Pw-Pc-Ps-Prt-Prb)/Pw);
-            txtKT4="Pt+Pw="+""+(float)Math.round((Pt+Pw)* 1000)/1000 +">"+"Ps+Pc+Prt+Prb= "+(float)Math.round(((Pt+Pw-Pc-Ps-Prt-Prb)/Pw)* 1000)/1000+"\n   Trục trung hòa dẻo nằm ở bản bụng"+"\n   Dcp=" +""+(float)Math.round((Dcp* 1000)/1000);
+            txtKT4="Pt+Pw="+""+(float)Math.round((Pt+Pw)* 1000)/1000 +">"+"Ps+Pc+Prt+Prb= "+(float)Math.round(((Pt+Pw-Pc-Ps-Prt-Prb)/Pw)* 1000)/1000+"\nDcp=" +""+(float)Math.round((Dcp* 1000)/1000)+"\n   Trục trung hòa dẻo nằm ở bản bụng";
           // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
         }
         else if ((Pt+Pw< Ps+Pc+Prt+Prb && Pt+Pw +Pc> Ps+Prt+Prb)){
             Dcp=(tft/2)*((Pt+Pw+Pc-Ps-Prt-Prb)/Pc);
-            txtKT4="Pt+Pw="+""+(float)Math.round((Pt+Pw)* 1000)/1000 +"<"+"Ps+Pc+Prt+Prb= "+(float)Math.round((Ps+Pc+Prt+Prb)* 1000)/1000+"\n   Trục trung hòa dẻo nằm ở bản cánh trên"+"\n   Dcp=" +""+(float)Math.round((Dcp* 1000)/1000);
+            txtKT4="Pt+Pw="+""+(float)Math.round((Pt+Pw)* 1000)/1000 +"<"+"Ps+Pc+Prt+Prb= "+(float)Math.round((Ps+Pc+Prt+Prb)* 1000)/1000+"\nDcp=" +""+(float)Math.round((Dcp* 1000)/1000)+"\n   Trục trung hòa dẻo nằm ở bản cánh trên";
                 // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
         }
         else if ((Pt+Pw+Pc+Ps)>(Prt+Prb)){
@@ -593,7 +594,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         // momen dẻo
         Mp=(Ps*(Dcp+tft+Yv+ts/2)+Prt*(Dcp+tft+Yv+ts-St)+Prb*(Dcp+tft+Yv+ts+Sd)+Pc*(Dcp+tft/2)+Pt*(Dw-Dcp+tfb/2)+Pw*(Math.abs(-Dcp+Dw/2)))*(1.0/1000000);
 
-        Toast.makeText(nhaplieuthietke.this,"Mp="+Mp,Toast.LENGTH_LONG).show();
+   //     Toast.makeText(nhaplieuthietke.this,"Mp="+Mp,Toast.LENGTH_LONG).show();
         Dp=Dcp+tft+Yv+ts;
 
         if (Fy == 345){
@@ -607,11 +608,11 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         if (Dphay< Dp && Dp <= 5*Dphay){
             Mn=((5.0*Mp)-0.85*My)/4.0+(((0.85*My)-Mp)/4.0)*(Dp/Dphay);
-            Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
+        //    Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
         }
         else if (Dp<Dphay){
             Mn=Mp;
-            Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
+        //    Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
         }
         // momen kháng uốn
         Mr=Mn;
@@ -619,11 +620,11 @@ public class nhaplieuthietke extends AppCompatActivity {
         Mu= Math.max(M74,M78);
         // kiểm tra sức kháng uốn
         if(Mr-Math.max(M74,M78)>0){
-            txtKT5="Thỏa điều kiện sức kháng uốn, Mr="+""+Mr+">= Mu"+""+Mu;
+            txtKT5="Mr= "+(float)Math.round((Mr)* 1000)/1000 +" >= Mu= "+(float)Math.round((Mu)* 1000)/1000+"\n  Thỏa điều kiện sức kháng uốn";
          //   Toast.makeText(nhaplieuthietke.this,"thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
         }
         else{
-            txtKT5="Không thỏa điều kiện sức kháng uốn, Mr="+""+Mr+"<Mu"+""+Mu;
+            txtKT5=   txtKT5="Mr= "+(float)Math.round((Mr)* 1000)/1000 +" < Mu= "+(float)Math.round((Mu)* 1000)/1000+"\n  Không thỏa điều kiện sức kháng uốn";
          //   Toast.makeText(nhaplieuthietke.this,"không thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
         }
         //
@@ -668,14 +669,14 @@ public class nhaplieuthietke extends AppCompatActivity {
             V2n=r*((0.58*Fy*Dw*tw)*(c+((0.87*(1-c))/(Math.sqrt(1+Math.pow(d0/Dw,2))))));
             Vr=V2n;
         }
-        // kiểm tra
+        // kiểm tra uốn
         if (Vr-Math.max(Q71,Q76)>0){
-            txtKT6="dầm chịu được khả năng chịu kháng uốn";
+            txtKT6="Dầm chịu được khả năng chịu kháng uốn";
 
            // Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
         }
         else if((Math.max(Q71,Q76)-c*Vp) <0){
-            txtKT6="dầm chịu được khả năng chịu kháng uốn";
+            txtKT6="Dầm chịu được khả năng chịu kháng uốn";
             //Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
         }
         else{
@@ -683,19 +684,38 @@ public class nhaplieuthietke extends AppCompatActivity {
          //   Toast.makeText(nhaplieuthietke.this,"dầm không đủ khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
         }
 
-        //
-        if ((2.0/((D-tft-Ystd)*tw))-5.7*(Math.sqrt(Es/Fy))<=0){
+        ///////////////////////////////// ứng suất nén đàn hồi lớn nhất ở bản biên chịu nén khi uốn do tác dụng của tải trọng dài hạn
+        if ((2.0*(D-tft-Ystd)/tw)-5.7*(Math.sqrt(Es/Fy))<=0){
             fcf=Fy;
-        }else if ((2.0/((D-tft-Ystd)*tw))-5.7*(Math.sqrt(Es/Fy))>0){
+        }else if ((2.0*(D-tft-Ystd)/tw)-5.7*(Math.sqrt(Es/Fy))>0){
             fcf=32.5*Es*Math.pow(tw/(2*(D-tft-Ystd)),2);
         }
+        //// tính đc fcf
+        /////////////// kiểm ra fcf
+
         // tính ứng suất
         f=-f112-Math.max(f228,f212)-2*(1000000*YlttDT*Math.max(M720,M724))/IltDT;
+      ///  Toast.makeText(nhaplieuthietke.this, "f= "+f, Toast.LENGTH_LONG).show();
         // kiểm tra ứng suất
-        if (f-Fy <=0){
-            txtKT7="ứng suất dầm thoả";
+
+        ///kiểm tra ổn định uốn của vách đứng
+        if (f-fcf <=0){
+            txtKT7="f= "+(float)Math.round((f)* 1000)/1000+" <= fcf= "+fcf+"\n  Vách đứng ổn định uốn";
            // Toast.makeText(nhaplieuthietke.this,"ứng suất dầm thoả",Toast.LENGTH_LONG).show();
+        }else {
+            txtKT7="f= "+(float)Math.round((f)* 1000)/1000+" > fcf= "+fcf+"\n  Vách đứng mất ổn định uốn";
         }
+/////////////////////////////
+        if ((((2*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)<=0){
+            txtKT8="Vách đứng ổn định lực cắt =========================";
+        }else{
+            txtKT8="Vách đứng mất ổn định lực cắt////////////////////////////////";
+        }
+        // tính biên độ ứng suất do xe tải mỏi gây ra
+        Dentaf= (Ystd*Math.max(M720,M724)*1000000)/(Math.max(IstDT,IstDN));
+
+
+
 
 
 
