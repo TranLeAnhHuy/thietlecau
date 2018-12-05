@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -90,8 +93,10 @@ public class nhaplieuthietke extends AppCompatActivity {
     double d0, k,c, V1n, V2n,r, Vr,Vp;
     double fcf,f;
     // sTring
-    String txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8;
-    double Dentaf;
+    String txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8,txtKT9,txtKT10;
+    double Dentaf, N, u1,u2,u3;
+    Spinner spnLoaiThep;
+    String arrLoaiThep[]={"A", "B", "C","D","E"};
 
 //    float M1val[]=new float[5];
 //    float M2val[]=new float[5];
@@ -184,6 +189,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtPL=(EditText) findViewById(R.id.edtPL);
         edtT=(EditText) findViewById(R.id.edtT);
         edtd0 = (EditText) findViewById(R.id.edtd0);
+        spnLoaiThep = (Spinner) findViewById(R.id.spnLoaiThep);
 
        // edt=(EditText) findViewById(R.id.edt);
         //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
@@ -241,7 +247,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhNoiLuc5();
                     tinhNoiLuc6();
                     tinhNoiLuc7();
-                    viewNoiLuc();
+                    spinnerLoaiThep();
                     kiemtoan();
                     // đóng gói và truyền dữ liệu
                     Intent LHintent = new Intent(nhaplieuthietke.this, KQKhongLienHop.class);
@@ -545,6 +551,9 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putString("txtKT6",txtKT6 );
                     LHbundle.putString("txtKT7",txtKT7 );
                     LHbundle.putString("txtKT8",txtKT8 );
+                    LHbundle.putString("txtKT9",txtKT9 );
+                    LHbundle.putString("txtKT10",txtKT10 );
+
 
                     
                     // LHbundle.putDouble("M4",M4 );
@@ -555,9 +564,44 @@ public class nhaplieuthietke extends AppCompatActivity {
         });
 
     }
-    public void  viewNoiLuc(){
+    public void    spinnerLoaiThep(){
+        //Gán Data source (arr) vào Adapter
+        ArrayAdapter <String> adapter=new ArrayAdapter<String>
+                (
+                        this,
+                        android.R.layout.simple_spinner_item,
+                        arrLoaiThep
+                );
+
+        adapter.setDropDownViewResource
+                (android.R.layout.simple_list_item_single_choice);
+        //Thiết lập adapter cho Spinner
+        spnLoaiThep.setAdapter(adapter);
+        //thiết lập sự kiện chọn phần tử cho Spinner
+        spnLoaiThep.setOnItemSelectedListener(new MyProcessEvent());
+        //Class tạo sự kiện
+    }
+    //Class tạo sự kiện
+    public class MyProcessEvent implements AdapterView.OnItemSelectedListener
+    {
+
+
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+
+        //Nếu không chọn gì cả
 
     }
+
+
+
     public  void tinhToanTDChac(){
         // tính các thông số
         N1=N2=13;
@@ -671,12 +715,10 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         // kiểm tra uốn
         if (Vr-Math.max(Q71,Q76)>0){
-            txtKT6="Dầm chịu được khả năng chịu kháng uốn";
-
-           // Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+            txtKT6="Vr= "+(float)Math.round((Vr)* 1000)/1000+" > Math.max(Q71,Q76)= "+(float)Math.round((Math.max(Q71,Q76))* 1000)/1000+"\n   Dầm chịu được khả năng chịu kháng uốn";
         }
         else if((Math.max(Q71,Q76)-c*Vp) <0){
-            txtKT6="Dầm chịu được khả năng chịu kháng uốn";
+            txtKT6="(Math.max(Q71,Q76)-c*Vp)= "+(float)Math.round((Math.max(Q71,Q76)-c*Vp)* 1000)/100+"\n  Dầm chịu được khả năng chịu kháng uốn";
             //Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
         }
         else{
@@ -705,14 +747,33 @@ public class nhaplieuthietke extends AppCompatActivity {
         }else {
             txtKT7="f= "+(float)Math.round((f)* 1000)/1000+" > fcf= "+fcf+"\n  Vách đứng mất ổn định uốn";
         }
-/////////////////////////////
-        if ((((2*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)<=0){
-            txtKT8="Vách đứng ổn định lực cắt =========================";
+
+        if ((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)<=0){
+            txtKT8="Vách đứng ổn định lực cắt";
         }else{
-            txtKT8="Vách đứng mất ổn định lực cắt///////////////////";
+            txtKT8="Vách đứng mất ổn định lực cắt";
         }
+
         // tính biên độ ứng suất do xe tải mỏi gây ra
-        Dentaf= (Ystd*Math.max(M720,M724)*1000000)/(Math.max(IstDT,IstDN));
+        Dentaf= (Ystd*Math.max(M720,M724)*1000000.0)/(Math.max(IstDT,IstDN));
+        // tính lượng chu kì ứng suất
+        ////////// tính u1 nhịp
+        if (L*1000.0>12000){
+            u1=1;
+        }else {
+            u1=2;
+        }
+        ////////tính u2
+        if(Bxc*1000.0/3500.0>1 && Bxc*1000.0/3500.0<2){
+            u2=1;
+        }else if (Bxc*1000.0/3500.0>=2 && Bxc*1000.0/3500.0<3){
+            u2=0.85;
+        }else  {
+            u2=0.8;
+        }
+        /// tính N
+        N=100.0*365.0*u1*u2*2.0*10000.0*0.2;
+        txtKT9="N= "+N +"   Denta f= "+Dentaf;
 
 
 

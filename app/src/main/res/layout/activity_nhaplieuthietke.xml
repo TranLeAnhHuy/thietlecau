@@ -890,6 +890,34 @@
                     android:textSize="16dp" />
             </LinearLayout>
 
+            ///////// loại thép
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Loại thép"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <Spinner
+                    android:id="@+id/spnLoaiThep"
+                    android:layout_width="241dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="ASTM A709M"
+                    android:gravity="center_horizontal"
+                    android:minWidth="150dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
             // Moduyn đàn hồi của thép
 
             <LinearLayout

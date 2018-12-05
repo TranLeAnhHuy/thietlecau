@@ -87,6 +87,26 @@
         android:background="#dbe7f7"
         android:textColor="#000"
         android:textSize="14dp" />
+    <TextView
+        android:id="@+id/txtKT9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:paddingTop="5dp"
+        android:background="#b8d5f9"
+        android:textColor="#000"
+        android:textSize="14dp" />
+    <TextView
+        android:id="@+id/txtKT10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:paddingTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#dbe7f7"
+        android:textColor="#000"
+        android:textSize="14dp" />
 
 
 </LinearLayout>

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class ViewKiemToan extends AppCompatActivity {
-    TextView txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8;
+    TextView txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8,txtKT9,txtKT10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,8 @@ public class ViewKiemToan extends AppCompatActivity {
         txtKT6=(TextView) findViewById(R.id.txtKT6);
         txtKT7=(TextView) findViewById(R.id.txtKT7);
         txtKT8=(TextView) findViewById(R.id.txtKT8);
+        txtKT9=(TextView) findViewById(R.id.txtKT9);
+        txtKT10=(TextView) findViewById(R.id.txtKT10);
 
 
         //
@@ -36,6 +38,8 @@ public class ViewKiemToan extends AppCompatActivity {
         txtKT6.setText(LHbundle.getString("txtKT6"));
         txtKT7.setText(LHbundle.getString("txtKT7"));
         txtKT8.setText(LHbundle.getString("txtKT8"));
+        txtKT9.setText(LHbundle.getString("txtKT9"));
+        txtKT10.setText(LHbundle.getString("txtKT10"));
 
 
 
