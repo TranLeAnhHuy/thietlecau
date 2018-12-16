@@ -594,6 +594,33 @@
                     android:textSize="16dp" />
             </LinearLayout>
 
+            // vị trí thiết kế
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Vị trí TK cầu"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <Spinner
+                    android:id="@+id/spnViTri"
+                    android:layout_width="241dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center_horizontal"
+                    android:minWidth="150dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
             //Số liệu của bê tông bản mặt cầu
 
             <LinearLayout

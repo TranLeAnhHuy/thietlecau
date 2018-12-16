@@ -7,43 +7,56 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ViewKiemToan">
-    <TextView
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        //tên dự án
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:orientation="vertical">
+          <TextView
         android:id="@+id/txtKT1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+
         android:paddingTop="5dp"
         android:background="#b8d5f9"
         android:textColor="#000"
         android:textSize="14dp" />
+            <TextView
+                android:id="@+id/txtKT3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:paddingTop="5dp"
+                android:background="#dbe7f7"
+                android:textColor="#000"
+                android:textSize="14dp" />
     <TextView
         android:id="@+id/txtKT2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:paddingTop="5dp"
-        android:layout_marginRight="5dp"
-        android:background="#dbe7f7"
-        android:textColor="#000"
-        android:textSize="14dp" />
-    <TextView
-        android:id="@+id/txtKT3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:paddingTop="5dp"
-        android:layout_marginRight="5dp"
         android:background="#b8d5f9"
         android:textColor="#000"
         android:textSize="14dp" />
+
     <TextView
         android:id="@+id/txtKT4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:paddingTop="5dp"
-        android:layout_marginRight="5dp"
+
         android:background="#dbe7f7"
         android:textColor="#000"
         android:textSize="14dp" />
@@ -52,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+
         android:paddingTop="5dp"
         android:background="#b8d5f9"
         android:textColor="#000"
@@ -63,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:paddingTop="5dp"
-        android:layout_marginRight="5dp"
+
         android:background="#dbe7f7"
         android:textColor="#000"
         android:textSize="14dp" />
@@ -72,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+
         android:paddingTop="5dp"
         android:background="#b8d5f9"
         android:textColor="#000"
@@ -83,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:paddingTop="5dp"
-        android:layout_marginRight="5dp"
+
         android:background="#dbe7f7"
         android:textColor="#000"
         android:textSize="14dp" />
@@ -92,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+
         android:paddingTop="5dp"
         android:background="#b8d5f9"
         android:textColor="#000"
@@ -103,10 +116,56 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:paddingTop="5dp"
-        android:layout_marginRight="5dp"
+
         android:background="#dbe7f7"
         android:textColor="#000"
         android:textSize="14dp" />
+            <TextView
+                android:id="@+id/txtKT11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
 
+                android:paddingTop="5dp"
+                android:background="#b8d5f9"
+                android:textColor="#000"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/txtKT12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:paddingTop="5dp"
+
+                android:background="#dbe7f7"
+                android:textColor="#000"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/txtKT13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+
+                android:paddingTop="5dp"
+                android:background="#b8d5f9"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+
+
+
+
+
+
+
+
+
+
+
+      //////////////////////////////////
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

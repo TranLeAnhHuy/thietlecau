@@ -93,10 +93,51 @@ public class nhaplieuthietke extends AppCompatActivity {
     double d0, k,c, V1n, V2n,r, Vr,Vp;
     double fcf,f;
     // sTring
-    String txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8,txtKT9,txtKT10;
+    String txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8,txtKT9,txtKT10,txtKT11, txtKT12, txtKT13;
+    // text ở KQkhong liên hợp
+    String txt1,txt2,txt3,txt4,txt5,txt6,txt7;
     double Dentaf, N, u1,u2,u3;
-    Spinner spnLoaiThep;
-    String arrLoaiThep[]={"A", "B", "C","D","E"};
+    Spinner spnLoaiThep, spnViTri;
+    String arrLoaiThep[]={"A", "B", "B'", "C", "C'","D","E","E'"};
+    String arrViTri[]={"Đường nông thôn liên quốc gia", "Đường nông thôn", "Đường thành phố liên quốc gia", "Đường thành phó"};
+    double DentaFTH,ABCDE, l1234;
+    int lastedSelected=0;
+    int lastedSelectedViTri=0;
+    double DentaFn;
+    // tiết diện khong chắc
+    double Yltd,Dc, Fn,Vn;
+    // kiểm toán ở ttgh sử dụng
+    double Ist;
+    double ftDC1, ftDC2, ftLL_IM, ftSH,ftsum;
+    double fbDC1, fbDC2, fbLL_IM, fbSH, fbsum;
+    double dentaDC1,dentaDC2,dentaP35,dentaP145G,dentaP145S,denta1;
+    double denta2, denta3,denta4, denta5, denta6;
+    double dentav;
+    double dentafinal;
+
+    //// tính BMC
+    double DCbmctt,E,Eduong,Eam,LL,LLduong,LLam;
+    double M81,M82,M83,M84,M85,M86,M87,M88,M89,M810,M811,M812,M813,M814,M815,M816;
+    double e;
+    double Q81,Q82,Q83,Q84,Q85,Q86,Q87,Q88;
+    // tổng hợp
+    double M821,M822,M823,M824, Q821,Q822, M825,M826,Q823,Q824;
+    double m821, m822 ,m823,m824;
+    /// neo liên kết
+    double hneo,dneo,pn,mm,dmu,nn;
+    double Zr,anpha,Qsr,V1duong,V1am,V1sr,p1;
+    double V2duong, V2am, V2sr,p2;
+    double V3duong,V3am, V3sr, p3;
+    double V4duong, V4am, V4sr,p4;
+    double V5duong, V5am, V5sr, p5;
+    double Qr,Vh,nCD,pnew,nneofinal;
+    // bố trí cốt thép n1 thanh cốt théo dtt
+        //////  //cốt thép ở BMC
+    //    double , , Dtd, Sd, Sdbmc,N2;
+       double  As1, dp1,beta1;
+
+
+
 
 //    float M1val[]=new float[5];
 //    float M2val[]=new float[5];
@@ -190,6 +231,11 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtT=(EditText) findViewById(R.id.edtT);
         edtd0 = (EditText) findViewById(R.id.edtd0);
         spnLoaiThep = (Spinner) findViewById(R.id.spnLoaiThep);
+        spnViTri = (Spinner) findViewById(R.id.spnViTri);
+
+
+        spinnerLoaiThep();
+        spinnerViTri();
 
        // edt=(EditText) findViewById(R.id.edt);
         //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
@@ -247,8 +293,11 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhNoiLuc5();
                     tinhNoiLuc6();
                     tinhNoiLuc7();
-                    spinnerLoaiThep();
+                    tinhBMC();
                     kiemtoan();
+                    kqKiemToan();
+                    tinhNeoLK();
+
                     // đóng gói và truyền dữ liệu
                     Intent LHintent = new Intent(nhaplieuthietke.this, KQKhongLienHop.class);
                     Bundle LHbundle = new Bundle();
@@ -553,6 +602,20 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putString("txtKT8",txtKT8 );
                     LHbundle.putString("txtKT9",txtKT9 );
                     LHbundle.putString("txtKT10",txtKT10 );
+                    LHbundle.putString("txtKT11",txtKT11 );
+                    LHbundle.putString("txtKT12",txtKT12 );
+                    LHbundle.putString("txtKT13",txtKT13 );
+                    //////////////
+                    LHbundle.putString("txt1",txt1 );
+                    LHbundle.putString("txt2",txt2 );
+                    LHbundle.putString("txt3",txt3 );
+                    LHbundle.putString("txt4",txt4 );
+                    LHbundle.putString("txt5",txt5 );
+                    LHbundle.putString("txt6",txt6 );
+                    LHbundle.putString("txt7",txt7 );
+
+
+
 
 
                     
@@ -564,6 +627,147 @@ public class nhaplieuthietke extends AppCompatActivity {
         });
 
     }
+    public void  tinhNeoLK(){
+        ///////////////// THÔNG SỐ ĐẦU VÀO///////////////////////
+        /// CHIỀU CAO
+        hneo= 150;
+        // đường kính neo
+        dneo=22;
+
+        //khoảng cách của các đinh neo theo phương nghang
+        pn=150;
+        /// khoảng cách tĩnh của mép bản cánh trên và mép neo
+        mm=58;
+        //đường kính mũ neo
+        dmu=35;
+        //số neo tren MCN
+        nn=3;
+        ///////////////// tính toán
+        double j1,j2;
+        if (Ls *1000.>12000.0){
+            j1=1.;
+        }else{
+            j1=2.0;
+        }
+        if((Bxc*1000./3500.) >1 && (Bxc*1000./3500.)<2){
+            j2=1;
+        }else if ((Bxc*1000./3500.) >=2 && (Bxc*1000./3500.)<3) {
+            j2=0.85;
+        } else{
+            j2=0.8;
+        }
+
+        anpha= 238.-29.5*Math.log10(100.*365.*j1*j2*2.*10000.*l1234);
+        double th=Math.log10(100.*365.*j1*j2*2.*10000.*l1234);;
+        double hfd=Math.log(100.*365.*j1*j2*2.*10000.*l1234);
+        if (anpha*dneo*dneo-19.0*dneo*dneo >=0){
+            Zr=anpha*dneo*dneo;
+        }else{
+            Zr=19.*dneo*dneo;
+        }
+        Qsr=ts*bi*(Ystt+0.5*ts)/n;
+        // Lực cắt
+        //////tại gối
+        V1duong=Q61*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V1am=Q66*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V1sr=V1duong+V1am;
+        /// bước của neo chống cắt dọc theo trục dọc
+        p1=nn*Ist*Zr/(V1sr*Qsr);
+        //////tại L/8
+        V2duong=Q62*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V2am=Q67*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V2sr=V2duong+V2am;
+        /// bước của neo chống cắt dọc theo trục dọc
+        p2=nn*Ist*Zr/(V2sr*Qsr);
+        //////tại L/4
+        V3duong=Q63*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V3am=Q68*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V3sr=V3duong+V3am;
+        /// bước của neo chống cắt dọc theo trục dọc
+        p3=nn*Ist*Zr/(V3sr*Qsr);
+        //////tại 3L/8
+        V4duong=Q64*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V4am=Q69*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V4sr=V4duong+V4am;
+        /// bước của neo chống cắt dọc theo trục dọc
+        p4=nn*Ist*Zr/(V4sr*Qsr);
+        //////tại L/2
+        V5duong=Q65*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V5am=Q610*Math.max(mgSIV,mgMEV1lan)*1.15*1000.*0.75/1.2;
+        V5sr=V5duong+V5am;
+        /// bước của neo chống cắt dọc theo trục dọc
+        p5=nn*Ist*Zr/(V5sr*Qsr);
+        /// lựa chọn số lượng neochoongs cắt theo TTGH CD
+        Qr= Math.min((0.85*0.001*0.5*(3.14*dneo*dneo/4.)*(Math.sqrt(fc*0.043*Math.pow(yc*100.,1.5)*Math.sqrt(fc)))),(0.5*(3.14*dneo*dneo/4.))*Fu);
+        ///Số lượng neo chống cắt bố trí ở giữa mặt cắt của mm dương lớn nhất
+        Vh=Math.min((0.85*fc*bi*ts*0.001),(Adt*Fy));
+        // số neo mỗi dầm
+        nCD=2.*Vh/Qr;
+        double p12=Math.max(p1,p2);
+        double p34=Math.max(p3,p4);
+        double p1234=Math.max(p12,p34);
+        pnew=Math.max(p1234,p5);
+        // số neo cuối cùng
+        nneofinal=Math.ceil((Math.max(nCD,((L*1000./pnew)+1.)*nn)));
+       double dfhdfb=Q76;
+
+
+
+
+
+    }
+    public void    spinnerViTri(){
+        //Gán Data source (arr) vào Adapter
+        ArrayAdapter <String> adapterViTri=new ArrayAdapter<String>
+                (
+                        this,
+                        android.R.layout.simple_spinner_item,
+                        arrViTri
+                );
+
+        adapterViTri.setDropDownViewResource
+                (android.R.layout.simple_list_item_single_choice);
+        //Thiết lập adapter cho Spinner
+        spnViTri.setAdapter(adapterViTri);
+        //thiết lập sự kiện chọn phần tử cho Spinner
+        spnViTri.setOnItemSelectedListener(new MyProcessEventViTri());
+        //Class tạo sự kiện
+    }
+    //Class tạo sự kiện
+    public class MyProcessEventViTri implements AdapterView.OnItemSelectedListener
+    {
+
+
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            lastedSelectedViTri= position;
+            if(lastedSelectedViTri==0){
+                l1234=0.2;
+              //  Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
+            }else if (lastedSelectedViTri==1){
+                l1234=0.15;
+          //      Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
+
+            }else if (lastedSelectedViTri==2){
+                l1234=0.15;
+             //   Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
+
+            }else if (lastedSelectedViTri==3){
+                l1234=0.15;
+             //   Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
+
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+        //Nếu không chọn gì cả
+
+    }
+
+
     public void    spinnerLoaiThep(){
         //Gán Data source (arr) vào Adapter
         ArrayAdapter <String> adapter=new ArrayAdapter<String>
@@ -588,6 +792,49 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            lastedSelected= position;
+            if(lastedSelected==0){
+            DentaFTH=165;
+              //  Toast.makeText(nhaplieuthietke.this,""+DentaFTH,Toast.LENGTH_LONG).show();
+                ABCDE=82;
+              //  Toast.makeText(nhaplieuthietke.this,""+ABCDE,Toast.LENGTH_LONG).show();
+
+            }else if (lastedSelected==1){
+                DentaFTH=110;
+                ABCDE=39.3;
+              //  Toast.makeText(nhaplieuthietke.this,"DentaFTH"+DentaFTH +"\nABCDE="+ABCDE,Toast.LENGTH_LONG).show();
+
+
+            }else if (lastedSelected==2){
+                DentaFTH=82.7;
+                ABCDE=20;
+             //   Toast.makeText(nhaplieuthietke.this,"DentaFTH"+DentaFTH +"\nABCDE="+ABCDE,Toast.LENGTH_LONG).show();
+
+            }else if (lastedSelected==3){
+                DentaFTH=69;
+
+                ABCDE=14.4;
+            //    Toast.makeText(nhaplieuthietke.this,"DentaFTH"+DentaFTH +"\nABCDE="+ABCDE,Toast.LENGTH_LONG).show();
+            }else if (lastedSelected==4){
+                DentaFTH=82.7;
+
+                ABCDE=14.4;
+              //  Toast.makeText(nhaplieuthietke.this,"DentaFTH"+DentaFTH +"\nABCDE="+ABCDE,Toast.LENGTH_LONG).show();
+            }else if (lastedSelected==5){
+                DentaFTH=48.3;
+
+                ABCDE=7.21;
+            //    Toast.makeText(nhaplieuthietke.this,"DentaFTH"+DentaFTH +"\nABCDE="+ABCDE,Toast.LENGTH_LONG).show();
+            }else if (lastedSelected==6){
+                DentaFTH=31;
+
+                ABCDE=3.61;
+           //     Toast.makeText(nhaplieuthietke.this,"DentaFTH"+DentaFTH +"\nABCDE="+ABCDE,Toast.LENGTH_LONG).show();
+            }else if (lastedSelected==7){
+                DentaFTH=17.9;
+                                ABCDE=1.28;
+               // Toast.makeText(nhaplieuthietke.this,"DentaFTH"+DentaFTH +"\nABCDE="+ABCDE,Toast.LENGTH_LONG).show();
+            }
 
         }
 
@@ -599,10 +846,243 @@ public class nhaplieuthietke extends AppCompatActivity {
         //Nếu không chọn gì cả
 
     }
+    public void  tinhBMC(){
+        DCbmctt= (ts*yc/1000.0)+(taf*yaf/1000.0)+DClcT+DClcBT;
+        //Hoạt tải
+        //// chiều rộng bản chịu ảnh hưởng của bánh xe
+        E=1140.0+0.833*(((B-(ndc-1)*S)/2.)-Blc-300.);
+        Eduong=660.0+0.55*S;
+        Eam=1220.0+0.25*S;
+        ///tải trọng bánh xe
+        LL=(145.0/2.0)/((510.0+ts)*E/(1000.0*1000.0));
+        LLduong=(145.0/2.0)/((510.0+ts)*Eduong/(1000.0*1000.0));
+        LLam=(145.0/2.0)/((510.0+ts)*Eam/(1000.0*1000.0));
+        ///tính nội lực
+        ///1 bản hẫng
+        double a,b,c,d;
+        a= ((B-(ndc-1.0)*S)/2.)-Blc;
+        if (Blc+300<= ((B-(ndc-1.0)*S)/2.0)){
+        b=((B-(ndc-1.0)*S)/2.0)-Blc+55.0;
+        }else {
+            b=355.0-(Blc+300.0-((B-(ndc-1.0)*S)/2.0));
+        }
+        c=((B-(ndc-1.0)*S)/2.0)-(Blc/2.0);
+        d= (B-(ndc-1.0)*S)/2.0;
+        /// tính M81và Q81
+        if (Blc+T >= ((B-(ndc-1.0)*S)/2.0)){
+            e= ((B-(ndc-1.0)*S)/2.0)-Blc;
+            M81=(1.25*(ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+(1.25*(DClcT+DClcBT)*c/1000.0)+(1.5*(taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(1.75*PL*e*e/(2.0*Math.pow(1000.0,2)));
+            Toast.makeText(this,""+M81,Toast.LENGTH_LONG).show();
+            Q81=(1.25*(ts*yc/1000.0)*d/1000.0)+(1.25*(DClcBT+DClcT))+(1.5*(taf*yaf/1000.0)*a/1000.0)+(1.75*PL*e/1000.0);
+
+        }else {
+            e= ((B-(ndc-1.0)*S)/2.0)-Blc-(T/2.0);
+            M81=(1.25*(ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+(1.25*(DClcT+DClcBT)*c/1000.0)+(1.5*(taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(1.75*PL*T*e/(Math.pow(1000.0,2)));
+            Q81=(1.25*(ts*yc/1000.0)*d/1000.0)+(1.25*(DClcBT+DClcT))+(1.5*(taf*yaf/1000.0)*a/1000.0)+(1.75*PL*T/1000.0);
+
+        }
+        ////tính M82
+        M82=(1.25*(ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+(1.25*(DClcT+DClcBT)*c/1000.0)+(1.5*(taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(1.2*1.75*1.25*LL*(Math.pow(b,2))/(2.0*Math.pow(1000.0,2)));
+        //// tính M83
+        Q82=(1.25*(ts*yc/1000.0)*d/1000.0)+(1.25*(DClcBT+DClcT))+(1.5*(taf*yaf/1000.0)*a/1000.0)+(1.2*1.75*1.25*LL*b/1000.0);
+
+        double e3;
+        if (Blc+T >= ((B-(ndc-1.0)*S)/2.0)){
+            e3=((B-(ndc-1.0)*S)/2.0)-Blc;
+            M83=((ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+((DClcT+DClcBT)*c/1000.0)+((taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(PL*Math.pow(e3,2)/(2.0*Math.pow(1000.0,2)));
+            Q83=((ts*yc/1000.0)*d/1000.0)+((DClcBT+DClcT))+((taf*yaf/1000.0)*a/1000.0)+(PL*T/1000.0);
+
+        }else{
+            e3= ((B-(ndc-1.0)*S)/2.0)-Blc-(T/2.0);
+            M83=((ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+((DClcT+DClcBT)*c/1000.0)+((taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(PL*Math.pow(e3,1)/(1.0*Math.pow(1000.0,1)));
+            Q83=((ts*yc/1000.0)*d/1000.0)+((DClcBT+DClcT))+((taf*yaf/1000.0)*a/1000.0)+(PL*e/1000.0);
+
+        }
+        // tính M84
+        M84=((ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+((DClcT+DClcBT)*c/1000.0)+((taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(1.2*1.25*LL*(Math.pow(b,2))/(2.0*Math.pow(1000.0,2)));
+        Q84=((ts*yc/1000.0)*d/1000.0)+((DClcBT+DClcT))+((taf*yaf/1000.0)*a/1000.0)+(1.2*1.25*LL*b/1000.0);
+
+        // tính M85
+        if (S>710.0){
+            M85= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.2*1.25*LLduong*((0.5*(0.5*S-355.0)+0.25*S)*355.0/Math.pow(1000.0,2)));
+        }else {
+            M85= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.2*1.25*LLduong*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2));
+
+        }
+        // tính Q85
+        if (S> 2510.0){
+            Q85= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*LLam*((4.0*S-5020.0)*710.0/(S*2000.0)));
+        }else if(S>1800.0 && S<= 2510.0){
+            Q85= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*LLam*(((2.0*S-710.0)*710.0/(S*2000.0))+(0.5*Math.pow(S-1800.0,2)/(1000.0*S))));
+
+        }else if(S<= 1800.0){
+            Q85= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0);
+
+        }
+        //// tính M86
+        if(S>1910.0){
+            M86= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.25*LLduong*((0.5*S-600.0)*710.0/Math.pow(1000.0,2)));
+
+        }else {
+            M86= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.25*LLduong*(0.5*Math.pow(0.5*S-245.0,2)/Math.pow(1000.0,2)));
+
+        }
+
+        // tính Q86
+        if(S>1910.0){
+            Q86=((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*LLam*(((4.0*S-3820.0)*710.0/(S*2000.0))));
+
+        }else if (S>1200.0 && S<= 1910.0){
+            Q86= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*LLam*(((2.0*S-710.0)*710.0/(S*2000.0))+(0.5*Math.pow(S-1200.0,2)/(1000.0*S))));
+
+        }else if(S<= 1200.0){
+            Q86= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0);
+
+        }
+
+        /// Tính M87
+        if(S>2510.0){
+            M87= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.2*1.25*LLduong*((0.5*S-900.0)*710.0/Math.pow(1000.0,2)));
+
+        }else if (S>1090.0 && S<= 2510.0){
+            M87= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.2*1.25*LLduong*(0.5*Math.pow(0.5*S-545.0,2))/Math.pow(1000.0,2));
+
+        }else if(S<= 1090.0){
+            M87= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)));
+
+        }
+        if(S>2510.0){
+                  Q87=(1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*1.75*LLam*(((4.0*S-5020.0)*710.0/(S*2000.0))));
+
+        }else if(S>1800.0 && S<= 2510.0){
+            Q87= (1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*1.75*LLam*(((2.0*S-710.0)*710.0/(S*2000.0))+(0.5*Math.pow(S-1800.0,2)/(1000.0*S))));
+
+        }else if(S<= 1800.0){
+            Q87= (1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0);
+
+        }
+        /// tính M88 tính Q88
+        if(S> 710.0){
+            M88=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLduong*((0.5*(0.5*S-355.0)+0.25*S)*355.0/Math.pow(1000.0,2)));
+
+        }else if (S<= 710.0){
+            M88=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLduong*((Math.pow(S,2)/8.0)/Math.pow(1000.0,2)));
+
+        }
+
+         if(S>1910){
+            Q88=(1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*1.75*LLam*(((4.0*S-3820.0)*710.0/(S*2000.0))));
+
+        }else if(S>1200.0 && S<= 1910.0){
+            Q88= (1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*1.75*LLam*(((2.0*S-710.0)*710.0/(S*2000.0))+(0.5*Math.pow(S-1200.0,2)/(1000.0*S))));
+
+        }else if (S<= 1200.0){
+            Q88= (1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0);
+        }
+        //tính M89
+        if(S>1910.0){
+            M89=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.75*1.25*LLduong*((0.5*S-600.0)*710.0/Math.pow(1000.0,2)));
+
+        }else{
+            M89=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.75*1.25*LLduong*(0.5*Math.pow(0.5*S-245.0,2)/Math.pow(1000.0,2)));
+
+        }
+        /// tính M810
+        if(S>2510.0){
+            M810=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLduong*((0.5*S-900.0)*710.0/Math.pow(1000.0,2)));
+
+        }else if(S>1090.0&&S<= 2510.0){
+            M810=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLduong*(0.5*Math.pow(0.5*S-545.0,2)/Math.pow(1000.0,2)));
+
+        }else if(S<= 1090.0){
+            M810=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2));
+
+        }
+        // tính M811
+        if(S> 710.0){
+            M811=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.25*LLam*((0.5*(0.5*S-355.0)+0.25*S)*355.0/Math.pow(1000.0,2)));
+
+        }else {
+            M811=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.25*LLam*((Math.pow(S,2)/8.0)/Math.pow(1000.0,2)));
+
+        }
+        // tính M812
+        if(S> 1910.0){
+            M812=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.25*LLam*((0.5*S-600.0)*710.0/Math.pow(1000.0,2)));
+
+        }else{
+            M812=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.25*LLam*(0.5*Math.pow(0.5*S-245.0,2)/Math.pow(1000.0,2)));
+
+        }
+        //tính M813
+        if (S> 2510.0){
+            M813=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.25*LLam*((0.5*S-900.0)*710.0/Math.pow(1000.0,2)));
+
+        }else if (S>1090.0 && S<= 2510.0){
+            M813=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.25*LLam*(0.5*Math.pow(0.5*S-545.0,2)/Math.pow(1000.0,2)));
+
+        } else if (S<= 1090.0){
+            M813=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2));
+        }
+        /// tính M814
+        if (S> 710.0){
+            M814=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLam*((0.5*(0.5*S-355.0)+0.25*S)*355.0/Math.pow(1000.0,2)));
+
+        }else {
+            M814=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLam*((Math.pow(S,2)/8.0)/Math.pow(1000.0,2)));
+
+        }
+        // tính M15
+        if (S>1910.0){
+            M815=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.75*1.25*LLam*((0.5*S-600.0)*710.0/Math.pow(1000.0,2)));
+
+        }else {
+            M815=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.75*1.25*LLam*(0.5*Math.pow(0.5*S-245.0,2)/Math.pow(1000.0,2)));
+
+        }
+        // tính M816
+        if (S> 2510.0){
+            M816=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLam*((0.5*S-900.0)*710.0/Math.pow(1000.0,2)));
+
+        }else if (S>1090.0 && S<= 2510.0){
+            M816=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLam*(0.5*Math.pow(0.5*S-545.0,2)/Math.pow(1000.0,2)));
 
 
+        }else if (S<= 1090.0){
+            M816=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2));
 
-    public  void tinhToanTDChac(){
+        }
+        //// tổng kết nội lực BMC bản kiểu DẦM
+        /// Sử dụng
+        // M 0,5L
+
+        m821= Math.max(M85,M86);
+        M821= 0.5*Math.max(m821,M87);
+        // gối
+        m822=Math.max(M811,M812);
+        M822=0.8*Math.max(m822,M813);
+        // lực cắt
+        Q821= Math.max(Q85,Q86);
+        ////// CD1
+        // L/2
+        m823= Math.max(M88, M89);
+        M823= 0.5*Math.max(m823, M810);
+        // gối
+        m824= Math.max(M814,M815);
+        M824= 0.8*Math.max(m824,M816);
+        // lực cắt
+        Q822= Math.max(Q87,Q88);
+        //////////// tổng hợp nội lực bản hẫng
+        /// Sử dụng
+        M825=Math.max(M83,M84);
+        Q823=Math.max(Q83,Q84);
+        // CD1
+        M826=Math.max(M81,M82);
+        Q824= Math.max(Q81,Q82);
+        ///// 4. tính toán bà kiểm tra BM theo TTGH CD!
+        // bố trí cốt thép chịu momen âm của MBC và kiểm toán theo TTGH CD1
+
+        /////////////////////////////////////////////
         // tính các thông số
         N1=N2=13;
         Dtt=Dtd=16;
@@ -610,7 +1090,222 @@ public class nhaplieuthietke extends AppCompatActivity {
         Stbmc=150;
         Sd=65;
         Sdbmc=150;
-////
+        ////////////////////////////////////////////
+
+
+//        txtKT10= "M81= "+M81+"\nM82= "+M82+"\nM83= "+M83+"\nM84= "+M84+"\nM85= "+M85+"\nM86= "+M86 +"\nM87= "+M87+"\nM88= "+M88+"\nM89= "+M89+"\nM810= "+M810+"\nM811= "+M811+"\nM812= "+M812+"\nM813= "+M813+"\nM814= "+M814+"\nM815= "+M815+"\nM816= "+M816
+//        +"\nQ81= "+Q81  +"\nQ82= "+Q82  +"\nQ83= "+Q83  +"\nQ84= "+Q84  +"\nQ85= "+Q85  +"\nQ86= "+Q86  +"\nQ87= "+Q87  +"\nQ88= "+Q88+"\nM821= "+M821+"\nM822= "+M822+"\nM823= "+M823+"\nM824= "+M824+"\nM825= "+M825+"\nM826= "+M826+"\nQ821= "+Q821+"\nQ822= "+Q822+"\nQ823= "+Q823+"\nQ824= "+Q824;
+
+    }
+    public void kqKiemToan(){
+        // txt1
+        double t,x2;
+        x2=(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy);
+        t=(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12));
+
+        if(t>=0.1 && t<=0.9 && x2<=0  ){
+            txt1= "Kích thước bản biên dưới và trên đạt";
+        }else if (t>0.9 && x2<=0 ){
+            txt1= "Kích thước bản biên dưới và trên đạt";
+        }
+        else {
+            txt1= "Kích thước bản biên dưới và trên không đạt";
+        }
+
+
+    }
+    public void tinhToanTCDKhongChac(){
+        // kiểm tra bản cánh chịu nén cần bố trí STC dọc không
+        Dc= D-tft-Yltd;
+        if (((2.0*Dc/tw)-6.7*Math.sqrt(Es/Fy))<=0){
+            txtKT4="((2.0*Dc/tw)-6.7*Math.sqrt(Es/Fy))= "+(float)Math.round((((2.0*Dc/tw)-6.7*Math.sqrt(Es/Fy)))* 1000)/1000+" <= 0"+"\n   Độ mảnh của bản cánh chịu nén đạt, không cần bố trí STC dọc";
+
+        }
+        else if (((2.0*Dc/tw)-11.63*Math.sqrt(Es/Fy))<=0){
+            txtKT4="((2.0*Dc/tw)-11.63*Math.sqrt(Es/Fy))= "+(float)Math.round((((2.0*Dc/tw)-11.63*Math.sqrt(Es/Fy)))* 1000)/1000+" <= 0"+"\n   Độ mảnh của bản cánh chịu nén không đạt, cần bố trí STC dọc";
+        }
+
+
+        /////////////// kiểm tra độ maanhr của bản biên
+        double b1;
+        b1=(Bft/(2.0*tft))-1.38*Math.sqrt(Es/(Math.abs(f220)+Math.abs(f24)*Math.sqrt(2.0*Dc/tw)));
+        if (b1<=0){
+            txtKT5= "(Bft/(2.0*tft))-1.38*Math.sqrt(Es/(Math.abs(f220)+Math.abs(f24)*Math.sqrt(2.0*Dc/tw)))= "+(float)Math.round((b1)* 1000)/1000+" <= 0"+"\n  Kích thước bản biên thỏa";
+        }
+        else {
+            txtKT5= "(Bft/(2.0*tft))-1.38*Math.sqrt(Es/(Math.abs(f220)+Math.abs(f24)*Math.sqrt(2.0*Dc/tw)))= "+(float)Math.round((b1)* 1000)/1000+" > 0"+"\n  Chọn lại kích thước bản biên";
+        }
+
+        /// tính sức kháng uốn danh định CD1
+        double uu;
+        if (Bft*tft-Bfb*tfb<0){
+            uu=4.76;
+
+        }else{
+            uu=5.67;
+        }
+        Fn= Fy*(1-((2.0*Dc*tw/(Bft*tft))/(1200.0+300.0*2.0*Dc*tw/(Bft*tft)))*((2.0*Dc/tw)-uu*Math.sqrt(Es/(Math.abs(f220)+Math.abs(f24)))));
+        if (Fn-(Math.abs(f220)+Math.abs(f24))>=0){
+            txtKT6="Fn= "+(float)Math.round((Fn)* 1000)/1000+" >= (Math.abs(f220)+Math.abs(f24))= "+(float)Math.round((Math.abs(f220)-Math.abs(f24))* 1000)/1000 +"\n   Sức kháng uốn đảm bảo";
+            txt2="Sức kháng uốn TTGH CD1 đảm bảo";
+
+        }
+        else {
+            txtKT6="Fn= "+(float)Math.round((Fn)* 1000)/1000+" < (Math.abs(f220)+Math.abs(f24))= "+(float)Math.round((Math.abs(f220)-Math.abs(f24))* 1000)/1000 +"\n   Sức kháng uốn không đảm bảo, chọn lại kích thước tiết diện";
+            txt2="Sức kháng uốn TTGH CD1 không đảm bảo";
+        }
+        ///// kiểm tra lực cắt cường độ 1
+        // tính c
+        if ((Dw/tw)-1.1*Math.sqrt(Es*k/Fy)<=0){
+            c=1;
+        }else if((Dw/tw)-1.1*Math.sqrt(Es*k/Fy)>0 && (Dw/tw)-1.38*Math.sqrt(Es*k/Fy)<=0){
+            c=(1.1*tw/Dw)*Math.sqrt(Es*k/Fy);
+        }else if( (Dw/tw)-1.38*Math.sqrt(Es*k/Fy)>0){
+            c=(1.52/Math.pow(Dw/tw,2))*Es*k/Fy;
+        }
+        //Cường đọ chịu kéo nhỏ nhất
+        try {
+            d0 = Double.parseDouble(edtd0.getText().toString());
+
+            if (d0 < 0) {
+
+                edtd0.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtd0.setError("Hãy nhập giá trị");
+        }
+        ////
+        Vp=0.58*Fy*Dw*tw*0.001;
+        if (Fu<= 0.75*Fy){
+            Vn= Vp*(c+(0.87*(1-c)/Math.sqrt(1.0+Math.pow(d0/Dw,2))));
+        } else if (Fu>0.75*Fy){
+            Vn=(Math.min(1.0, 0.6+0.4*(Fy-Fu)/(Fy-0.75*Fy))*Vp*(c+(0.87*(1-c)/Math.sqrt(1+Math.pow(d0/Dw,2)))));
+        }
+        ////
+        if (Vn-c*Vp>=0){
+            txtKT7="Vn= "+(float)Math.round((Vn)* 1000)/1000+" >= c*Vp= "+ (float)Math.round((c*Vp)* 1000)/1000+"\n   Thỏa sức kháng cắt";
+
+        }else {
+            txtKT7="Vn= "+(float)Math.round((Vn)* 1000)/1000+" < c*Vp= "+ (float)Math.round((c*Vp)* 1000)/1000+"\n   Không thỏa sức kháng cắt";
+        }
+        //////////////////////////////////////////////////////////////MỎI///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////// ứng suất nén đàn hồi lớn nhất ở bản biên chịu nén khi uốn do tác dụng của tải trọng dài hạn
+        if ((2.0*(D-tft-Ystd)/tw)-5.7*(Math.sqrt(Es/Fy))<=0){
+            fcf=Fy;
+        }else if ((2.0*(D-tft-Ystd)/tw)-5.7*(Math.sqrt(Es/Fy))>0){
+            fcf=32.5*Es*Math.pow(tw/(2*(D-tft-Ystd)),2);
+        }
+        //// tính đc fcf
+        /////////////// kiểm ra fcf
+
+        // tính ứng suất
+        f=-f112-Math.max(f228,f212)-2*(1000000*YlttDT*Math.max(M720,M724))/IltDT;
+        ///  Toast.makeText(nhaplieuthietke.this, "f= "+f, Toast.LENGTH_LONG).show();
+        // kiểm tra ứng suất
+
+        ///kiểm tra ổn định uốn của vách đứng
+        if (f-fcf <=0){
+
+            txtKT8="-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------"+"\nf= "+(float)Math.round((f)* 1000)/1000+" <= fcf= "+fcf+"\n  Vách đứng ổn định uốn";
+            // Toast.makeText(nhaplieuthietke.this,"ứng suất dầm thoả",Toast.LENGTH_LONG).show();
+        }else {
+            txtKT8="-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------"+"\nf= "+(float)Math.round((f)* 1000)/1000+" > fcf= "+fcf+"\n  Vách đứng mất ổn định uốn";
+        }
+
+        if ((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)<=0){
+            txtKT9="(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= "+(float)Math.round((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)* 1000)/1000+" <= 0"+"\n   Vách đứng ổn định lực cắt";
+        }else{
+            txtKT9="(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= "+(float)Math.round((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)* 1000)/1000+" > 0"+"\n   Vách đứng mất ổn định lực cắt";
+        }
+
+        // tính biên độ ứng suất do xe tải mỏi gây ra
+        Dentaf= (Ystd*Math.max(M720,M724)*1000000.0)/(Math.max(IstDT,IstDN));
+        // tính lượng chu kì ứng suất
+        ////////// tính u1 nhịp
+        if (L*1000.0>12000){
+            u1=1;
+        }else {
+            u1=2;
+        }
+        ////////tính u2
+        if(Bxc*1000.0/3500.0>1 && Bxc*1000.0/3500.0<2){
+            u2=1;
+        }else if (Bxc*1000.0/3500.0>=2 && Bxc*1000.0/3500.0<3){
+            u2=0.85;
+        }else  {
+            u2=0.8;
+        }
+        /// tính N
+        N=100.0*365.0*u1*u2*2.0*10000.0*l1234;
+        ///sức kháng mỏi danh định
+        DentaFn= Math.max((Math.pow(ABCDE,1/3)/N),(0.5*DentaFTH));
+        if (DentaFn-Dentaf*0.75>=0){
+            txtKT9="DentaFn= "+(float)Math.round(DentaFn* 1000)/1000+">= 0,75.DentaF= "+(float)Math.round(0.75*Dentaf* 1000)/1000  +"\n   Đảm bảo TTGH mỏi";
+            txt4="TTGH mỏi đảm bảo ";
+        }else {
+            txtKT9="DentaFn= "+(float)Math.round(DentaFn* 1000)/1000+"< 0,75.DentaF= "+(float)Math.round(0.75*Dentaf* 1000)/1000  +"\n   Không đảm bảo TTGH mỏi";
+            txt4="TTGH mỏi không đảm bảo ";
+        }
+        //////////////////////////////////////////////// SỬ DỤNG/////////////////////////////////////////////////////////
+        ftDC1= f112;
+        ftDC2= Math.max(Math.abs(f212),Math.abs(f228));
+        ftLL_IM= Math.max((mgDTM*(1.25*Math.max(m4,m8)+m12+m16)),(mgDNM*(1.25*Math.max(m4,m8)+m12+m16)))*Ystt*1000000.0/Ist;
+        ftSH=Math.max(Math.abs(f51),Math.abs(f53))*1.2;
+        ftsum=Math.abs(ftDC1)+Math.abs(ftDC2)+Math.abs(ftLL_IM)+Math.abs(ftSH);
+        /// ứng suất bản biên dưới của dầm
+        fbDC1=f116;
+        fbDC2= Math.max(Math.abs(f216),Math.abs(f232));
+        fbLL_IM= Math.max((mgDTM*(1.25*Math.max(m4,m8)+m12+m16)),(mgDNM*(1.25*Math.max(m4,m8)+m12+m16)))*Ystt*1000000.0/Ist;
+        fbSH=Math.max(Math.abs(f52),Math.abs(f54))*1.2;
+        fbsum=Math.abs(fbDC1)+Math.abs(fbDC2)+Math.abs(fbLL_IM)+Math.abs(fbSH);
+        // kiểm tra
+        if (Math.max(Math.abs(ftsum),Math.abs(fbsum))<=0.95*Fy){
+            txtKT11="--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------"+"\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= "+(float)Math.round(Math.max(Math.abs(ftsum),Math.abs(fbsum))* 1000)/1000 +" <= 0.95*Fy= "+(float)Math.round(0.95*Fy* 1000)/1000+ "\n   Ứng suất cánh trên và cánh dưới đạt";
+        }else {
+            txtKT11="--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------"+"\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= "+(float)Math.round(Math.max(Math.abs(ftsum),Math.abs(fbsum))* 1000)/1000 +" > 0.95*Fy= "+(float)Math.round(0.95*Fy* 1000)/1000+ "\n   Ứng suất cánh trên và cánh dưới không đạt";
+        }
+        /// kiểm tra độ vồng ngược
+        dentaDC1= 5.0*Math.pow(Ls*1000.0,4)*DC1/(384.0*Es*Inc);
+        dentaDC2= 5.0*Math.pow(Ls*1000.0,4)*Math.max(DC2DT,DC2DN)/(384.0*Es*Math.max(IltDN,IltDT));
+        // độ võng do xe tải thiết kế
+        dentaP35= Math.max(mgDTM,mgDNM)*(35.0*((0.5*Ls*1000.0)+4300.0)*(0.5*Ls*1000.0)*(Math.pow(Ls*1000.0,2)-Math.pow((0.5*Ls*1000.0)+4300.0,2)-Math.pow(0.5*Ls*1000.0,2)))/(6.0*Ist*Ls*Es);
+        dentaP145G=Math.max(mgDTM,mgDNM)* (145.0*Math.pow(0.5*Ls*1000.0,2)*(Math.pow(Ls*1000.0,2)-2.0*Math.pow(0.5*Ls*1000.0,2)))/(6.0*Ist*Ls*Es);
+        dentaP145S=Math.max(mgDTM,mgDNM)* (145.0*((0.5*Ls*1000.)-4300.)*(0.5*Ls*1000.)*((Math.pow(Ls*1000.,2))-(Math.pow((0.5*Ls*1000.)-4300.0,2))-(Math.pow(0.5*1000.*Ls,2))))/(6.0*Ist*Ls*Es);
+        //double grjfdj=M36;
+        //độ võng thiết kế
+        denta1= (dentaP35+dentaP145G+dentaP145S)*1.25;
+        // độ võng do tổ hợp 25 xe tải thiết kế, ttl,
+        denta2= 0.25*denta1;
+        denta3= (5.*9.3*Math.pow(Ls*1000.,4)*Math.max(mgDTM,mgDNM))/(384.*Es*Ist);
+        // độ võng tổ hợp trên gây ra
+        denta4= denta2+denta3;
+        /// ///độ võng do hoạt tải
+        denta5= Math.max(denta1,denta4);
+        /// độ võng cho phép của hoạt tải
+        denta6= Ls;
+
+        ///// (float)Math.round((f)* 1000)/1000
+        // kiểm tra độ võng cho phép riêng của hoạt tải
+        if (denta5<denta6){
+            txtKT12= "denta5= "+(float)Math.round((denta5)* 1000)/1000+" <= denta6= "+(float)Math.round((denta6)* 1000)/1000+"\n   Độ võng riêng cho phép của hoạt tải ĐẠT";
+            txt5="Độ võng riêng cho phép của hoạt tải ĐẠT";
+
+        }else {
+            txtKT12= "denta5= "+(float)Math.round((denta5)* 1000)/1000+" > denta6= "+(float)Math.round((denta6)* 1000)/1000+"\n   Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
+            txt5="Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
+
+        }
+        // ĐỘ VỒNG cần chế tạo hợp lí
+        dentav= 0.5*denta5+dentaDC1+dentaDC2;
+        // quyết định độ vồng ngược cho tất cả các dầm
+        dentafinal=dentav;
+        txtKT13="Độ vồng ngược cho tất cả các dầm"+"\nDENTA final= "+(float)Math.round((dentafinal)* 1000)/1000+"mm";
+        txt6="Độ vồng ngược cho tất cả các dầm"+"\nDENTA = "+(float)Math.round((dentafinal)* 1000)/1000+"mm";
+
+    }
+
+    public  void tinhToanTDChac(){
+        ////
         Ps=0.85*fc*bi*ts;
         Pc=Fy*Bft*tft;
         Pt= Fy*Bfb*tfb;
@@ -665,10 +1360,12 @@ public class nhaplieuthietke extends AppCompatActivity {
         // kiểm tra sức kháng uốn
         if(Mr-Math.max(M74,M78)>0){
             txtKT5="Mr= "+(float)Math.round((Mr)* 1000)/1000 +" >= Mu= "+(float)Math.round((Mu)* 1000)/1000+"\n  Thỏa điều kiện sức kháng uốn";
+            txt2="Sức kháng uốn TTGH CD1 đảm bảo";
          //   Toast.makeText(nhaplieuthietke.this,"thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
         }
         else{
             txtKT5=   txtKT5="Mr= "+(float)Math.round((Mr)* 1000)/1000 +" < Mu= "+(float)Math.round((Mu)* 1000)/1000+"\n  Không thỏa điều kiện sức kháng uốn";
+            txt2="Sức kháng uốn TTGH CD1 không đảm bảo";
          //   Toast.makeText(nhaplieuthietke.this,"không thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
         }
         //
@@ -707,25 +1404,28 @@ public class nhaplieuthietke extends AppCompatActivity {
         if (Mu-0.5*Mp <0 ){
 //            V1n, V2n,r, Vr;
             V1n= (0.58*Fy*Dw*tw)*(c+((0.87*(1-c))/(Math.sqrt(1+Math.pow(d0/Dw,2)))));
-            Vr=V1n;
+            Vr=V1n/1000;
 
         } else if(Mu-0.5*Mp >0){
             V2n=r*((0.58*Fy*Dw*tw)*(c+((0.87*(1-c))/(Math.sqrt(1+Math.pow(d0/Dw,2))))));
-            Vr=V2n;
+            Vr=V2n/1000;
         }
-        // kiểm tra uốn
+        // kiểm tra  lực cắt
         if (Vr-Math.max(Q71,Q76)>0){
-            txtKT6="Vr= "+(float)Math.round((Vr)* 1000)/1000+" > Math.max(Q71,Q76)= "+(float)Math.round((Math.max(Q71,Q76))* 1000)/1000+"\n   Dầm chịu được khả năng chịu kháng uốn";
+            txtKT6="Vr= "+(float)Math.round((Vr)* 1000)/1000+" > Math.max(Q71,Q76)= "+(float)Math.round((Math.max(Q71,Q76))* 1000)/1000+"\n   Dầm thỏa sức kháng cắt";
+            txt3="Sức kháng cắt TTGH CD1 đảm bảo";
         }
         else if((Math.max(Q71,Q76)-c*Vp) <0){
-            txtKT6="(Math.max(Q71,Q76)-c*Vp)= "+(float)Math.round((Math.max(Q71,Q76)-c*Vp)* 1000)/100+"\n  Dầm chịu được khả năng chịu kháng uốn";
+            txtKT6="(Math.max(Q71,Q76)-c*Vp)= "+(float)Math.round((Math.max(Q71,Q76)-c*Vp)* 1000)/100+"\n  Dầm thỏa sức kháng cắt";
             //Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+            txt3="Sức kháng cắt TTGH CD1 đảm bảo";
         }
         else{
-            txtKT6="Dầm không chịu được khả năng kháng uốn";
+            txtKT6="Dầm không không thỏa sức kháng cắt";
+            txt3="Sức kháng cắt TTGH CD1 không đảm bảo";
          //   Toast.makeText(nhaplieuthietke.this,"dầm không đủ khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
         }
-
+//////////////////////////////////////////////////////////////MỎI///////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////// ứng suất nén đàn hồi lớn nhất ở bản biên chịu nén khi uốn do tác dụng của tải trọng dài hạn
         if ((2.0*(D-tft-Ystd)/tw)-5.7*(Math.sqrt(Es/Fy))<=0){
             fcf=Fy;
@@ -742,16 +1442,16 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         ///kiểm tra ổn định uốn của vách đứng
         if (f-fcf <=0){
-            txtKT7="f= "+(float)Math.round((f)* 1000)/1000+" <= fcf= "+fcf+"\n  Vách đứng ổn định uốn";
+            txtKT7="-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------"+"\nf= "+(float)Math.round((f)* 1000)/1000+" <= fcf= "+fcf+"\n  Vách đứng ổn định uốn";
            // Toast.makeText(nhaplieuthietke.this,"ứng suất dầm thoả",Toast.LENGTH_LONG).show();
         }else {
-            txtKT7="f= "+(float)Math.round((f)* 1000)/1000+" > fcf= "+fcf+"\n  Vách đứng mất ổn định uốn";
+            txtKT7="-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------"+"\nf= "+(float)Math.round((f)* 1000)/1000+" > fcf= "+fcf+"\n  Vách đứng mất ổn định uốn";
         }
 
         if ((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)<=0){
-            txtKT8="Vách đứng ổn định lực cắt";
+            txtKT8="(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= "+(float)Math.round((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)* 1000)/1000+" <= 0"+"\n   Vách đứng ổn định lực cắt";
         }else{
-            txtKT8="Vách đứng mất ổn định lực cắt";
+            txtKT8="(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= "+(float)Math.round((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)* 1000)/1000+" > 0"+"\n   Vách đứng mất ổn định lực cắt";
         }
 
         // tính biên độ ứng suất do xe tải mỏi gây ra
@@ -772,13 +1472,74 @@ public class nhaplieuthietke extends AppCompatActivity {
             u2=0.8;
         }
         /// tính N
-        N=100.0*365.0*u1*u2*2.0*10000.0*0.2;
-        txtKT9="N= "+N +"   Denta f= "+Dentaf;
+        N=100.0*365.0*u1*u2*2.0*10000.0*l1234;
+        ///sức kháng mỏi danh định
+        DentaFn= Math.max((Math.pow(ABCDE,1/3)/N),(0.5*DentaFTH));
+        if (DentaFn-Dentaf*0.75>=0){
+            txtKT9="DentaFn= "+(float)Math.round(DentaFn* 1000)/1000+">= 0,75.DentaF= "+(float)Math.round(0.75*Dentaf* 1000)/1000  +"\n   Đảm bảo TTGH mỏi";
+            txt4="TTGH mỏi đảm bảo ";
+        }else {
+            txtKT9="DentaFn= "+(float)Math.round(DentaFn* 1000)/1000+"< 0,75.DentaF= "+(float)Math.round(0.75*Dentaf* 1000)/1000  +"\n   Không đảm bảo TTGH mỏi";
+            txt4="TTGH mỏi không đảm bảo ";
+        }
+        //////////////////////////////////////////////// SỬ DỤNG/////////////////////////////////////////////////////////
+        ftDC1= f112;
+        ftDC2= Math.max(Math.abs(f212),Math.abs(f228));
+        ftLL_IM= Math.max((mgDTM*(1.25*Math.max(m4,m8)+m12+m16)),(mgDNM*(1.25*Math.max(m4,m8)+m12+m16)))*Ystt*1000000.0/Ist;
+        ftSH=Math.max(Math.abs(f51),Math.abs(f53))*1.2;
+        ftsum=Math.abs(ftDC1)+Math.abs(ftDC2)+Math.abs(ftLL_IM)+Math.abs(ftSH);
+        /// ứng suất bản biên dưới của dầm
+        fbDC1=f116;
+        fbDC2= Math.max(Math.abs(f216),Math.abs(f232));
+        fbLL_IM= Math.max((mgDTM*(1.25*Math.max(m4,m8)+m12+m16)),(mgDNM*(1.25*Math.max(m4,m8)+m12+m16)))*Ystt*1000000.0/Ist;
+        fbSH=Math.max(Math.abs(f52),Math.abs(f54))*1.2;
+        fbsum=Math.abs(fbDC1)+Math.abs(fbDC2)+Math.abs(fbLL_IM)+Math.abs(fbSH);
+        // kiểm tra
+        if (Math.max(Math.abs(ftsum),Math.abs(fbsum))<=0.95*Fy){
 
+            txtKT11="--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------"+"\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= "+(float)Math.round(Math.max(Math.abs(ftsum),Math.abs(fbsum))* 1000)/1000 +" <= 0.95*Fy= "+(float)Math.round(0.95*Fy* 1000)/1000+ "\n   Ứng suất cánh trên và cánh dưới đạt";
+        }else {
 
+            txtKT11="--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------"+"\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= "+(float)Math.round(Math.max(Math.abs(ftsum),Math.abs(fbsum))* 1000)/1000 +" > 0.95*Fy= "+(float)Math.round(0.95*Fy* 1000)/1000+ "\n   Ứng suất cánh trên và cánh dưới không đạt";
+        }
+        /// kiểm tra độ vồng ngược
+        dentaDC1= 5.0*Math.pow(Ls*1000.0,4)*DC1/(384.0*Es*Inc);
+        dentaDC2= 5.0*Math.pow(Ls*1000.0,4)*Math.max(DC2DT,DC2DN)/(384.0*Es*Math.max(IltDN,IltDT));
+        // độ võng do xe tải thiết kế
+        dentaP35= Math.max(mgDTM,mgDNM)*(35.0*((0.5*Ls*1000.0)+4300.0)*(0.5*Ls*1000.0)*(Math.pow(Ls*1000.0,2)-Math.pow((0.5*Ls*1000.0)+4300.0,2)-Math.pow(0.5*Ls*1000.0,2)))/(6.0*Ist*Ls*Es);
+        dentaP145G=Math.max(mgDTM,mgDNM)* (145.0*Math.pow(0.5*Ls*1000.0,2)*(Math.pow(Ls*1000.0,2)-2.0*Math.pow(0.5*Ls*1000.0,2)))/(6.0*Ist*Ls*Es);
+        dentaP145S=Math.max(mgDTM,mgDNM)* (145.0*((0.5*Ls*1000.)-4300.)*(0.5*Ls*1000.)*((Math.pow(Ls*1000.,2))-(Math.pow((0.5*Ls*1000.)-4300.0,2))-(Math.pow(0.5*1000.*Ls,2))))/(6.0*Ist*Ls*Es);
+        //double grjfdj=M36;
+        //độ võng thiết kế
+        denta1= (dentaP35+dentaP145G+dentaP145S)*1.25;
+        // độ võng do tổ hợp 25 xe tải thiết kế, ttl,
+        denta2= 0.25*denta1;
+        denta3= (5.*9.3*Math.pow(Ls*1000.,4)*Math.max(mgDTM,mgDNM))/(384.*Es*Ist);
+        // độ võng tổ hợp trên gây ra
+        denta4= denta2+denta3;
+        /// ///độ võng do hoạt tải
+        denta5= Math.max(denta1,denta4);
+        /// độ võng cho phép của hoạt tải
+        denta6= Ls;
 
+        ///// (float)Math.round((f)* 1000)/1000
+        // kiểm tra độ võng cho phép riêng của hoạt tải
+        if (denta5<denta6){
+            txtKT12= "denta5= "+(float)Math.round((denta5)* 1000)/1000+" <= denta6= "+(float)Math.round((denta6)* 1000)/1000+"\n   Độ võng riêng cho phép của hoạt tải ĐẠT";
+            txt5="Độ võng riêng cho phép của hoạt tải ĐẠT";
 
+        }else {
+            txtKT12= "denta5= "+(float)Math.round((denta5)* 1000)/1000+" > denta6= "+(float)Math.round((denta6)* 1000)/1000+"\n   Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
+            txt5="Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
 
+        }
+        // ĐỘ VỒNG cần chế tạo hợp lí
+        dentav= 0.5*denta5+dentaDC1+dentaDC2;
+        // quyết định độ vồng ngược cho tất cả các dầm
+        dentafinal=dentav;
+        txtKT13="Độ vồng ngược cho tất cả các dầm"+"\nDENTA final= "+(float)Math.round((dentafinal)* 1000)/1000+"mm";
+        txt6="Độ vồng ngược cho tất cả các dầm"+"\nDENTA = "+(float)Math.round((dentafinal)* 1000)/1000+"mm";
+  //      double  x=M87;
 
     }
 
@@ -792,11 +1553,11 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         if (x2<=0){
             //ok
-            txtKT3="(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy)= "+""+(float)Math.round(x2* 1000)/1000 +"<= 0"+"\n   Kích thước bản cánh trên đạt";
+            txtKT3="(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy)= "+""+(float)Math.round(x2* 1000)/1000 +"<= 0"+"\n   Kích thước bản biên trên đạt";
 
         }else {
 //            Toast.makeText(nhaplieuthietke.this,"Chọn lại tiết diện bản cánh",Toast.LENGTH_LONG).show();
-            txtKT3="(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy)= "+""+(float)Math.round(x2* 1000)/1000 +"> 0"+"\n   Kích thước bản cánh trên không đạt";
+            txtKT3="(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy)= "+""+(float)Math.round(x2* 1000)/1000 +"> 0"+"\n   Kích thước bản biên trên không đạt";
 
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -807,9 +1568,11 @@ public class nhaplieuthietke extends AppCompatActivity {
             tinhToanTDChac();
             txtKT2="(2*Dcp/tw)-3.76*Math.sqrt(Es/Fy)= "+""+(float)Math.round(x1* 1000)/1000 +"<= 0"+"\n   Loại tiết diện Chắc";
 
-        }else  {
+        }else if (x1>0){
             // TD ko chắc
-            txtKT2="Loại tiết diện Không Chắc";
+            tinhToanTCDKhongChac();
+
+            txtKT2="(2*Dcp/tw)-3.76*Math.sqrt(Es/Fy)= "+""+(float)Math.round(x1* 1000)/1000 +"> 0"+"\n   Loại tiết diện Không Chắc";
         }
 
     }
@@ -819,21 +1582,21 @@ public class nhaplieuthietke extends AppCompatActivity {
        t=(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12));
         if (t>=0.1 && t<=0.9){
             // kích thước bản biên hợp lý
-            txtKT1="0.1<= "+"(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +" <= 0.9"+"\n   Kích thước bản biên dưới đạt";
+            txtKT1="-----------------------  KIỂM TOÁN Ở TTGH CD1  -----------------------"+"\n0.1<= "+"(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +" <= 0.9"+"\n   Kích thước bản biên dưới đạt";
             }
         else if (t<0.1){
-            txtKT1="(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +" < 0.1"+"\n  Tăng bề dày bản biên dưới hoặc tăng bề rộng bản biên dưới";
+            txtKT1="-----------------------  KIỂM TOÁN Ở TTGH CD1  -----------------------"+"\n(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +" < 0.1"+"\n  Tăng bề dày bản biên dưới hoặc tăng bề rộng bản biên dưới";
             // tăng bề dày bản biên dưới hoặc tăng bề rộng bản biên dưới
          //   Toast.makeText(nhaplieuthietke.this,"Chọn lại tiết diện",Toast.LENGTH_LONG).show();
         }
         else if (t>0.9 ){
             // giảm bề rộng bản biên dưới
-            txtKT1="(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +" > 0.9"+"\n  Giảm bề rộng bản biên dưới";
+            txtKT1="-----------------------  KIỂM TOÁN Ở TTGH CD1  -----------------------"+"\n(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +" > 0.9"+"\n  Giảm bề rộng bản biên dưới";
 
         }
         else {
             // chọn lại bản biên dưới
-            txtKT1="(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +"\n  Chọn lại bản biên dưới";
+            txtKT1="-----------------------  KIỂM TOÁN Ở TTGH CD1  -----------------------"+"\n(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12))= "+""+(float)Math.round(t* 100)/100 +"\n  Chọn lại bản biên dưới";
         }
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -841,10 +1604,14 @@ public class nhaplieuthietke extends AppCompatActivity {
         if (IstDN>IstDT){
             Ystt=YsttDN;
             Ystd=YstdDN;
+            Yltd=YltdDN;
+            Ist=IstDN;
               }
         else{
             Ystt=YsttDT;
             Ystd=YstdDT;
+            Yltd=YlttDT;
+            Ist=IstDT;
         }
         my=((Fy-(Math.abs(f14+Math.max(f220,f24)-Math.min(f51,f53))))*Math.max(IstDT,IstDN))/(Ystt*1000000);
         myy=((Fy-(Math.abs(f18+Math.max(f224,f28)+Math.max(f52,f54))))*Math.max(IstDT,IstDN))/(Ystd*1000000);
@@ -2772,6 +3539,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     }
 
     public void chuaBien() {
+
 
         //Số lượng hệ liên kết ngang theo phương dọc cầu trong nhịp
         try {

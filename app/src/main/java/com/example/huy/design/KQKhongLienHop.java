@@ -34,7 +34,7 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtM74, txtM78, txtM712, txtM716, txtM720, txtM724;
     TextView txtQ71, txtQ76, txtQ711, txtQ716, txtQ721, txtQ726;
     TextView txtviewNoiLuc;
-    TextView  txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8;
+    TextView  txt1,txt2,txt3,txt4,txt5,txt6,txt7;
     TextView txtViewKiemToan;
 
     @Override
@@ -162,6 +162,15 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtQ716.setText(roundString(LHbundle.getDouble("Q716"), 4));
         txtQ721.setText(roundString(LHbundle.getDouble("Q721"), 4));
         txtQ726.setText(roundString(LHbundle.getDouble("Q726"), 4));
+        txt1.setText(LHbundle.getString("txt1"));
+        txt2.setText(LHbundle.getString("txt2"));
+        txt3.setText(LHbundle.getString("txt3"));
+        txt4.setText(LHbundle.getString("txt4"));
+        txt5.setText(LHbundle.getString("txt5"));
+        txt6.setText(LHbundle.getString("txt6"));
+        txt7.setText(LHbundle.getString("txt7"));
+
+
 
         //////////////////////////////////kiểm toán //////////////////////
 
@@ -197,6 +206,15 @@ public class KQKhongLienHop extends AppCompatActivity {
                 KTBundle.putString("txtKT5", LHbundle.getString("txtKT5"));
                 KTBundle.putString("txtKT6", LHbundle.getString("txtKT6"));
                 KTBundle.putString("txtKT7", LHbundle.getString("txtKT7"));
+                KTBundle.putString("txtKT8", LHbundle.getString("txtKT8"));
+                KTBundle.putString("txtKT9", LHbundle.getString("txtKT9"));
+                KTBundle.putString("txtKT10", LHbundle.getString("txtKT10"));
+                KTBundle.putString("txtKT11", LHbundle.getString("txtKT11"));
+                KTBundle.putString("txtKT12", LHbundle.getString("txtKT12"));
+                KTBundle.putString("txtKT13", LHbundle.getString("txtKT13"));
+
+
+
 
 
                 ViewKiemToanbundle.putExtra("LHbundle", KTBundle);
@@ -879,6 +897,13 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtmgDNV = (TextView) findViewById(R.id.txtmgDNV);
         txtmgPLDN = (TextView) findViewById(R.id.txtmgPLDN);
         txtmgPLDT = (TextView) findViewById(R.id.txtmgPLDT);
+        txt1=(TextView)findViewById(R.id.txt1);
+        txt2=(TextView)findViewById(R.id.txt2);
+        txt3=(TextView)findViewById(R.id.txt3);
+        txt4=(TextView)findViewById(R.id.txt4);
+        txt5=(TextView)findViewById(R.id.txt5);
+        txt6=(TextView)findViewById(R.id.txt6);
+        txt7=(TextView)findViewById(R.id.txt7);
         //txt = (TextView) findViewById(R.id.txt);
         //
         //        // nội lực tĩnh tải gd1
