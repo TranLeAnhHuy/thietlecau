@@ -95,7 +95,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     // sTring
     String txtKT1,txtKT2,txtKT3,txtKT4,txtKT5,txtKT6,txtKT7,txtKT8,txtKT9,txtKT10,txtKT11, txtKT12, txtKT13;
     // text ở KQkhong liên hợp
-    String txt1,txt2,txt3,txt4,txt5,txt6,txt7;
+    String txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8;
     double Dentaf, N, u1,u2,u3;
     Spinner spnLoaiThep, spnViTri;
     String arrLoaiThep[]={"A", "B", "B'", "C", "C'","D","E","E'"};
@@ -614,11 +614,6 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putString("txt6",txt6 );
                     LHbundle.putString("txt7",txt7 );
 
-
-
-
-
-                    
                     // LHbundle.putDouble("M4",M4 );
                     LHintent.putExtra("LHbundle", LHbundle);
                     startActivity(LHintent);
@@ -706,12 +701,15 @@ public class nhaplieuthietke extends AppCompatActivity {
         double p12=Math.max(p1,p2);
         double p34=Math.max(p3,p4);
         double p1234=Math.max(p12,p34);
-        pnew=Math.max(p1234,p5);
+        pnew=Math.ceil(Math.max(p1234,p5));
         // số neo cuối cùng
         nneofinal=Math.ceil((Math.max(nCD,((L*1000./pnew)+1.)*nn)));
-       double dfhdfb=Q76;
-
-
+       txt7= "Số lượng neo mỗi dầm: "+nneofinal+" neo"+
+               "\nTheo phương dọc cầu"+
+       "\n    Khoảng cách các neo: "+pnew+" mm"+
+       "\nTheo phương ngang cầu"+
+               "\n    Số lượng neo: "+nn+
+       "\n    Khoảng cách của các đinh neo: "+pn +"mm";
 
 
 
@@ -736,8 +734,6 @@ public class nhaplieuthietke extends AppCompatActivity {
     //Class tạo sự kiện
     public class MyProcessEventViTri implements AdapterView.OnItemSelectedListener
     {
-
-
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             lastedSelectedViTri= position;
@@ -761,12 +757,9 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
-
         }
         //Nếu không chọn gì cả
-
     }
-
 
     public void    spinnerLoaiThep(){
         //Gán Data source (arr) vào Adapter
@@ -788,8 +781,6 @@ public class nhaplieuthietke extends AppCompatActivity {
     //Class tạo sự kiện
     public class MyProcessEvent implements AdapterView.OnItemSelectedListener
     {
-
-
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             lastedSelected= position;
@@ -835,16 +826,12 @@ public class nhaplieuthietke extends AppCompatActivity {
                                 ABCDE=1.28;
                // Toast.makeText(nhaplieuthietke.this,"DentaFTH"+DentaFTH +"\nABCDE="+ABCDE,Toast.LENGTH_LONG).show();
             }
-
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
-
         }
-
         //Nếu không chọn gì cả
-
     }
     public void  tinhBMC(){
         DCbmctt= (ts*yc/1000.0)+(taf*yaf/1000.0)+DClcT+DClcBT;
@@ -874,7 +861,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             M81=(1.25*(ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+(1.25*(DClcT+DClcBT)*c/1000.0)+(1.5*(taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(1.75*PL*e*e/(2.0*Math.pow(1000.0,2)));
             Toast.makeText(this,""+M81,Toast.LENGTH_LONG).show();
             Q81=(1.25*(ts*yc/1000.0)*d/1000.0)+(1.25*(DClcBT+DClcT))+(1.5*(taf*yaf/1000.0)*a/1000.0)+(1.75*PL*e/1000.0);
-
         }else {
             e= ((B-(ndc-1.0)*S)/2.0)-Blc-(T/2.0);
             M81=(1.25*(ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+(1.25*(DClcT+DClcBT)*c/1000.0)+(1.5*(taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(1.75*PL*T*e/(Math.pow(1000.0,2)));
@@ -891,171 +877,128 @@ public class nhaplieuthietke extends AppCompatActivity {
             e3=((B-(ndc-1.0)*S)/2.0)-Blc;
             M83=((ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+((DClcT+DClcBT)*c/1000.0)+((taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(PL*Math.pow(e3,2)/(2.0*Math.pow(1000.0,2)));
             Q83=((ts*yc/1000.0)*d/1000.0)+((DClcBT+DClcT))+((taf*yaf/1000.0)*a/1000.0)+(PL*T/1000.0);
-
         }else{
             e3= ((B-(ndc-1.0)*S)/2.0)-Blc-(T/2.0);
             M83=((ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+((DClcT+DClcBT)*c/1000.0)+((taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(PL*Math.pow(e3,1)/(1.0*Math.pow(1000.0,1)));
             Q83=((ts*yc/1000.0)*d/1000.0)+((DClcBT+DClcT))+((taf*yaf/1000.0)*a/1000.0)+(PL*e/1000.0);
-
         }
         // tính M84
         M84=((ts*yc/1000.0)*(Math.pow(d,2)/(2.0*Math.pow(1000.0,2))))+((DClcT+DClcBT)*c/1000.0)+((taf*yaf/1000.0)*Math.pow(a,2)/(2.0*Math.pow(1000,2)))+(1.2*1.25*LL*(Math.pow(b,2))/(2.0*Math.pow(1000.0,2)));
         Q84=((ts*yc/1000.0)*d/1000.0)+((DClcBT+DClcT))+((taf*yaf/1000.0)*a/1000.0)+(1.2*1.25*LL*b/1000.0);
-
         // tính M85
         if (S>710.0){
             M85= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.2*1.25*LLduong*((0.5*(0.5*S-355.0)+0.25*S)*355.0/Math.pow(1000.0,2)));
         }else {
             M85= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.2*1.25*LLduong*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2));
-
         }
         // tính Q85
         if (S> 2510.0){
             Q85= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*LLam*((4.0*S-5020.0)*710.0/(S*2000.0)));
         }else if(S>1800.0 && S<= 2510.0){
             Q85= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*LLam*(((2.0*S-710.0)*710.0/(S*2000.0))+(0.5*Math.pow(S-1800.0,2)/(1000.0*S))));
-
         }else if(S<= 1800.0){
             Q85= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0);
-
         }
         //// tính M86
         if(S>1910.0){
             M86= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.25*LLduong*((0.5*S-600.0)*710.0/Math.pow(1000.0,2)));
-
         }else {
             M86= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.25*LLduong*(0.5*Math.pow(0.5*S-245.0,2)/Math.pow(1000.0,2)));
-
         }
-
         // tính Q86
         if(S>1910.0){
             Q86=((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*LLam*(((4.0*S-3820.0)*710.0/(S*2000.0))));
-
         }else if (S>1200.0 && S<= 1910.0){
             Q86= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*LLam*(((2.0*S-710.0)*710.0/(S*2000.0))+(0.5*Math.pow(S-1200.0,2)/(1000.0*S))));
-
         }else if(S<= 1200.0){
             Q86= ((ts*yc/1000.0)*0.5*S/1000.0)+((taf*yaf/1000.0)*0.5*S/1000.0);
-
         }
-
         /// Tính M87
         if(S>2510.0){
             M87= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.2*1.25*LLduong*((0.5*S-900.0)*710.0/Math.pow(1000.0,2)));
 
         }else if (S>1090.0 && S<= 2510.0){
             M87= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+(1.2*1.25*LLduong*(0.5*Math.pow(0.5*S-545.0,2))/Math.pow(1000.0,2));
-
         }else if(S<= 1090.0){
             M87= ((ts*yc/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)*(1.0/Math.pow(1000.0,2)));
-
         }
         if(S>2510.0){
                   Q87=(1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*1.75*LLam*(((4.0*S-5020.0)*710.0/(S*2000.0))));
-
         }else if(S>1800.0 && S<= 2510.0){
             Q87= (1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*1.75*LLam*(((2.0*S-710.0)*710.0/(S*2000.0))+(0.5*Math.pow(S-1800.0,2)/(1000.0*S))));
-
         }else if(S<= 1800.0){
             Q87= (1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0);
-
         }
         /// tính M88 tính Q88
         if(S> 710.0){
             M88=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLduong*((0.5*(0.5*S-355.0)+0.25*S)*355.0/Math.pow(1000.0,2)));
-
         }else if (S<= 710.0){
             M88=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLduong*((Math.pow(S,2)/8.0)/Math.pow(1000.0,2)));
-
         }
-
          if(S>1910){
             Q88=(1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*1.75*LLam*(((4.0*S-3820.0)*710.0/(S*2000.0))));
-
         }else if(S>1200.0 && S<= 1910.0){
             Q88= (1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0)+(1.2*1.25*1.75*LLam*(((2.0*S-710.0)*710.0/(S*2000.0))+(0.5*Math.pow(S-1200.0,2)/(1000.0*S))));
-
         }else if (S<= 1200.0){
             Q88= (1.25*(ts*yc/1000.0)*0.5*S/1000.0)+(1.5*(taf*yaf/1000.0)*0.5*S/1000.0);
         }
         //tính M89
         if(S>1910.0){
             M89=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.75*1.25*LLduong*((0.5*S-600.0)*710.0/Math.pow(1000.0,2)));
-
         }else{
             M89=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.75*1.25*LLduong*(0.5*Math.pow(0.5*S-245.0,2)/Math.pow(1000.0,2)));
-
         }
         /// tính M810
         if(S>2510.0){
             M810=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLduong*((0.5*S-900.0)*710.0/Math.pow(1000.0,2)));
-
         }else if(S>1090.0&&S<= 2510.0){
             M810=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLduong*(0.5*Math.pow(0.5*S-545.0,2)/Math.pow(1000.0,2)));
-
         }else if(S<= 1090.0){
             M810=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2));
-
         }
         // tính M811
         if(S> 710.0){
             M811=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.25*LLam*((0.5*(0.5*S-355.0)+0.25*S)*355.0/Math.pow(1000.0,2)));
-
         }else {
             M811=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.25*LLam*((Math.pow(S,2)/8.0)/Math.pow(1000.0,2)));
-
         }
         // tính M812
         if(S> 1910.0){
             M812=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.25*LLam*((0.5*S-600.0)*710.0/Math.pow(1000.0,2)));
-
         }else{
             M812=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.25*LLam*(0.5*Math.pow(0.5*S-245.0,2)/Math.pow(1000.0,2)));
-
         }
         //tính M813
         if (S> 2510.0){
             M813=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.25*LLam*((0.5*S-900.0)*710.0/Math.pow(1000.0,2)));
-
         }else if (S>1090.0 && S<= 2510.0){
             M813=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.25*LLam*(0.5*Math.pow(0.5*S-545.0,2)/Math.pow(1000.0,2)));
-
         } else if (S<= 1090.0){
             M813=((ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+((taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2));
         }
         /// tính M814
         if (S> 710.0){
             M814=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLam*((0.5*(0.5*S-355.0)+0.25*S)*355.0/Math.pow(1000.0,2)));
-
         }else {
             M814=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLam*((Math.pow(S,2)/8.0)/Math.pow(1000.0,2)));
-
         }
         // tính M15
         if (S>1910.0){
             M815=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.75*1.25*LLam*((0.5*S-600.0)*710.0/Math.pow(1000.0,2)));
-
         }else {
             M815=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.75*1.25*LLam*(0.5*Math.pow(0.5*S-245.0,2)/Math.pow(1000.0,2)));
-
         }
         // tính M816
         if (S> 2510.0){
             M816=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLam*((0.5*S-900.0)*710.0/Math.pow(1000.0,2)));
-
         }else if (S>1090.0 && S<= 2510.0){
             M816=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.2*1.75*1.25*LLam*(0.5*Math.pow(0.5*S-545.0,2)/Math.pow(1000.0,2)));
-
-
         }else if (S<= 1090.0){
             M816=(1.25*(ts*yc/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2))+(1.5*(taf*yaf/1000.0)*(Math.pow(S,2)/8.0)/Math.pow(1000.0,2));
-
         }
         //// tổng kết nội lực BMC bản kiểu DẦM
         /// Sử dụng
         // M 0,5L
-
         m821= Math.max(M85,M86);
         M821= 0.5*Math.max(m821,M87);
         // gối
@@ -1081,7 +1024,6 @@ public class nhaplieuthietke extends AppCompatActivity {
         Q824= Math.max(Q81,Q82);
         ///// 4. tính toán bà kiểm tra BM theo TTGH CD!
         // bố trí cốt thép chịu momen âm của MBC và kiểm toán theo TTGH CD1
-
         /////////////////////////////////////////////
         // tính các thông số
         N1=N2=13;
@@ -1091,18 +1033,16 @@ public class nhaplieuthietke extends AppCompatActivity {
         Sd=65;
         Sdbmc=150;
         ////////////////////////////////////////////
-
-
+        double Mt;
+        Mt=Math.max(M824,M826);
 //        txtKT10= "M81= "+M81+"\nM82= "+M82+"\nM83= "+M83+"\nM84= "+M84+"\nM85= "+M85+"\nM86= "+M86 +"\nM87= "+M87+"\nM88= "+M88+"\nM89= "+M89+"\nM810= "+M810+"\nM811= "+M811+"\nM812= "+M812+"\nM813= "+M813+"\nM814= "+M814+"\nM815= "+M815+"\nM816= "+M816
 //        +"\nQ81= "+Q81  +"\nQ82= "+Q82  +"\nQ83= "+Q83  +"\nQ84= "+Q84  +"\nQ85= "+Q85  +"\nQ86= "+Q86  +"\nQ87= "+Q87  +"\nQ88= "+Q88+"\nM821= "+M821+"\nM822= "+M822+"\nM823= "+M823+"\nM824= "+M824+"\nM825= "+M825+"\nM826= "+M826+"\nQ821= "+Q821+"\nQ822= "+Q822+"\nQ823= "+Q823+"\nQ824= "+Q824;
-
     }
     public void kqKiemToan(){
         // txt1
         double t,x2;
         x2=(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy);
         t=(tfb*Bfb*Bfb*Bfb/12)/((tfb*Bfb*Bfb*Bfb/12)+(Dw*tw*tw*tw/12)+(tft*Bft*Bft*Bft/12));
-
         if(t>=0.1 && t<=0.9 && x2<=0  ){
             txt1= "Kích thước bản biên dưới và trên đạt";
         }else if (t>0.9 && x2<=0 ){
@@ -1111,36 +1051,28 @@ public class nhaplieuthietke extends AppCompatActivity {
         else {
             txt1= "Kích thước bản biên dưới và trên không đạt";
         }
-
-
     }
     public void tinhToanTCDKhongChac(){
         // kiểm tra bản cánh chịu nén cần bố trí STC dọc không
         Dc= D-tft-Yltd;
         if (((2.0*Dc/tw)-6.7*Math.sqrt(Es/Fy))<=0){
             txtKT4="((2.0*Dc/tw)-6.7*Math.sqrt(Es/Fy))= "+(float)Math.round((((2.0*Dc/tw)-6.7*Math.sqrt(Es/Fy)))* 1000)/1000+" <= 0"+"\n   Độ mảnh của bản cánh chịu nén đạt, không cần bố trí STC dọc";
-
         }
         else if (((2.0*Dc/tw)-11.63*Math.sqrt(Es/Fy))<=0){
             txtKT4="((2.0*Dc/tw)-11.63*Math.sqrt(Es/Fy))= "+(float)Math.round((((2.0*Dc/tw)-11.63*Math.sqrt(Es/Fy)))* 1000)/1000+" <= 0"+"\n   Độ mảnh của bản cánh chịu nén không đạt, cần bố trí STC dọc";
         }
-
-
         /////////////// kiểm tra độ maanhr của bản biên
         double b1;
         b1=(Bft/(2.0*tft))-1.38*Math.sqrt(Es/(Math.abs(f220)+Math.abs(f24)*Math.sqrt(2.0*Dc/tw)));
         if (b1<=0){
             txtKT5= "(Bft/(2.0*tft))-1.38*Math.sqrt(Es/(Math.abs(f220)+Math.abs(f24)*Math.sqrt(2.0*Dc/tw)))= "+(float)Math.round((b1)* 1000)/1000+" <= 0"+"\n  Kích thước bản biên thỏa";
-        }
-        else {
+        }else {
             txtKT5= "(Bft/(2.0*tft))-1.38*Math.sqrt(Es/(Math.abs(f220)+Math.abs(f24)*Math.sqrt(2.0*Dc/tw)))= "+(float)Math.round((b1)* 1000)/1000+" > 0"+"\n  Chọn lại kích thước bản biên";
         }
-
         /// tính sức kháng uốn danh định CD1
         double uu;
         if (Bft*tft-Bfb*tfb<0){
             uu=4.76;
-
         }else{
             uu=5.67;
         }
@@ -1148,7 +1080,6 @@ public class nhaplieuthietke extends AppCompatActivity {
         if (Fn-(Math.abs(f220)+Math.abs(f24))>=0){
             txtKT6="Fn= "+(float)Math.round((Fn)* 1000)/1000+" >= (Math.abs(f220)+Math.abs(f24))= "+(float)Math.round((Math.abs(f220)-Math.abs(f24))* 1000)/1000 +"\n   Sức kháng uốn đảm bảo";
             txt2="Sức kháng uốn TTGH CD1 đảm bảo";
-
         }
         else {
             txtKT6="Fn= "+(float)Math.round((Fn)* 1000)/1000+" < (Math.abs(f220)+Math.abs(f24))= "+(float)Math.round((Math.abs(f220)-Math.abs(f24))* 1000)/1000 +"\n   Sức kháng uốn không đảm bảo, chọn lại kích thước tiết diện";
@@ -1166,9 +1097,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         //Cường đọ chịu kéo nhỏ nhất
         try {
             d0 = Double.parseDouble(edtd0.getText().toString());
-
             if (d0 < 0) {
-
                 edtd0.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -1184,7 +1113,6 @@ public class nhaplieuthietke extends AppCompatActivity {
         ////
         if (Vn-c*Vp>=0){
             txtKT7="Vn= "+(float)Math.round((Vn)* 1000)/1000+" >= c*Vp= "+ (float)Math.round((c*Vp)* 1000)/1000+"\n   Thỏa sức kháng cắt";
-
         }else {
             txtKT7="Vn= "+(float)Math.round((Vn)* 1000)/1000+" < c*Vp= "+ (float)Math.round((c*Vp)* 1000)/1000+"\n   Không thỏa sức kháng cắt";
         }
@@ -1197,27 +1125,22 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         //// tính đc fcf
         /////////////// kiểm ra fcf
-
         // tính ứng suất
         f=-f112-Math.max(f228,f212)-2*(1000000*YlttDT*Math.max(M720,M724))/IltDT;
         ///  Toast.makeText(nhaplieuthietke.this, "f= "+f, Toast.LENGTH_LONG).show();
         // kiểm tra ứng suất
-
         ///kiểm tra ổn định uốn của vách đứng
         if (f-fcf <=0){
-
             txtKT8="-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------"+"\nf= "+(float)Math.round((f)* 1000)/1000+" <= fcf= "+fcf+"\n  Vách đứng ổn định uốn";
             // Toast.makeText(nhaplieuthietke.this,"ứng suất dầm thoả",Toast.LENGTH_LONG).show();
         }else {
             txtKT8="-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------"+"\nf= "+(float)Math.round((f)* 1000)/1000+" > fcf= "+fcf+"\n  Vách đứng mất ổn định uốn";
         }
-
         if ((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)<=0){
             txtKT9="(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= "+(float)Math.round((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)* 1000)/1000+" <= 0"+"\n   Vách đứng ổn định lực cắt";
         }else{
             txtKT9="(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= "+(float)Math.round((((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)* 1000)/1000+" > 0"+"\n   Vách đứng mất ổn định lực cắt";
         }
-
         // tính biên độ ứng suất do xe tải mỏi gây ra
         Dentaf= (Ystd*Math.max(M720,M724)*1000000.0)/(Math.max(IstDT,IstDN));
         // tính lượng chu kì ứng suất
@@ -1283,17 +1206,14 @@ public class nhaplieuthietke extends AppCompatActivity {
         denta5= Math.max(denta1,denta4);
         /// độ võng cho phép của hoạt tải
         denta6= Ls;
-
         ///// (float)Math.round((f)* 1000)/1000
         // kiểm tra độ võng cho phép riêng của hoạt tải
         if (denta5<denta6){
             txtKT12= "denta5= "+(float)Math.round((denta5)* 1000)/1000+" <= denta6= "+(float)Math.round((denta6)* 1000)/1000+"\n   Độ võng riêng cho phép của hoạt tải ĐẠT";
             txt5="Độ võng riêng cho phép của hoạt tải ĐẠT";
-
         }else {
             txtKT12= "denta5= "+(float)Math.round((denta5)* 1000)/1000+" > denta6= "+(float)Math.round((denta6)* 1000)/1000+"\n   Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
             txt5="Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
-
         }
         // ĐỘ VỒNG cần chế tạo hợp lí
         dentav= 0.5*denta5+dentaDC1+dentaDC2;
@@ -1301,9 +1221,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         dentafinal=dentav;
         txtKT13="Độ vồng ngược cho tất cả các dầm"+"\nDENTA final= "+(float)Math.round((dentafinal)* 1000)/1000+"mm";
         txt6="Độ vồng ngược cho tất cả các dầm"+"\nDENTA = "+(float)Math.round((dentafinal)* 1000)/1000+"mm";
-
     }
-
     public  void tinhToanTDChac(){
         ////
         Ps=0.85*fc*bi*ts;
@@ -1328,28 +1246,21 @@ public class nhaplieuthietke extends AppCompatActivity {
             txtKT4="Trục trung hòa dẻo nằm ở bản bê tông";
            /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
         }
-
-
         // momen dẻo
         Mp=(Ps*(Dcp+tft+Yv+ts/2)+Prt*(Dcp+tft+Yv+ts-St)+Prb*(Dcp+tft+Yv+ts+Sd)+Pc*(Dcp+tft/2)+Pt*(Dw-Dcp+tfb/2)+Pw*(Math.abs(-Dcp+Dw/2)))*(1.0/1000000);
-
    //     Toast.makeText(nhaplieuthietke.this,"Mp="+Mp,Toast.LENGTH_LONG).show();
         Dp=Dcp+tft+Yv+ts;
-
         if (Fy == 345){
             Dphay=(0.7*(D+ts+Yv))/7.5;
             beta=0.7;
-        }
-        else if (Fy==250){
+        } else if (Fy==250){
             Dphay=(0.9*(D+ts+Yv))/7.5;
             beta=0.9;
         }
-
         if (Dphay< Dp && Dp <= 5*Dphay){
             Mn=((5.0*Mp)-0.85*My)/4.0+(((0.85*My)-Mp)/4.0)*(Dp/Dphay);
         //    Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
-        }
-        else if (Dp<Dphay){
+        } else if (Dp<Dphay){
             Mn=Mp;
         //    Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
         }
@@ -1698,31 +1609,31 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         if ((7*Ls/8)-13.3>0){
             M61=(7.0/64)*Ls*heSoHoatTai*145+(1.0/8)*((7*Ls/8)-9)*heSoHoatTai*145+(1.0/8)*((7*Ls/8)-13.3)*heSoHoatTai*35;
-            Toast.makeText(nhaplieuthietke.this,""+M61,Toast.LENGTH_LONG).show();
+          //  Toast.makeText(nhaplieuthietke.this,""+M61,Toast.LENGTH_LONG).show();
         }
         else if((7*Ls/8)-13.3<=0 && (7*Ls/8)-9>0) {
             M61=(7.0/64)*Ls*heSoHoatTai*145+(1.0/8)*((7*Ls/8)-9)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M61,Toast.LENGTH_LONG).show();
+           // Toast.makeText(nhaplieuthietke.this,""+M61,Toast.LENGTH_LONG).show();
         }
         else if( (7*Ls/8)-9<=0) {
             M61=(7.0/64)*Ls*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M61,Toast.LENGTH_LONG).show();
+           // Toast.makeText(nhaplieuthietke.this,""+M61,Toast.LENGTH_LONG).show();
         }
         ///L/4
 
         if ((3*Ls/4)-13.3>0){
             M62=(3.0/16)*Ls*145*heSoHoatTai+(1.0/4)*((3*Ls/4)-9)*145*heSoHoatTai+(1.0/4)*((3*Ls/4)-13.3)*35*heSoHoatTai;
 
-            Toast.makeText(nhaplieuthietke.this,""+M62,Toast.LENGTH_LONG).show();
+         //   Toast.makeText(nhaplieuthietke.this,""+M62,Toast.LENGTH_LONG).show();
         }
         else if((3*Ls/4)-13.3<=0 && (3*Ls/4)-9>0) {
             M62=(3.0/16)*Ls*145*heSoHoatTai+(1.0/4)*((3*Ls/4)-9)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M62,Toast.LENGTH_LONG).show();
+           // Toast.makeText(nhaplieuthietke.this,""+M62,Toast.LENGTH_LONG).show();
 
         }
         else if((3*Ls/4)-9<=0) {
             M62=(3.0/16)*Ls*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M62,Toast.LENGTH_LONG).show();
+           // Toast.makeText(nhaplieuthietke.this,""+M62,Toast.LENGTH_LONG).show();
 
         }
 
@@ -1730,33 +1641,33 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         if ((5*Ls/8)-9>0 && (3*Ls/8)-4.3>0){
             M63=(15.0/64)*Ls*145*heSoHoatTai+(3.0/8)*((5*Ls/8)-9)*145*heSoHoatTai+(5.0/8)*((3*Ls/8)-4.3)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
+          ///  Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
         }
         else if((5*Ls/8)-9<=0 && (3*Ls/8)-4.3<=0) {
             M63=(15.0/64)*Ls*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
+          // Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
 
         }
         else if((5*Ls/8)-9>0 && (3*Ls/8)-4.3<=0) {
             M63=(15.0/64)*Ls*145*heSoHoatTai+(3.0/8)*((5*Ls/8)-9)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
+           // Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
         }
         else if((5*Ls/8)-9<=0 && (3*Ls/8)-4.3>0) {
             M63=(15.0/64)*Ls*145*heSoHoatTai+(5.0/8)*((3*Ls/8)-4.3)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
+         //   Toast.makeText(nhaplieuthietke.this,""+M63,Toast.LENGTH_LONG).show();
         }
         //L/2
         if ((Ls/2)-9>0){
             M64=(1.0/4)*Ls*145*heSoHoatTai+(1.0/2)*((Ls/2)-9)*145*heSoHoatTai+(1.0/2)*((Ls/2)-4.3)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
+           // Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
         }
         else if((Ls/2)-9<=0 && (Ls/2)-4.3>0) {
             M64=(1.0/4)*Ls*145*heSoHoatTai+(1.0/2)*(((Ls/2)-4.3)*35)*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
+           // Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
         }
         else if((Ls/2)-4.3<=0) {
             M64=(1.0/4)*Ls*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
+         ///   Toast.makeText(nhaplieuthietke.this,""+M64,Toast.LENGTH_LONG).show();
         }
 
         // lực cắt
@@ -1765,59 +1676,59 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         if (Ls-13.3>0){
             Q61=145*heSoHoatTai+((Ls-9)/Ls)*145*heSoHoatTai+((Ls-13.3)/Ls)*35*heSoHoatTai;
-                       Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
+                  ///     Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
         }
         else if(Ls-13.3<=0 && Ls-9>0) {
             Q61=145*heSoHoatTai+((Ls-9)/Ls)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
+         ///   Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
         }
         else if( Ls-9<=0) {
             Q61=145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
+          //  Toast.makeText(nhaplieuthietke.this,""+Q61,Toast.LENGTH_LONG).show();
                   }
                   //l/8
         if ((7*Ls/8)-13.3>0){
             Q62=(7.0/8)*145*heSoHoatTai+(((7*Ls/8)-9)/Ls)*145*heSoHoatTai+(((7*Ls/8)-13.3)/Ls)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
+          ///  Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
         }
         else if((7*Ls/8)-13.3<=0 && (7*Ls/8)-9>0) {
             Q62=(7.0/8)*145*heSoHoatTai+(((7*Ls/8)-9)/Ls)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
+         ///   Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
 
         }
         else if((7*Ls/8)-9<=0) {
             Q62=(7.0/8)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
+           //// Toast.makeText(nhaplieuthietke.this,""+Q62,Toast.LENGTH_LONG).show();
         }
         //l/4
 
         if ((3*Ls/4)-13.3>0){
             Q63=(3.0/4)*145*heSoHoatTai+(((3*Ls/4)-9)/Ls)*145*heSoHoatTai+(((3*Ls/4)-13.3)/Ls)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q63,Toast.LENGTH_LONG).show();
+            ///Toast.makeText(nhaplieuthietke.this,""+Q63,Toast.LENGTH_LONG).show();
         }
         else if((3*Ls/4)-13.3<=0 && (3*Ls/4)-9>0) {
             Q63=(3.0/4)*145*heSoHoatTai+(((3*Ls/4)-9)/Ls)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q63,Toast.LENGTH_LONG).show();
+         ////   Toast.makeText(nhaplieuthietke.this,""+Q63,Toast.LENGTH_LONG).show();
 
         }
         else if( (3*Ls/4)-9<=0) {
             Q63=(3.0/4)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q63,Toast.LENGTH_LONG).show();
+           /// Toast.makeText(nhaplieuthietke.this,""+Q63,Toast.LENGTH_LONG).show();
         }
         //3l/8
 
         if ((5*Ls/8)-13.3>0){
             Q64=(5.0/8)*145*heSoHoatTai+(((5*Ls/8)-9)/Ls)*145*heSoHoatTai+(((5*Ls/8)-13.3)/Ls)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q64,Toast.LENGTH_LONG).show();
+           //// Toast.makeText(nhaplieuthietke.this,""+Q64,Toast.LENGTH_LONG).show();
         }
         else if((5*Ls/8)-13.3<=0 && (5*Ls/8)-9>0) {
             Q64=(5.0/8)*145*heSoHoatTai+(((5*Ls/8)-9)/Ls)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q64,Toast.LENGTH_LONG).show();
+            ////Toast.makeText(nhaplieuthietke.this,""+Q64,Toast.LENGTH_LONG).show();
 
         }
         else if((5*Ls/8)-9<=0) {
             Q64=(5.0/8)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q64,Toast.LENGTH_LONG).show();
+         /////   Toast.makeText(nhaplieuthietke.this,""+Q64,Toast.LENGTH_LONG).show();
         }
 
         //L/2
@@ -1829,67 +1740,67 @@ public class nhaplieuthietke extends AppCompatActivity {
 //        Q5=(1/2).145
         if ((Ls/2)-13.3>0){
             Q65=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai+(((Ls/2)-13.3)/Ls)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q65,Toast.LENGTH_LONG).show();
+           ///// Toast.makeText(nhaplieuthietke.this,""+Q65,Toast.LENGTH_LONG).show();
         }
         else if((Ls/2)-13.3<=0 && (Ls/2)-9>0) {
             Q65=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q65,Toast.LENGTH_LONG).show();
+          /////  Toast.makeText(nhaplieuthietke.this,""+Q65,Toast.LENGTH_LONG).show();
 
         }
         else if((Ls/2)-9<=0) {
             Q65=(1.0/2)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q65,Toast.LENGTH_LONG).show();
+        //////    Toast.makeText(nhaplieuthietke.this,""+Q65,Toast.LENGTH_LONG).show();
         }
         //
         Q66=0;
 ///
         if ((Ls/8)-13.3>0){
             Q67=(1.0/8)*145*heSoHoatTai+(((Ls/8)-9)/Ls)*145*heSoHoatTai+(((Ls/8)-13.3)/Ls)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
+         /////   Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
         }
         else if((Ls/8)-13.3<=0 && (Ls/8)-9>0) {
             Q67=(1.0/8)*145*heSoHoatTai+(((Ls/8)-4.3)/Ls)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
+            /////Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
         }
         else if((Ls/8)-9<=0) {
             Q67=(1.0/8)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
+          ////////  Toast.makeText(nhaplieuthietke.this,""+Q67,Toast.LENGTH_LONG).show();
              }
         if ((Ls/4)-13.3>0){
             Q68=(1.0/4)*145*heSoHoatTai+(((Ls/4)-9)/Ls)*145*heSoHoatTai+(((Ls/4)-13.3)/Ls)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
+           //////////////// Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
         }
         else if((Ls/4)-13.3<=0 && (Ls/4)-9>0) {
             Q68=(1.0/4)*145*heSoHoatTai+(((Ls/4)-9)/Ls)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
+          ////////  Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
         }
         else if( (Ls/4)-9<=0) {
             Q68=(1.0/4)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
+          ///////////  Toast.makeText(nhaplieuthietke.this,""+Q68,Toast.LENGTH_LONG).show();
         }
         if ((3*Ls/8)-13.3>0){
             Q69=(3.0/8)*145*heSoHoatTai+(((3*Ls/8)-9)/Ls)*145*heSoHoatTai+(((3*Ls/8)-13.3)/Ls)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
+           ////////////////// Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
         }
         else if((3*Ls/8)-13.3<=0 && (3*Ls/8)-9>0) {
             Q69=(3.0/8)*145*heSoHoatTai+(((3*Ls/8)-9)/Ls)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
+          //////////////  Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
         }
         else if((3*Ls/8)-9<=0) {
             Q69=(3.0/8)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
+         /////////////   Toast.makeText(nhaplieuthietke.this,""+Q69,Toast.LENGTH_LONG).show();
         }
         if ((Ls/2)-13.3>0){
             Q610=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai+(((Ls/2)-13.3)/Ls)*35*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
+         /////////////////////   Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
         }
         else if( (Ls/2)-13.3<=0 && (Ls/2)-9>0) {
             Q610=(1.0/2)*145*heSoHoatTai+(((Ls/2)-9)/Ls)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
+         /////////////////   Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
         }
         else if((Ls/2)-9<=0) {
             Q610=(1.0/2)*145*heSoHoatTai;
-            Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
+       //////////////////     Toast.makeText(nhaplieuthietke.this,""+Q610,Toast.LENGTH_LONG).show();
         }
     }
     public void tinhNoiLuc5(){
@@ -1900,40 +1811,40 @@ public class nhaplieuthietke extends AppCompatActivity {
         if ((ts/2) < 25){
             ks=1.04;
             //  Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
-            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+         /////////   Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
         }
         else if((ts/2)>= 25 && (ts/2) < 38) {
             ks=1+((38.0-ts/2)*(1.04-1))/(38.0-25.0);
-               Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+            ///////////////////////   Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
         }
         else if((ts/2)>=38 && (ts/2) < 50) {
             ks=0.97+((50.0-ts/2)*(1-0.97))/(50.0-38.0);
             //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
-            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+           /////////////////// Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
         }
         else if((ts/2) >= 50 && (ts/2) <75) {
             ks=0.84+((75.0-ts/2)*(0.97-0.84))/(75.0-50.0);
             //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
-            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+         /////////////////////////   Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
         }
         else if((ts/2) >=75 && (ts/2) <100) {
             ks=0.74+((100.0-ts/2)*(0.84-0.74))/(100.0-75.0);
             //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
-            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+          ///////////////  Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
         }
         else if((ts/2)>=100 && (ts/2) <125) {
             ks=0.63+((125.0-ts/2)*(0.74-0.63))/(125.0-100.0);
             //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
-            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+            ///////////////////Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
         }
         else if((ts/2)>=125 && (ts/2)<150) {
             ks=0.55+((150.0-ts/2)*(0.63-0.55))/(150.0-125.0);
             //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
-            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+         ////////////////////   Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
         }
         else if((ts/2)>=150) {
             ks=0.55;
-            Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
+          /////////////////  Toast.makeText(nhaplieuthietke.this,""+ks,Toast.LENGTH_LONG).show();
             //   Toast.makeText(nhaplieuthietke.this,""+m1,Toast.LENGTH_LONG).show();
         }
         // momen co ngót

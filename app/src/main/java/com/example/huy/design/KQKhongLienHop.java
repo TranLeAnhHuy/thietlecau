@@ -172,6 +172,7 @@ public class KQKhongLienHop extends AppCompatActivity {
 
 
 
+
         //////////////////////////////////kiểm toán //////////////////////
 
 
@@ -904,6 +905,7 @@ public class KQKhongLienHop extends AppCompatActivity {
         txt5=(TextView)findViewById(R.id.txt5);
         txt6=(TextView)findViewById(R.id.txt6);
         txt7=(TextView)findViewById(R.id.txt7);
+
         //txt = (TextView) findViewById(R.id.txt);
         //
         //        // nội lực tĩnh tải gd1
