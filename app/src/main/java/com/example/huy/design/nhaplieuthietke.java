@@ -81,8 +81,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     double Q71,Q72,Q73,Q74,Q75,Q76,Q77,Q78,Q79,Q710,Q711,Q712,Q713,Q714,Q715,Q716,Q717,Q718,Q719,Q720,Q721,Q722,Q723,Q724,Q725,Q726,Q727,Q728,Q729,Q730;
     // kiểm toán
     double my,myy, Ystt, Ystd,My ;
-    //cốt thép ở BMC
-    double Dtt, St, Stbmc, N1, Dtd, Sd, Sdbmc,N2;
+
     // tính thông số
     double Ps, Pc, Pt,Pw,Prt,Prb;
     // trục trung hòa dẻo
@@ -116,6 +115,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     double dentafinal;
 
     //// tính BMC
+    //cốt thép ở BMC
+    double Dtt, St, Stbmc, N1, Dtd, Sd, Sdbmc,N2;
     double DCbmctt,E,Eduong,Eam,LL,LLduong,LLam;
     double M81,M82,M83,M84,M85,M86,M87,M88,M89,M810,M811,M812,M813,M814,M815,M816;
     double e;
@@ -123,6 +124,12 @@ public class nhaplieuthietke extends AppCompatActivity {
     // tổng hợp
     double M821,M822,M823,M824, Q821,Q822, M825,M826,Q823,Q824;
     double m821, m822 ,m823,m824;
+    double Mt;
+    double Dbaove_t = 47.; /// nhập vô
+    double A1, B1,C1,Denta1,beta1;
+    ///// tìm nghiệm
+    double X1,X2;
+    double cc1, de1, romin1, N1new;
     /// neo liên kết
     double hneo,dneo,pn,mm,dmu,nn;
     double Zr,anpha,Qsr,V1duong,V1am,V1sr,p1;
@@ -131,10 +138,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     double V4duong, V4am, V4sr,p4;
     double V5duong, V5am, V5sr, p5;
     double Qr,Vh,nCD,pnew,nneofinal;
-    // bố trí cốt thép n1 thanh cốt théo dtt
-        //////  //cốt thép ở BMC
-    //    double , , Dtd, Sd, Sdbmc,N2;
-       double  As1, dp1,beta1;
+
+       double  As1, dp1;
 
 
 
@@ -1026,14 +1031,94 @@ public class nhaplieuthietke extends AppCompatActivity {
         // bố trí cốt thép chịu momen âm của MBC và kiểm toán theo TTGH CD1
         /////////////////////////////////////////////
         // tính các thông số
-        N1=N2=13;
-        Dtt=Dtd=16;
-        St=55;
-        Stbmc=150;
-        Sd=65;
+                Dtt=Dtd=16;// nhập
+
+
+        Sd=65;//
         Sdbmc=150;
         ////////////////////////////////////////////
-        double Mt;
+
+        Mt=Math.max(M824,M826);
+        // biến đã có beta1,
+        ////// biến nhập vào Dtt Dbaove_t
+
+        // khoảng cách từ tim cốt thép lưới trên của BMC
+        St= Dbaove_t+0.5*Dtt;
+        // hệ số chuyển đổi biểu đồ ứng suất
+        if (fc<= 28){
+            beta1=0.85;
+        }else if (fc>28){
+            double beta11= 0.85-((fc-28.)/7.)*0.05;
+            if (beta11>= 0.65) {
+                beta1 = 0.85 - ((fc - 28.) / 7.) * 0.05;
+            }else {
+                beta1= 0.65;
+            }
+        }
+        /// Số thanh cốt thép - phương trình bậc 2
+
+        ///fy= 400
+        A1= (0.5*400.*400.*(3.14*Dtt*Dtt/4.))/(0.85*fc*1000.);
+        B1= -(3.14*Dtt*Dtt/4.)*400.*(ts-St);
+        C1= Mt*1000000.;
+        Denta1=B1*B1-4.*A1*C1;
+
+        if ((Denta1 >0)){
+            X1=(-B1+Math.sqrt(Denta1))/(2.*A1);
+            X2= (-B1-Math.sqrt(Denta1))/(2.*A1);
+        }else if (Denta1 == 0){
+            X1=X2= -B1/(2.*A1);
+
+        }
+
+//        N1= Math.ceil(Math.min(X1,X2));
+//        while (((cc1/de1)<= 0 && romin1 >= (0.03*fc/400.) && Stbmc <= Math.min(1.5*ts,450.)));{
+//            // kiểm tra lượng cốt thép tối đa
+//            cc1= (N1*3.14*Dtt*Dtt*400./4.)/(0.85*fc*beta1*1000.);
+//            de1= ts-St;
+//            // thé tối thiểu
+//            romin1=(N1*(3.14*Dtt*Dtt/4.))/(1000.*ts);
+//            // cự li tối đa
+//            Stbmc= 1000./N1;
+//            N1++;
+//            N1new=N1;
+//       }
+        N1= Math.ceil(Math.min(X1,X2));
+        // kiểm tra lượng cốt thép tối đa
+        cc1= (N1*3.14*Dtt*Dtt*400./4.)/(0.85*fc*beta1*1000.);
+        de1= ts-St;
+        // thé tối thiểu
+        romin1=(N1*(3.14*Dtt*Dtt/4.))/(1000.*ts);
+        // cự li tối đa
+        Stbmc= 1000./N1;
+       if (((cc1/de1)<= 0 && romin1 >= (0.03*fc/400.) && Stbmc <= Math.min(1.5*ts,450.))){
+            N1new=N1;
+       }else{
+           while (((cc1/de1)<= 0 && romin1 >= (0.03*fc/400.) && Stbmc <= Math.min(1.5*ts,450.)));{
+               // kiểm tra lượng cốt thép tối đa
+               cc1= (N1*3.14*Dtt*Dtt*400./4.)/(0.85*fc*beta1*1000.);
+               de1= ts-St;
+               // thé tối thiểu
+               romin1=(N1*(3.14*Dtt*Dtt/4.))/(1000.*ts);
+               // cự li tối đa
+               Stbmc= 1000./N1;
+               N1++;
+               N1new=N1;
+           }
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
         Mt=Math.max(M824,M826);
 //        txtKT10= "M81= "+M81+"\nM82= "+M82+"\nM83= "+M83+"\nM84= "+M84+"\nM85= "+M85+"\nM86= "+M86 +"\nM87= "+M87+"\nM88= "+M88+"\nM89= "+M89+"\nM810= "+M810+"\nM811= "+M811+"\nM812= "+M812+"\nM813= "+M813+"\nM814= "+M814+"\nM815= "+M815+"\nM816= "+M816
 //        +"\nQ81= "+Q81  +"\nQ82= "+Q82  +"\nQ83= "+Q83  +"\nQ84= "+Q84  +"\nQ85= "+Q85  +"\nQ86= "+Q86  +"\nQ87= "+Q87  +"\nQ88= "+Q88+"\nM821= "+M821+"\nM822= "+M822+"\nM823= "+M823+"\nM824= "+M824+"\nM825= "+M825+"\nM826= "+M826+"\nQ821= "+Q821+"\nQ822= "+Q822+"\nQ823= "+Q823+"\nQ824= "+Q824;
