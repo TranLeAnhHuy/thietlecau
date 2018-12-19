@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -1084,16 +1085,7 @@ public class nhaplieuthietke extends AppCompatActivity {
 //            N1new=N1;
 //       }
         N1= Math.ceil(Math.min(X1,X2));
-        // kiểm tra lượng cốt thép tối đa
-        cc1= (N1*3.14*Dtt*Dtt*400./4.)/(0.85*fc*beta1*1000.);
-        de1= ts-St;
-        // thé tối thiểu
-        romin1=(N1*(3.14*Dtt*Dtt/4.))/(1000.*ts);
-        // cự li tối đa
-        Stbmc= 1000./N1;
-       if (((cc1/de1)<= 0 && romin1 >= (0.03*fc/400.) && Stbmc <= Math.min(1.5*ts,450.))){
-            N1new=N1;
-       }else{
+
            while (((cc1/de1)<= 0 && romin1 >= (0.03*fc/400.) && Stbmc <= Math.min(1.5*ts,450.)));{
                // kiểm tra lượng cốt thép tối đa
                cc1= (N1*3.14*Dtt*Dtt*400./4.)/(0.85*fc*beta1*1000.);
@@ -1103,9 +1095,15 @@ public class nhaplieuthietke extends AppCompatActivity {
                // cự li tối đa
                Stbmc= 1000./N1;
                N1++;
-               N1new=N1;
+               Log.d("huy",(cc1/de1)+"---------------------------------------------");
+               Log.d("huy",(romin1)+"---------------------------------------------");
+               Log.d("huy",(0.03*fc/400.)+"---------------------------------------------");
+               Log.d("huy",(Stbmc)+"---------------------------------------------");
+               Log.d("huy",(Math.min(1.5*ts,450.))+"---------------------------------------------");
+
            }
-       }
+           N1new=N1;
+
 
 
 
