@@ -223,7 +223,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
+                   android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
                     android:text="Chiều rộng phần đi bộ"
                     android:textColor="#6c7070"
@@ -260,7 +260,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
+                    android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
                     android:text="Hoạt tải người đi bộ"
                     android:textColor="#6c7070"
@@ -440,6 +440,122 @@
                     android:textColor="#6c7070"
                     android:textSize="13dp" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Đường kính neo"
+
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtdneo"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="72dp"
+                    android:text="22"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="10dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="mm"
+                    android:textColor="#6c7070"
+                    android:textSize="13dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Số lượng neo"
+
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtnn"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="82dp"
+                    android:text="3"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="10dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="neo"
+                    android:textColor="#6c7070"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+
+
+            ///khoảng cách của các đinh neo theo phương nghang
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="KC các đinh neo theo phương ngang"
+
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtpn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="150"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="10dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="mm"
+                    android:textColor="#6c7070"
+                    android:textSize="13dp" />
+
+            </LinearLayout>
             //Trọng lượng lan can thép
 
             <LinearLayout
@@ -589,6 +705,33 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="5dp"
                     android:text="Chữ I"
+                    android:minWidth="150dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            // vị trí thiết kế
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Vị trí TK cầu"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <Spinner
+                    android:id="@+id/spnViTri"
+                    android:layout_width="241dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center_horizontal"
                     android:minWidth="150dp"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
@@ -840,6 +983,114 @@
                     android:textSize="14dp" />
             </LinearLayout>
 
+            //đường kính cốt thép
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Đường kính CT chịu lực"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtDtt"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:text="16"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="mm"
+                    android:textColor="#6c7070"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Đường kính CT cấu tạo"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtDtt_ct"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="31dp"
+                    android:text="12"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="mm"
+                    android:textColor="#6c7070"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Khoảng cách bảo vệ CT"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtDbaove_t"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:text="47"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="mm"
+                    android:textColor="#6c7070"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+
             //Số liệu thép dầm chủ
 
             <LinearLayout
@@ -879,6 +1130,34 @@
 
                 <EditText
                     android:id="@+id/edtThepKetCau"
+                    android:layout_width="241dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="ASTM A709M"
+                    android:gravity="center_horizontal"
+                    android:minWidth="150dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            ///////// loại thép
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Loại thép"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <Spinner
+                    android:id="@+id/spnLoaiThep"
                     android:layout_width="241dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
