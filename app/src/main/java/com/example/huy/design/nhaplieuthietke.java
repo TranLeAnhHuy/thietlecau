@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -36,6 +35,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     TextView txtDienTichDamThep, txtModuynDanHoiCuaBeTong, txtAdn, txtnlkd, txtLdn;
     Button btnTinhToan;
     EditText edtDCneo,edtDClcT, edtDClcBT, edtPL, edtT;
+    EditText edtDtt, edtDtt_ct, edtDbaove_t;
+
     // TEXT nội lực tĩnh tải
 
 
@@ -116,7 +117,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     double dentafinal;
 
     //// tính BMC
-    //cốt thép ở BMC
+    //cốt thép ở BMC                 Dtt=Dtd=16;// nhập
     double Dtt, St, Stbmc, N1, Dtd, Sd, Sdbmc,N2;
     double DCbmctt,E,Eduong,Eam,LL,LLduong,LLam;
     double M81,M82,M83,M84,M85,M86,M87,M88,M89,M810,M811,M812,M813,M814,M815,M816;
@@ -126,11 +127,16 @@ public class nhaplieuthietke extends AppCompatActivity {
     double M821,M822,M823,M824, Q821,Q822, M825,M826,Q823,Q824;
     double m821, m822 ,m823,m824;
     double Mt;
-    double Dbaove_t = 47.; /// nhập vô
+    double Dbaove_t; /// nhập vô
     double A1, B1,C1,Denta1,beta1;
     ///// tìm nghiệm
     double X1,X2;
     double cc1, de1, romin1, N1new;
+    double Md,Dbaove_d,A2,B2,C2,Denta2,X3,X4,cc2,de2,romin2,N2new;
+    double Sbmc,Abmc,Yd,I,Fs_d,Fsa_d,Z=23000.,Dc_sdd,Asd_d;
+    double Yt,Fs_t,Fsa_t,Dc_sdt,Asd_t,C,As_ctd;
+    double Dtd_ct,N3, Dtt_ct,N4,N4new,St_ct;
+    double V1n_bmc,dv,Vc_bmc;
     /// neo liên kết
     double hneo,dneo,pn,mm,dmu,nn;
     double Zr,anpha,Qsr,V1duong,V1am,V1sr,p1;
@@ -140,7 +146,6 @@ public class nhaplieuthietke extends AppCompatActivity {
     double V5duong, V5am, V5sr, p5;
     double Qr,Vh,nCD,pnew,nneofinal;
 
-       double  As1, dp1;
 
 
 
@@ -238,6 +243,9 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtd0 = (EditText) findViewById(R.id.edtd0);
         spnLoaiThep = (Spinner) findViewById(R.id.spnLoaiThep);
         spnViTri = (Spinner) findViewById(R.id.spnViTri);
+        edtDtt=(EditText) findViewById(R.id.edtDtt);
+        edtDtt_ct= (EditText) findViewById(R.id.edtDtt_ct);
+        edtDbaove_t= (EditText) findViewById(R.id.edtDbaove_t);
 
 
         spinnerLoaiThep();
@@ -1032,12 +1040,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         // bố trí cốt thép chịu momen âm của MBC và kiểm toán theo TTGH CD1
         /////////////////////////////////////////////
         // tính các thông số
-                Dtt=Dtd=16;// nhập
-
-
-        Sd=65;//
-        Sdbmc=150;
-        ////////////////////////////////////////////
+       ////////////////////////////////////////////
 
         Mt=Math.max(M824,M826);
         // biến đã có beta1,
@@ -1059,7 +1062,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         /// Số thanh cốt thép - phương trình bậc 2
 
         ///fy= 400
-        A1= (0.5*400.*400.*(3.14*Dtt*Dtt/4.))/(0.85*fc*1000.);
+        A1= (0.5*400.*400.*Math.pow((3.14*Dtt*Dtt/4.),2))/(0.85*fc*1000.);
         B1= -(3.14*Dtt*Dtt/4.)*400.*(ts-St);
         C1= Mt*1000000.;
         Denta1=B1*B1-4.*A1*C1;
@@ -1071,38 +1074,135 @@ public class nhaplieuthietke extends AppCompatActivity {
             X1=X2= -B1/(2.*A1);
 
         }
-
-//        N1= Math.ceil(Math.min(X1,X2));
-//        while (((cc1/de1)<= 0 && romin1 >= (0.03*fc/400.) && Stbmc <= Math.min(1.5*ts,450.)));{
-//            // kiểm tra lượng cốt thép tối đa
-//            cc1= (N1*3.14*Dtt*Dtt*400./4.)/(0.85*fc*beta1*1000.);
-//            de1= ts-St;
-//            // thé tối thiểu
-//            romin1=(N1*(3.14*Dtt*Dtt/4.))/(1000.*ts);
-//            // cự li tối đa
-//            Stbmc= 1000./N1;
-//            N1++;
-//            N1new=N1;
-//       }
         N1= Math.ceil(Math.min(X1,X2));
+        do{
+            // kiểm tra lượng cốt thép tối đa
+            cc1= (N1*3.14*Dtt*Dtt*400./4.)/(0.85*fc*beta1*1000.);
+            de1= ts-St;
+            // thé tối thiểu
+            romin1=(N1*(3.14*Dtt*Dtt/4.))/(1000.*ts);
+            // cự li tối đa
+            Stbmc= 1000./N1;
+            N1++;
+        }
 
-           while (((cc1/de1)<= 0 && romin1 >= (0.03*fc/400.) && Stbmc <= Math.min(1.5*ts,450.)));{
-               // kiểm tra lượng cốt thép tối đa
-               cc1= (N1*3.14*Dtt*Dtt*400./4.)/(0.85*fc*beta1*1000.);
-               de1= ts-St;
-               // thé tối thiểu
-               romin1=(N1*(3.14*Dtt*Dtt/4.))/(1000.*ts);
-               // cự li tối đa
-               Stbmc= 1000./N1;
-               N1++;
-               Log.d("huy",(cc1/de1)+"---------------------------------------------");
-               Log.d("huy",(romin1)+"---------------------------------------------");
-               Log.d("huy",(0.03*fc/400.)+"---------------------------------------------");
-               Log.d("huy",(Stbmc)+"---------------------------------------------");
-               Log.d("huy",(Math.min(1.5*ts,450.))+"---------------------------------------------");
-
-           }
+           while ((!((cc1/de1)<= 0.42 && romin1 >= (0.03*fc/400.) )&& !(Stbmc <= Math.min(1.5*ts,450.))));
+        /////
            N1new=N1;
+           ///bố trí thép chịu momen dươngMd
+
+        Md=M823;
+        // khoảng cách tim cốt thép lưới trên đến mép trên BMC
+        Sd=Dbaove_d+0.5*Dtd;
+        //hệ số chuyển đổi biểu đồ ứng suất
+
+        ///fy= 400
+        A2= (0.5*400.*400.*Math.pow((3.14*Dtd*Dtd/4.),2))/(0.85*fc*1000.);
+        B2= -(3.14*Dtd*Dtd/4.)*400.*(ts-Sd);
+        C2= Md*1000000.;
+        Denta2=B2*B2-4.*A2*C2;
+        ///giải hệ phương trình nghiệm X3 X4
+        if ((Denta2 >0)){
+            X3=(-B2+Math.sqrt(Denta2))/(2.*A2);
+            X4= (-B2-Math.sqrt(Denta2))/(2.*A2);
+        }else if (Denta2 == 0){
+            X3=X4= -B2/(2.*A2);
+        }
+        N2= Math.ceil(Math.min(X3,X4));
+        do{
+            // kiểm tra lượng cốt thép tối đa
+            cc2= (N2*3.14*Dtd*Dtd*400./4.)/(0.85*fc*beta1*1000.);
+            de2= ts-Sd;
+            // thé tối thiểu
+            romin2=(N2*(3.14*Dtd*Dtd/4.))/(1000.*ts);
+            // cự li tối đa
+            Sdbmc= 1000./N2;
+            N2++;
+        }
+
+        while ((!((cc2/de2)<= 0.42 && romin2 >= (0.03*fc/400.) )&& !(Sdbmc <= Math.min(1.5*ts,450.))));
+        /////
+        N2new=N2;
+        // kiểm tra BMC theo TTGH sử dụng ( kiểm toán nứt)
+        ///// với momen dương
+
+        /// momen tĩnh
+        Sbmc= (1000.*ts*0.5*ts)+((Es/Ec)*N2*(3.14*Dtd*Dtd/4.)*Sd)+((Es/Ec)*N1*(3.14*Dtt*Dtt/4.)*(ts-St));
+        /// diện tích mặt cắt
+        Abmc= (1000.*ts)+((Es/Ec)*N2*(3.14*Dtd*Dtd/4.))+((Es/Ec)*N1*(3.14*Dtt*Dtt/4.));
+        // kc từ trục trung hòa đến mép dưới mặt cắt
+        Yd= Sbmc/Abmc;
+        // momen quan tính của mặt cắt
+        I=((1000.*ts*ts*ts/12.)+1000.*ts*(Math.pow(Yd-(ts/Sbmc),2)))+(Es/Ec)*((N2*(3.14*Dtd*Dtd/4.)*Math.pow(Yd-Sd,2))+(N1*(3.14*Dtt*Dtt/4.)*Math.pow(ts-Yd-St,2)));
+        // ứng suất trong cốt thép dưới bàn
+        Fs_d=(Es/Ec)*(M821*1000000.*(Yd-Sd)/I);
+        // tính ứng suất kéo trong CT thường ở TTGH sử dụng
+        Asd_d=2.*1000.*Sd/N2;
+        if (Dbaove_d+0.5*Dtd<= 50.){
+            Dc_sdd=Dbaove_d+0.5*Dtd;
+        }else {
+            Dc_sdd=50.;
+        }
+        Fsa_d=Z/(Math.pow(Dc_sdd*Asd_d,1.0/3.));
+
+        if(Fs_d <= Fsa_d && Fs_d <= 0.6*400.){
+            //// ok
+        }else if(Fs_d > Fsa_d && Fs_d <= 0.6*400.){
+            //// ko
+        }else if(Fs_d <= Fsa_d && Fs_d > 0.6*400.){
+            ////ko
+        }else if (Fs_d > Fsa_d && Fs_d > 0.6*400.){
+            /// ko
+        }
+        /////////// kiểm tra nứt momen âm
+
+        /// KCtuwf trục trung hòa đến mép trên mặt cắt
+        Yt=ts-Yd;
+        //ứng suất trong CT ở mép trên bản
+        Fs_t=(Es/Ec)*(Math.max(M825,M822)*1000000.*Yt/I);
+        // ứng suất kéo trong cốt thép thường ở TTGH sử dụng
+        if (Dbaove_t+0.5*Dtt<= 50.){
+            Dc_sdt=Dbaove_t+0.5*Dtt;
+        }else {
+            Dc_sdt=50.;
+        }
+        Asd_t=2.*1000.*St/N1;
+        Fsa_t=Z/(Math.pow((Dc_sdt*Asd_t),1./3.));
+
+        if(Fs_t <= Fsa_t && Fs_t <= 0.6*400.){
+            //// ok
+        }else if(Fs_t > Fsa_t && Fs_t <= 0.6*400.){
+            //// ko
+        }else if(Fs_t <= Fsa_t && Fs_t > 0.6*400.){
+            ////ko
+        }else if (Fs_t > Fsa_t && Fs_t > 0.6*400.){
+            /// ko
+        }
+        //4.4. CT lưới dưới cấu tạo
+        if (3840./Math.sqrt(Sbmc-tw) <= 67.){
+            C=3840./Math.sqrt(Sbmc-tw);
+        }else {
+            C=67.;
+        }
+        As_ctd=(C/100.)*N2*(3.14*Dtd*Dtd/4.);
+
+        N3=Math.ceil((4.*As_ctd)/(3.14*Dtd_ct*Dtd_ct));
+            //
+        ///4.5 cốt thép lưới trên cấu tạo
+        N4=Math.ceil(0.75*(Sbmc*ts/400.)*(4./(3.14*Dtt_ct*Dtt_ct)));
+        do{
+            St_ct=Sbmc/N4;
+            N4++;
+        }
+
+        while (!(St_ct<= Math.min(3.*ts,450.)));
+        N4new=N4;
+        /// 4.6. kiểm tra theo điều kiện kháng cắt
+        //// sức kháng cắt danh ssinhj
+
+        dv=Math.max(0.9*(ts-Sd),0.72*ts);
+        V1n_bmc=0.25*fc*1000.*dv*1./1000.;
+        Vc_bmc=0.083*2.*Math.sqrt(fc)*1000.*dv*1./1000.;
 
 
 
@@ -1117,7 +1217,12 @@ public class nhaplieuthietke extends AppCompatActivity {
 
 
 
-        Mt=Math.max(M824,M826);
+
+
+
+
+
+       Mt=Math.max(M824,M826);
 //        txtKT10= "M81= "+M81+"\nM82= "+M82+"\nM83= "+M83+"\nM84= "+M84+"\nM85= "+M85+"\nM86= "+M86 +"\nM87= "+M87+"\nM88= "+M88+"\nM89= "+M89+"\nM810= "+M810+"\nM811= "+M811+"\nM812= "+M812+"\nM813= "+M813+"\nM814= "+M814+"\nM815= "+M815+"\nM816= "+M816
 //        +"\nQ81= "+Q81  +"\nQ82= "+Q82  +"\nQ83= "+Q83  +"\nQ84= "+Q84  +"\nQ85= "+Q85  +"\nQ86= "+Q86  +"\nQ87= "+Q87  +"\nQ88= "+Q88+"\nM821= "+M821+"\nM822= "+M822+"\nM823= "+M823+"\nM824= "+M824+"\nM825= "+M825+"\nM826= "+M826+"\nQ821= "+Q821+"\nQ822= "+Q822+"\nQ823= "+Q823+"\nQ824= "+Q824;
     }
@@ -3002,6 +3107,8 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuCaoSuon.setError("Hãy nhập giá trị");
         }
+
+
         //Chiều cao dàm chủ
         try {
             D = Double.parseDouble(edtChieuCaoDC.getText().toString());
@@ -3533,6 +3640,37 @@ public class nhaplieuthietke extends AppCompatActivity {
     }
 
     public void chuaBien() {
+        try {
+            Dtt=Dtd = Double.parseDouble(edtDtt.getText().toString());
+
+            if (Dtt < 0) {
+
+                edtDtt.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtDtt.setError("Hãy nhập giá trị");
+        }
+        try {
+            Dtt_ct=Dtd_ct = Double.parseDouble(edtDtt_ct.getText().toString());
+
+            if (Dtt_ct < 0) {
+
+                edtDtt_ct.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtDtt_ct.setError("Hãy nhập giá trị");
+        }
+        try {
+            Dbaove_d=Dbaove_t = Double.parseDouble(edtDbaove_t.getText().toString());
+
+            if (Dbaove_t < 0) {
+
+                edtDbaove_t.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtDbaove_t.setError("Hãy nhập giá trị");
+        }
+
 
 
         //Số lượng hệ liên kết ngang theo phương dọc cầu trong nhịp

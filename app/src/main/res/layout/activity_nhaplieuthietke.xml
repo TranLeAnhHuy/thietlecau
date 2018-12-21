@@ -878,16 +878,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
-                    android:text="Đường kính cốt thép"
+                    android:text="Đường kính CT chịu lực"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
                 <EditText
-                    android:id="@+id/edtdtt"
+                    android:id="@+id/edtDtt"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="48dp"
-                    android:text="22.5"
+                    android:layout_marginLeft="28dp"
+                    android:text="16"
                     android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
@@ -898,7 +898,78 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="kN/m3"
+                    android:text="mm"
+                    android:textColor="#6c7070"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Đường kính CT cấu tạo"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtDtt_ct"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="31dp"
+                    android:text="12"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="mm"
+                    android:textColor="#6c7070"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Khoảng cách bảo vệ CT"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtDbaove_t"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:text="47"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="mm"
                     android:textColor="#6c7070"
                     android:textSize="14dp" />
             </LinearLayout>
