@@ -36,6 +36,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     Button btnTinhToan;
     EditText edtDCneo,edtDClcT, edtDClcBT, edtPL, edtT;
     EditText edtDtt, edtDtt_ct, edtDbaove_t;
+    EditText edtnn,edtdneo,edtpn;
 
     // TEXT nội lực tĩnh tải
 
@@ -137,6 +138,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     double Yt,Fs_t,Fsa_t,Dc_sdt,Asd_t,C,As_ctd;
     double Dtd_ct,N3, Dtt_ct,N4,N4new,St_ct;
     double V1n_bmc,dv,Vc_bmc;
+    String txtbmc1,txtbmc2,txtbmc3,txtbmc4,txtbmc5,txtbmc6,txtbmc7,txtbmc8;
     /// neo liên kết
     double hneo,dneo,pn,mm,dmu,nn;
     double Zr,anpha,Qsr,V1duong,V1am,V1sr,p1;
@@ -145,6 +147,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     double V4duong, V4am, V4sr,p4;
     double V5duong, V5am, V5sr, p5;
     double Qr,Vh,nCD,pnew,nneofinal;
+    String tpn;
 
 
 
@@ -246,6 +249,9 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtDtt=(EditText) findViewById(R.id.edtDtt);
         edtDtt_ct= (EditText) findViewById(R.id.edtDtt_ct);
         edtDbaove_t= (EditText) findViewById(R.id.edtDbaove_t);
+        edtnn=(EditText) findViewById(R.id.edtnn);
+        edtdneo=(EditText) findViewById(R.id.edtdneo);
+        edtpn=(EditText) findViewById(R.id.edtpn);
 
 
         spinnerLoaiThep();
@@ -627,6 +633,17 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putString("txt5",txt5 );
                     LHbundle.putString("txt6",txt6 );
                     LHbundle.putString("txt7",txt7 );
+                    //////////
+                    LHbundle.putString("txtbmc1",txtbmc1 );
+                    LHbundle.putString("txtbmc2",txtbmc2 );
+                    LHbundle.putString("txtbmc3",txtbmc3 );
+                    LHbundle.putString("txtbmc4",txtbmc4 );
+                    LHbundle.putString("txtbmc5",txtbmc5 );
+                    LHbundle.putString("txtbmc6",txtbmc6 );
+                    LHbundle.putString("txtbmc7",txtbmc7 );
+                    LHbundle.putString("txtbmc8",txtbmc8 );
+
+
 
                     // LHbundle.putDouble("M4",M4 );
                     LHintent.putExtra("LHbundle", LHbundle);
@@ -637,20 +654,55 @@ public class nhaplieuthietke extends AppCompatActivity {
 
     }
     public void  tinhNeoLK(){
+        try {
+            nn = Double.parseDouble(edtnn.getText().toString());
+
+            if (nn < 0) {
+
+                edtnn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtnn.setError("Hãy nhập giá trị");
+        }
+        try {
+            dneo = Double.parseDouble(edtdneo.getText().toString());
+
+            if (dneo < 0 && dneo%2!=0) {
+
+                edtdneo.setError("Lỗi: Nhập số lớn hơn 0 và số chẵn");
+            }
+        } catch (Exception e) {
+            edtdneo.setError("Hãy nhập giá trị");
+        }
+        try {
+            pn = Double.parseDouble(edtpn.getText().toString());
+
+            if (pn < 0 ) {
+
+                edtpn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtpn.setError("Hãy nhập giá trị");
+        }
         ///////////////// THÔNG SỐ ĐẦU VÀO///////////////////////
         /// CHIỀU CAO
-        hneo= 150;
         // đường kính neo
-        dneo=22;
-
-        //khoảng cách của các đinh neo theo phương nghang
-        pn=150;
-        /// khoảng cách tĩnh của mép bản cánh trên và mép neo
-        mm=58;
+              double hneo1;
+        hneo1=Math.ceil(Math.max(4.*dneo, 50.+Yv));
+       do {
+           hneo1++;
+       }while (!(hneo1%10==0));
+       hneo=hneo1;
+        //số neo tren MCN
+           ////////////////////////
+        mm= Math.max(.5*(Bft-(nn-1.)*pn+dneo),25.);
+        //        //khoảng cách của các đinh neo theo phương nghang
+//        pn=150;
+//        /// khoảng cách tĩnh của mép bản cánh trên và mép neo
+//        mm=58;
         //đường kính mũ neo
         dmu=35;
-        //số neo tren MCN
-        nn=3;
+
         ///////////////// tính toán
         double j1,j2;
         if (Ls *1000.>12000.0){
@@ -667,7 +719,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
 
         anpha= 238.-29.5*Math.log10(100.*365.*j1*j2*2.*10000.*l1234);
-        double th=Math.log10(100.*365.*j1*j2*2.*10000.*l1234);;
+        double th=Math.log10(100.*365.*j1*j2*2.*10000.*l1234);
         double hfd=Math.log(100.*365.*j1*j2*2.*10000.*l1234);
         if (anpha*dneo*dneo-19.0*dneo*dneo >=0){
             Zr=anpha*dneo*dneo;
@@ -715,6 +767,10 @@ public class nhaplieuthietke extends AppCompatActivity {
         double p12=Math.max(p1,p2);
         double p34=Math.max(p3,p4);
         double p1234=Math.max(p12,p34);
+
+        if (pn < 4.*dneo){
+            tpn=" Chọn lại khoảng cách các neo lớn hơn " + 4.*dneo +" mm";
+        }
         pnew=Math.ceil(Math.max(p1234,p5));
         // số neo cuối cùng
         nneofinal=Math.ceil((Math.max(nCD,((L*1000./pnew)+1.)*nn)));
@@ -723,7 +779,7 @@ public class nhaplieuthietke extends AppCompatActivity {
        "\n    Khoảng cách các neo: "+pnew+" mm"+
        "\nTheo phương ngang cầu"+
                "\n    Số lượng neo: "+nn+
-       "\n    Khoảng cách của các đinh neo: "+pn +"mm";
+       "\n    Khoảng cách của các đinh neo: "+pn +"mm." +tpn;
 
 
 
@@ -1089,6 +1145,7 @@ public class nhaplieuthietke extends AppCompatActivity {
            while ((!((cc1/de1)<= 0.42 && romin1 >= (0.03*fc/400.) )&& !(Stbmc <= Math.min(1.5*ts,450.))));
         /////
            N1new=N1;
+           txtbmc1= "Số thanh cốt thép chịu lực lưới trên: "+N1new+" thanh, đường kính: "+Dtt+" mm";
            ///bố trí thép chịu momen dươngMd
 
         Md=M823;
@@ -1123,6 +1180,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         while ((!((cc2/de2)<= 0.42 && romin2 >= (0.03*fc/400.) )&& !(Sdbmc <= Math.min(1.5*ts,450.))));
         /////
         N2new=N2;
+        txtbmc2= "Số thanh cốt thép chịu lực lưới dưới: "+N2new+" thanh, đường kính: "+Dtd+" mm";
         // kiểm tra BMC theo TTGH sử dụng ( kiểm toán nứt)
         ///// với momen dương
 
@@ -1133,7 +1191,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         // kc từ trục trung hòa đến mép dưới mặt cắt
         Yd= Sbmc/Abmc;
         // momen quan tính của mặt cắt
-        I=((1000.*ts*ts*ts/12.)+1000.*ts*(Math.pow(Yd-(ts/Sbmc),2)))+(Es/Ec)*((N2*(3.14*Dtd*Dtd/4.)*Math.pow(Yd-Sd,2))+(N1*(3.14*Dtt*Dtt/4.)*Math.pow(ts-Yd-St,2)));
+        I=((1000.*ts*ts*ts/12.)+1000.*ts*(Math.pow(Yd-(ts/2.),2)))+(Es/Ec)*((N2*(3.14*Dtd*Dtd/4.)*Math.pow(Yd-Sd,2))+(N1*(3.14*Dtt*Dtt/4.)*Math.pow(ts-Yd-St,2)));
         // ứng suất trong cốt thép dưới bàn
         Fs_d=(Es/Ec)*(M821*1000000.*(Yd-Sd)/I);
         // tính ứng suất kéo trong CT thường ở TTGH sử dụng
@@ -1147,12 +1205,16 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         if(Fs_d <= Fsa_d && Fs_d <= 0.6*400.){
             //// ok
+            txtbmc3= "Kiểm toán nứt momen dương đảm bảo";
         }else if(Fs_d > Fsa_d && Fs_d <= 0.6*400.){
             //// ko
+            txtbmc3= "Kiểm toán nứt momen dương không đảm bảo";
         }else if(Fs_d <= Fsa_d && Fs_d > 0.6*400.){
             ////ko
+            txtbmc3= "Kiểm toán nứt momen dương không đảm bảo";
         }else if (Fs_d > Fsa_d && Fs_d > 0.6*400.){
             /// ko
+            txtbmc3= "Kiểm toán nứt momen dương không đảm bảo";
         }
         /////////// kiểm tra nứt momen âm
 
@@ -1171,12 +1233,16 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         if(Fs_t <= Fsa_t && Fs_t <= 0.6*400.){
             //// ok
+            txtbmc4= "Kiểm toán nứt momen âm đảm bảo";
         }else if(Fs_t > Fsa_t && Fs_t <= 0.6*400.){
             //// ko
+            txtbmc4= "Kiểm toán nứt momen âm không đảm bảo";
         }else if(Fs_t <= Fsa_t && Fs_t > 0.6*400.){
             ////ko
+            txtbmc4= "Kiểm toán nứt momen âm không đảm bảo";
         }else if (Fs_t > Fsa_t && Fs_t > 0.6*400.){
             /// ko
+            txtbmc4= "Kiểm toán nứt momen âm không đảm bảo";
         }
         //4.4. CT lưới dưới cấu tạo
         if (3840./Math.sqrt(Sbmc-tw) <= 67.){
@@ -1187,6 +1253,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         As_ctd=(C/100.)*N2*(3.14*Dtd*Dtd/4.);
 
         N3=Math.ceil((4.*As_ctd)/(3.14*Dtd_ct*Dtd_ct));
+        txtbmc5= "Số thanh cốt thép lưới dưới cấu tạo phân bố theo dọc cầu: "+N3+" thanh, đường kính: "+Dtt_ct+" mm";
             //
         ///4.5 cốt thép lưới trên cấu tạo
         N4=Math.ceil(0.75*(Sbmc*ts/400.)*(4./(3.14*Dtt_ct*Dtt_ct)));
@@ -1197,6 +1264,8 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         while (!(St_ct<= Math.min(3.*ts,450.)));
         N4new=N4;
+        txtbmc6= "Số thanh cốt thép lưới trên cấu tạo phân bố theo dọc cầu: "+N4new+" thanh, đường kính: "+Dtd_ct+" mm";
+
         /// 4.6. kiểm tra theo điều kiện kháng cắt
         //// sức kháng cắt danh ssinhj
 

@@ -35,6 +35,7 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtQ71, txtQ76, txtQ711, txtQ716, txtQ721, txtQ726;
     TextView txtviewNoiLuc;
     TextView  txt1,txt2,txt3,txt4,txt5,txt6,txt7;
+    TextView txtbmc1,txtbmc2,txtbmc3,txtbmc4,txtbmc5,txtbmc6,txtbmc7,txtbmc8;
     TextView txtViewKiemToan;
 
     @Override
@@ -169,6 +170,14 @@ public class KQKhongLienHop extends AppCompatActivity {
         txt5.setText(LHbundle.getString("txt5"));
         txt6.setText(LHbundle.getString("txt6"));
         txt7.setText(LHbundle.getString("txt7"));
+        txtbmc1.setText(LHbundle.getString("txtbmc1"));
+        txtbmc2.setText(LHbundle.getString("txtbmc2"));
+        txtbmc3.setText(LHbundle.getString("txtbmc3"));
+        txtbmc4.setText(LHbundle.getString("txtbmc4"));
+        txtbmc5.setText(LHbundle.getString("txtbmc5"));
+        txtbmc6.setText(LHbundle.getString("txtbmc6"));
+        txtbmc7.setText(LHbundle.getString("txtbmc7"));
+        txtbmc8.setText(LHbundle.getString("txtbmc8"));
 
 
 
@@ -905,6 +914,14 @@ public class KQKhongLienHop extends AppCompatActivity {
         txt5=(TextView)findViewById(R.id.txt5);
         txt6=(TextView)findViewById(R.id.txt6);
         txt7=(TextView)findViewById(R.id.txt7);
+        txtbmc1 = (TextView) findViewById(R.id.txtbmc1);
+        txtbmc2 = (TextView) findViewById(R.id.txtbmc2);
+        txtbmc3 = (TextView) findViewById(R.id.txtbmc3);
+        txtbmc4 = (TextView) findViewById(R.id.txtbmc4);
+        txtbmc5 = (TextView) findViewById(R.id.txtbmc5);
+        txtbmc6 = (TextView) findViewById(R.id.txtbmc6);
+        txtbmc7 = (TextView) findViewById(R.id.txtbmc7);
+        txtbmc8 = (TextView) findViewById(R.id.txtbmc8);
 
         //txt = (TextView) findViewById(R.id.txt);
         //

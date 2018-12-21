@@ -57,5 +57,8 @@ public class savedata {
     private String edtDtt_ct;
     private String edtDbaove_t;
     private String  edtd0;
+    private String edtnn;
+    private String edtdneo;
+    private String edtpn;
 
 }
