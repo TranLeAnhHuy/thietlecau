@@ -301,12 +301,12 @@ public class nhaplieuthietke extends AppCompatActivity {
                     edtBeRongPhanXeChay.getText().toString(),
                     edtBeRongLanCan.getText().toString(),
                     edtTongBeRongToanCuaCau.getText().toString(),
-                    edtLoaiLienKetSuDung.getText().toString(),
-                    edtCauTaoDamChu.getText().toString(),
-                    edtMatCatNgangDamChu.getText().toString(),
+                    "",
+                    "",
+                    "",
                     edtCuongDoChiuNenCuaBeTong.getText().toString(),
                     edtTiTrongCuaBeTong.getText().toString(),
-                    edtModuynDanHoiCuaBeTong.getText().toString(),
+                    "",
                     edtChieuDayBMC.getText().toString(),
                     edtChieuDayLopPhu.getText().toString(),
                     edtTytrongVLlamLopPhu.getText().toString(),
@@ -366,12 +366,12 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtBeRongPhanXeChay.setText(data.edtBeRongPhanXeChay);
         edtBeRongLanCan.setText(data.edtBeRongLanCan);
         edtTongBeRongToanCuaCau.setText(data.edtTongBeRongToanCuaCau);
-        edtLoaiLienKetSuDung.setText(data.edtLoaiLienKetSuDung);
-        edtCauTaoDamChu.setText(data.edtCauTaoDamChu);
-        edtMatCatNgangDamChu.setText(data.edtMatCatNgangDamChu);
+//        edtLoaiLienKetSuDung.setText(data.edtLoaiLienKetSuDung);
+//        edtCauTaoDamChu.setText(data.edtCauTaoDamChu);
+//        edtMatCatNgangDamChu.setText(data.edtMatCatNgangDamChu);
         edtCuongDoChiuNenCuaBeTong.setText(data.edtCuongDoChiuNenCuaBeTong);
         edtTiTrongCuaBeTong.setText(data.edtTiTrongCuaBeTong);
-        edtModuynDanHoiCuaBeTong.setText(data.edtModuynDanHoiCuaBeTong);
+//        edtModuynDanHoiCuaBeTong.setText(data.edtModuynDanHoiCuaBeTong);
         edtChieuDayBMC.setText(data.edtChieuDayBMC);
         edtChieuDayLopPhu.setText(data.edtChieuDayLopPhu);
         edtTytrongVLlamLopPhu.setText(data.edtTytrongVLlamLopPhu);
