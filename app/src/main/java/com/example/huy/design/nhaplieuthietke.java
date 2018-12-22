@@ -258,6 +258,7 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         final List<savedata> datas = appDatabase.getDao().getAllData();
         final List<String> names = new ArrayList<>();
+        names.add("Tạo mới");
         for (int i = 0; i < datas.size(); i++) {
             names.add(datas.get(i).getEdtTenDuAn());
         }
@@ -271,7 +272,10 @@ public class nhaplieuthietke extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     savedata data = appDatabase.getDao().getDataByName(names.get(i));
-                    setData(data);
+                    if (data != null)
+                        setData(data);
+                    else 
+                        clearData();
                 }
 
                 @Override
@@ -290,6 +294,119 @@ public class nhaplieuthietke extends AppCompatActivity {
         //= (TextView) findViewById(R.id.);
 
 
+    }
+
+    private void clearData() {
+        
+        edtTenDuAn.setText("");
+        
+        edtHoatTaiTieuChuan.setText("");
+        
+        edtChieuDaiNhip.setText("");
+        
+        edtChieuDaiNhipTinhToan.setText("");
+        
+        edtBeRongPhanXeChay.setText("");
+        
+        edtBeRongLanCan.setText("");
+        
+        edtTongBeRongToanCuaCau.setText("");
+        
+        edtCuongDoChiuNenCuaBeTong.setText("");
+        
+        edtTiTrongCuaBeTong.setText("");
+        
+        edtChieuDayBMC.setText("");
+        
+        edtChieuDayLopPhu.setText("");
+        
+        edtTytrongVLlamLopPhu.setText("");
+        
+        edtThepKetCau.setText("");
+        
+        edtModuynDanHoiThep.setText("");
+        
+        edtCuongDoChiuKeoMIN.setText("");
+        
+        edtCuongDoChayMIN.setText("");
+        
+        edtTiTrongThep.setText("");
+        
+        edtSoLuongDamChu.setText("");
+        
+        edtKhoangCachGiuaDC.setText("");
+        
+        edtChieuDaiPhanHang.setText("");
+        
+        edtChieuCaoDC.setText("");
+        
+        edtChieuRongBanCanhTren.setText("");
+        
+        edtChieuDayBCT.setText("");
+        
+        edtChieuRongBCD.setText("");
+        
+        edtChieuDayBCD.setText("");
+        
+        edtChieuDaySuonDam.setText("");
+        
+        edtChieuCaoSuon.setText("");
+        
+        edtSoLuongDamNgang1Nhip.setText("");
+        
+        edtTongSoDamNgang.setText("");
+        
+        edtYv.setText("");
+        
+        edtKhoangCachTimDNDenauDC.setText("");
+        
+        edtS2.setText("");
+        
+        edthn.setText("");
+        
+        edtbn.setText("");
+        
+        edttfdn.setText("");
+        
+        edttwdn.setText("");
+        
+        edthwdn.setText("");
+        
+        edta.setText("");
+        
+        edtnlkn.setText("");
+        
+        edthlkn.setText("");
+        
+        edtSlkn.setText("");
+        
+        edtb.setText("");
+        
+        edtAtg.setText("");
+        
+        edtDCneo.setText("");
+        
+        edtDClcT.setText("");
+        
+        edtDClcBT.setText("");
+        
+        edtPL.setText("");
+        
+        edtT.setText("");
+        
+        edtDtt.setText("");
+        
+        edtDtt_ct.setText("");
+        
+        edtDbaove_t.setText("");
+        
+        edtd0.setText("");
+        
+        edtnn.setText("");
+        
+        edtdneo.setText("");
+        
+        edtpn.setText("");
     }
 
     private savedata buildData() {
@@ -429,7 +546,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                 if (!edtTenDuAn.getText().toString().isEmpty()) {
                     savedata data = buildData();
                     if (data != null) {
-                        Log.d("hehehe","save done");
+                        Log.d("hehehe", "save done");
                         appDatabase.getDao().insertData(data);
                     }
                 }

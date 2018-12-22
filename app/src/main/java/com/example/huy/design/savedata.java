@@ -11,6 +11,7 @@ public class savedata {
     @NonNull
     @ColumnInfo
     public String edtTenDuAn;
+    @ColumnInfo
     public String edtHoatTaiTieuChuan;
     @ColumnInfo
     public String edtChieuDaiNhip;
