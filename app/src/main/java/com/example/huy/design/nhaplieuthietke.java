@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -104,7 +105,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     // text ở KQkhong liên hợp
     String txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8;
     double Dentaf, N, u1, u2, u3;
-    Spinner spnLoaiThep, spnViTri, spnProject;
+    Spinner spnLoaiThep, spnViTri;
+    AutoCompleteTextView spnProject;
     String arrLoaiThep[] = {"A", "B", "B'", "C", "C'", "D", "E", "E'"};
     String arrViTri[] = {"Đường nông thôn liên quốc gia", "Đường nông thôn", "Đường thành phố liên quốc gia", "Đường thành phó"};
     double DentaFTH, ABCDE, l1234;
@@ -258,31 +260,21 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         final List<savedata> datas = appDatabase.getDao().getAllData();
         final List<String> names = new ArrayList<>();
-        names.add("Tạo mới");
         for (int i = 0; i < datas.size(); i++) {
             names.add(datas.get(i).getEdtTenDuAn());
         }
-        if (names.size() == 1) {
+        if (names.size() == 0) {
             spnProject.setVisibility(View.GONE);
         } else {
             spnProject.setVisibility(View.VISIBLE);
             ArrayAdapter projectAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, names);
             spnProject.setAdapter(projectAdapter);
-            spnProject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            spnProject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    if (i == 0) {
-                        clearData();
-                    } else {
-                        savedata data = appDatabase.getDao().getDataByName(names.get(i));
-                        if (data != null)
-                            setData(data);
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    savedata data = appDatabase.getDao().getDataByName(names.get(i));
+                    if (data != null)
+                        setData(data);
                 }
             });
         }
