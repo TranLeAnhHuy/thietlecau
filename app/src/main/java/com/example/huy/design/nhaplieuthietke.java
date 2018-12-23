@@ -42,7 +42,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     Button btnTinhToan;
     EditText edtDCneo, edtDClcT, edtDClcBT, edtPL, edtT;
     EditText edtDtt, edtDtt_ct, edtDbaove_t;
-    EditText edtnn, edtdneo, edtpn;
+    EditText edtnn, edtdneo, edtpn, edtDuThuaBMC;
 
     // TEXT nội lực tĩnh tải
 
@@ -146,6 +146,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     double Dtd_ct, N3, Dtt_ct, N4, N4new, St_ct;
     double V1n_bmc, dv, Vc_bmc;
     String txtbmc1, txtbmc2, txtbmc3, txtbmc4, txtbmc5, txtbmc6, txtbmc7, txtbmc8;
+    double DuThuaBMC;
     /// neo liên kết
     double hneo, dneo, pn, mm, dmu, nn;
     double Zr, anpha, Qsr, V1duong, V1am, V1sr, p1;
@@ -257,6 +258,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtnn = (EditText) findViewById(R.id.edtnn);
         edtdneo = (EditText) findViewById(R.id.edtdneo);
         edtpn = (EditText) findViewById(R.id.edtpn);
+        edtDuThuaBMC = (EditText) findViewById(R.id.edtDuThuaBMC);
 
         final List<savedata> datas = appDatabase.getDao().getAllData();
         final List<String> names = new ArrayList<>();
@@ -1372,7 +1374,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         // tính các thông số
         ////////////////////////////////////////////
 
-        Mt = Math.max(M824, M826);
+        Mt = (1.+ DuThuaBMC/100.)*Math.max(M824, M826);
         // biến đã có beta1,
         ////// biến nhập vào Dtt Dbaove_t
 
@@ -1422,7 +1424,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         txtbmc1 = "Số thanh cốt thép chịu lực lưới trên: " + N1new + " thanh, đường kính: " + Dtt + " mm";
         ///bố trí thép chịu momen dươngMd
 
-        Md = M823;
+        Md = (1.+DuThuaBMC/100.)*M823;
         // khoảng cách tim cốt thép lưới trên đến mép trên BMC
         Sd = Dbaove_d + 0.5 * Dtd;
         //hệ số chuyển đổi biểu đồ ứng suất
@@ -1548,8 +1550,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         Vc_bmc = 0.083 * 2. * Math.sqrt(fc) * 1000. * dv * 1. / 1000.;
 
 
-        Mt = Math.max(M824, M826);
-//        txtKT10= "M81= "+M81+"\nM82= "+M82+"\nM83= "+M83+"\nM84= "+M84+"\nM85= "+M85+"\nM86= "+M86 +"\nM87= "+M87+"\nM88= "+M88+"\nM89= "+M89+"\nM810= "+M810+"\nM811= "+M811+"\nM812= "+M812+"\nM813= "+M813+"\nM814= "+M814+"\nM815= "+M815+"\nM816= "+M816
+     //        txtKT10= "M81= "+M81+"\nM82= "+M82+"\nM83= "+M83+"\nM84= "+M84+"\nM85= "+M85+"\nM86= "+M86 +"\nM87= "+M87+"\nM88= "+M88+"\nM89= "+M89+"\nM810= "+M810+"\nM811= "+M811+"\nM812= "+M812+"\nM813= "+M813+"\nM814= "+M814+"\nM815= "+M815+"\nM816= "+M816
 //        +"\nQ81= "+Q81  +"\nQ82= "+Q82  +"\nQ83= "+Q83  +"\nQ84= "+Q84  +"\nQ85= "+Q85  +"\nQ86= "+Q86  +"\nQ87= "+Q87  +"\nQ88= "+Q88+"\nM821= "+M821+"\nM822= "+M822+"\nM823= "+M823+"\nM824= "+M824+"\nM825= "+M825+"\nM826= "+M826+"\nQ821= "+Q821+"\nQ822= "+Q822+"\nQ823= "+Q823+"\nQ824= "+Q824;
     }
 
@@ -3910,6 +3911,17 @@ public class nhaplieuthietke extends AppCompatActivity {
     }
 
     public void chuaBien() {
+
+        try {
+            DuThuaBMC = DuThuaBMC = Double.parseDouble( edtDuThuaBMC.getText().toString());
+
+            if (DuThuaBMC < 0) {
+
+                edtDuThuaBMC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtDuThuaBMC.setError("Hãy nhập giá trị");
+        }
         try {
             Dtt = Dtd = Double.parseDouble(edtDtt.getText().toString());
 
