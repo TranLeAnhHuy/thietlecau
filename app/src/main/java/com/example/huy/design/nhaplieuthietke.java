@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -104,7 +105,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     // text ở KQkhong liên hợp
     String txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8;
     double Dentaf, N, u1, u2, u3;
-    Spinner spnLoaiThep, spnViTri, spnProject;
+    Spinner spnLoaiThep, spnViTri;
+    AutoCompleteTextView spnProject;
     String arrLoaiThep[] = {"A", "B", "B'", "C", "C'", "D", "E", "E'"};
     String arrViTri[] = {"Đường nông thôn liên quốc gia", "Đường nông thôn", "Đường thành phố liên quốc gia", "Đường thành phó"};
     double DentaFTH, ABCDE, l1234;
@@ -267,16 +269,12 @@ public class nhaplieuthietke extends AppCompatActivity {
             spnProject.setVisibility(View.VISIBLE);
             ArrayAdapter projectAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, names);
             spnProject.setAdapter(projectAdapter);
-            spnProject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            spnProject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     savedata data = appDatabase.getDao().getDataByName(names.get(i));
-                    setData(data);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-
+                    if (data != null)
+                        setData(data);
                 }
             });
         }
@@ -290,6 +288,119 @@ public class nhaplieuthietke extends AppCompatActivity {
         //= (TextView) findViewById(R.id.);
 
 
+    }
+
+    private void clearData() {
+
+        edtTenDuAn.setText("");
+
+        edtHoatTaiTieuChuan.setText("");
+
+        edtChieuDaiNhip.setText("");
+
+        edtChieuDaiNhipTinhToan.setText("");
+
+        edtBeRongPhanXeChay.setText("");
+
+        edtBeRongLanCan.setText("");
+
+        edtTongBeRongToanCuaCau.setText("");
+
+        edtCuongDoChiuNenCuaBeTong.setText("");
+
+        edtTiTrongCuaBeTong.setText("");
+
+        edtChieuDayBMC.setText("");
+
+        edtChieuDayLopPhu.setText("");
+
+        edtTytrongVLlamLopPhu.setText("");
+
+        edtThepKetCau.setText("");
+
+        edtModuynDanHoiThep.setText("");
+
+        edtCuongDoChiuKeoMIN.setText("");
+
+        edtCuongDoChayMIN.setText("");
+
+        edtTiTrongThep.setText("");
+
+        edtSoLuongDamChu.setText("");
+
+        edtKhoangCachGiuaDC.setText("");
+
+        edtChieuDaiPhanHang.setText("");
+
+        edtChieuCaoDC.setText("");
+
+        edtChieuRongBanCanhTren.setText("");
+
+        edtChieuDayBCT.setText("");
+
+        edtChieuRongBCD.setText("");
+
+        edtChieuDayBCD.setText("");
+
+        edtChieuDaySuonDam.setText("");
+
+        edtChieuCaoSuon.setText("");
+
+        edtSoLuongDamNgang1Nhip.setText("");
+
+        edtTongSoDamNgang.setText("");
+
+        edtYv.setText("");
+
+        edtKhoangCachTimDNDenauDC.setText("");
+
+        edtS2.setText("");
+
+        edthn.setText("");
+
+        edtbn.setText("");
+
+        edttfdn.setText("");
+
+        edttwdn.setText("");
+
+        edthwdn.setText("");
+
+        edta.setText("");
+
+        edtnlkn.setText("");
+
+        edthlkn.setText("");
+
+        edtSlkn.setText("");
+
+        edtb.setText("");
+
+        edtAtg.setText("");
+
+        edtDCneo.setText("");
+
+        edtDClcT.setText("");
+
+        edtDClcBT.setText("");
+
+        edtPL.setText("");
+
+        edtT.setText("");
+
+        edtDtt.setText("");
+
+        edtDtt_ct.setText("");
+
+        edtDbaove_t.setText("");
+
+        edtd0.setText("");
+
+        edtnn.setText("");
+
+        edtdneo.setText("");
+
+        edtpn.setText("");
     }
 
     private savedata buildData() {
@@ -429,7 +540,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                 if (!edtTenDuAn.getText().toString().isEmpty()) {
                     savedata data = buildData();
                     if (data != null) {
-                        Log.d("hehehe","save done");
+                        Log.d("hehehe", "save done");
                         appDatabase.getDao().insertData(data);
                     }
                 }

@@ -5,12 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".nhaplieuthietke">
-    <Spinner
+
+    <AutoCompleteTextView
         android:id="@+id/spnProject"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:completionThreshold="1"
+        android:hint="Tìm tên dự án">
 
-    </Spinner>
+    </AutoCompleteTextView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -46,9 +50,9 @@
                     android:id="@+id/edtTenDuAn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:hint="Nhập tên dự án"
                     android:minWidth="250dp"
                     android:paddingLeft="10dp"
-                    android:hint="Nhập tên dự án"
                     android:textColor="#fb04069c"
                     android:textSize="20dp" />
             </LinearLayout>
