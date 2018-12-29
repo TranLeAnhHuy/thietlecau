@@ -129,6 +129,7 @@ public class savedata {
     public String edtpn;
 
     ///////////////
+    @ColumnInfo
     public  String edtDuThuaBMC;
 
     public savedata(String edtTenDuAn, String edtHoatTaiTieuChuan, String edtChieuDaiNhip, String edtChieuDaiNhipTinhToan, String edtBeRongPhanXeChay, String edtBeRongLanCan, String edtTongBeRongToanCuaCau, String edtLoaiLienKetSuDung, String edtCauTaoDamChu, String edtMatCatNgangDamChu, String edtCuongDoChiuNenCuaBeTong, String edtTiTrongCuaBeTong, String edtModuynDanHoiCuaBeTong, String edtChieuDayBMC, String edtChieuDayLopPhu, String edtTytrongVLlamLopPhu, String edtThepKetCau, String edtModuynDanHoiThep, String edtCuongDoChiuKeoMIN, String edtCuongDoChayMIN, String edtTiTrongThep, String edtSoLuongDamChu, String edtKhoangCachGiuaDC, String edtChieuDaiPhanHang, String edtChieuCaoDC, String edtChieuRongBanCanhTren, String edtChieuDayBCT, String edtChieuRongBCD, String edtChieuDayBCD, String edtChieuDaySuonDam, String edtChieuCaoSuon, String edtSoLuongDamNgang1Nhip, String edtTongSoDamNgang, String edtYv, String edtKhoangCachTimDNDenauDC, String edtS2, String edthn, String edtbn, String edttfdn, String edttwdn, String edthwdn, String edta, String edtnlkn, String edthlkn, String edtSlkn, String edtb, String edtAtg, String edtDCneo, String edtDClcT, String edtDClcBT, String edtPL, String edtT, String edtDtt, String edtDtt_ct, String edtDbaove_t, String edtd0, String edtnn, String edtdneo, String edtpn) {
