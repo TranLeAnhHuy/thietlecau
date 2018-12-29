@@ -275,7 +275,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             spnProject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    savedata data = appDatabase.getDao().getDataByName(names.get(i));
+                    savedata data = appDatabase.getDao().getDataByName(spnProject.getText().toString());
                     if (data != null)
                         setData(data);
                 }
