@@ -187,6 +187,7 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         String edtenDuAn = edtTenDuAn.getText().toString();
         edtTenDuAn.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+        clearData();
     }
 
     public void addControls() {
@@ -539,7 +540,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         btnTinhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!edtTenDuAn.getText().toString().isEmpty()) {
+                if (!edtTenDuAn.getText().toString().trim().isEmpty()) {
                     savedata data = buildData();
                     if (data != null) {
                         Log.d("hehehe", "save done");
