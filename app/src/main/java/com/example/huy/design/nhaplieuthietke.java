@@ -404,6 +404,8 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtdneo.setText("");
 
         edtpn.setText("");
+
+        edtDuThuaBMC.setText("");
     }
 
     private savedata buildData() {
@@ -466,7 +468,8 @@ public class nhaplieuthietke extends AppCompatActivity {
                     edtd0.getText().toString(),
                     edtnn.getText().toString(),
                     edtdneo.getText().toString(),
-                    edtpn.getText().toString());
+                    edtpn.getText().toString(),
+            edtDuThuaBMC.getText().toString());
         } catch (Exception e) {
             return null;
         }
@@ -532,6 +535,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtnn.setText(data.edtnn);
         edtdneo.setText(data.edtdneo);
         edtpn.setText(data.edtpn);
+        edtDuThuaBMC.setText(data.edtDuThuaBMC);
     }
 
     public void addEvents() {
