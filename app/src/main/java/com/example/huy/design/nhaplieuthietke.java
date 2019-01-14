@@ -154,8 +154,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     String tpn;
     AppDatabase appDatabase;
     String bt;
-    int o;
-
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
