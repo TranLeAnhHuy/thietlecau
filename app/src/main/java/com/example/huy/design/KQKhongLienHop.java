@@ -35,8 +35,8 @@ public class KQKhongLienHop extends AppCompatActivity {
     TextView txtQ71, txtQ76, txtQ711, txtQ716, txtQ721, txtQ726;
     TextView txtviewNoiLuc;
     TextView  txt1,txt2,txt3,txt4,txt5,txt6,txt7;
-    TextView txtbmc1,txtbmc2,txtbmc3,txtbmc4,txtbmc5,txtbmc6,txtbmc7,txtbmc8;
-    TextView txtViewKiemToan;
+    TextView txtbmc1,txtbmc2,txtbmc3,txtbmc4,txtbmc5,txtbmc6,txtbmc7;
+    TextView txtViewKiemToan, txtViewBMC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,6 @@ public class KQKhongLienHop extends AppCompatActivity {
         addConrols();
         addEvents();
     }
-
     public void addEvents() {
         //Láy kết quả
         Intent LHintent = getIntent();
@@ -104,53 +103,7 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtmgDNM.setText(roundString(LHbundle.getDouble("mgDNM"), 4));
         txtmgPLDT.setText(roundString(LHbundle.getDouble("mgPLDT"), 4));
         txtmgPLDN.setText(roundString(LHbundle.getDouble("mgPLDN"), 4));
-        //        // MOOIN LỰC TĨNH TẢI GD1
-        //        txtMmaxCD1GD1.setText(roundString(LHbundle.getDouble("M14"), 4));
-        //        txtMmaxSDGD1.setText(roundString(LHbundle.getDouble("M18"), 4));
-        //        txtQmaxCD1GD1.setText(roundString(LHbundle.getDouble("Q14"), 4));
-        //        txtQmaxSDGD1.setText(roundString(LHbundle.getDouble("Q18"), 4));
-        //        // ứng suất tĩnh tải GD1   txtftmaxCD1GD1,txtfdmaxCD1GD1,txtftmaxSDGD1,txtfdmaxSDGD1,txtViewMorefGD1;
-        //        txtftmaxCD1GD1.setText(roundString(LHbundle.getDouble("f14"), 4));
-        //        txtfdmaxCD1GD1.setText(roundString(LHbundle.getDouble("f18"), 4));
-        //        txtftmaxSDGD1.setText(roundString(LHbundle.getDouble("f112"), 4));
-        //        txtfdmaxSDGD1.setText(roundString(LHbundle.getDouble("f116"), 4));
-        //        // MOOIN LỰC TĨNH TẢI GD2
-        //        txtMmaxCD1GD2.setText(roundString(LHbundle.getDouble("M24"), 4));
-        //        txtMmaxSDGD2.setText(roundString(LHbundle.getDouble("M28"), 4));
-        //        txtQmaxCD1GD2.setText(roundString(LHbundle.getDouble("Q24"), 4));
-        //        txtQmaxSDGD2.setText(roundString(LHbundle.getDouble("Q28"), 4));
-        ////        txtfdmaxDTSDGD2,txtftmaxDTSDGD2,txtfdmaxDTCD1GD2,txtftmaxDTCD1GD2;
-        //        txtfdmaxDTSDGD2.setText(roundString(LHbundle.getDouble("f216"), 4));
-        //        txtftmaxDTSDGD2.setText(roundString(LHbundle.getDouble("f212"), 4));
-        //        txtfdmaxDTCD1GD2.setText(roundString(LHbundle.getDouble("f28"), 4));
-        //        txtftmaxDTCD1GD2.setText(roundString(LHbundle.getDouble("f24"), 4));
-        //
-        //        txtfdmaxDNSDGD2.setText(roundString(LHbundle.getDouble("f232"), 4));
-        //        txtftmaxDNSDGD2.setText(roundString(LHbundle.getDouble("f228"), 4));
-        //        txtfdmaxDNCD1GD2.setText(roundString(LHbundle.getDouble("f224"), 4));
-        //        txtftmaxDNCD1GD2.setText(roundString(LHbundle.getDouble("f220"), 4));
-        //
-        //        //txtMmax3CD1,txtMmax3SD, txtQmax3CD1,txtQmax3SD;
-        //        txtMmax3CD1.setText(roundString(LHbundle.getDouble("M34"), 4));
-        //        txtMmax3SD.setText(roundString(LHbundle.getDouble("M38"), 4));
-        //        txtQmax3CD1.setText(roundString(LHbundle.getDouble("Q34"), 4));
-        //        txtQmax3SD.setText(roundString(LHbundle.getDouble("Q38"), 4));
-        //        //txtMmax4DNSD,txtMmax4DTSD,txtMmax4DNCD1,txtMmax4DTCD1, txtViewMoreMV4;
-        //        txtMmax4DNSD.setText(roundString(LHbundle.getDouble("M416"), 4));
-        //        txtMmax4DTSD.setText(roundString(LHbundle.getDouble("M412"), 4));
-        //        txtMmax4DNCD1.setText(roundString(LHbundle.getDouble("M48"), 4));
-        //        txtMmax4DTCD1.setText(roundString(LHbundle.getDouble("M44"), 4));
-        //        txtM51.setText(roundString(LHbundle.getDouble("M51"), 4));
-        //        txtM52.setText(roundString(LHbundle.getDouble("M52"), 4));
-        //        txtf51.setText(roundString(LHbundle.getDouble("f51"), 4));
-        //        txtf52.setText(roundString(LHbundle.getDouble("f52"), 4));
-        //        txtf53.setText(roundString(LHbundle.getDouble("f53"), 4));
-        //        txtf54.setText(roundString(LHbundle.getDouble("f54"), 4));
-        //        // mỏi
-        //        txtM64.setText(roundString(LHbundle.getDouble("M64"), 4));
-        //        txtQ64.setText(roundString(LHbundle.getDouble("Q61"), 4));
-        //        TextView txtM74,txtM78,txtM712,txtM716,txtM720,txtM724;
-        //        TextView txtQ71,txtQ76,txtQ711,txtQ716,txtQ721,txtQ721;
+
         txtM74.setText(roundString(LHbundle.getDouble("M74"), 4));
         txtM78.setText(roundString(LHbundle.getDouble("M78"), 4));
         txtM712.setText(roundString(LHbundle.getDouble("M712"), 4));
@@ -177,29 +130,37 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtbmc5.setText(LHbundle.getString("txtbmc5"));
         txtbmc6.setText(LHbundle.getString("txtbmc6"));
         txtbmc7.setText(LHbundle.getString("txtbmc7"));
-        txtbmc8.setText(LHbundle.getString("txtbmc8"));
 
-
-
-
-        //////////////////////////////////kiểm toán //////////////////////
-
-
-
-        //        .setText(roundString(LHbundle.getDouble(""), 4));
-
-        //txt.setText(roundString(LHbundle.getDouble(""), 4));
-        //        viewMoreNoiLucGD1();
-        //        viewMorefGD1();
-        //        viewMoreNoiLucGD2();
-        //        viewMorefGD2();
-        //        viewMoreNoiLuc3();
-        //        viewMoreNoiLuc4();
-        //        viewMoreNoiLuc6();
         viewNoiLuc7();
         viewNoiLuc();
         viewKiemToan();
+        viewBMC();
     }
+    public void  viewBMC(){
+        txtViewBMC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LHintent = getIntent();
+                Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+
+                Intent ViewBMCbundle = new Intent(KQKhongLienHop.this, ViewMoreBMC.class);
+                Bundle BMCBundle = new Bundle();
+                BMCBundle.putString("txtBMC1", LHbundle.getString("txtBMC1"));
+                BMCBundle.putString("txtBMC2", LHbundle.getString("txtBMC2"));
+                BMCBundle.putString("txtBMC3", LHbundle.getString("txtBMC3"));
+                BMCBundle.putString("txtBMC4", LHbundle.getString("txtBMC4"));
+                BMCBundle.putString("txtBMC5", LHbundle.getString("txtBMC5"));
+                BMCBundle.putString("txtBMC6", LHbundle.getString("txtBMC6"));
+                BMCBundle.putString("txtBMC7", LHbundle.getString("txtBMC7"));
+
+                ViewBMCbundle.putExtra("LHbundle", BMCBundle);
+                startActivity(ViewBMCbundle);
+
+            }
+        });
+    }
+
+
     public void viewKiemToan(){
         txtViewKiemToan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -222,10 +183,6 @@ public class KQKhongLienHop extends AppCompatActivity {
                 KTBundle.putString("txtKT11", LHbundle.getString("txtKT11"));
                 KTBundle.putString("txtKT12", LHbundle.getString("txtKT12"));
                 KTBundle.putString("txtKT13", LHbundle.getString("txtKT13"));
-
-
-
-
 
                 ViewKiemToanbundle.putExtra("LHbundle", KTBundle);
                 startActivity(ViewKiemToanbundle);
@@ -921,7 +878,7 @@ public class KQKhongLienHop extends AppCompatActivity {
         txtbmc5 = (TextView) findViewById(R.id.txtbmc5);
         txtbmc6 = (TextView) findViewById(R.id.txtbmc6);
         txtbmc7 = (TextView) findViewById(R.id.txtbmc7);
-        txtbmc8 = (TextView) findViewById(R.id.txtbmc8);
+
 
         //txt = (TextView) findViewById(R.id.txt);
         //
@@ -999,6 +956,7 @@ public class KQKhongLienHop extends AppCompatActivity {
 
         ///
         txtViewKiemToan = (TextView) findViewById(R.id.txtViewKiemToan);
+        txtViewBMC = (TextView) findViewById(R.id.txtViewBMC);
 
 
 

@@ -34,7 +34,8 @@
         <activity android:name=".ViewKiemToan" />
         <activity android:name=".kiemdinh_dialog" />
         <activity android:name=".KiemDinhNhanh" />
-        <activity android:name=".KiemDinhTheoAASHTO"></activity>
+        <activity android:name=".KiemDinhTheoAASHTO" />
+        <activity android:name=".ViewMoreBMC"></activity>
     </application>
 
 </manifest>

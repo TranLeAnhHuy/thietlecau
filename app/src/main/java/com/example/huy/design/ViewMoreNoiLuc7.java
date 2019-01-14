@@ -218,7 +218,7 @@ public class ViewMoreNoiLuc7 extends AppCompatActivity {
 
         lineChartV72= (LineChart) findViewById(R.id.linechartV72);
         lineDataV72= new LineData(getXvaluesV72(),getLineDataValuesV72());
-        lineChartV72.setData(lineDataM72);
+        lineChartV72.setData(lineDataV72);
         lineChartV72.setDescription("Biểu đồ tổng hợp Lực cắt dầm ngoài");
         lineChartV72.setDescriptionTextSize(20f);
         lineChartV72.setDescriptionColor(Color.DKGRAY);

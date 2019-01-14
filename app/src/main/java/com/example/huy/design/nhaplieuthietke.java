@@ -43,10 +43,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     EditText edtDCneo, edtDClcT, edtDClcBT, edtPL, edtT;
     EditText edtDtt, edtDtt_ct, edtDbaove_t;
     EditText edtnn, edtdneo, edtpn, edtDuThuaBMC;
-
     // TEXT nội lực tĩnh tải
-
-
     double Adt, heSoHoatTai, L, Ls, Bxc, Blc, B, fc, yc, Ec, ts, taf, yaf, Es, Fu, Fy, ys, ndc, S, de, D, Bft, tft, Bfb, tfb, tw, Dw, ndn1, ndn, S1;
     double S2, hn, Ldn, bn, tfdn, twdn, hwdn, Adn, a, nlkn, hlkn, Slkn, b, nlkd, bi, bc, bi1, bi2, bi3, bii;
     double bc1, bc2, bc3, bcc, n, Yv;
@@ -90,7 +87,6 @@ public class nhaplieuthietke extends AppCompatActivity {
     double Q71, Q72, Q73, Q74, Q75, Q76, Q77, Q78, Q79, Q710, Q711, Q712, Q713, Q714, Q715, Q716, Q717, Q718, Q719, Q720, Q721, Q722, Q723, Q724, Q725, Q726, Q727, Q728, Q729, Q730;
     // kiểm toán
     double my, myy, Ystt, Ystd, My;
-
     // tính thông số
     double Ps, Pc, Pt, Pw, Prt, Prb;
     // trục trung hòa dẻo
@@ -102,6 +98,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     double fcf, f;
     // sTring
     String txtKT1, txtKT2, txtKT3, txtKT4, txtKT5, txtKT6, txtKT7, txtKT8, txtKT9, txtKT10, txtKT11, txtKT12, txtKT13;
+    String txtBMC1,txtBMC2,txtBMC3,txtBMC4,txtBMC5,txtBMC6,txtBMC7;
     // text ở KQkhong liên hợp
     String txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8;
     double Dentaf, N, u1, u2, u3;
@@ -123,7 +120,6 @@ public class nhaplieuthietke extends AppCompatActivity {
     double denta2, denta3, denta4, denta5, denta6;
     double dentav;
     double dentafinal;
-
     //// tính BMC
     //cốt thép ở BMC                 Dtt=Dtd=16;// nhập
     double Dtt, St, Stbmc, N1, Dtd, Sd, Sdbmc, N2;
@@ -157,41 +153,21 @@ public class nhaplieuthietke extends AppCompatActivity {
     double Qr, Vh, nCD, pnew, nneofinal;
     String tpn;
     AppDatabase appDatabase;
-
-
-//    float M1val[]=new float[5];
-//    float M2val[]=new float[5];
-//    float M3val[]=new float[5];
-//    float M4val[]=new float[5];
-//    float Q1val[]=new float[5];
-//    float Q2val[]=new float[5];
-//    float Q3val[]=new float[5];
-//    float Q4val[]=new float[5];
-
-
     String bt;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhaplieuthietke);
-
-        //check chỗ này nè e
-        // nếu activity ni có cái button nó tính toán sao thì em em để lệnh trong if else này
-        // à tốt hơn e để ì else này trong sự kiện tính của button á, a để đây để ví dụ thôi
-
         appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "app.db").fallbackToDestructiveMigration().allowMainThreadQueries().build();
         addControls();
         addEvents();
-
         String edtenDuAn = edtTenDuAn.getText().toString();
         edtTenDuAn.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
         clearData();
     }
 
     public void addControls() {
-
         edtTenDuAn = (EditText) findViewById(R.id.edtTenDuAn);
         edtHoatTaiTieuChuan = (EditText) findViewById(R.id.edtHoatTaiTieuChuan);
         edtChieuDaiNhip = (EditText) findViewById(R.id.edtChieuDaiNhip);
@@ -260,7 +236,6 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtdneo = (EditText) findViewById(R.id.edtdneo);
         edtpn = (EditText) findViewById(R.id.edtpn);
         edtDuThuaBMC = (EditText) findViewById(R.id.edtDuThuaBMC);
-
         final List<savedata> datas = appDatabase.getDao().getAllData();
         final List<String> names = new ArrayList<>();
         for (int i = 0; i < datas.size(); i++) {
@@ -276,8 +251,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     savedata data = appDatabase.getDao().getDataByName(spnProject.getText().toString());
-                    if (data != null)
-                        setData(data);
+                    if (data != null) setData(data);
                 }
             });
         }
@@ -287,189 +261,73 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         // edt=(EditText) findViewById(R.id.edt);
         //txtMmaxCD1GD1, txtMmaxSDGD1, txtQmaxCD1GD1, txtQmaxSDGD1 ;
-
         //= (TextView) findViewById(R.id.);
-
-
     }
 
     private void clearData() {
-
         edtTenDuAn.setText("");
-
         edtHoatTaiTieuChuan.setText("");
-
         edtChieuDaiNhip.setText("");
-
         edtChieuDaiNhipTinhToan.setText("");
-
         edtBeRongPhanXeChay.setText("");
-
         edtBeRongLanCan.setText("");
-
         edtTongBeRongToanCuaCau.setText("");
-
         edtCuongDoChiuNenCuaBeTong.setText("");
-
         edtTiTrongCuaBeTong.setText("");
-
         edtChieuDayBMC.setText("");
-
         edtChieuDayLopPhu.setText("");
-
         edtTytrongVLlamLopPhu.setText("");
-
         edtThepKetCau.setText("");
-
         edtModuynDanHoiThep.setText("");
-
         edtCuongDoChiuKeoMIN.setText("");
-
         edtCuongDoChayMIN.setText("");
-
         edtTiTrongThep.setText("");
-
         edtSoLuongDamChu.setText("");
-
         edtKhoangCachGiuaDC.setText("");
 
         edtChieuDaiPhanHang.setText("");
-
         edtChieuCaoDC.setText("");
-
         edtChieuRongBanCanhTren.setText("");
-
         edtChieuDayBCT.setText("");
-
         edtChieuRongBCD.setText("");
-
         edtChieuDayBCD.setText("");
-
         edtChieuDaySuonDam.setText("");
-
         edtChieuCaoSuon.setText("");
-
         edtSoLuongDamNgang1Nhip.setText("");
-
         edtTongSoDamNgang.setText("");
-
         edtYv.setText("");
-
         edtKhoangCachTimDNDenauDC.setText("");
-
         edtS2.setText("");
-
         edthn.setText("");
-
         edtbn.setText("");
-
         edttfdn.setText("");
-
         edttwdn.setText("");
-
         edthwdn.setText("");
-
         edta.setText("");
-
         edtnlkn.setText("");
-
         edthlkn.setText("");
-
         edtSlkn.setText("");
-
         edtb.setText("");
-
         edtAtg.setText("");
-
         edtDCneo.setText("");
-
         edtDClcT.setText("");
-
         edtDClcBT.setText("");
-
         edtPL.setText("");
 
         edtT.setText("");
-
         edtDtt.setText("");
-
         edtDtt_ct.setText("");
-
         edtDbaove_t.setText("");
-
         edtd0.setText("");
-
         edtnn.setText("");
-
         edtdneo.setText("");
-
         edtpn.setText("");
-
         edtDuThuaBMC.setText("");
     }
 
     private savedata buildData() {
         try {
-            return new savedata(edtTenDuAn.getText().toString(),
-                    edtHoatTaiTieuChuan.getText().toString(),
-                    edtChieuDaiNhip.getText().toString(),
-                    edtChieuDaiNhipTinhToan.getText().toString(),
-                    edtBeRongPhanXeChay.getText().toString(),
-                    edtBeRongLanCan.getText().toString(),
-                    edtTongBeRongToanCuaCau.getText().toString(),
-                    "",
-                    "",
-                    "",
-                    edtCuongDoChiuNenCuaBeTong.getText().toString(),
-                    edtTiTrongCuaBeTong.getText().toString(),
-                    "",
-                    edtChieuDayBMC.getText().toString(),
-                    edtChieuDayLopPhu.getText().toString(),
-                    edtTytrongVLlamLopPhu.getText().toString(),
-                    edtThepKetCau.getText().toString(),
-                    edtModuynDanHoiThep.getText().toString(),
-                    edtCuongDoChiuKeoMIN.getText().toString(),
-                    edtCuongDoChayMIN.getText().toString(),
-                    edtTiTrongThep.getText().toString(),
-                    edtSoLuongDamChu.getText().toString(),
-                    edtKhoangCachGiuaDC.getText().toString(),
-                    edtChieuDaiPhanHang.getText().toString(),
-                    edtChieuCaoDC.getText().toString(),
-                    edtChieuRongBanCanhTren.getText().toString(),
-                    edtChieuDayBCT.getText().toString(),
-                    edtChieuRongBCD.getText().toString(),
-                    edtChieuDayBCD.getText().toString(),
-                    edtChieuDaySuonDam.getText().toString(),
-                    edtChieuCaoSuon.getText().toString(),
-                    edtSoLuongDamNgang1Nhip.getText().toString(),
-                    edtTongSoDamNgang.getText().toString(),
-                    edtYv.getText().toString(),
-                    edtKhoangCachTimDNDenauDC.getText().toString(),
-                    edtS2.getText().toString(),
-                    edthn.getText().toString(),
-                    edtbn.getText().toString(),
-                    edttfdn.getText().toString(),
-                    edttwdn.getText().toString(),
-                    edthwdn.getText().toString(),
-                    edta.getText().toString(),
-                    edtnlkn.getText().toString(),
-                    edthlkn.getText().toString(),
-                    edtSlkn.getText().toString(),
-                    edtb.getText().toString(),
-                    edtAtg.getText().toString(),
-                    edtDCneo.getText().toString(),
-                    edtDClcT.getText().toString(),
-                    edtDClcBT.getText().toString(),
-                    edtPL.getText().toString(),
-                    edtT.getText().toString(),
-                    edtDtt.getText().toString(),
-                    edtDtt_ct.getText().toString(),
-                    edtDbaove_t.getText().toString(),
-                    edtd0.getText().toString(),
-                    edtnn.getText().toString(),
-                    edtdneo.getText().toString(),
-                    edtpn.getText().toString(),
-            edtDuThuaBMC.getText().toString());
+            return new savedata(edtTenDuAn.getText().toString(), edtHoatTaiTieuChuan.getText().toString(), edtChieuDaiNhip.getText().toString(), edtChieuDaiNhipTinhToan.getText().toString(), edtBeRongPhanXeChay.getText().toString(), edtBeRongLanCan.getText().toString(), edtTongBeRongToanCuaCau.getText().toString(), "", "", "", edtCuongDoChiuNenCuaBeTong.getText().toString(), edtTiTrongCuaBeTong.getText().toString(), "", edtChieuDayBMC.getText().toString(), edtChieuDayLopPhu.getText().toString(), edtTytrongVLlamLopPhu.getText().toString(), edtThepKetCau.getText().toString(), edtModuynDanHoiThep.getText().toString(), edtCuongDoChiuKeoMIN.getText().toString(), edtCuongDoChayMIN.getText().toString(), edtTiTrongThep.getText().toString(), edtSoLuongDamChu.getText().toString(), edtKhoangCachGiuaDC.getText().toString(), edtChieuDaiPhanHang.getText().toString(), edtChieuCaoDC.getText().toString(), edtChieuRongBanCanhTren.getText().toString(), edtChieuDayBCT.getText().toString(), edtChieuRongBCD.getText().toString(), edtChieuDayBCD.getText().toString(), edtChieuDaySuonDam.getText().toString(), edtChieuCaoSuon.getText().toString(), edtSoLuongDamNgang1Nhip.getText().toString(), edtTongSoDamNgang.getText().toString(), edtYv.getText().toString(), edtKhoangCachTimDNDenauDC.getText().toString(), edtS2.getText().toString(), edthn.getText().toString(), edtbn.getText().toString(), edttfdn.getText().toString(), edttwdn.getText().toString(), edthwdn.getText().toString(), edta.getText().toString(), edtnlkn.getText().toString(), edthlkn.getText().toString(), edtSlkn.getText().toString(), edtb.getText().toString(), edtAtg.getText().toString(), edtDCneo.getText().toString(), edtDClcT.getText().toString(), edtDClcBT.getText().toString(), edtPL.getText().toString(), edtT.getText().toString(), edtDtt.getText().toString(), edtDtt_ct.getText().toString(), edtDbaove_t.getText().toString(), edtd0.getText().toString(), edtnn.getText().toString(), edtdneo.getText().toString(), edtpn.getText().toString(), edtDuThuaBMC.getText().toString());
         } catch (Exception e) {
             return null;
         }
@@ -563,8 +421,6 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhTisoModuyn();
                     tinhDTHHGiaiDoan1();
                     chuaBien();
-
-
                 } else {
                     // bai toan duoi LIÊN HỢP
                     // tuy bai ma button tính xử lý công thức cho đúng
@@ -597,7 +453,6 @@ public class nhaplieuthietke extends AppCompatActivity {
                     kiemtoan();
                     kqKiemToan();
                     tinhNeoLK();
-
                     // đóng gói và truyền dữ liệu
                     Intent LHintent = new Intent(nhaplieuthietke.this, KQKhongLienHop.class);
                     Bundle LHbundle = new Bundle();
@@ -923,6 +778,14 @@ public class nhaplieuthietke extends AppCompatActivity {
                     LHbundle.putString("txtbmc7", txtbmc7);
                     LHbundle.putString("txtbmc8", txtbmc8);
 
+                    LHbundle.putString("txtBMC1", txtBMC1);
+                    LHbundle.putString("txtBMC2", txtBMC2);
+                    LHbundle.putString("txtBMC3", txtBMC3);
+                    LHbundle.putString("txtBMC4", txtBMC4);
+                    LHbundle.putString("txtBMC5", txtBMC5);
+                    LHbundle.putString("txtBMC6", txtBMC6);
+                    LHbundle.putString("txtBMC7", txtBMC7);
+
 
                     // LHbundle.putDouble("M4",M4 );
                     LHintent.putExtra("LHbundle", LHbundle);
@@ -1050,31 +913,19 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         if (pn < 4. * dneo) {
             tpn = " Chọn lại khoảng cách các neo lớn hơn " + 4. * dneo + " mm";
+        }else {
+            tpn="";
         }
         pnew = Math.ceil(Math.max(p1234, p5));
         // số neo cuối cùng
         nneofinal = Math.ceil((Math.max(nCD, ((L * 1000. / pnew) + 1.) * nn)));
-        txt7 = "Số lượng neo mỗi dầm: " + nneofinal + " neo" +
-                "\nTheo phương dọc cầu" +
-                "\n    Khoảng cách các neo: " + pnew + " mm" +
-                "\nTheo phương ngang cầu" +
-                "\n    Số lượng neo: " + nn +
-                "\n    Khoảng cách của các đinh neo: " + pn + "mm." + tpn;
-
-
+        txt7 = "Số lượng neo mỗi dầm: " + nneofinal + " neo" + "\nTheo phương dọc cầu" + "\n    Khoảng cách các neo: " + pnew + " mm" + "\nTheo phương ngang cầu" + "\n    Số lượng neo: " + nn + "\n    Khoảng cách của các đinh neo: " + pn + "mm." + tpn;
     }
 
     public void spinnerViTri() {
         //Gán Data source (arr) vào Adapter
-        ArrayAdapter<String> adapterViTri = new ArrayAdapter<String>
-                (
-                        this,
-                        android.R.layout.simple_spinner_item,
-                        arrViTri
-                );
-
-        adapterViTri.setDropDownViewResource
-                (android.R.layout.simple_list_item_single_choice);
+        ArrayAdapter<String> adapterViTri = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrViTri);
+        adapterViTri.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         //Thiết lập adapter cho Spinner
         spnViTri.setAdapter(adapterViTri);
         //thiết lập sự kiện chọn phần tử cho Spinner
@@ -1101,7 +952,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             } else if (lastedSelectedViTri == 3) {
                 l1234 = 0.15;
                 //   Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
-
             }
         }
 
@@ -1113,15 +963,8 @@ public class nhaplieuthietke extends AppCompatActivity {
 
     public void spinnerLoaiThep() {
         //Gán Data source (arr) vào Adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (
-                        this,
-                        android.R.layout.simple_spinner_item,
-                        arrLoaiThep
-                );
-
-        adapter.setDropDownViewResource
-                (android.R.layout.simple_list_item_single_choice);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrLoaiThep);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         //Thiết lập adapter cho Spinner
         spnLoaiThep.setAdapter(adapter);
         //thiết lập sự kiện chọn phần tử cho Spinner
@@ -1139,7 +982,6 @@ public class nhaplieuthietke extends AppCompatActivity {
                 //  Toast.makeText(nhaplieuthietke.this,""+DentaFTH,Toast.LENGTH_LONG).show();
                 ABCDE = 82;
                 //  Toast.makeText(nhaplieuthietke.this,""+ABCDE,Toast.LENGTH_LONG).show();
-
             } else if (lastedSelected == 1) {
                 DentaFTH = 110;
                 ABCDE = 39.3;
@@ -1183,6 +1025,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         //Nếu không chọn gì cả
     }
+
 
     public void tinhBMC() {
         DCbmctt = (ts * yc / 1000.0) + (taf * yaf / 1000.0) + DClcT + DClcBT;
@@ -1385,6 +1228,7 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         // khoảng cách từ tim cốt thép lưới trên của BMC
         St = Dbaove_t + 0.5 * Dtt;
+
         // hệ số chuyển đổi biểu đồ ứng suất
         if (fc <= 28) {
             beta1 = 0.85;
@@ -1412,6 +1256,7 @@ public class nhaplieuthietke extends AppCompatActivity {
 
         }
         N1 = Math.ceil(Math.min(X1, X2));
+
         do {
             // kiểm tra lượng cốt thép tối đa
             cc1 = (N1 * 3.14 * Dtt * Dtt * 400. / 4.) / (0.85 * fc * beta1 * 1000.);
@@ -1427,9 +1272,11 @@ public class nhaplieuthietke extends AppCompatActivity {
         /////
         N1new = N1;
         txtbmc1 = "Số thanh cốt thép chịu lực lưới trên: " + N1new + " thanh, đường kính: " + Dtt + " mm";
+
         ///bố trí thép chịu momen dươngMd
 
         Md = (1.+DuThuaBMC/100.)*M823;
+
         // khoảng cách tim cốt thép lưới trên đến mép trên BMC
         Sd = Dbaove_d + 0.5 * Dtd;
         //hệ số chuyển đổi biểu đồ ứng suất
@@ -1482,20 +1329,42 @@ public class nhaplieuthietke extends AppCompatActivity {
         } else {
             Dc_sdd = 50.;
         }
-        Fsa_d = Z / (Math.pow(Dc_sdd * Asd_d, 1.0 / 3.));
 
+        Fsa_d = Z / (Math.pow(Dc_sdd * Asd_d, 1.0 / 3.));
+        txtBMC1= "\n Momen thớ trên Mt= "+(float) Math.round((Mt) * 1000) / 1000+
+                "\n Khoảng cách từ tim cốt thép lưới trên BMC St= "+(float) Math.round((St) * 1000) / 1000+
+                "\n Momen thớ trên Md= "+(float) Math.round((Md) * 1000) / 1000+
+                "\n Khoảng cách từ tim cốt thép lưới trên BMC Sd= "+(float) Math.round((Sd) * 1000) / 1000+" mm"+
+                "\n Momen tĩnh đối với BMC Sbmc= "+(float) Math.round((Abmc) * 1000) / 1000+" mm^3"+
+                "\n KC từ TTH đến mép dưới mặt cắt Yd= "+(float) Math.round((Sd) * 1000) / 1000+" mm"+
+                "\n Momen quán tính của mặt cắt I= "+(float) Math.round((I) * 1000) / 1000+ " mm^4"+
+                "\n Ứng suất trong cốt thép dưới BMC Fs_d= "+(float) Math.round((Fs_d) * 1000) / 1000+ ""+
+                "\n Ứng suất kéo trong CT thường ở TTGH sử dụng Asd_d= "+(float) Math.round((Asd_d) * 1000) / 1000+
+                "\n Ứng suất Fsa_d= "+(float) Math.round((Fsa_d) * 1000) / 1000;
         if (Fs_d <= Fsa_d && Fs_d <= 0.6 * 400.) {
             //// ok
             txtbmc3 = "Kiểm toán nứt momen dương đảm bảo";
+            txtBMC2="Fs_d= "+(float) Math.round((Fs_d) * 1000) / 1000+" <= "+(float) Math.round((Fsa_d) * 1000) / 1000
+                    +" && Fs_d= "+(float) Math.round((Fs_d) * 1000) / 1000 +" <="+ 0.6*400.+
+                    "\n   Kiểm toán nứt momen dương đảm bảo";
         } else if (Fs_d > Fsa_d && Fs_d <= 0.6 * 400.) {
             //// ko
             txtbmc3 = "Kiểm toán nứt momen dương không đảm bảo";
+            txtBMC2="Fs_d= "+(float) Math.round((Fs_d) * 1000) / 1000+" > "+(float) Math.round((Fsa_d) * 1000) / 1000
+                    +" && Fs_d= "+(float) Math.round((Fs_d) * 1000) / 1000 +" <="+ 0.6*400.+
+                    "\n   Kiểm toán nứt momen dương không đảm bảo";
         } else if (Fs_d <= Fsa_d && Fs_d > 0.6 * 400.) {
             ////ko
             txtbmc3 = "Kiểm toán nứt momen dương không đảm bảo";
+            txtBMC2="Fs_d= "+(float) Math.round((Fs_d) * 1000) / 1000+" <= "+(float) Math.round((Fsa_d) * 1000) / 1000
+                    +" && Fs_d= "+(float) Math.round((Fs_d) * 1000) / 1000 +" >"+ 0.6*400.+
+                    "\n   Kiểm toán nứt momen dương không đảm bảo";
         } else if (Fs_d > Fsa_d && Fs_d > 0.6 * 400.) {
             /// ko
             txtbmc3 = "Kiểm toán nứt momen dương không đảm bảo";
+            txtBMC2="Fs_d= "+(float) Math.round((Fs_d) * 1000) / 1000+" > "+(float) Math.round((Fsa_d) * 1000) / 1000
+                    +" && Fs_d= "+(float) Math.round((Fs_d) * 1000) / 1000 +" >"+ 0.6*400.+
+                    "\n   Kiểm toán nứt momen dương không đảm bảo";
         }
         /////////// kiểm tra nứt momen âm
 
@@ -1511,19 +1380,35 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         Asd_t = 2. * 1000. * St / N1;
         Fsa_t = Z / (Math.pow((Dc_sdt * Asd_t), 1. / 3.));
-
+        txtBMC3="KC từ TTH đến mép dưới mặt cắt Yt= "+(float) Math.round((Yt) * 1000) / 1000+
+                "\n Ứng suất trong cốt thép trên BMC Fs_t= "+(float) Math.round((Fs_t) * 1000) / 1000+
+                "\n Dc_sdt= "+(float) Math.round((Dc_sdt) * 1000) / 1000+
+                "\n Ứng suất kéo trong CT thường ở TTGH sử dụng Asd_t= "+(float) Math.round((Asd_t) * 1000) / 1000+
+                "\n Ứng suất Fsa_t= "+(float) Math.round((Fsa_t) * 1000) / 1000;
         if (Fs_t <= Fsa_t && Fs_t <= 0.6 * 400.) {
             //// ok
             txtbmc4 = "Kiểm toán nứt momen âm đảm bảo";
+            txtBMC4="Fs_t= "+(float) Math.round((Fs_t) * 1000) / 1000+" <= "+(float) Math.round((Fsa_t) * 1000) / 1000
+                    +" && Fs_t= "+(float) Math.round((Fs_t) * 1000) / 1000 +" <= "+ 0.6*400.+
+                    "\n   Kiểm toán nứt momen âm đảm bảo";
         } else if (Fs_t > Fsa_t && Fs_t <= 0.6 * 400.) {
             //// ko
             txtbmc4 = "Kiểm toán nứt momen âm không đảm bảo";
+            txtBMC4="Fs_t= "+(float) Math.round((Fs_t) * 1000) / 1000+" > "+(float) Math.round((Fsa_t) * 1000) / 1000
+                    +" && Fs_t= "+(float) Math.round((Fs_t) * 1000) / 1000 +" <= "+ 0.6*400.+
+                    "\n   Kiểm toán nứt momen không âm đảm bảo";
         } else if (Fs_t <= Fsa_t && Fs_t > 0.6 * 400.) {
             ////ko
             txtbmc4 = "Kiểm toán nứt momen âm không đảm bảo";
+            txtBMC4="Fs_t= "+(float) Math.round((Fs_t) * 1000) / 1000+" <= "+(float) Math.round((Fsa_t) * 1000) / 1000
+                    +" && Fs_t= "+(float) Math.round((Fs_t) * 1000) / 1000 +" > "+ 0.6*400.+
+                    "\n   Kiểm toán nứt momen không âm đảm bảo";
         } else if (Fs_t > Fsa_t && Fs_t > 0.6 * 400.) {
             /// ko
             txtbmc4 = "Kiểm toán nứt momen âm không đảm bảo";
+            txtBMC4="Fs_t= "+(float) Math.round((Fs_t) * 1000) / 1000+" > "+(float) Math.round((Fsa_t) * 1000) / 1000
+                    +" && Fs_t= "+(float) Math.round((Fs_t) * 1000) / 1000 +" >"+ 0.6*400.+
+                    "\n   Kiểm toán nứt momen không âm đảm bảo";
         }
         //4.4. CT lưới dưới cấu tạo
         if (3840. / Math.sqrt(Sbmc - tw) <= 67.) {
@@ -1532,9 +1417,11 @@ public class nhaplieuthietke extends AppCompatActivity {
             C = 67.;
         }
         As_ctd = (C / 100.) * N2 * (3.14 * Dtd * Dtd / 4.);
+        txtBMC5=" As_ctd= "+(float) Math.round((As_ctd) * 1000) / 1000;
 
         N3 = Math.ceil((4. * As_ctd) / (3.14 * Dtd_ct * Dtd_ct));
         txtbmc5 = "Số thanh cốt thép lưới dưới cấu tạo phân bố theo dọc cầu: " + N3 + " thanh, đường kính: " + Dtt_ct + " mm";
+
         //
         ///4.5 cốt thép lưới trên cấu tạo
         N4 = Math.ceil(0.75 * (Sbmc * ts / 400.) * (4. / (3.14 * Dtt_ct * Dtt_ct)));
@@ -1546,6 +1433,12 @@ public class nhaplieuthietke extends AppCompatActivity {
         while (!(St_ct <= Math.min(3. * ts, 450.)));
         N4new = N4;
         txtbmc6 = "Số thanh cốt thép lưới trên cấu tạo phân bố theo dọc cầu: " + N4new + " thanh, đường kính: " + Dtd_ct + " mm";
+        txtBMC6="Số thanh cốt thép lưới dưới cấu tạo phân bố theo dọc cầu"+
+                "\n N3 =(4. * As_ctd) / (3.14 * Dtd_ct * Dtd_ct)= "+
+                (float) Math.round((Math.ceil((4. * As_ctd) / (3.14 * Dtd_ct * Dtd_ct))) * 1000) / 1000+
+                "Số thanh cốt thép lưới trên cấu tạo phân bố theo dọc cầu"+
+                "\n N4 =0.75 * (Sbmc * ts / 400.) * (4. / (3.14 * Dtt_ct * Dtt_ct))= "+
+                (float) Math.round((Math.ceil(0.75 * (Sbmc * ts / 400.) * (4. / (3.14 * Dtt_ct * Dtt_ct)))) * 1000) / 1000;
 
         /// 4.6. kiểm tra theo điều kiện kháng cắt
         //// sức kháng cắt danh ssinhj
@@ -1553,11 +1446,16 @@ public class nhaplieuthietke extends AppCompatActivity {
         dv = Math.max(0.9 * (ts - Sd), 0.72 * ts);
         V1n_bmc = 0.25 * fc * 1000. * dv * 1. / 1000.;
         Vc_bmc = 0.083 * 2. * Math.sqrt(fc) * 1000. * dv * 1. / 1000.;
+        txtbmc7= "Sức kháng cắt danh định của BMC Vn= "+(float) Math.round((V1n_bmc) * 1000) / 1000+" kN" ;
+        txtBMC7="V1n_bmc = 0.25*fc*1000*dv*1/1000= "+(float) Math.round((V1n_bmc) * 1000) / 1000+
+                "\nVc_bmc = 0.083*2*Math.sqrt(fc)*1000*dv*1/1000= "+(float) Math.round((Vc_bmc) * 1000) / 1000;
 
 
-     //        txtKT10= "M81= "+M81+"\nM82= "+M82+"\nM83= "+M83+"\nM84= "+M84+"\nM85= "+M85+"\nM86= "+M86 +"\nM87= "+M87+"\nM88= "+M88+"\nM89= "+M89+"\nM810= "+M810+"\nM811= "+M811+"\nM812= "+M812+"\nM813= "+M813+"\nM814= "+M814+"\nM815= "+M815+"\nM816= "+M816
+        //        txtKT10= "M81= "+M81+"\nM82= "+M82+"\nM83= "+M83+"\nM84= "+M84+"\nM85= "+M85+"\nM86= "+M86 +"\nM87= "+M87+"\nM88= "+M88+"\nM89= "+M89+"\nM810= "+M810+"\nM811= "+M811+"\nM812= "+M812+"\nM813= "+M813+"\nM814= "+M814+"\nM815= "+M815+"\nM816= "+M816
 //        +"\nQ81= "+Q81  +"\nQ82= "+Q82  +"\nQ83= "+Q83  +"\nQ84= "+Q84  +"\nQ85= "+Q85  +"\nQ86= "+Q86  +"\nQ87= "+Q87  +"\nQ88= "+Q88+"\nM821= "+M821+"\nM822= "+M822+"\nM823= "+M823+"\nM824= "+M824+"\nM825= "+M825+"\nM826= "+M826+"\nQ821= "+Q821+"\nQ822= "+Q822+"\nQ823= "+Q823+"\nQ824= "+Q824;
     }
+
+
 
     public void kqKiemToan() {
         // txt1
@@ -2087,10 +1985,10 @@ public class nhaplieuthietke extends AppCompatActivity {
         Q74 = (Q31 + Q44) * 0.95;
         Q75 = Q45 * 0.95;
         //CD1 DẦM NGOÀI
-        Q76 = (Q31 + Q46) * 0.95;//
-        Q77 = (Q32 + Q47) * 0.95;
-        Q78 = (Q33 + Q48) * 0.95;
-        Q79 = (Q34 + Q49) * 0.95;
+        Q76 = (Q34 + Q46) * 0.95;//
+        Q77 = (Q33 + Q47) * 0.95;
+        Q78 = (Q32 + Q48) * 0.95;
+        Q79 = (Q31 + Q49) * 0.95;
         Q710 = Q410 * 0.95;
         //sd DẦM TRONG
         Q711 = Q38 + Q411;//
@@ -2099,10 +1997,10 @@ public class nhaplieuthietke extends AppCompatActivity {
         Q714 = Q35 + Q414;
         Q715 = Q415;
         //SD DẦM NGOÀI
-        Q716 = Q35 + Q416;//
-        Q717 = Q36 + Q417;
-        Q718 = Q37 + Q418;
-        Q719 = Q38 + Q419;
+        Q716 = Q38 + Q416;//
+        Q717 = Q37 + Q417;
+        Q718 = Q36 + Q418;
+        Q719 = Q35 + Q419;
         Q720 = Q420;
         // MỎI DẦM TRONG
         Q721 = 0.75 * 1.15 * Q61 * mgSIV;//
@@ -2915,11 +2813,9 @@ public class nhaplieuthietke extends AppCompatActivity {
         Q16 = 1 * 0.25 * Ls * DC1;
         Q17 = 1 * 0.375 * Ls * DC1;
         Q18 = 1 * 0.5 * Ls * DC1;
-
     }
 
     public void tinhHeSoPhanBoLLTheoLanDoiVoiLucCat() {
-
         // 1 làn xe chất tảu DT
         mgSIV = 0.36 + (S / 7600);
         //2 or nhiều DT
@@ -2933,9 +2829,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         //PL
         try {
             PL = Double.parseDouble(edtPL.getText().toString());
-
             if (PL < 0) {
-
                 edtPL.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -2944,9 +2838,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         //T
         try {
             T = Double.parseDouble(edtT.getText().toString());
-
             if (T < 0) {
-
                 edtT.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -2964,7 +2856,6 @@ public class nhaplieuthietke extends AppCompatActivity {
 
     public void tinhHeSoPhanBoLLTheoLanDoiVoiMomen() {
         double eg;
-
         // Khoảng cách giữa trọng trâm của dầm và của BMC
         eg = Ynct + ts / 2;
         //Tham số độ cứng dọc
@@ -2988,16 +2879,13 @@ public class nhaplieuthietke extends AppCompatActivity {
         mgDTM = Math.max(mgSIM, mgMIM);
         mgMEM1lan = 0.5 * ((2 * S + 2 * de - 2 * Blc - 2 * T - 2400) / S);
         mgDNM = Math.max(mgMEM1lan, mgMEM2lan);
-
     }
 
     public void tinhKhoiLuongGD2() {
         //Trọng lượng lan can thép
         try {
             DClcT = Double.parseDouble(edtDClcT.getText().toString());
-
             if (DClcT < 0) {
-
                 edtDClcT.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -3006,9 +2894,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         //Trọng lượng lan can BT
         try {
             DClcBT = Double.parseDouble(edtDClcBT.getText().toString());
-
             if (DClcBT < 0) {
-
                 edtDClcBT.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -3022,7 +2908,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             yaf = Double.parseDouble(edtTytrongVLlamLopPhu.getText().toString());
 
             if (yaf < 0) {
-
                 edtTytrongVLlamLopPhu.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -3041,9 +2926,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         //Chiều rộng phần xe chạy
         try {
             Bxc = Double.parseDouble(edtBeRongPhanXeChay.getText().toString());
-
             if (Bxc < 0) {
-
                 edtBeRongPhanXeChay.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -3054,7 +2937,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             ndc = Double.parseDouble(edtSoLuongDamChu.getText().toString());
 
             if (ndc < 0) {
-
                 edtSoLuongDamChu.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -3066,23 +2948,18 @@ public class nhaplieuthietke extends AppCompatActivity {
         //  Toast.makeText(nhaplieuthietke.this,""+DC2DT,Toast.LENGTH_LONG).show();
         DCDT = DC2DT + DC1;
         DCDN = DC2DN + DC1;
-
     }
 
     public void tinhKhoiLuongGD1() {
-
         //Moduyn đàn hồi thép
         try {
             Es = Double.parseDouble(edtModuynDanHoiThep.getText().toString());
-
             if (Es < 0) {
-
                 edtModuynDanHoiThep.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
             edtModuynDanHoiThep.setError("Hãy nhập giá trị");
         }
-
         // Chiều dài nhịp
         try {
             L = Double.parseDouble(edtChieuDaiNhip.getText().toString());
@@ -3097,9 +2974,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         // neo
         try {
             DCneo = Double.parseDouble(edtDCneo.getText().toString());
-
             if (DCneo < 0) {
-
                 edtDCneo.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -3918,7 +3793,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     public void chuaBien() {
 
         try {
-            DuThuaBMC = DuThuaBMC = Double.parseDouble( edtDuThuaBMC.getText().toString());
+            DuThuaBMC = DuThuaBMC = Double.parseDouble(edtDuThuaBMC.getText().toString());
 
             if (DuThuaBMC < 0) {
 
@@ -4136,7 +4011,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             ndn = Double.parseDouble(edtTongSoDamNgang.getText().toString());
 
             if (ndn < 0) {
-
                 edtTongSoDamNgang.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -4145,9 +4019,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         // edtKhoangCachTimDNDenauDC Khoàng cách dm đến dầm chủ
         try {
             S1 = Double.parseDouble(edtKhoangCachTimDNDenauDC.getText().toString());
-
             if (S1 < 0) {
-
                 edtKhoangCachTimDNDenauDC.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -4171,7 +4043,6 @@ public class nhaplieuthietke extends AppCompatActivity {
             hn = Double.parseDouble(edthn.getText().toString());
 
             if (hn < 0) {
-
                 edthn.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
@@ -4184,4 +4055,3 @@ public class nhaplieuthietke extends AppCompatActivity {
         startActivity(iTroVe);
     }
 }
-

@@ -1915,6 +1915,17 @@
                     android:layout_marginLeft="5dp"
                     android:textSize="14dp" />
             </LinearLayout>
+            // vieww BMC
+            <TextView
+                android:id="@+id/txtViewBMC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="245dp"
+                android:text="&lt;View more>"
+                android:textColor="#fb04069c"
+                android:textSize="16dp"
+                android:textStyle="italic" />
+
 
             //Kiểm toán
 
