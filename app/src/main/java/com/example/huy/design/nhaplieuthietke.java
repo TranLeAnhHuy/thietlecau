@@ -154,7 +154,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     String tpn;
     AppDatabase appDatabase;
     String bt;
-  
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -284,7 +284,6 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtTiTrongThep.setText("");
         edtSoLuongDamChu.setText("");
         edtKhoangCachGiuaDC.setText("");
-
         edtChieuDaiPhanHang.setText("");
         edtChieuCaoDC.setText("");
         edtChieuRongBanCanhTren.setText("");
@@ -313,7 +312,6 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtDClcT.setText("");
         edtDClcBT.setText("");
         edtPL.setText("");
-
         edtT.setText("");
         edtDtt.setText("");
         edtDtt_ct.setText("");
@@ -2343,15 +2341,15 @@ public class nhaplieuthietke extends AppCompatActivity {
         M47 = (1.25 * Math.max(m3, m7) + m11 + m15) * 1.75 * mgDNM;
         M48 = (1.25 * Math.max(m4, m8) + m12 + m16) * 1.75 * mgDNM;
         //TTGH SD-dầm trong
-        M49 = (1.25 * Math.max(m1, m5) + m9 + m13) * mgDTM;
-        M410 = (1.25 * Math.max(m2, m6) + m10 + m14) * mgDTM;
-        M411 = (1.25 * Math.max(m3, m7) + m11 + m15) * mgDTM;
-        M412 = (1.25 * Math.max(m4, m8) + m12 + m16) * mgDTM;
+        M49 = (1.25 * Math.max(m1, m5) + m9 + m13) * 1.3*mgDTM;
+        M410 = (1.25 * Math.max(m2, m6) + m10 + m14) * 1.3*mgDTM;
+        M411 = (1.25 * Math.max(m3, m7) + m11 + m15) * 1.3*mgDTM;
+        M412 = (1.25 * Math.max(m4, m8) + m12 + m16) * 1.3*mgDTM;
         //TTGH SD-dầm ngoài
-        M413 = (1.25 * Math.max(m1, m5) + m9 + m13) * mgDNM;
-        M414 = (1.25 * Math.max(m2, m6) + m10 + m14) * mgDNM;
-        M415 = (1.25 * Math.max(m3, m7) + m11 + m15) * mgDNM;
-        M416 = (1.25 * Math.max(m4, m8) + m12 + m16) * mgDNM;
+        M413 = (1.25 * Math.max(m1, m5) + m9 + m13) * 1.3*mgDNM;
+        M414 = (1.25 * Math.max(m2, m6) + m10 + m14) * 1.3*mgDNM;
+        M415 = (1.25 * Math.max(m3, m7) + m11 + m15) * 1.3*mgDNM;
+        M416 = (1.25 * Math.max(m4, m8) + m12 + m16) * 1.3*mgDNM;
 
         //LỰC CẮT XE 3 TRỤC
         //V DƯƠNG
@@ -2600,11 +2598,11 @@ public class nhaplieuthietke extends AppCompatActivity {
         Q44 = (1.25 * Math.max(q4, q14) + q24 + q34) * 1.75 * mgDTV;
         Q45 = (1.25 * Math.max(q5, q15) + q25 + q35) * 1.75 * mgDTV;
         //Dầm trong sử dụng
-        Q46 = (1.25 * Math.max(q1, q11) + q21 + q31) * 1 * mgDTV;
-        Q47 = (1.25 * Math.max(q2, q12) + q22 + q32) * 1 * mgDTV;
-        Q48 = (1.25 * Math.max(q3, q13) + q23 + q33) * 1 * mgDTV;
-        Q49 = (1.25 * Math.max(q4, q14) + q24 + q34) * 1 * mgDTV;
-        Q410 = (1.25 * Math.max(q5, q15) + q25 + q35) * 1 * mgDTV;
+        Q46 = (1.25 * Math.max(q1, q11) + q21 + q31) * 1.3 * mgDTV;
+        Q47 = (1.25 * Math.max(q2, q12) + q22 + q32) * 1.3 * mgDTV;
+        Q48 = (1.25 * Math.max(q3, q13) + q23 + q33) * 1.3 * mgDTV;
+        Q49 = (1.25 * Math.max(q4, q14) + q24 + q34) * 1.3 * mgDTV;
+        Q410 = (1.25 * Math.max(q5, q15) + q25 + q35) * 1.3 * mgDTV;
         // Dầm ngoài CD1
         Q411 = (1.25 * Math.max(q1, q11) + q21 + q31) * 1.75 * mgDNV;
         Q412 = (1.25 * Math.max(q2, q12) + q22 + q32) * 1.75 * mgDNV;
@@ -2612,11 +2610,11 @@ public class nhaplieuthietke extends AppCompatActivity {
         Q414 = (1.25 * Math.max(q4, q14) + q24 + q34) * 1.75 * mgDNV;
         Q415 = (1.25 * Math.max(q5, q15) + q25 + q35) * 1.75 * mgDNV;
         // Dầm ngoài SD
-        Q416 = (1.25 * Math.max(q1, q11) + q21 + q31) * 1 * mgDNV;
-        Q417 = (1.25 * Math.max(q2, q12) + q22 + q32) * 1 * mgDNV;
-        Q418 = (1.25 * Math.max(q3, q13) + q23 + q33) * 1 * mgDNV;
-        Q419 = (1.25 * Math.max(q4, q14) + q24 + q34) * 1 * mgDNV;
-        Q420 = (1.25 * Math.max(q5, q15) + q25 + q35) * 1 * mgDNV;
+        Q416 = (1.25 * Math.max(q1, q11) + q21 + q31) * 1.3 * mgDNV;
+        Q417 = (1.25 * Math.max(q2, q12) + q22 + q32) * 1.3 * mgDNV;
+        Q418 = (1.25 * Math.max(q3, q13) + q23 + q33) * 1.3 * mgDNV;
+        Q419 = (1.25 * Math.max(q4, q14) + q24 + q34) * 1.3 * mgDNV;
+        Q420 = (1.25 * Math.max(q5, q15) + q25 + q35) * 1.3 * mgDNV;
 
 
         // lỰC CẮT ÂM
