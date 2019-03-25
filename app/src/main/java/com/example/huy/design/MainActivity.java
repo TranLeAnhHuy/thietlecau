@@ -96,9 +96,12 @@ public class MainActivity extends AppCompatActivity {
                 btn_DamThep.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent inhaplieu = new Intent(MainActivity.this, thietke_cauthep_dialog.class);
 
-                        startActivity(inhaplieu);
+                        final Dialog thietke_cauthep_dialog = new Dialog(MainActivity.this); // khai báo nó hiển thị ở màn hình chính đang đứng
+                        thietke_cauthep_dialog.setCancelable(false);// nếu bấm ra khỏi dialog thì ko thực thi
+                        thietke_cauthep_dialog.setContentView(R.layout.activity_thietke_cauthep_dialog);
+                        thietke_cauthep_dialog.show();
+//
                     }
                 });
 
