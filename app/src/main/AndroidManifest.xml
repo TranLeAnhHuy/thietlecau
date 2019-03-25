@@ -35,7 +35,9 @@
         <activity android:name=".kiemdinh_dialog" />
         <activity android:name=".KiemDinhNhanh" />
         <activity android:name=".KiemDinhTheoAASHTO" />
-        <activity android:name=".ViewMoreBMC"></activity>
+        <activity android:name=".ViewMoreBMC" />
+        <activity android:name=".thietke_cauthep_dialog" />
+        <activity android:name=".thietke_caubtct_dialog"></activity>
     </application>
 
 </manifest>

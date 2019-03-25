@@ -10,7 +10,7 @@ public class savedata {
     @PrimaryKey
     @NonNull
     @ColumnInfo
-    public String edtTenDuAn;
+    public String edtTenDuAn = "";
     @ColumnInfo
     public String edtHoatTaiTieuChuan;
     @ColumnInfo
@@ -209,7 +209,7 @@ public class savedata {
         this.edtDuThuaBMC= edtDuThuaBMC;
     }
 
-    public savedata() {
+    public savedata(String s, String toString, String string, String s1, String toString1, String string1, String s2, String s3, String s4, String s5, String toString2, String string2, String s6, String toString3, String string3, String toString4, String string4, String toString5, String string5, String toString6, String string6, String s7, String toString7, String string7, String s8, String toString8, String string8, String s9, String toString9, String string9, String s10, String toString10, String string10, String s11, String toString11, String string11, String s12, String toString12, String string12, String s13, String toString13, String string13, String s14, String toString14, String string14, String s15, String toString15, String string15, String s16, String toString16, String string16, String s17, String toString17, String string17, String s18, String toString18, String string18, String s19, String toString19) {
 
     }
 

@@ -36,7 +36,12 @@ public class nhaplieuthietke extends AppCompatActivity {
     EditText edtLoaiLienKetSuDung, edtCauTaoDamChu, edtMatCatNgangDamChu, edtCuongDoChiuNenCuaBeTong, edtTiTrongCuaBeTong, edtModuynDanHoiCuaBeTong;
     EditText edtChieuDayBMC, edtChieuDayLopPhu, edtTytrongVLlamLopPhu, edtThepKetCau, edtModuynDanHoiThep, edtCuongDoChiuKeoMIN, edtCuongDoChayMIN;
     EditText edtTiTrongThep, edtSoLuongDamChu, edtKhoangCachGiuaDC, edtChieuDaiPhanHang, edtChieuCaoDC, edtChieuRongBanCanhTren, edtChieuDayBCT;
-    EditText edtChieuRongBCD, edtChieuDayBCD, edtChieuDaySuonDam, edtChieuCaoSuon, edtSoLuongDamNgang1Nhip, edtTongSoDamNgang;
+    EditText edtChieuRongBCD;
+    EditText edtChieuDayBCD;
+    EditText edtChieuDaySuonDam;
+    TextView edtChieuCaoSuon;
+    EditText edtSoLuongDamNgang1Nhip;
+    EditText edtTongSoDamNgang;
     EditText edtYv, edtKhoangCachTimDNDenauDC, edtS2, edthn, edtbn, edttfdn, edttwdn, edthwdn, edta, edtnlkn, edthlkn, edtSlkn, edtb, edtAtg;
     TextView txtDienTichDamThep, txtModuynDanHoiCuaBeTong, txtAdn, txtnlkd, txtLdn;
     Button btnTinhToan;
@@ -198,7 +203,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtChieuRongBCD = (EditText) findViewById(R.id.edtChieuRongBCD);
         edtChieuDayBCD = (EditText) findViewById(R.id.edtChieuDayBCD);
         edtChieuDaySuonDam = (EditText) findViewById(R.id.edtChieuDaySuonDam);
-        edtChieuCaoSuon = (EditText) findViewById(R.id.edtChieuCaoSuon);
+        edtChieuCaoSuon = (TextView) findViewById(R.id.edtChieuCaoSuon);
         txtDienTichDamThep = (TextView) findViewById((R.id.txtDienTichDamChu));
         btnTinhToan = (Button) findViewById(R.id.btnTinhToan);
         edtSoLuongDamNgang1Nhip = (EditText) findViewById(R.id.edtSoLuongDamNgang1Nhip);
@@ -291,7 +296,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtChieuRongBCD.setText("");
         edtChieuDayBCD.setText("");
         edtChieuDaySuonDam.setText("");
-        edtChieuCaoSuon.setText("");
+
         edtSoLuongDamNgang1Nhip.setText("");
         edtTongSoDamNgang.setText("");
         edtYv.setText("");
@@ -325,7 +330,7 @@ public class nhaplieuthietke extends AppCompatActivity {
 
     private savedata buildData() {
         try {
-            return new savedata(edtTenDuAn.getText().toString(), edtHoatTaiTieuChuan.getText().toString(), edtChieuDaiNhip.getText().toString(), edtChieuDaiNhipTinhToan.getText().toString(), edtBeRongPhanXeChay.getText().toString(), edtBeRongLanCan.getText().toString(), edtTongBeRongToanCuaCau.getText().toString(), "", "", "", edtCuongDoChiuNenCuaBeTong.getText().toString(), edtTiTrongCuaBeTong.getText().toString(), "", edtChieuDayBMC.getText().toString(), edtChieuDayLopPhu.getText().toString(), edtTytrongVLlamLopPhu.getText().toString(), edtThepKetCau.getText().toString(), edtModuynDanHoiThep.getText().toString(), edtCuongDoChiuKeoMIN.getText().toString(), edtCuongDoChayMIN.getText().toString(), edtTiTrongThep.getText().toString(), edtSoLuongDamChu.getText().toString(), edtKhoangCachGiuaDC.getText().toString(), edtChieuDaiPhanHang.getText().toString(), edtChieuCaoDC.getText().toString(), edtChieuRongBanCanhTren.getText().toString(), edtChieuDayBCT.getText().toString(), edtChieuRongBCD.getText().toString(), edtChieuDayBCD.getText().toString(), edtChieuDaySuonDam.getText().toString(), edtChieuCaoSuon.getText().toString(), edtSoLuongDamNgang1Nhip.getText().toString(), edtTongSoDamNgang.getText().toString(), edtYv.getText().toString(), edtKhoangCachTimDNDenauDC.getText().toString(), edtS2.getText().toString(), edthn.getText().toString(), edtbn.getText().toString(), edttfdn.getText().toString(), edttwdn.getText().toString(), edthwdn.getText().toString(), edta.getText().toString(), edtnlkn.getText().toString(), edthlkn.getText().toString(), edtSlkn.getText().toString(), edtb.getText().toString(), edtAtg.getText().toString(), edtDCneo.getText().toString(), edtDClcT.getText().toString(), edtDClcBT.getText().toString(), edtPL.getText().toString(), edtT.getText().toString(), edtDtt.getText().toString(), edtDtt_ct.getText().toString(), edtDbaove_t.getText().toString(), edtd0.getText().toString(), edtnn.getText().toString(), edtdneo.getText().toString(), edtpn.getText().toString(), edtDuThuaBMC.getText().toString());
+            return new savedata(edtTenDuAn.getText().toString(), edtHoatTaiTieuChuan.getText().toString(), edtChieuDaiNhip.getText().toString(), edtChieuDaiNhipTinhToan.getText().toString(), edtBeRongPhanXeChay.getText().toString(), edtBeRongLanCan.getText().toString(), edtTongBeRongToanCuaCau.getText().toString(), "", "", "", edtCuongDoChiuNenCuaBeTong.getText().toString(), edtTiTrongCuaBeTong.getText().toString(), "", edtChieuDayBMC.getText().toString(), edtChieuDayLopPhu.getText().toString(), edtTytrongVLlamLopPhu.getText().toString(), edtThepKetCau.getText().toString(), edtModuynDanHoiThep.getText().toString(), edtCuongDoChiuKeoMIN.getText().toString(), edtCuongDoChayMIN.getText().toString(), edtTiTrongThep.getText().toString(), edtSoLuongDamChu.getText().toString(), edtKhoangCachGiuaDC.getText().toString(), edtChieuDaiPhanHang.getText().toString(), edtChieuCaoDC.getText().toString(), edtChieuRongBanCanhTren.getText().toString(), edtChieuDayBCT.getText().toString(), edtChieuRongBCD.getText().toString(), edtChieuDayBCD.getText().toString(), edtChieuDaySuonDam.getText().toString(), edtSoLuongDamNgang1Nhip.getText().toString(), edtTongSoDamNgang.getText().toString(), edtYv.getText().toString(), edtKhoangCachTimDNDenauDC.getText().toString(), edtS2.getText().toString(), edthn.getText().toString(), edtbn.getText().toString(), edttfdn.getText().toString(), edttwdn.getText().toString(), edthwdn.getText().toString(), edta.getText().toString(), edtnlkn.getText().toString(), edthlkn.getText().toString(), edtSlkn.getText().toString(), edtb.getText().toString(), edtAtg.getText().toString(), edtDCneo.getText().toString(), edtDClcT.getText().toString(), edtDClcBT.getText().toString(), edtPL.getText().toString(), edtT.getText().toString(), edtDtt.getText().toString(), edtDtt_ct.getText().toString(), edtDbaove_t.getText().toString(), edtd0.getText().toString(), edtnn.getText().toString(), edtdneo.getText().toString(), edtpn.getText().toString(), edtDuThuaBMC.getText().toString());
         } catch (Exception e) {
             return null;
         }
@@ -362,7 +367,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         edtChieuRongBCD.setText(data.edtChieuRongBCD);
         edtChieuDayBCD.setText(data.edtChieuDayBCD);
         edtChieuDaySuonDam.setText(data.edtChieuDaySuonDam);
-        edtChieuCaoSuon.setText(data.edtChieuCaoSuon);
+
         edtSoLuongDamNgang1Nhip.setText(data.edtSoLuongDamNgang1Nhip);
         edtTongSoDamNgang.setText(data.edtTongSoDamNgang);
         edtYv.setText(data.edtYv);
@@ -454,7 +459,9 @@ public class nhaplieuthietke extends AppCompatActivity {
                     // đóng gói và truyền dữ liệu
                     Intent LHintent = new Intent(nhaplieuthietke.this, KQKhongLienHop.class);
                     Bundle LHbundle = new Bundle();
+                    LHbundle.putDouble("Dw",Dw);
                     LHbundle.putDouble("Anc", Anc);
+
                     LHbundle.putDouble("Snct", Snct);
                     LHbundle.putDouble("Yncd", Yncd);
                     LHbundle.putDouble("Ynct", Ynct);
@@ -1644,8 +1651,8 @@ public class nhaplieuthietke extends AppCompatActivity {
         Pc = Fy * Bft * tft;
         Pt = Fy * Bfb * tfb;
         Pw = Fy * Dw * tw;
-        Prt = 400 * N1 * 3.14 * Dtt * Dtt * 0.25;
-        Prb = 400 * N2 * 3.14 * Dtd * Dtd * 0.25;
+        Prt = 400. * N1 * 3.14 * Dtt * Dtt * 0.25;
+        Prb = 400. * N2 * 3.14 * Dtd * Dtd * 0.25;
         // xác định trục trung hòa dẻo
         if ((Pt + Pw) > (Ps + Pc + Prt + Prb)) {
             Dcp = (Dw / 2) * ((Pt + Pw - Pc - Ps - Prt - Prb) / Pw);
@@ -1661,7 +1668,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
         }
         // momen dẻo
-        Mp = (Ps * (Dcp + tft + Yv + ts / 2) + Prt * (Dcp + tft + Yv + ts - St) + Prb * (Dcp + tft + Yv + ts + Sd) + Pc * (Dcp + tft / 2) + Pt * (Dw - Dcp + tfb / 2) + Pw * (Math.abs(-Dcp + Dw / 2))) * (1.0 / 1000000);
+        Mp = (Ps * (Dcp + tft + Yv + ts / 2.) + Prt * (Dcp + tft + Yv + ts - St) + Prb * (Dcp + tft + Yv + ts + Sd) + Pc * (Dcp + tft / 2.) + Pt * (Dw - Dcp + tfb / 2.) + Pw * (Math.abs(-Dcp + Dw / 2.))) * (1.0 / 1000000.);
         //     Toast.makeText(nhaplieuthietke.this,"Mp="+Mp,Toast.LENGTH_LONG).show();
         Dp = Dcp + tft + Yv + ts;
         if (Fy == 345) {
@@ -1707,7 +1714,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
 
         //tính hệ số k
-        k = 5 + (5 / (Math.pow(d0 / Dw, 2)));
+        k = 5. + (5. / (Math.pow(d0 / Dw, 2)));
         // tính c
         if (((Dw / tw) - 1.1 * Math.sqrt(Es * k / Fy)) <= 0) {
             c = 1;
@@ -1726,18 +1733,18 @@ public class nhaplieuthietke extends AppCompatActivity {
         if (Mu - 0.5 * Mp < 0) {
 //            V1n, V2n,r, Vr;
             V1n = (0.58 * Fy * Dw * tw) * (c + ((0.87 * (1 - c)) / (Math.sqrt(1 + Math.pow(d0 / Dw, 2)))));
-            Vr = V1n / 1000;
+            Vr = V1n / 1000.;
 
         } else if (Mu - 0.5 * Mp > 0) {
             V2n = r * ((0.58 * Fy * Dw * tw) * (c + ((0.87 * (1 - c)) / (Math.sqrt(1 + Math.pow(d0 / Dw, 2))))));
-            Vr = V2n / 1000;
+            Vr = V2n / 1000.;
         }
         // kiểm tra  lực cắt
         if (Vr - Math.max(Q71, Q76) > 0) {
-            txtKT6 = "Vr= " + (float) Math.round((Vr) * 1000) / 1000 + " > Math.max(Q71,Q76)= " + (float) Math.round((Math.max(Q71, Q76)) * 1000) / 1000 + "\n   Dầm thỏa sức kháng cắt";
+            txtKT6 = "Vr= " + (float) Math.round((Vr) * 1000) / 1000 + " > Vu= " + (float) Math.round((Math.max(Q71, Q76)) * 1000) / 1000 + "\n   Dầm thỏa sức kháng cắt";
             txt3 = "Sức kháng cắt TTGH CD1 đảm bảo";
         } else if ((Math.max(Q71, Q76) - c * Vp) < 0) {
-            txtKT6 = "(Math.max(Q71,Q76)-c*Vp)= " + (float) Math.round((Math.max(Q71, Q76) - c * Vp) * 1000) / 100 + "\n  Dầm thỏa sức kháng cắt";
+            txtKT6 = "c*Vp= " + (float) Math.round((c * Vp) * 1000) / 1000+" > Vu= "+ (float) Math.round((Math.max(Q71, Q76)) * 1000) / 1000+ "\n  Dầm thỏa sức kháng cắt";
             //Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
             txt3 = "Sức kháng cắt TTGH CD1 đảm bảo";
         } else {
@@ -3246,16 +3253,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
 
         //Chiều cao sườn dầm
-        try {
-            Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
 
-            if (Dw < 0) {
-
-                edtChieuCaoSuon.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtChieuCaoSuon.setError("Hãy nhập giá trị");
-        }
 
 
         //Chiều cao dàm chủ
@@ -3269,6 +3267,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuCaoDC.setError("Hãy nhập giá trị");
         }
+
         SsttDT = (Bft * tft * (D - (tft / 2)) + Dw * tw * (tfb + 0.5 * Dw) + Bfb * tfb * 0.5 * tfb + BssDT * ts * (D + 0.5 * ts));
         SsttDN = (Bft * tft * (D - (tft / 2)) + Dw * tw * (tfb + 0.5 * Dw) + Bfb * tfb * 0.5 * tfb + BssDN * ts * (D + 0.5 * ts));
 
@@ -3367,16 +3366,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
 
         //Chiều cao sườn dầm
-        try {
-            Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
 
-            if (Dw < 0) {
-
-                edtChieuCaoSuon.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtChieuCaoSuon.setError("Hãy nhập giá trị");
-        }
         //Chiều cao dàm chủ
         try {
             D = Double.parseDouble(edtChieuCaoDC.getText().toString());
@@ -3388,6 +3378,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         } catch (Exception e) {
             edtChieuCaoDC.setError("Hãy nhập giá trị");
         }
+        Dw= D-tfb-tft;
         SlttDT = (Bft * tft * (D - (tft / 2)) + Dw * tw * (tfb + 0.5 * Dw) + Bfb * tfb * 0.5 * tfb + BsDT * ts * (D + 0.5 * ts));
         SlttDN = (Bft * tft * (D - (tft / 2)) + Dw * tw * (tfb + 0.5 * Dw) + Bfb * tfb * 0.5 * tfb + BsDN * ts * (D + 0.5 * ts));
 
@@ -3681,6 +3672,17 @@ public class nhaplieuthietke extends AppCompatActivity {
 
     // DIỆN TÍCH THÉP ĐỦ BIẾN
     public void tinhToanDienTichThep() {
+        //Chiều cao dàm chủ
+        try {
+            D = Double.parseDouble(edtChieuCaoDC.getText().toString());
+
+            if (D < 0) {
+
+                edtChieuCaoDC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtChieuCaoDC.setError("Hãy nhập giá trị");
+        }
         //Chiều rộng bản cánh trên
         try {
             Bft = Double.parseDouble(edtChieuRongBanCanhTren.getText().toString());
@@ -3742,20 +3744,14 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
 
         //Chiều cao sườn dầm
-        try {
-            Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
 
-            if (Dw < 0) {
-
-                edtChieuCaoSuon.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtChieuCaoSuon.setError("Hãy nhập giá trị");
-        }
 
         // Diện tích dầm thép // Adt
+        Dw=D-tft-tfb;
+        edtChieuCaoSuon.setText(""+Dw);
         Adt = Bft * tft + Bfb * tfb + Dw * tw;
         txtDienTichDamThep.setText("" + Adt);
+
     }
 
     public void tinhToanEBeTong() {

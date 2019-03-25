@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 //LIÊN HỢP
 public class KQKhongLienHop extends AppCompatActivity {
-    TextView txtAnc, txtSnct, txtYncd, txtYnct, txtInc, txtSncd;
+    TextView txtAnc, txtSnct, txtYncd, txtYnct, txtInc, txtSncd,edtChieuCaoSuon;
     TextView txtBsDT, txtBsDN, txtAltDT, txtAltDN, txtSlttDT, txtSlttDN, txtYltdDT, txtYltdDN,
             txtYlttDT, txtYlttDN, txtIltDT, txtIltDN;
     TextView txtBssDT, txtBssDN, txtAstDT, txtAstDN, txtSsttDT, txtSsttDN, txtYstdDT, txtYstdDN,
@@ -49,7 +49,9 @@ public class KQKhongLienHop extends AppCompatActivity {
         //Láy kết quả
         Intent LHintent = getIntent();
         Bundle LHbundle = LHintent.getBundleExtra("LHbundle");
+        edtChieuCaoSuon.setText(roundString(LHbundle.getDouble("Dw"),4));
         txtAnc.setText(roundString(LHbundle.getDouble("Anc"), 4));
+
         txtSnct.setText(roundString(LHbundle.getDouble("Snct"), 4));
         txtYncd.setText(roundString(LHbundle.getDouble("Yncd"), 4));
         txtYnct.setText(roundString(LHbundle.getDouble("Ynct"), 4));
@@ -810,6 +812,7 @@ public class KQKhongLienHop extends AppCompatActivity {
     //    }
 
     public void addConrols() {
+        edtChieuCaoSuon= (TextView) findViewById(R.id.edtChieuCaoSuon);
         txtAnc = (TextView) findViewById(R.id.txtAnc);
         txtSnct = (TextView) findViewById(R.id.txtSnct);
         txtYncd = (TextView) findViewById(R.id.txtYncd);
