@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_ThietKe, btn_KiemDinh;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
                         final Dialog thietke_cauthep_dialog = new Dialog(MainActivity.this); // khai báo nó hiển thị ở màn hình chính đang đứng
                         thietke_cauthep_dialog.setCancelable(false);// nếu bấm ra khỏi dialog thì ko thực thi
                         thietke_cauthep_dialog.setContentView(R.layout.activity_thietke_cauthep_dialog);
+                        Button btn_CauDamThepLienHop = (Button) thietke_cauthep_dialog.findViewById(R.id.button_CauDamThep_CoLienHop);
+                        Button btn_CauDamKhongLienHop = (Button) thietke_cauthep_dialog.findViewById(R.id.button_CauDamThep_KhongLienHop);
                         thietke_cauthep_dialog.show();
 //
                     }
