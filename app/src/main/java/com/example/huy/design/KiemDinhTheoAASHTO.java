@@ -82,24 +82,323 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kiem_dinh_theo_aashto);
-        addEvents();
         addControls();
+        addEvents();
+
     }
-    public void addControls(){
+    public void addEvents(){
+        NhapLieu();
 
-
-        NhapFie();
         TinhToan();
 
 
+    }
+    public void NhapLieu(){
+
+
+
+        //   Mtt,Nlan,mgLL,bi,ts, tv, bft, tft, tw, Dw, bfc,tfc,Fy,fc,dtt,n1,dtd,n2,Fyct,st,sd ;
+        try {
+            DW = Double.parseDouble(edtDW.getText().toString());
+
+            if (DW < 0) {
+
+                edtDW.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtDW.setError("Hãy nhập giá trị");
+        }
+        try {
+            Mtt = Double.parseDouble(edtMtt.getText().toString());
+
+            if (Mtt < 0) {
+
+                edtMtt.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtMtt.setError("Hãy nhập giá trị");
+        }
+        try {
+            Nlan = Double.parseDouble(edtNlan.getText().toString());
+
+            if (Nlan < 0) {
+
+                edtNlan.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtNlan.setError("Hãy nhập giá trị");
+        }
+        try {
+            mgLL = Double.parseDouble(edtmgLL.getText().toString());
+
+            if (mgLL < 0) {
+
+                edtmgLL.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtmgLL.setError("Hãy nhập giá trị");
+        }
+        try {
+            S= Double.parseDouble(edtS.getText().toString());
+
+            if (S < 0) {
+
+                edtS.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtS.setError("Hãy nhập giá trị");
+        }
+        try {
+            ts= Double.parseDouble(edtts.getText().toString());
+
+            if (ts < 0) {
+
+                edtts.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtts.setError("Hãy nhập giá trị");
+        }
+        try {
+            tv= Double.parseDouble(edttv.getText().toString());
+
+            if (tv< 0) {
+
+                edttv.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edttv.setError("Hãy nhập giá trị");
+        }
+
+        try {
+            bft= Double.parseDouble(edtbft.getText().toString());
+
+            if ( bft< 0) {
+
+                edtbft.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtbft.setError("Hãy nhập giá trị");
+        }
+        try {
+            tft= Double.parseDouble(edttft.getText().toString());
+
+            if (tft< 0) {
+
+                edttft.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edttft.setError("Hãy nhập giá trị");
+        }
+        try {
+            tw= Double.parseDouble(edttw.getText().toString());
+
+            if (tw< 0) {
+
+                edttw.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edttw.setError("Hãy nhập giá trị");
+        }
+        try {
+            Dw= Double.parseDouble(edtDw.getText().toString());
+
+            if (Dw< 0) {
+
+                edtDw.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtDw.setError("Hãy nhập giá trị");
+        }
+        try {
+            bfc= Double.parseDouble(edtbfc.getText().toString());
+
+            if (bfc< 0) {
+
+                edtbfc.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtbfc.setError("Hãy nhập giá trị");
+        }
+        //    bft, tft, tw, Dw, bfc,tfc,Fy,fc,dtt,n1,dtd,n2,Fyct,st,sd ;
+        try {
+            tfc= Double.parseDouble(edttfc.getText().toString());
+
+            if (tfc< 0) {
+
+                edttfc.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edttfc.setError("Hãy nhập giá trị");
+        }
+        try {
+            Fy= Double.parseDouble(edtFy.getText().toString());
+
+            if (Fy< 0) {
+
+                edtFy.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtFy.setError("Hãy nhập giá trị");
+        }
+        try {
+            fc= Double.parseDouble(edtfc.getText().toString());
+
+            if (fc< 0) {
+
+                edtfc.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtfc.setError("Hãy nhập giá trị");
+        }
+        try {
+            dtt= Double.parseDouble(edtdtt.getText().toString());
+
+            if (dtt< 0) {
+
+                edtdtt.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtdtt.setError("Hãy nhập giá trị");
+        }
+        try {
+            n1= Double.parseDouble(edtn1.getText().toString());
+
+            if (n1< 0) {
+
+                edtn1.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtn1.setError("Hãy nhập giá trị");
+        }
+        try {
+            dtd= Double.parseDouble(edtdtd.getText().toString());
+
+            if (dtd< 0) {
+
+                edtdtd.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtdtd.setError("Hãy nhập giá trị");
+        }
+        try {
+            n2= Double.parseDouble(edtn2.getText().toString());
+
+            if (n2< 0) {
+
+                edtn2.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtn2.setError("Hãy nhập giá trị");
+        }
+        try {
+            Fyct= Double.parseDouble(edtFyct.getText().toString());
+
+            if (Fyct< 0) {
+
+                edtFyct.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtFyct.setError("Hãy nhập giá trị");
+        }
+        try {
+            st= Double.parseDouble(edtst.getText().toString());
+
+            if (st< 0) {
+
+                edtst.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtst.setError("Hãy nhập giá trị");
+        }
+        try {
+            sd= Double.parseDouble(edtsd.getText().toString());
+
+            if (sd< 0) {
+
+                edtsd.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtsd.setError("Hãy nhập giá trị");
+        }
+        try {
+            Ls= Double.parseDouble(edtLs.getText().toString());
+
+            if (Ls< 0) {
+
+                edtLs.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtLs.setError("Hãy nhập giá trị");
+        }
+        //Chiều dài phần hẫng
+        try {
+            de = Double.parseDouble(edtde.getText().toString());
+
+            if (de < 0) {
+
+                edtde.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtde.setError("Hãy nhập giá trị");
+        }
+    }
+    public void addControls(){
+        btnNhapFile=(Button) findViewById(R.id.btnNhapFile);
+        txtViewTxt=(TextView) findViewById(R.id.txtViewTxt);
+        ///////////
+        spncauthep = (Spinner) findViewById(R.id.spncauthep);
+        spnphic = (Spinner) findViewById(R.id.spnphic);
+        spnphis = (Spinner) findViewById(R.id.spnphis);
+        //spnphi = (Spinner) findViewById(R.id.spnphi);
+        spnphiLL = (Spinner) findViewById(R.id.spnphiL);
+        edtMtt=(EditText)findViewById(R.id.edtMtt);
+        edtNlan=(EditText)findViewById(R.id.edtNlan);
+        edtmgLL=(EditText)findViewById(R.id.edtmgLL);
+        edtS=(EditText)findViewById(R.id.edtS);
+        edtts=(EditText)findViewById(R.id.edtts);
+        edttv=(EditText)findViewById(R.id.edttv);
+        edtbft=(EditText)findViewById(R.id.edtbft);
+        edttft=(EditText)findViewById(R.id.edttft);
+        edttw=(EditText)findViewById(R.id.edttw);
+        edtDw=(EditText)findViewById(R.id.edtDw);
+        edtbfc=(EditText)findViewById(R.id.edtbfc);
+        edttfc=(EditText)findViewById(R.id.edttfc);
+        edtFy=(EditText)findViewById(R.id.edtFy);
+        edtfc=(EditText)findViewById(R.id.edtfc);
+        edtdtt=(EditText)findViewById(R.id.edtdtt);
+        edtn1=(EditText)findViewById(R.id.edtn1);
+        edtdtd=(EditText)findViewById(R.id.edtdtd);
+        edtn2=(EditText)findViewById(R.id.edtn2);
+        edtFyct=(EditText)findViewById(R.id.edtFyct);
+        edtst=(EditText)findViewById(R.id.edtst);
+        edtsd=(EditText)findViewById(R.id.edtsd);
+        edtLs=(EditText)findViewById(R.id.edtLs);
+        edtDW=(EditText)findViewById(R.id.edtDW);
+        btnTinhToan = (Button) findViewById(R.id.btnTinhToan);
+        edtde=(EditText) findViewById(R.id.edtde);
+
+
+
+
+
+//        try {
+//            = Double.parseDouble(edt.getText().toString());
+//
+//            if (< 0) {
+//
+//                edt.setError("Lỗi: Nhập số lớn hơn 0");
+//            }
+//        } catch (Exception e) {
+//            edt.setError("Hãy nhập giá trị");
+//        }
     }
     public void TinhToan(){
         btnTinhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Spinner();
+                NhapFie();
                 kiemdinhHL93_INVENTORY();
-
                 Intent cauthep_KDintent = new Intent(KiemDinhTheoAASHTO.this, KQ_kiemdinh_cauthep.class);
                 Bundle cauthep_KDbundle = new Bundle();
                 cauthep_KDbundle.putString("txtHL93_inv",txtHL93_inv);
@@ -461,302 +760,7 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
 
 
     }
-    public void addEvents(){
-        btnNhapFile=(Button) findViewById(R.id.btnNhapFile);
-        txtViewTxt=(TextView) findViewById(R.id.txtViewTxt);
-        ///////////
-        spncauthep = (Spinner) findViewById(R.id.spncauthep);
-        spnphic = (Spinner) findViewById(R.id.spnphic);
-        spnphis = (Spinner) findViewById(R.id.spnphis);
-        //spnphi = (Spinner) findViewById(R.id.spnphi);
-        spnphiLL = (Spinner) findViewById(R.id.spnphiL);
-        edtMtt=(EditText)findViewById(R.id.edtMtt);
-        edtNlan=(EditText)findViewById(R.id.edtNlan);
-        edtmgLL=(EditText)findViewById(R.id.edtmgLL);
-        edtS=(EditText)findViewById(R.id.edtS);
-        edtts=(EditText)findViewById(R.id.edtts);
-        edttv=(EditText)findViewById(R.id.edttv);
-        edtbft=(EditText)findViewById(R.id.edtbft);
-        edttft=(EditText)findViewById(R.id.edttft);
-        edttw=(EditText)findViewById(R.id.edttw);
-        edtDw=(EditText)findViewById(R.id.edtDw);
-        edtbfc=(EditText)findViewById(R.id.edtbfc);
-        edttfc=(EditText)findViewById(R.id.edttfc);
-        edtFy=(EditText)findViewById(R.id.edtFy);
-        edtfc=(EditText)findViewById(R.id.edtfc);
-        edtdtt=(EditText)findViewById(R.id.edtdtt);
-        edtn1=(EditText)findViewById(R.id.edtn1);
-        edtdtd=(EditText)findViewById(R.id.edtdtd);
-        edtn2=(EditText)findViewById(R.id.edtn2);
-        edtFyct=(EditText)findViewById(R.id.edtFyct);
-        edtst=(EditText)findViewById(R.id.edtst);
-        edtsd=(EditText)findViewById(R.id.edtsd);
-        edtLs=(EditText)findViewById(R.id.edtLs);
-        edtDW=(EditText)findViewById(R.id.edtDW);
-        btnTinhToan = (Button) findViewById(R.id.btnTinhToan);
-        edtde=(EditText) findViewById(R.id.edtde);
 
-
-        Spinner();
-
-
-        //   Mtt,Nlan,mgLL,bi,ts, tv, bft, tft, tw, Dw, bfc,tfc,Fy,fc,dtt,n1,dtd,n2,Fyct,st,sd ;
-        try {
-            DW = Double.parseDouble(edtDW.getText().toString());
-
-            if (DW < 0) {
-
-                edtDW.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtDW.setError("Hãy nhập giá trị");
-        }
-        try {
-            Mtt = Double.parseDouble(edtMtt.getText().toString());
-
-            if (Mtt < 0) {
-
-                edtMtt.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtMtt.setError("Hãy nhập giá trị");
-        }
-        try {
-            Nlan = Double.parseDouble(edtNlan.getText().toString());
-
-            if (Nlan < 0) {
-
-                edtNlan.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtNlan.setError("Hãy nhập giá trị");
-        }
-        try {
-            mgLL = Double.parseDouble(edtmgLL.getText().toString());
-
-            if (mgLL < 0) {
-
-                edtmgLL.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtmgLL.setError("Hãy nhập giá trị");
-        }
-        try {
-            S= Double.parseDouble(edtS.getText().toString());
-
-            if (S < 0) {
-
-                edtS.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtS.setError("Hãy nhập giá trị");
-        }
-        try {
-            ts= Double.parseDouble(edtts.getText().toString());
-
-            if (ts < 0) {
-
-                edtts.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtts.setError("Hãy nhập giá trị");
-        }
-        try {
-            tv= Double.parseDouble(edttv.getText().toString());
-
-            if (tv< 0) {
-
-                edttv.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edttv.setError("Hãy nhập giá trị");
-        }
-
-        try {
-            bft= Double.parseDouble(edtbft.getText().toString());
-
-            if ( bft< 0) {
-
-                edtbft.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtbft.setError("Hãy nhập giá trị");
-        }
-        try {
-            tft= Double.parseDouble(edttft.getText().toString());
-
-            if (tft< 0) {
-
-                edttft.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edttft.setError("Hãy nhập giá trị");
-        }
-        try {
-            tw= Double.parseDouble(edttw.getText().toString());
-
-            if (tw< 0) {
-
-                edttw.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edttw.setError("Hãy nhập giá trị");
-        }
-        try {
-            Dw= Double.parseDouble(edtDw.getText().toString());
-
-            if (Dw< 0) {
-
-                edtDw.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtDw.setError("Hãy nhập giá trị");
-        }
-        try {
-            bfc= Double.parseDouble(edtbfc.getText().toString());
-
-            if (bfc< 0) {
-
-                edtbfc.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtbfc.setError("Hãy nhập giá trị");
-        }
-        //    bft, tft, tw, Dw, bfc,tfc,Fy,fc,dtt,n1,dtd,n2,Fyct,st,sd ;
-        try {
-            tfc= Double.parseDouble(edttfc.getText().toString());
-
-            if (tfc< 0) {
-
-                edttfc.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edttfc.setError("Hãy nhập giá trị");
-        }
-        try {
-            Fy= Double.parseDouble(edtFy.getText().toString());
-
-            if (Fy< 0) {
-
-                edtFy.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtFy.setError("Hãy nhập giá trị");
-        }
-        try {
-            fc= Double.parseDouble(edtfc.getText().toString());
-
-            if (fc< 0) {
-
-                edtfc.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtfc.setError("Hãy nhập giá trị");
-        }
-        try {
-            dtt= Double.parseDouble(edtdtt.getText().toString());
-
-            if (dtt< 0) {
-
-                edtdtt.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtdtt.setError("Hãy nhập giá trị");
-        }
-        try {
-            n1= Double.parseDouble(edtn1.getText().toString());
-
-            if (n1< 0) {
-
-                edtn1.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtn1.setError("Hãy nhập giá trị");
-        }
-        try {
-            dtd= Double.parseDouble(edtdtd.getText().toString());
-
-            if (dtd< 0) {
-
-                edtdtd.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtdtd.setError("Hãy nhập giá trị");
-        }
-        try {
-            n2= Double.parseDouble(edtn2.getText().toString());
-
-            if (n2< 0) {
-
-                edtn2.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtn2.setError("Hãy nhập giá trị");
-        }
-        try {
-            Fyct= Double.parseDouble(edtFyct.getText().toString());
-
-            if (Fyct< 0) {
-
-                edtFyct.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtFyct.setError("Hãy nhập giá trị");
-        }
-        try {
-            st= Double.parseDouble(edtst.getText().toString());
-
-            if (st< 0) {
-
-                edtst.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtst.setError("Hãy nhập giá trị");
-        }
-        try {
-            sd= Double.parseDouble(edtsd.getText().toString());
-
-            if (sd< 0) {
-
-                edtsd.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtsd.setError("Hãy nhập giá trị");
-        }
-        try {
-            Ls= Double.parseDouble(edtLs.getText().toString());
-
-            if (Ls< 0) {
-
-                edtLs.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtLs.setError("Hãy nhập giá trị");
-        }
-        //Chiều dài phần hẫng
-        try {
-            de = Double.parseDouble(edtde.getText().toString());
-
-            if (de < 0) {
-
-                edtde.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e) {
-            edtde.setError("Hãy nhập giá trị");
-        }
-
-
-//        try {
-//            = Double.parseDouble(edt.getText().toString());
-//
-//            if (< 0) {
-//
-//                edt.setError("Lỗi: Nhập số lớn hơn 0");
-//            }
-//        } catch (Exception e) {
-//            edt.setError("Hãy nhập giá trị");
-//        }
-    }
 
 
 
