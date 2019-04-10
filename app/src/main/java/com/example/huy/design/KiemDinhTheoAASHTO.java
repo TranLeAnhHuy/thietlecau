@@ -46,6 +46,9 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
     ///
     double DC,DW;
     /// momen dẻo
+    double lienhop;
+    double khonglienhop;
+    double Ast,Sst;
     double bi1,bi2,bi3,bii,bc2,bc3,bcc,bc,be,bc1;
     double Mp;
     double Ps,Pc,Pt,Pw,Prt,Prb,Dcp;
@@ -87,7 +90,8 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
 
     }
     public void addEvents(){
-        NhapLieu();
+
+        Spinner();
 
         TinhToan();
 
@@ -396,7 +400,15 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
         btnTinhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Spinner();
+                NhapLieu();
+              /// spinner liên hợp hoặc không liên h
+                if(lienhop==1){
+                    LienHop();
+
+                }else if(khonglienhop==1){
+                    KhongLienHop();
+
+                }
                 NhapFie();
                 kiemdinhHL93_INVENTORY();
                 Intent cauthep_KDintent = new Intent(KiemDinhTheoAASHTO.this, KQ_kiemdinh_cauthep.class);
@@ -799,6 +811,7 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
         //thiết lập sự kiện chọn phần tử cho Spinner
         spnphiLL.setOnItemSelectedListener(new MyProcessEventphiLL());
     }
+
     public class MyProcessEventphiLL implements AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -882,96 +895,8 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
             if (lastedSelectedcauthep == 0) {
                 //////LIÊN HỢP
                 // tính hữu hiệu
+              lienhop=1;
 
-                bi1 = (1000 * Ls) / 4.;
-                bi2 = 12 * ts + Math.max(tw, 0.5 * bft);
-                bi3 = S;
-                bii = Math.min(bi1, bi2);
-                bi = Math.min(bii, bi3);
-                bc1 = 1000 * Ls / 8.;
-                bc2 = 6 * ts + Math.max((tw / 2), (bft / 4));
-                bc3 = de;
-                bcc = Math.min(bc1, bc2);
-                bc = (0.5 * bi) + Math.min(bcc, bc3);
-                be=Math.min(bi,bc);
-
-                Ps=0.85*fc*be*ts;
-                Pc=Fy*bft*tft;
-                Pt= Fy*bfc*tfc;
-                Pw= Fy*Dw*tw;
-                Prt= Fyct* n1* 3.14*dtt*dtt *0.25;
-                Prb= Fyct*n2* 3.14*dtd*dtd *0.25;
-
-                // xác định trục trung hòa dẻo
-                if ((Pt + Pw) > (Ps + Pc + Prt + Prb)) {
-                    Dcp = (Dw / 2) * ((Pt + Pw - Pc - Ps - Prt - Prb) / Pw);
-                  //  txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + ">" + "Ps+Pc+Prt+Prb= " + (float) Math.round(((Pt + Pw - Pc - Ps - Prt - Prb) / Pw) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản bụng";
-                    // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
-                } else if ((Pt + Pw < Ps + Pc + Prt + Prb && Pt + Pw + Pc > Ps + Prt + Prb)) {
-                    Dcp = (tft / 2) * ((Pt + Pw + Pc - Ps - Prt - Prb) / Pc);
-                  //  txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + "<" + "Ps+Pc+Prt+Prb= " + (float) Math.round((Ps + Pc + Prt + Prb) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản cánh trên";
-                    // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
-                } else if ((Pt + Pw + Pc + Ps) > (Prt + Prb)) {
-                    Dcp = (ts / 2) * ((Pt + Pw + Pc + Ps - Prt - Prb) / Ps);
-                  //  txtKT4 = "Trục trung hòa dẻo nằm ở bản bê tông";
-                    /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
-                }
-                // momen dẻo
-                Mp = (Ps * (Dcp + tft + tv + ts / 2.) + Prt * (Dcp + tft + tv + ts - st) + Prb * (Dcp + tft + tv + ts + sd) + Pc * (Dcp + tft / 2.) + Pt * (Dw - Dcp + tfc / 2.) + Pw * (Math.abs(-Dcp + Dw / 2.))) * (1.0 / 1000000.);
-               //double a=  Dcp+1;
-
-                if(fc>= 16. && fc<20.){
-                    n=10.;
-                }else if(fc>= 20.&& fc<25.){
-                    n=9.;
-                }else if(fc>=25 && fc<32.){
-                    n=8;
-                }else if(fc>=32 && fc<= 41){
-                    n=7.;
-                }else {
-                    n=6.;
-                }
-
-                // nguyên
-                Anc=bft*tft+ Dw*tw+ bfc*tfc;
-                D=Dw+tfc+tft;
-                Snct = (((bft * tft) * (D - (tft / 2.))) + ((Dw * tw) * (D - tft - (Dw / 2.))) + ((bfc * tfc) * (tfc / 2.)));
-                Y1=Yncd = (Snct / Anc);
-                Ynct = (D - Yncd);
-                I1= Inc = ((bft * (Math.pow(tft, 3)) / 12) + (bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (bfc * Math.pow(tfc, 3) / 12) + (bfc * tfc) * Math.pow((Yncd - 0.5 * tfc), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfc - Yncd), 2));
-                Sncd = (Anc * Ynct);
-               //dài
-                BsDT = (bi / (3 * n));
-                BsDN = (bc / (3 * n));
-                AltDT = (Anc + BsDT * ts);
-                AltDN = (Anc + BsDN * ts);
-                SlttDT = (bft * tft * (D - (tft / 2)) + Dw * tw * (tfc + 0.5 * Dw) + bfc * tfc * 0.5 * tfc + BsDT * ts * (D + 0.5 * ts));
-                SlttDN = (bft * tft * (D - (tft / 2)) + Dw * tw * (tfc + 0.5 * Dw) + bfc * tfc * 0.5 * tfc + BsDN * ts * (D + 0.5 * ts));
-                //Yltd
-                YltdDT = (SlttDT / AltDT);
-                YltdDN = (SlttDN / AltDN);
-                //Yltt
-                YlttDT = Math.ceil(D - YltdDT);
-                YlttDN = Math.ceil(D - YltdDN);
-                //Ilt
-                IltDT = Inc + Anc * Math.pow(YltdDT - Yncd, 2) + (BsDT * Math.pow(ts, 3) / 12) + BsDT * ts * Math.pow(0.5 * ts + YlttDT + tv, 2);
-                IltDN = Inc + Anc * Math.pow(YltdDN - Yncd, 2) + (BsDN * Math.pow(ts, 3) / 12) + BsDN * ts * Math.pow(0.5 * ts + YlttDN + tv, 2);
-                ///
-                Y2=Yltd=Math.max(YltdDN,YltdDT);
-                I2=Ilt=Math.max(IltDN,IltDT);
-                //ngắn
-                //Bss
-                double Ast,Sst;
-               Ast= Anc+(be/n)*ts;
-               Snct=(bft*tft)*(D-0.5*tft)+(Dw*tw)*(D-tft-0.5*Dw)+(bfc*tfc)*0.5*tfc;
-               Sst=Snct+(be/n)*ts*(D+tv+0.5*ts)+(bft*tv*(0.5*tv+D)/n);
-               Ystd=Sst/Ast;
-               Yltd=Dw+tft+tfc-Ystd;
-               Ist=Inc+Anc*Math.pow(Ystd-Yncd,2)+(be*Math.pow(ts,3)/(12.*n))+(be/n)*ts*Math.pow(0.5*ts+tv+Yltd,2)+(((bft*Math.pow(tv,3)/12.)+bft*tv*(Math.pow(0.5*tv+Yltd,2)))/n);
-
-                I3=Ist;
-                Y3=Ystd;
-                double as=Ist;
 
        /* IstDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDT-0.5*tfb),2)))+(BssDT*(Math.pow(ts,3))/12)+(BssDT*ts*(Math.pow((YsttDT+0.5*ts),2))));
         IstDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDN-0.5*tfb),2)))+(BssDN*(Math.pow(ts,3))/12)+(BssDN*ts*(Math.pow((YsttDN+0.5*ts),2))));*/
@@ -979,19 +904,8 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
 
                 //  Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
             } else if (lastedSelectedcauthep == 1) {
+                khonglienhop=1;
                ////
-               /// KHÔNG KIÊN HỢP
-
-                Mp=Fy*tft*bft*(0.5*(Dw+tft+tfc)-0.5*tft)+Fy*tfc*bfc*(0.5*(Dw+tft+tfc)-0.5*tfc)+2*Fy*tw*Dw*Dw/8.;
-
-                Anc=bft*tft+ Dw*tw+ bfc*tfc;
-                D=Dw+tfc+tft;
-                Snct = (((bft * tft) * (D - (tft / 2.))) + ((Dw * tw) * (D - tft - (Dw / 2.))) + ((bfc * tfc) * (tfc / 2.)));
-               Y3=Y2= Y1=Yncd = (Snct / Anc);
-                Ynct = (D - Yncd);
-              I3=I2 = I1= Inc = ((bft * (Math.pow(tft, 3)) / 12) + (bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (bfc * Math.pow(tfc, 3) / 12) + (bfc * tfc) * Math.pow((Yncd - 0.5 * tfc), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfc - Yncd), 2));
-
-
 
 
 
@@ -1030,6 +944,114 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
         public void onNothingSelected(AdapterView<?> parent) {
         }
         //Nếu không chọn gì cả
+    }
+    public void LienHop(){
+
+        bi1 = (1000 * Ls) / 4.;
+        bi2 = 12 * ts + Math.max(tw, 0.5 * bft);
+        bi3 = S;
+        bii = Math.min(bi1, bi2);
+        bi = Math.min(bii, bi3);
+        bc1 = 1000 * Ls / 8.;
+        bc2 = 6 * ts + Math.max((tw / 2), (bft / 4));
+        bc3 = de;
+        bcc = Math.min(bc1, bc2);
+        bc = (0.5 * bi) + Math.min(bcc, bc3);
+        be=Math.min(bi,bc);
+
+        Ps=0.85*fc*be*ts;
+        Pc=Fy*bft*tft;
+        Pt= Fy*bfc*tfc;
+        Pw= Fy*Dw*tw;
+        Prt= Fyct* n1* 3.14*dtt*dtt *0.25;
+        Prb= Fyct*n2* 3.14*dtd*dtd *0.25;
+
+        // xác định trục trung hòa dẻo
+        if ((Pt + Pw) > (Ps + Pc + Prt + Prb)) {
+            Dcp = (Dw / 2) * ((Pt + Pw - Pc - Ps - Prt - Prb) / Pw);
+            //  txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + ">" + "Ps+Pc+Prt+Prb= " + (float) Math.round(((Pt + Pw - Pc - Ps - Prt - Prb) / Pw) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản bụng";
+            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
+        } else if ((Pt + Pw < Ps + Pc + Prt + Prb && Pt + Pw + Pc > Ps + Prt + Prb)) {
+            Dcp = (tft / 2) * ((Pt + Pw + Pc - Ps - Prt - Prb) / Pc);
+            //  txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + "<" + "Ps+Pc+Prt+Prb= " + (float) Math.round((Ps + Pc + Prt + Prb) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản cánh trên";
+            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
+        } else if ((Pt + Pw + Pc + Ps) > (Prt + Prb)) {
+            Dcp = (ts / 2) * ((Pt + Pw + Pc + Ps - Prt - Prb) / Ps);
+            //  txtKT4 = "Trục trung hòa dẻo nằm ở bản bê tông";
+            /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
+        }
+        // momen dẻo
+        Mp = (Ps * (Dcp + tft + tv + ts / 2.) + Prt * (Dcp + tft + tv + ts - st) + Prb * (Dcp + tft + tv + ts + sd) + Pc * (Dcp + tft / 2.) + Pt * (Dw - Dcp + tfc / 2.) + Pw * (Math.abs(-Dcp + Dw / 2.))) * (1.0 / 1000000.);
+        //double a=  Dcp+1;
+
+        if(fc>= 16. && fc<20.){
+            n=10.;
+        }else if(fc>= 20.&& fc<25.){
+            n=9.;
+        }else if(fc>=25 && fc<32.){
+            n=8;
+        }else if(fc>=32 && fc<= 41){
+            n=7.;
+        }else {
+            n=6.;
+        }
+
+        // nguyên
+        Anc=bft*tft+ Dw*tw+ bfc*tfc;
+        D=Dw+tfc+tft;
+        Snct = (((bft * tft) * (D - (tft / 2.))) + ((Dw * tw) * (D - tft - (Dw / 2.))) + ((bfc * tfc) * (tfc / 2.)));
+        Y1=Yncd = (Snct / Anc);
+        Ynct = (D - Yncd);
+        I1= Inc = ((bft * (Math.pow(tft, 3)) / 12) + (bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (bfc * Math.pow(tfc, 3) / 12) + (bfc * tfc) * Math.pow((Yncd - 0.5 * tfc), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfc - Yncd), 2));
+        Sncd = (Anc * Ynct);
+        //dài
+        BsDT = (bi / (3 * n));
+        BsDN = (bc / (3 * n));
+        AltDT = (Anc + BsDT * ts);
+        AltDN = (Anc + BsDN * ts);
+        SlttDT = (bft * tft * (D - (tft / 2)) + Dw * tw * (tfc + 0.5 * Dw) + bfc * tfc * 0.5 * tfc + BsDT * ts * (D + 0.5 * ts));
+        SlttDN = (bft * tft * (D - (tft / 2)) + Dw * tw * (tfc + 0.5 * Dw) + bfc * tfc * 0.5 * tfc + BsDN * ts * (D + 0.5 * ts));
+        //Yltd
+        YltdDT = (SlttDT / AltDT);
+        YltdDN = (SlttDN / AltDN);
+        //Yltt
+        YlttDT = Math.ceil(D - YltdDT);
+        YlttDN = Math.ceil(D - YltdDN);
+        //Ilt
+        IltDT = Inc + Anc * Math.pow(YltdDT - Yncd, 2) + (BsDT * Math.pow(ts, 3) / 12) + BsDT * ts * Math.pow(0.5 * ts + YlttDT + tv, 2);
+        IltDN = Inc + Anc * Math.pow(YltdDN - Yncd, 2) + (BsDN * Math.pow(ts, 3) / 12) + BsDN * ts * Math.pow(0.5 * ts + YlttDN + tv, 2);
+        ///
+        Y2=Yltd=Math.max(YltdDN,YltdDT);
+        I2=Ilt=Math.max(IltDN,IltDT);
+        //ngắn
+        //Bss
+
+        Ast= Anc+(be/n)*ts;
+        Snct=(bft*tft)*(D-0.5*tft)+(Dw*tw)*(D-tft-0.5*Dw)+(bfc*tfc)*0.5*tfc;
+        Sst=Snct+(be/n)*ts*(D+tv+0.5*ts)+(bft*tv*(0.5*tv+D)/n);
+        Ystd=Sst/Ast;
+        Yltd=Dw+tft+tfc-Ystd;
+        Ist=Inc+Anc*Math.pow(Ystd-Yncd,2)+(be*Math.pow(ts,3)/(12.*n))+(be/n)*ts*Math.pow(0.5*ts+tv+Yltd,2)+(((bft*Math.pow(tv,3)/12.)+bft*tv*(Math.pow(0.5*tv+Yltd,2)))/n);
+
+        I3=Ist;
+        Y3=Ystd;
+        double as=Ist;
+
+    }
+    public void KhongLienHop(){
+        /// KHÔNG KIÊN HỢP
+
+        Mp=Fy*tft*bft*(0.5*(Dw+tft+tfc)-0.5*tft)+Fy*tfc*bfc*(0.5*(Dw+tft+tfc)-0.5*tfc)+2*Fy*tw*Dw*Dw/8.;
+
+        Anc=bft*tft+ Dw*tw+ bfc*tfc;
+        D=Dw+tfc+tft;
+        Snct = (((bft * tft) * (D - (tft / 2.))) + ((Dw * tw) * (D - tft - (Dw / 2.))) + ((bfc * tfc) * (tfc / 2.)));
+        Y3=Y2= Y1=Yncd = (Snct / Anc);
+        Ynct = (D - Yncd);
+        I3=I2 = I1= Inc = ((bft * (Math.pow(tft, 3)) / 12) + (bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (bfc * Math.pow(tfc, 3) / 12) + (bfc * tfc) * Math.pow((Yncd - 0.5 * tfc), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfc - Yncd), 2));
+
+
+
     }
     public void NhapFie(){
         btnNhapFile.setOnClickListener(new View.OnClickListener() {
