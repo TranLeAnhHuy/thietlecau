@@ -37,7 +37,20 @@
         <activity android:name=".KiemDinhTheoAASHTO" />
         <activity android:name=".ViewMoreBMC" />
         <activity android:name=".thietke_cauthep_dialog" />
-        <activity android:name=".thietke_caubtct_dialog"></activity>
+        <activity android:name=".thietke_caubtct_dialog" />
+        <activity android:name=".ViewMoreNoiLucGD1klh" />
+        <activity android:name=".ViewMoreUngSuatGD1klh" />
+        <activity android:name=".ViewNoiLucklh" />
+        <activity android:name=".ViewMoreNoiLuc4klh" />
+        <activity android:name=".ViewMoreNoiLuc6klh" />
+        <activity android:name=".ViewMoreNoiLuc7klh" />
+        <activity android:name=".ViewMoreBMCklh" />
+        <activity android:name=".ViewKiemToanklh" />
+        <activity android:name=".ViewCauBTCTThuong" />
+        <activity android:name=".ViewCauBTCTDUL" />
+        <activity android:name=".loaicau_kiemdinh_dialog" />
+        <activity android:name=".KiemDinhTheoAASHTO_BTCT" />
+        <activity android:name=".KQ_kiemdinh_cauthep"></activity>
     </application>
 
 </manifest>

@@ -90,6 +90,8 @@ public class nhaplieuthietke extends AppCompatActivity {
     //tổng hợp
     double M71, M72, M73, M74, M75, M76, M77, M78, M79, M710, M711, M712, M713, M714, M715, M716, M717, M718, M719, M720, M721, M722, M723, M724;
     double Q71, Q72, Q73, Q74, Q75, Q76, Q77, Q78, Q79, Q710, Q711, Q712, Q713, Q714, Q715, Q716, Q717, Q718, Q719, Q720, Q721, Q722, Q723, Q724, Q725, Q726, Q727, Q728, Q729, Q730;
+    double Q71klh, Q72klh, Q73klh, Q74klh, Q75klh, Q76klh, Q77klh, Q78klh, Q79klh, Q710klh, Q711klh, Q712klh, Q713klh, Q714klh, Q715klh, Q716klh, Q717klh, Q718klh, Q719klh, Q720klh, Q721klh, Q722klh, Q723klh, Q724klh, Q725klh, Q726klh, Q727klh, Q728klh, Q729klh, Q730klh;
+    double M71klh, M72klh, M73klh, M74klh, M75klh, M76klh, M77klh, M78klh, M79klh, M710klh, M711klh, M712klh, M713klh, M714klh, M715klh, M716klh, M717klh, M718klh, M719klh, M720klh, M721klh, M722klh, M723klh, M724klh;
     // kiểm toán
     double my, myy, Ystt, Ystd, My;
     // tính thông số
@@ -156,6 +158,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     double V4duong, V4am, V4sr, p4;
     double V5duong, V5am, V5sr, p5;
     double Qr, Vh, nCD, pnew, nneofinal;
+    double Myklh, Mpklh;
     String tpn;
     AppDatabase appDatabase;
     String bt;
@@ -424,6 +427,273 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhTisoModuyn();
                     tinhDTHHGiaiDoan1();
                     chuaBien();
+                    tinhtxtLdn();
+                    tinhKhoiLuongGD1();
+                    tinhKhoiLuongGD2();
+                    tinhHeSoPhanBoLLTheoLanDoiVoiMomen();
+                    tinhHeSoPhanBoLLTheoLanDoiVoiLucCat();
+                    tinhNoiLucTinhTaiGD1();
+                    tinhUngSuatTinhTaiGD1();
+                    tinhNoiLuc4();
+                    tinhNoiLuc5();
+                    tinhNoiLuc6();
+                    tinhNoiLuc7klh();
+                    tinhBMC();
+                    kiemtoanklh();
+                    kqKiemToan();
+
+
+                    // đóng gói và truyền dữ liệu
+                    Intent KLHintent = new Intent(nhaplieuthietke.this, KQLienHop.class);
+                    Bundle KLHbundle = new Bundle();
+                    KLHbundle.putDouble("Dw",Dw);
+                    KLHbundle.putDouble("Anc", Anc);
+
+                    KLHbundle.putDouble("Snct", Snct);
+                    KLHbundle.putDouble("Yncd", Yncd);
+                    KLHbundle.putDouble("Ynct", Ynct);
+                    KLHbundle.putDouble("Inc", Inc);
+                    KLHbundle.putDouble("Sncd", Sncd);
+
+                    // tĩnh tải
+                    KLHbundle.putDouble("DC1", DC1);
+                    KLHbundle.putDouble("DC2DT", DC2DT);
+                    KLHbundle.putDouble("DC2DN", DC2DN);
+                    KLHbundle.putDouble("DCDT", DCDT);
+                    KLHbundle.putDouble("DCDN", DCDN);
+                    // hệ số phân phối ngang
+                    KLHbundle.putDouble("mgSIV", mgSIV);
+                    KLHbundle.putDouble("mgMEV2lan", mgMEV2lan);
+                    KLHbundle.putDouble("mgMIV", mgMIV);
+                    KLHbundle.putDouble("mgSIM", mgSIM);
+                    KLHbundle.putDouble("mgMIM", mgMIM);
+                    KLHbundle.putDouble("mgMEM2lan", mgMEM2lan);
+                    KLHbundle.putDouble("mgDTM", mgDTM);
+                    KLHbundle.putDouble("mgDTV", mgDTV);
+                    KLHbundle.putDouble("mgMEV1lan=", mgMEV1lan);
+                    KLHbundle.putDouble("mgDNV", mgDNV);
+                    KLHbundle.putDouble("mgMEM1lan", mgMEM1lan);
+                    KLHbundle.putDouble("mgDNM", mgDNM);
+                    KLHbundle.putDouble("mgPLDT", mgPLVDT);
+                    KLHbundle.putDouble("mgPLDN", mgPLVDN);
+
+                    KLHbundle.putDouble("M11", M11);
+                    KLHbundle.putDouble("M12", M12);
+                    KLHbundle.putDouble("M13", M13);
+                    KLHbundle.putDouble("M14", M14);
+                    KLHbundle.putDouble("M15", M15);
+                    KLHbundle.putDouble("M16", M16);
+                    KLHbundle.putDouble("M17", M17);
+                    KLHbundle.putDouble("M18", M18);
+                    KLHbundle.putDouble("Q11", Q11);
+                    KLHbundle.putDouble("Q12", Q12);
+                    KLHbundle.putDouble("Q13", Q13);
+                    KLHbundle.putDouble("Q14", Q14);
+                    KLHbundle.putDouble("Q15", Q15);
+                    KLHbundle.putDouble("Q16", Q16);
+                    KLHbundle.putDouble("Q17", Q17);
+                    KLHbundle.putDouble("Q18", Q18);
+                    KLHbundle.putDouble("f11", f11);
+                    KLHbundle.putDouble("f12", f12);
+                    KLHbundle.putDouble("f13", f13);
+                    KLHbundle.putDouble("f14", f14);
+                    KLHbundle.putDouble("f15", f15);
+                    KLHbundle.putDouble("f16", f16);
+                    KLHbundle.putDouble("f17", f17);
+                    KLHbundle.putDouble("f18", f18);
+                    KLHbundle.putDouble("f19", f19);
+                    KLHbundle.putDouble("f110", f110);
+                    KLHbundle.putDouble("f111", f111);
+                    KLHbundle.putDouble("f112", f112);
+                    KLHbundle.putDouble("f113", f113);
+                    KLHbundle.putDouble("f114", f114);
+                    KLHbundle.putDouble("f115", f115);
+                    KLHbundle.putDouble("f116", f116);
+
+                    //hoạt tải
+                   KLHbundle.putDouble("M41", M41);
+                    KLHbundle.putDouble("M42", M42);
+                    KLHbundle.putDouble("M43", M43);
+                    KLHbundle.putDouble("M44", M44);
+                    KLHbundle.putDouble("M45", M45);
+                    KLHbundle.putDouble("M46", M46);
+                    KLHbundle.putDouble("M47", M47);
+                    KLHbundle.putDouble("M48", M48);
+                    KLHbundle.putDouble("M49", M49);
+                    KLHbundle.putDouble("M410", M410);
+                    KLHbundle.putDouble("M411", M411);
+                    KLHbundle.putDouble("M412", M412);
+                    KLHbundle.putDouble("M413", M413);
+                    KLHbundle.putDouble("M414", M414);
+                    KLHbundle.putDouble("M415", M415);
+                    KLHbundle.putDouble("M416", M416);
+                    KLHbundle.putDouble("Q41", Q41);
+                    KLHbundle.putDouble("Q42", Q42);
+                    KLHbundle.putDouble("Q43", Q43);
+                    KLHbundle.putDouble("Q44", Q44);
+                    KLHbundle.putDouble("Q45", Q45);
+                    KLHbundle.putDouble("Q46", Q46);
+                    KLHbundle.putDouble("Q47", Q47);
+                    KLHbundle.putDouble("Q48", Q48);
+                    KLHbundle.putDouble("Q49", Q49);
+                    KLHbundle.putDouble("Q410", Q410);
+                    KLHbundle.putDouble("Q411", Q411);
+                    KLHbundle.putDouble("Q412", Q412);
+                    KLHbundle.putDouble("Q413", Q413);
+                    KLHbundle.putDouble("Q414", Q414);
+                    KLHbundle.putDouble("Q415", Q415);
+                    KLHbundle.putDouble("Q416", Q416);
+                    KLHbundle.putDouble("Q417", Q417);
+                    KLHbundle.putDouble("Q418", Q418);
+                    KLHbundle.putDouble("Q419", Q419);
+                    KLHbundle.putDouble("Q420", Q420);
+                    KLHbundle.putDouble("Q421", Q421);
+                    KLHbundle.putDouble("Q422", Q422);
+                    KLHbundle.putDouble("Q423", Q423);
+                    KLHbundle.putDouble("Q424", Q424);
+                    KLHbundle.putDouble("Q425", Q425);
+                    KLHbundle.putDouble("Q426", Q426);
+                    KLHbundle.putDouble("Q427", Q427);
+                    KLHbundle.putDouble("Q428", Q428);
+                    KLHbundle.putDouble("Q429", Q429);
+                   KLHbundle.putDouble("Q430", Q430);
+                    KLHbundle.putDouble("Q431", Q431);
+                    KLHbundle.putDouble("Q432", Q432);
+                    KLHbundle.putDouble("Q433", Q433);
+                    KLHbundle.putDouble("Q434", Q434);
+                    KLHbundle.putDouble("Q435", Q435);
+                    KLHbundle.putDouble("Q436", Q436);
+                    KLHbundle.putDouble("Q437", Q437);
+                    KLHbundle.putDouble("Q438", Q438);
+                   KLHbundle.putDouble("Q439", Q439);
+                    KLHbundle.putDouble("Q440", Q440);
+                    KLHbundle.putDouble("Q440", Q440);
+                    KLHbundle.putDouble("M51", M51);
+                    KLHbundle.putDouble("M52", M52);
+                    KLHbundle.putDouble("f51", f51);
+                    KLHbundle.putDouble("f52", f52);
+                    KLHbundle.putDouble("f53", f53);
+                    KLHbundle.putDouble("f54", f54);
+
+                    KLHbundle.putDouble("M61", M61);
+                    KLHbundle.putDouble("M62", M62);
+                   KLHbundle.putDouble("M63", M63);
+                    KLHbundle.putDouble("M64", M64);
+
+                    KLHbundle.putDouble("Q61", Q61);
+                    KLHbundle.putDouble("Q62", Q62);
+                    KLHbundle.putDouble("Q63", Q63);
+                    KLHbundle.putDouble("Q64", Q64);
+                    KLHbundle.putDouble("Q65", Q65);
+
+                    KLHbundle.putDouble("Q66", Q66);
+                    KLHbundle.putDouble("Q67", Q67);
+                    KLHbundle.putDouble("Q68", Q68);
+                    KLHbundle.putDouble("Q69", Q69);
+                    KLHbundle.putDouble("Q610", Q610);
+
+                    // tổng hợp
+                    KLHbundle.putDouble("M71klh", M71klh);
+                    KLHbundle.putDouble("M72klh", M72klh);
+                    KLHbundle.putDouble("M73klh", M73klh);
+                    KLHbundle.putDouble("M74klh", M74klh);
+                    KLHbundle.putDouble("M75klh", M75klh);
+                    KLHbundle.putDouble("M76klh", M76klh);
+                    KLHbundle.putDouble("M77klh", M77klh);
+                    KLHbundle.putDouble("M78klh", M78klh);
+                    KLHbundle.putDouble("M79klh", M79klh);
+                    KLHbundle.putDouble("M710klh", M710klh);
+                    KLHbundle.putDouble("M711klh", M711klh);
+                    KLHbundle.putDouble("M712klh", M712klh);
+                    KLHbundle.putDouble("M713klh", M713klh);
+                    KLHbundle.putDouble("M714klh", M714klh);
+                    KLHbundle.putDouble("M715klh", M715klh);
+                    KLHbundle.putDouble("M716klh", M716klh);
+                    KLHbundle.putDouble("M717klh", M717klh);
+                    KLHbundle.putDouble("M718klh", M718klh);
+                    KLHbundle.putDouble("M719klh", M719klh);
+                    KLHbundle.putDouble("M720klh", M720klh);
+                    KLHbundle.putDouble("M721klh", M721klh);
+                    KLHbundle.putDouble("M722klh", M722klh);
+                    KLHbundle.putDouble("M723klh", M723klh);
+                    KLHbundle.putDouble("M724klh", M724klh);
+                    KLHbundle.putDouble("Q71klh", Q71klh);
+                    KLHbundle.putDouble("Q72klh", Q72klh);
+                    KLHbundle.putDouble("Q73klh", Q73klh);
+                    KLHbundle.putDouble("Q74klh", Q74klh);
+                    KLHbundle.putDouble("Q75klh", Q75klh);
+                    KLHbundle.putDouble("Q76klh", Q76klh);
+                    KLHbundle.putDouble("Q77klh", Q77klh);
+                    KLHbundle.putDouble("Q78klh", Q78klh);
+                    KLHbundle.putDouble("Q79klh", Q79klh);
+                    KLHbundle.putDouble("Q710klh", Q710klh);
+                    KLHbundle.putDouble("Q711klh", Q711klh);
+                    KLHbundle.putDouble("Q712klh", Q712klh);
+                    KLHbundle.putDouble("Q713klh", Q713klh);
+                    KLHbundle.putDouble("Q714klh", Q714klh);
+                    KLHbundle.putDouble("Q715klh", Q715klh);
+                    KLHbundle.putDouble("Q716klh", Q716klh);
+                    KLHbundle.putDouble("Q717klh", Q717klh);
+                    KLHbundle.putDouble("Q718klh", Q718klh);
+                    KLHbundle.putDouble("Q719klh", Q719klh);
+                    KLHbundle.putDouble("Q720klh", Q720klh);
+                    KLHbundle.putDouble("Q721klh", Q721klh);
+                    KLHbundle.putDouble("Q722klh", Q722klh);
+                    KLHbundle.putDouble("Q723klh", Q723klh);
+                    KLHbundle.putDouble("Q724klh", Q724klh);
+                    KLHbundle.putDouble("Q725klh", Q725klh);
+                    KLHbundle.putDouble("Q726klh", Q726klh);
+                    KLHbundle.putDouble("Q727klh", Q727klh);
+                    KLHbundle.putDouble("Q728klh", Q728klh);
+                    KLHbundle.putDouble("Q729klh", Q729klh);
+                    KLHbundle.putDouble("Q730klh", Q730klh);
+                    ////
+                    KLHbundle.putString("txtbmc1", txtbmc1);
+                    KLHbundle.putString("txtbmc2", txtbmc2);
+                    KLHbundle.putString("txtbmc3", txtbmc3);
+                    KLHbundle.putString("txtbmc4", txtbmc4);
+                    KLHbundle.putString("txtbmc5", txtbmc5);
+                    KLHbundle.putString("txtbmc6", txtbmc6);
+                    KLHbundle.putString("txtbmc7", txtbmc7);
+                    KLHbundle.putString("txtbmc8", txtbmc8);
+
+                    KLHbundle.putString("txtBMC1", txtBMC1);
+                    KLHbundle.putString("txtBMC2", txtBMC2);
+                    KLHbundle.putString("txtBMC3", txtBMC3);
+                    KLHbundle.putString("txtBMC4", txtBMC4);
+                    KLHbundle.putString("txtBMC5", txtBMC5);
+                    KLHbundle.putString("txtBMC6", txtBMC6);
+                    KLHbundle.putString("txtBMC7", txtBMC7);
+//                    ///
+                    KLHbundle.putString("txtKT1", txtKT1);
+                    KLHbundle.putString("txtKT2", txtKT2);
+                    KLHbundle.putString("txtKT3", txtKT3);
+                    KLHbundle.putString("txtKT4", txtKT4);
+                    KLHbundle.putString("txtKT5", txtKT5);
+                    KLHbundle.putString("txtKT5", txtKT5);
+                    KLHbundle.putString("txtKT6", txtKT6);
+                    KLHbundle.putString("txtKT7", txtKT7);
+                    KLHbundle.putString("txtKT8", txtKT8);
+                    KLHbundle.putString("txtKT9", txtKT9);
+                    KLHbundle.putString("txtKT10", txtKT10);
+                    KLHbundle.putString("txtKT11", txtKT11);
+                    KLHbundle.putString("txtKT12", txtKT12);
+                    KLHbundle.putString("txtKT13", txtKT13);
+
+                    //////////////
+                    KLHbundle.putString("txt1", txt1);
+                    KLHbundle.putString("txt2", txt2);
+                    KLHbundle.putString("txt3", txt3);
+                    KLHbundle.putString("txt4", txt4);
+                    KLHbundle.putString("txt5", txt5);
+                    KLHbundle.putString("txt6", txt6);
+
+
+
+                    // LHbundle.putDouble("M4",M4 );
+                    KLHintent.putExtra("KLHbundle", KLHbundle);
+                    startActivity(KLHintent);
+
                 } else {
                     // bai toan duoi LIÊN HỢP
                     // tuy bai ma button tính xử lý công thức cho đúng
@@ -434,7 +704,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhChieuRongHuuHieuBanCanhDamGiua();
                     tinhChieuRongHuuHieuBanCanhDamBien();
                     tinhTisoModuyn();
-                    tinhDTHHGiaiDoan1();
+                    tinhDTHHGiaiDoan1();///
                     chuaBien();
                     DTHHLienHopDaiHan();
                     DTHHLienHopNganHan();
@@ -800,6 +1070,515 @@ public class nhaplieuthietke extends AppCompatActivity {
         });
 
     }
+    public void tinhToanTCDKhongChacklh() {
+        IstDT=Ist=IstDN=IltDT=IltDN=Inc;
+
+
+        // kiểm tra bản cánh chịu nén cần bố trí STC dọc không
+        Dc = D - tft - Yltd;
+        if (((2.0 * Dc / tw) - 6.7 * Math.sqrt(Es / Fy)) <= 0) {
+            txtKT4 = "((2.0*Dc/tw)-6.7*Math.sqrt(Es/Fy))= " + (float) Math.round((((2.0 * Dc / tw) - 6.7 * Math.sqrt(Es / Fy))) * 1000) / 1000 + " <= 0" + "\n   Độ mảnh của bản cánh chịu nén đạt, không cần bố trí STC dọc";
+        } else if (((2.0 * Dc / tw) - 11.63 * Math.sqrt(Es / Fy)) <= 0) {
+            txtKT4 = "((2.0*Dc/tw)-11.63*Math.sqrt(Es/Fy))= " + (float) Math.round((((2.0 * Dc / tw) - 11.63 * Math.sqrt(Es / Fy))) * 1000) / 1000 + " <= 0" + "\n   Độ mảnh của bản cánh chịu nén không đạt, cần bố trí STC dọc";
+        }
+        /////////////// kiểm tra độ maanhr của bản biên
+        double b1;
+        b1 = (Bft / (2.0 * tft)) - 1.38 * Math.sqrt(Es / (Math.abs(f220) + Math.abs(f24) * Math.sqrt(2.0 * Dc / tw)));
+        if (b1 <= 0) {
+            txtKT5 = "(Bft/(2.0*tft))-1.38*Math.sqrt(Es/(Math.abs(f220)+Math.abs(f24)*Math.sqrt(2.0*Dc/tw)))= " + (float) Math.round((b1) * 1000) / 1000 + " <= 0" + "\n  Kích thước bản biên thỏa";
+        } else {
+            txtKT5 = "(Bft/(2.0*tft))-1.38*Math.sqrt(Es/(Math.abs(f220)+Math.abs(f24)*Math.sqrt(2.0*Dc/tw)))= " + (float) Math.round((b1) * 1000) / 1000 + " > 0" + "\n  Chọn lại kích thước bản biên";
+        }
+        /// tính sức kháng uốn danh định CD1
+        double uu;
+        if (Bft * tft - Bfb * tfb < 0) {
+            uu = 4.76;
+        } else {
+            uu = 5.67;
+        }
+        Fn = Fy * (1 - ((2.0 * Dc * tw / (Bft * tft)) / (1200.0 + 300.0 * 2.0 * Dc * tw / (Bft * tft))) * ((2.0 * Dc / tw) - uu * Math.sqrt(Es / (Math.abs(f220) + Math.abs(f24)))));
+        if (Fn - (Math.abs(f220) + Math.abs(f24)) >= 0) {
+            txtKT6 = "Fn= " + (float) Math.round((Fn) * 1000) / 1000 + " >= (Math.abs(f220)+Math.abs(f24))= " + (float) Math.round((Math.abs(f220) - Math.abs(f24)) * 1000) / 1000 + "\n   Sức kháng uốn đảm bảo";
+            txt2 = "Sức kháng uốn TTGH CD1 đảm bảo";
+        } else {
+            txtKT6 = "Fn= " + (float) Math.round((Fn) * 1000) / 1000 + " < (Math.abs(f220)+Math.abs(f24))= " + (float) Math.round((Math.abs(f220) - Math.abs(f24)) * 1000) / 1000 + "\n   Sức kháng uốn không đảm bảo, chọn lại kích thước tiết diện";
+            txt2 = "Sức kháng uốn TTGH CD1 không đảm bảo";
+        }
+        ///// kiểm tra lực cắt cường độ 1
+        // tính c
+        if ((Dw / tw) - 1.1 * Math.sqrt(Es * k / Fy) <= 0) {
+            c = 1;
+        } else if ((Dw / tw) - 1.1 * Math.sqrt(Es * k / Fy) > 0 && (Dw / tw) - 1.38 * Math.sqrt(Es * k / Fy) <= 0) {
+            c = (1.1 * tw / Dw) * Math.sqrt(Es * k / Fy);
+        } else if ((Dw / tw) - 1.38 * Math.sqrt(Es * k / Fy) > 0) {
+            c = (1.52 / Math.pow(Dw / tw, 2)) * Es * k / Fy;
+        }
+        //Cường đọ chịu kéo nhỏ nhất
+        try {
+            d0 = Double.parseDouble(edtd0.getText().toString());
+            if (d0 < 0) {
+                edtd0.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtd0.setError("Hãy nhập giá trị");
+        }
+        ////
+        Vp = 0.58 * Fy * Dw * tw * 0.001;
+        if (Fu <= 0.75 * Fy) {
+            Vn = Vp * (c + (0.87 * (1 - c) / Math.sqrt(1.0 + Math.pow(d0 / Dw, 2))));
+        } else if (Fu > 0.75 * Fy) {
+            Vn = (Math.min(1.0, 0.6 + 0.4 * (Fy - Fu) / (Fy - 0.75 * Fy)) * Vp * (c + (0.87 * (1 - c) / Math.sqrt(1 + Math.pow(d0 / Dw, 2)))));
+        }
+        ////
+        if (Vn - c * Vp >= 0) {
+            txtKT7 = "Vn= " + (float) Math.round((Vn) * 1000) / 1000 + " >= c*Vp= " + (float) Math.round((c * Vp) * 1000) / 1000 + "\n   Thỏa sức kháng cắt";
+        } else {
+            txtKT7 = "Vn= " + (float) Math.round((Vn) * 1000) / 1000 + " < c*Vp= " + (float) Math.round((c * Vp) * 1000) / 1000 + "\n   Không thỏa sức kháng cắt";
+        }
+        //////////////////////////////////////////////////////////////MỎI///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////// ứng suất nén đàn hồi lớn nhất ở bản biên chịu nén khi uốn do tác dụng của tải trọng dài hạn
+        if ((2.0 * (D - tft - Ystd) / tw) - 5.7 * (Math.sqrt(Es / Fy)) <= 0) {
+            fcf = Fy;
+        } else if ((2.0 * (D - tft - Ystd) / tw) - 5.7 * (Math.sqrt(Es / Fy)) > 0) {
+            fcf = 32.5 * Es * Math.pow(tw / (2 * (D - tft - Ystd)), 2);
+        }
+        //// tính đc fcf
+        /////////////// kiểm ra fcf
+        // tính ứng suất
+        f = -f112 - Math.max(f228, f212) - 2 * (1000000 * YlttDT * Math.max(M720, M724)) / IltDT;
+        ///  Toast.makeText(nhaplieuthietke.this, "f= "+f, Toast.LENGTH_LONG).show();
+        // kiểm tra ứng suất
+        ///kiểm tra ổn định uốn của vách đứng
+        if (f - fcf <= 0) {
+            txtKT8 = "-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------" + "\nf= " + (float) Math.round((f) * 1000) / 1000 + " <= fcf= " + fcf + "\n  Vách đứng ổn định uốn";
+            // Toast.makeText(nhaplieuthietke.this,"ứng suất dầm thoả",Toast.LENGTH_LONG).show();
+        } else {
+            txtKT8 = "-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------" + "\nf= " + (float) Math.round((f) * 1000) / 1000 + " > fcf= " + fcf + "\n  Vách đứng mất ổn định uốn";
+        }
+        if ((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) <= 0) {
+            txtKT9 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " <= 0" + "\n   Vách đứng ổn định lực cắt";
+        } else {
+            txtKT9 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " > 0" + "\n   Vách đứng mất ổn định lực cắt";
+        }
+        // tính biên độ ứng suất do xe tải mỏi gây ra
+        Dentaf = (Ystd * Math.max(M720, M724) * 1000000.0) / (Math.max(IstDT, IstDN));
+        // tính lượng chu kì ứng suất
+        ////////// tính u1 nhịp
+        if (L * 1000.0 > 12000) {
+            u1 = 1;
+        } else {
+            u1 = 2;
+        }
+        ////////tính u2
+        if (Bxc * 1000.0 / 3500.0 > 1 && Bxc * 1000.0 / 3500.0 < 2) {
+            u2 = 1;
+        } else if (Bxc * 1000.0 / 3500.0 >= 2 && Bxc * 1000.0 / 3500.0 < 3) {
+            u2 = 0.85;
+        } else {
+            u2 = 0.8;
+        }
+        /// tính N
+        N = 100.0 * 365.0 * u1 * u2 * 2.0 * 10000.0 * l1234;
+        ///sức kháng mỏi danh định
+        DentaFn = Math.max((Math.pow(ABCDE, 1 / 3) / N), (0.5 * DentaFTH));
+        if (DentaFn - Dentaf * 0.75 >= 0) {
+            txtKT9 = "DentaFn= " + (float) Math.round(DentaFn * 1000) / 1000 + ">= 0,75.DentaF= " + (float) Math.round(0.75 * Dentaf * 1000) / 1000 + "\n   Đảm bảo TTGH mỏi";
+            txt4 = "TTGH mỏi đảm bảo ";
+        } else {
+            txtKT9 = "DentaFn= " + (float) Math.round(DentaFn * 1000) / 1000 + "< 0,75.DentaF= " + (float) Math.round(0.75 * Dentaf * 1000) / 1000 + "\n   Không đảm bảo TTGH mỏi";
+            txt4 = "TTGH mỏi không đảm bảo ";
+        }
+        //////////////////////////////////////////////// SỬ DỤNG/////////////////////////////////////////////////////////
+        ftDC1 = f112;
+        ftDC2 = Math.max(Math.abs(f212), Math.abs(f228));
+        ftLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ystt * 1000000.0 / Ist;
+        ftSH = Math.max(Math.abs(f51), Math.abs(f53)) * 1.2;
+        ftsum = Math.abs(ftDC1) + Math.abs(ftDC2) + Math.abs(ftLL_IM) + Math.abs(ftSH);
+        /// ứng suất bản biên dưới của dầm
+        fbDC1 = f116;
+        fbDC2 = Math.max(Math.abs(f216), Math.abs(f232));
+        fbLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ystt * 1000000.0 / Ist;
+        fbSH = Math.max(Math.abs(f52), Math.abs(f54)) * 1.2;
+        fbsum = Math.abs(fbDC1) + Math.abs(fbDC2) + Math.abs(fbLL_IM) + Math.abs(fbSH);
+        // kiểm tra
+        if (Math.max(Math.abs(ftsum), Math.abs(fbsum)) <= 0.95 * Fy) {
+            txtKT11 = "--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------" + "\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= " + (float) Math.round(Math.max(Math.abs(ftsum), Math.abs(fbsum)) * 1000) / 1000 + " <= 0.95*Fy= " + (float) Math.round(0.95 * Fy * 1000) / 1000 + "\n   Ứng suất cánh trên và cánh dưới đạt";
+        } else {
+            txtKT11 = "--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------" + "\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= " + (float) Math.round(Math.max(Math.abs(ftsum), Math.abs(fbsum)) * 1000) / 1000 + " > 0.95*Fy= " + (float) Math.round(0.95 * Fy * 1000) / 1000 + "\n   Ứng suất cánh trên và cánh dưới không đạt";
+        }
+        /// kiểm tra độ vồng ngược
+        dentaDC1 = 5.0 * Math.pow(Ls * 1000.0, 4) * DC1 / (384.0 * Es * Inc);
+        dentaDC2 = 5.0 * Math.pow(Ls * 1000.0, 4) * Math.max(DC2DT, DC2DN) / (384.0 * Es * Math.max(IltDN, IltDT));
+        // độ võng do xe tải thiết kế
+        dentaP35 = Math.max(mgDTM, mgDNM) * (35.0 * ((0.5 * Ls * 1000.0) + 4300.0) * (0.5 * Ls * 1000.0) * (Math.pow(Ls * 1000.0, 2) - Math.pow((0.5 * Ls * 1000.0) + 4300.0, 2) - Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Ist * Ls * Es);
+        dentaP145G = Math.max(mgDTM, mgDNM) * (145.0 * Math.pow(0.5 * Ls * 1000.0, 2) * (Math.pow(Ls * 1000.0, 2) - 2.0 * Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Ist * Ls * Es);
+        dentaP145S = Math.max(mgDTM, mgDNM) * (145.0 * ((0.5 * Ls * 1000.) - 4300.) * (0.5 * Ls * 1000.) * ((Math.pow(Ls * 1000., 2)) - (Math.pow((0.5 * Ls * 1000.) - 4300.0, 2)) - (Math.pow(0.5 * 1000. * Ls, 2)))) / (6.0 * Ist * Ls * Es);
+        //double grjfdj=M36;
+        //độ võng thiết kế
+        denta1 = (dentaP35 + dentaP145G + dentaP145S) * 1.25;
+        // độ võng do tổ hợp 25 xe tải thiết kế, ttl,
+        denta2 = 0.25 * denta1;
+        denta3 = (5. * 9.3 * Math.pow(Ls * 1000., 4) * Math.max(mgDTM, mgDNM)) / (384. * Es * Ist);
+        // độ võng tổ hợp trên gây ra
+        denta4 = denta2 + denta3;
+        /// ///độ võng do hoạt tải
+        denta5 = Math.max(denta1, denta4);
+        /// độ võng cho phép của hoạt tải
+        denta6 = Ls;
+        ///// (float)Math.round((f)* 1000)/1000
+        // kiểm tra độ võng cho phép riêng của hoạt tải
+        if (denta5 < denta6) {
+            txtKT12 = "denta5= " + (float) Math.round((denta5) * 1000) / 1000 + " <= denta6= " + (float) Math.round((denta6) * 1000) / 1000 + "\n   Độ võng riêng cho phép của hoạt tải ĐẠT";
+            txt5 = "Độ võng riêng cho phép của hoạt tải ĐẠT";
+        } else {
+            txtKT12 = "denta5= " + (float) Math.round((denta5) * 1000) / 1000 + " > denta6= " + (float) Math.round((denta6) * 1000) / 1000 + "\n   Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
+            txt5 = "Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
+        }
+        // ĐỘ VỒNG cần chế tạo hợp lí
+        dentav = 0.5 * denta5 + dentaDC1 + dentaDC2;
+        // quyết định độ vồng ngược cho tất cả các dầm
+        dentafinal = dentav;
+        txtKT13 = "Độ vồng ngược cho tất cả các dầm" + "\nDENTA final= " + (float) Math.round((dentafinal) * 1000) / 1000 + "mm";
+        txt6 = "Độ vồng ngược cho tất cả các dầm" + "\nDENTA = " + (float) Math.round((dentafinal) * 1000) / 1000 + "mm";
+    }
+
+    public void tinhToanTDChacklh() {
+        ////
+        Ps = 0.85 * fc * bi * ts;
+        Pc = Fy * Bft * tft;
+        Pt = Fy * Bfb * tfb;
+        Pw = Fy * Dw * tw;
+        Prt = 400. * N1 * 3.14 * Dtt * Dtt * 0.25;
+        Prb = 400. * N2 * 3.14 * Dtd * Dtd * 0.25;
+        // xác định trục trung hòa dẻo
+        if ((Pt + Pw) > (Ps + Pc + Prt + Prb)) {
+            Dcp = (Dw / 2) * ((Pt + Pw - Pc - Ps - Prt - Prb) / Pw);
+            txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + ">" + "Ps+Pc+Prt+Prb= " + (float) Math.round(((Pt + Pw - Pc - Ps - Prt - Prb) / Pw) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản bụng";
+            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
+        } else if ((Pt + Pw < Ps + Pc + Prt + Prb && Pt + Pw + Pc > Ps + Prt + Prb)) {
+            Dcp = (tft / 2) * ((Pt + Pw + Pc - Ps - Prt - Prb) / Pc);
+            txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + "<" + "Ps+Pc+Prt+Prb= " + (float) Math.round((Ps + Pc + Prt + Prb) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản cánh trên";
+            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
+        } else if ((Pt + Pw + Pc + Ps) > (Prt + Prb)) {
+            Dcp = (ts / 2) * ((Pt + Pw + Pc + Ps - Prt - Prb) / Ps);
+            txtKT4 = "Trục trung hòa dẻo nằm ở bản bê tông";
+            /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
+        }
+        // momen dẻo
+        Mpklh = 2.*Fy*tft*Bft*(0.5*D-0.5*tft)+2.*Fy*tw*Dw*Dw/8.;
+        //     Toast.makeText(nhaplieuthietke.this,"Mp="+Mp,Toast.LENGTH_LONG).show();
+        Dp = Dcp + tft + Yv + ts;
+        if (Fy == 345) {
+            Dphay = (0.7 * (D + ts + Yv)) / 7.5;
+            beta = 0.7;
+        } else if (Fy == 250) {
+            Dphay = (0.9 * (D + ts + Yv)) / 7.5;
+            beta = 0.9;
+        }
+        if (Dphay < Dp && Dp <= 5 * Dphay) {
+            Mn = ((5.0 * Mpklh) - 0.85 * Myklh) / 4.0 + (((0.85 * Myklh) - Mpklh) / 4.0) * (Dp / Dphay);
+            //    Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
+        } else if (Dp < Dphay) {
+            Mn = Mpklh;
+            //    Toast.makeText(nhaplieuthietke.this,"Mr="+Mn,Toast.LENGTH_LONG).show();
+        }
+        // momen kháng uốn
+        Mr = Mn;
+        //momen uốn lớn nhất
+        Mu = Math.max(M74, M78);
+        // kiểm tra sức kháng uốn
+        if (Mr - Math.max(M74, M78) > 0) {
+            txtKT5 = "Mr= " + (float) Math.round((Mr) * 1000) / 1000 + " >= Mu= " + (float) Math.round((Mu) * 1000) / 1000 + "\n  Thỏa điều kiện sức kháng uốn";
+            txt2 = "Sức kháng uốn TTGH CD1 đảm bảo";
+            //   Toast.makeText(nhaplieuthietke.this,"thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
+        } else {
+            txtKT5 = txtKT5 = "Mr= " + (float) Math.round((Mr) * 1000) / 1000 + " < Mu= " + (float) Math.round((Mu) * 1000) / 1000 + "\n  Không thỏa điều kiện sức kháng uốn";
+            txt2 = "Sức kháng uốn TTGH CD1 không đảm bảo";
+            //   Toast.makeText(nhaplieuthietke.this,"không thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
+        }
+        //
+
+        //Cường đọ chịu kéo nhỏ nhất
+        try {
+            d0 = Double.parseDouble(edtd0.getText().toString());
+
+            if (d0 < 0) {
+
+                edtd0.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtd0.setError("Hãy nhập giá trị");
+        }
+
+        //tính hệ số k
+        k = 5. + (5. / (Math.pow(d0 / Dw, 2)));
+        // tính c
+        if (((Dw / tw) - 1.1 * Math.sqrt(Es * k / Fy)) <= 0) {
+            c = 1;
+        } else if (((Dw / tw) - 1.1 * Math.sqrt(Es * k / Fy)) >= 0 && ((((Dw / tw) - 1.38 * Math.sqrt(Es * k / Fy)) <= 0))) {
+            c = (1.1 * tw / Dw) * (Math.sqrt(Es * k / Fy));
+
+        } else if ((Dw / tw) - 1.38 * Math.sqrt(Es * k / Fy) >= 0) {
+            c = (1.52 / (Math.pow(Dw / tw, 2))) * (Es * k / Fy);
+        }
+        //
+        r = Math.min(1, (0.4 * (Mr - Mu) / (Mr - 0.75 * Myklh)));
+
+        //
+        Vp = 0.58 * Fy * Dw * tw * 0.001;
+        //tính sức kháng uốn
+        if (Mu - 0.5 * Mpklh < 0) {
+//            V1n, V2n,r, Vr;
+            V1n = (0.58 * Fy * Dw * tw) * (c + ((0.87 * (1 - c)) / (Math.sqrt(1 + Math.pow(d0 / Dw, 2)))));
+            Vr = V1n / 1000.;
+
+        } else if (Mu - 0.5 * Mpklh > 0) {
+            V2n = r * ((0.58 * Fy * Dw * tw) * (c + ((0.87 * (1 - c)) / (Math.sqrt(1 + Math.pow(d0 / Dw, 2))))));
+            Vr = V2n / 1000.;
+        }
+        // kiểm tra  lực cắt
+        if (Vr - Math.max(Q71, Q76) > 0) {
+            txtKT6 = "Vr= " + (float) Math.round((Vr) * 1000) / 1000 + " > Vu= " + (float) Math.round((Math.max(Q71, Q76)) * 1000) / 1000 + "\n   Dầm thỏa sức kháng cắt";
+            txt3 = "Sức kháng cắt TTGH CD1 đảm bảo";
+        } else if ((Math.max(Q71, Q76) - c * Vp) < 0) {
+            txtKT6 = "c*Vp= " + (float) Math.round((c * Vp) * 1000) / 1000+" > Vu= "+ (float) Math.round((Math.max(Q71, Q76)) * 1000) / 1000+ "\n  Dầm thỏa sức kháng cắt";
+            //Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+            txt3 = "Sức kháng cắt TTGH CD1 đảm bảo";
+        } else {
+            txtKT6 = "Dầm không không thỏa sức kháng cắt";
+            txt3 = "Sức kháng cắt TTGH CD1 không đảm bảo";
+            //   Toast.makeText(nhaplieuthietke.this,"dầm không đủ khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
+        }
+//////////////////////////////////////////////////////////////MỎI///////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////// ứng suất nén đàn hồi lớn nhất ở bản biên chịu nén khi uốn do tác dụng của tải trọng dài hạn
+        if ((2.0 * (D - tft - Ystd) / tw) - 5.7 * (Math.sqrt(Es / Fy)) <= 0) {
+            fcf = Fy;
+        } else if ((2.0 * (D - tft - Ystd) / tw) - 5.7 * (Math.sqrt(Es / Fy)) > 0) {
+            fcf = 32.5 * Es * Math.pow(tw / (2 * (D - tft - Ystd)), 2);
+        }
+        //// tính đc fcf
+        /////////////// kiểm ra fcf
+
+        // tính ứng suất
+        f = -f112 - Math.max(f228, f212) - 2 * (1000000 * YlttDT * Math.max(M720, M724)) / IltDT;
+        ///  Toast.makeText(nhaplieuthietke.this, "f= "+f, Toast.LENGTH_LONG).show();
+        // kiểm tra ứng suất
+
+        ///kiểm tra ổn định uốn của vách đứng
+        if (f - fcf <= 0) {
+            txtKT7 = "-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------" + "\nf= " + (float) Math.round((f) * 1000) / 1000 + " <= fcf= " + fcf + "\n  Vách đứng ổn định uốn";
+            // Toast.makeText(nhaplieuthietke.this,"ứng suất dầm thoả",Toast.LENGTH_LONG).show();
+        } else {
+            txtKT7 = "-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------" + "\nf= " + (float) Math.round((f) * 1000) / 1000 + " > fcf= " + fcf + "\n  Vách đứng mất ổn định uốn";
+        }
+
+        if ((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) <= 0) {
+            txtKT8 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " <= 0" + "\n   Vách đứng ổn định lực cắt";
+        } else {
+            txtKT8 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " > 0" + "\n   Vách đứng mất ổn định lực cắt";
+        }
+
+        // tính biên độ ứng suất do xe tải mỏi gây ra
+        Dentaf = (Ystd * Math.max(M720, M724) * 1000000.0) / (Math.max(IstDT, IstDN));
+        // tính lượng chu kì ứng suất
+        ////////// tính u1 nhịp
+        if (L * 1000.0 > 12000) {
+            u1 = 1;
+        } else {
+            u1 = 2;
+        }
+        ////////tính u2
+        if (Bxc * 1000.0 / 3500.0 > 1 && Bxc * 1000.0 / 3500.0 < 2) {
+            u2 = 1;
+        } else if (Bxc * 1000.0 / 3500.0 >= 2 && Bxc * 1000.0 / 3500.0 < 3) {
+            u2 = 0.85;
+        } else {
+            u2 = 0.8;
+        }
+        /// tính N
+        N = 100.0 * 365.0 * u1 * u2 * 2.0 * 10000.0 * l1234;
+        ///sức kháng mỏi danh định
+        DentaFn = Math.max((Math.pow(ABCDE, 1 / 3) / N), (0.5 * DentaFTH));
+        if (DentaFn - Dentaf * 0.75 >= 0) {
+            txtKT9 = "DentaFn= " + (float) Math.round(DentaFn * 1000) / 1000 + ">= 0,75.DentaF= " + (float) Math.round(0.75 * Dentaf * 1000) / 1000 + "\n   Đảm bảo TTGH mỏi";
+            txt4 = "TTGH mỏi đảm bảo ";
+        } else {
+            txtKT9 = "DentaFn= " + (float) Math.round(DentaFn * 1000) / 1000 + "< 0,75.DentaF= " + (float) Math.round(0.75 * Dentaf * 1000) / 1000 + "\n   Không đảm bảo TTGH mỏi";
+            txt4 = "TTGH mỏi không đảm bảo ";
+        }
+        //////////////////////////////////////////////// SỬ DỤNG/////////////////////////////////////////////////////////
+        ftDC1 = f112;
+        ftDC2 = Math.max(Math.abs(f212), Math.abs(f228));
+        ftLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ystt * 1000000.0 / Ist;
+        ftSH = Math.max(Math.abs(f51), Math.abs(f53)) * 1.2;
+        ftsum = Math.abs(ftDC1) + Math.abs(ftDC2) + Math.abs(ftLL_IM) + Math.abs(ftSH);
+        /// ứng suất bản biên dưới của dầm
+        fbDC1 = f116;
+        fbDC2 = Math.max(Math.abs(f216), Math.abs(f232));
+        fbLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ystt * 1000000.0 / Ist;
+        fbSH = Math.max(Math.abs(f52), Math.abs(f54)) * 1.2;
+        fbsum = Math.abs(fbDC1) + Math.abs(fbDC2) + Math.abs(fbLL_IM) + Math.abs(fbSH);
+        // kiểm tra
+        if (Math.max(Math.abs(ftsum), Math.abs(fbsum)) <= 0.95 * Fy) {
+
+            txtKT11 = "--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------" + "\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= " + (float) Math.round(Math.max(Math.abs(ftsum), Math.abs(fbsum)) * 1000) / 1000 + " <= 0.95*Fy= " + (float) Math.round(0.95 * Fy * 1000) / 1000 + "\n   Ứng suất cánh trên và cánh dưới đạt";
+        } else {
+
+            txtKT11 = "--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------" + "\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= " + (float) Math.round(Math.max(Math.abs(ftsum), Math.abs(fbsum)) * 1000) / 1000 + " > 0.95*Fy= " + (float) Math.round(0.95 * Fy * 1000) / 1000 + "\n   Ứng suất cánh trên và cánh dưới không đạt";
+        }
+        /// kiểm tra độ vồng ngược
+        dentaDC1 = 5.0 * Math.pow(Ls * 1000.0, 4) * DC1 / (384.0 * Es * Inc);
+        dentaDC2 = 5.0 * Math.pow(Ls * 1000.0, 4) * Math.max(DC2DT, DC2DN) / (384.0 * Es * Math.max(IltDN, IltDT));
+        // độ võng do xe tải thiết kế
+        dentaP35 = Math.max(mgDTM, mgDNM) * (35.0 * ((0.5 * Ls * 1000.0) + 4300.0) * (0.5 * Ls * 1000.0) * (Math.pow(Ls * 1000.0, 2) - Math.pow((0.5 * Ls * 1000.0) + 4300.0, 2) - Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Ist * Ls * Es);
+        dentaP145G = Math.max(mgDTM, mgDNM) * (145.0 * Math.pow(0.5 * Ls * 1000.0, 2) * (Math.pow(Ls * 1000.0, 2) - 2.0 * Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Ist * Ls * Es);
+        dentaP145S = Math.max(mgDTM, mgDNM) * (145.0 * ((0.5 * Ls * 1000.) - 4300.) * (0.5 * Ls * 1000.) * ((Math.pow(Ls * 1000., 2)) - (Math.pow((0.5 * Ls * 1000.) - 4300.0, 2)) - (Math.pow(0.5 * 1000. * Ls, 2)))) / (6.0 * Ist * Ls * Es);
+        //double grjfdj=M36;
+        //độ võng thiết kế
+        denta1 = (dentaP35 + dentaP145G + dentaP145S) * 1.25;
+        // độ võng do tổ hợp 25 xe tải thiết kế, ttl,
+        denta2 = 0.25 * denta1;
+        denta3 = (5. * 9.3 * Math.pow(Ls * 1000., 4) * Math.max(mgDTM, mgDNM)) / (384. * Es * Ist);
+        // độ võng tổ hợp trên gây ra
+        denta4 = denta2 + denta3;
+        /// ///độ võng do hoạt tải
+        denta5 = Math.max(denta1, denta4);
+        /// độ võng cho phép của hoạt tải
+        denta6 = Ls;
+
+        ///// (float)Math.round((f)* 1000)/1000
+        // kiểm tra độ võng cho phép riêng của hoạt tải
+        if (denta5 < denta6) {
+            txtKT12 = "denta5= " + (float) Math.round((denta5) * 1000) / 1000 + " <= denta6= " + (float) Math.round((denta6) * 1000) / 1000 + "\n   Độ võng riêng cho phép của hoạt tải ĐẠT";
+            txt5 = "Độ võng riêng cho phép của hoạt tải ĐẠT";
+
+        } else {
+            txtKT12 = "denta5= " + (float) Math.round((denta5) * 1000) / 1000 + " > denta6= " + (float) Math.round((denta6) * 1000) / 1000 + "\n   Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
+            txt5 = "Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
+
+        }
+        // ĐỘ VỒNG cần chế tạo hợp lí
+        dentav = 0.5 * denta5 + dentaDC1 + dentaDC2;
+        // quyết định độ vồng ngược cho tất cả các dầm
+        dentafinal = dentav;
+        txtKT13 = "Độ vồng ngược cho tất cả các dầm" + "\nDENTA final= " + (float) Math.round((dentafinal) * 1000) / 1000 + "mm";
+        txt6 = "Độ vồng ngược cho tất cả các dầm" + "\nDENTA = " + (float) Math.round((dentafinal) * 1000) / 1000 + "mm";
+        //      double  x=M87;
+
+    }
+    public void kiemTraTCgiklh() {
+
+        // kiểm tra bản bụng đặc chắc
+        double x1, x2;
+        x1 = (2 * Dcp / tw) - 3.76 * Math.sqrt(Es / Fy);
+        x2 = (Bft / (2 * tft)) - 0.382 * Math.sqrt(Es / Fy);
+
+
+        if (x2 <= 0) {
+            //ok
+            txtKT3 = "(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy)= " + "" + (float) Math.round(x2 * 1000) / 1000 + "<= 0" + "\n   Kích thước bản biên trên đạt";
+
+        } else {
+//            Toast.makeText(nhaplieuthietke.this,"Chọn lại tiết diện bản cánh",Toast.LENGTH_LONG).show();
+            txtKT3 = "(Bft/(2*tft))-0.382*Math.sqrt(Es/Fy)= " + "" + (float) Math.round(x2 * 1000) / 1000 + "> 0" + "\n   Kích thước bản biên trên không đạt";
+
+        }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // kiểm tra tiết diện CHẮC, KHÔNG CHẮC, MÃNH
+        if (x1 <= 0) {
+            // TIẾT DIỆN CHẮC
+            tinhToanTDChacklh();
+            txtKT2 = "(2*Dcp/tw)-3.76*Math.sqrt(Es/Fy)= " + "" + (float) Math.round(x1 * 1000) / 1000 + "<= 0" + "\n   Loại tiết diện Chắc";
+
+        } else if (x1 > 0) {
+            // TD ko chắc
+            tinhToanTCDKhongChacklh();
+
+            txtKT2 = "(2*Dcp/tw)-3.76*Math.sqrt(Es/Fy)= " + "" + (float) Math.round(x1 * 1000) / 1000 + "> 0" + "\n   Loại tiết diện Không Chắc";
+        }
+
+    }
+    public  void  tinhMomenChayklh(){
+        Myklh= Inc*Fy/(0.5*D-0.5*tft);
+    }
+    public void kiemtoanklh() {
+        tinhMomenChayklh();
+        ktTiLeCauTaoChung();
+        kiemTraTCgiklh();
+
+    }
+    public void tinhNoiLuc7klh() {
+        // CD1 DẦM TRONG
+        M71klh = (M11 + M41 ) * 1.05;
+        M72klh = (M12 + M42 ) * 1.05;
+        M73klh = (M13 + M43) * 1.05;
+        M74klh = (M14 + M44 ) * 1.05;
+
+        // CD1 Dầm Ngoài
+        M75klh = (M11 + M45 ) * 1.05;
+        M76klh = (M12 + M46) * 1.05;
+        M77klh = (M13 + M47 ) * 1.05;
+        M78klh = (M14 + M48 ) * 1.05;
+// SD dầm trong
+        M79klh = (M15 + M49 );
+        M710klh = (M16 + M410 );
+        M711klh = (M17 + M411 );
+        M712klh = (M18 + M412 );
+        //SD dầm ngoài
+        M713klh = (M15 + M413 );
+        M714klh = (M16 + M414);
+        M715klh = (M17 + M415 );
+        M716klh = (M18 + M416 );
+        // mỏi dầm trong
+        M717klh = 0.75 * 1.15 * M61 * mgSIM;
+        M718klh = 0.75 * 1.15 * M62 * mgSIM;
+        M719klh = 0.75 * 1.15 * M63 * mgSIM;
+        M720klh = 0.75 * 1.15 * M64 * mgSIM;
+        //mỏi dầm ngoài
+        M721klh = 0.75 * 1.15 * M61 * mgMEM1lan;
+        M722klh = 0.75 * 1.15 * M62 * mgMEM1lan;
+        M723klh = 0.75 * 1.15 * M63 * mgMEM1lan;
+        M724klh = 0.75 * 1.15 * M64 * mgMEM1lan;
+
+        // CD1 DẦM TRONG
+        Q71klh = (Q14 + Q41) * 0.95;
+        Q72klh = (Q13 + Q42) * 0.95;
+        Q73klh = (Q12 + Q43) * 0.95;
+        Q74klh = (Q11 + Q44) * 0.95;
+        Q75klh = Q45 * 0.95;
+        //CD1 DẦM NGOÀI
+        Q76klh = (Q14 + Q46) * 0.95;//
+        Q77klh = (Q13 + Q47) * 0.95;
+        Q78klh= (Q12 + Q48) * 0.95;
+        Q79klh = (Q11 + Q49) * 0.95;
+        Q710klh = Q410 * 0.95;
+        //sd DẦM TRONG
+        Q711klh = Q18 + Q411;//
+        Q712klh = Q17 + Q412;
+        Q713klh = Q16 + Q413;
+        Q714klh = Q15 + Q414;
+        Q715klh = Q415;
+        //SD DẦM NGOÀI
+        Q716klh = Q18 + Q416;//
+        Q717klh = Q17 + Q417;
+        Q718klh = Q16 + Q418;
+        Q719klh = Q15 + Q419;
+        Q720klh = Q420;
+        // MỎI DẦM TRONG
+        Q721klh = 0.75 * 1.15 * Q61 * mgSIV;//
+        Q722klh = 0.75 * 1.15 * Q62 * mgSIV;
+        Q723klh = 0.75 * 1.15 * Q63 * mgSIV;
+        Q724klh = 0.75 * 1.15 * Q64 * mgSIV;
+        Q725klh = 0.75 * 1.15 * Q65 * mgSIV;
+        // mỏi dầm ngoài
+        Q726klh = 0.75 * 1.15 * Q61 * mgMEV1lan;//
+        Q727klh = 0.75 * 1.15 * Q62 * mgMEV1lan;
+        Q728klh = 0.75 * 1.15 * Q63 * mgMEV1lan;
+        Q729klh = 0.75 * 1.15 * Q64 * mgMEV1lan;
+        Q730klh = 0.75 * 1.15 * Q65 * mgMEV1lan;
+    }
+
 
     public void tinhNeoLK() {
         try {
@@ -3414,7 +4193,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         //Diện tích mặt cắt nguyên
         Anc = Adt;
         //Momen tĩnh đối với đáy dầm
-        Snct = (((Bft * tft) * (D - (tft / 2))) + ((Dw * tw) * (D - tft - (Dw / 2))) + ((Bfb * tfb) * (tfb / 2)));
+        Snct = (((Bft * tft) * (D - (tft / 2.))) + ((Dw * tw) * (D - tft - (Dw / 2.))) + ((Bfb * tfb) * (tfb / 2.)));
         //  Toast.makeText(nhaplieuthietke.this, "" + Snct, Toast.LENGTH_LONG).show();
         Yncd = (Snct / Anc);
         // Toast.makeText(nhaplieuthietke.this, "" + Yncd, Toast.LENGTH_LONG).show();

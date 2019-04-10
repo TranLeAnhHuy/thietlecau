@@ -4,9 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".thietke_caubtct_dialog">
+    tools:context=".loaicau_kiemdinh_dialog">
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="335dp"
@@ -19,14 +20,14 @@
         android:textStyle="italic" />
 
     <Button
-        android:id="@+id/button_btct_thuong"
+        android:id="@+id/btn_DamThep_kd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Cầu BTCT thường"
+        android:text="Cầu dầm thép"
         android:textAllCaps="true"
 
         android:textColor="#ffffff"
@@ -34,7 +35,7 @@
         />
 
     <Button
-        android:id="@+id/button_btct_dul"
+        android:id="@+id/btn_BeTongCotThep_kd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -42,8 +43,7 @@
         android:layout_marginTop="10dp"
         android:textAllCaps="true"
         android:background="@color/colorPrimaryDark"
-        android:text="Cầu BTCT DUL"
-
+        android:text="Cầu dầm BTCT"
         android:textColor="#fff"
         android:textSize="15dp"
         />

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KQ_kiemdinh_cauthep">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            //hiển thị kết quả đặt trưng hình học
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="#99f2171b"-->
+                    <!--android:gravity="center_horizontal"-->
+                    <!--android:text="Kiểm định theo TH HL93"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textStyle="bold" />-->
+            <!--</LinearLayout>-->
+
+
+
+            ///////////////////
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtHL93_inv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textAllCaps="true"
+                    android:textColor="#ff0202"
+                    android:paddingTop="5dp"
+                    android:textSize="14dp" />
+                <TextView
+                    android:id="@+id/txtkqRF_inv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:textSize="14dp" />
+                <TextView
+                    android:id="@+id/txtHL93_ope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#ff0202"
+                    android:textAllCaps="true"
+                    android:paddingTop="5dp"
+                    android:textSize="14dp" />
+                <TextView
+                    android:id="@+id/txtkqRF_ope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:textSize="14dp" />
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txt1"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:paddingTop="5dp"-->
+                    <!--android:textSize="14dp" />-->
+
+
+            </LinearLayout>
+
+            /////////////////////////////////////////////////////
+
+            ///////////////////////////////////////////////
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
