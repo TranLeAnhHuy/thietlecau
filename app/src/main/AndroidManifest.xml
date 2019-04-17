@@ -50,7 +50,8 @@
         <activity android:name=".ViewCauBTCTDUL" />
         <activity android:name=".loaicau_kiemdinh_dialog" />
         <activity android:name=".KiemDinhTheoAASHTO_BTCT" />
-        <activity android:name=".KQ_kiemdinh_cauthep"></activity>
+        <activity android:name=".KQ_kiemdinh_cauthep" />
+        <activity android:name=".KQ_kiemdinh_betong"></activity>
     </application>
 
 </manifest>

@@ -34,7 +34,7 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
     int lastedSelectedcauthep = 0;
     int lastedSelectedphis = 0;
     int lastedSelectedphiLL = 0;
-    String arrcauthep[] = {"Liên hợp", "Không liên hợp"};
+    String arrcauthep[] = {"liên hợp","Không Liên hợp"};
     String arrphic[] = {"Xấu","Tốt", "Khá", };
     String arrphis[]={"Cầu dầm/bản","Cấu kiện hàn","Cấu kiện đinh tán","Cấu kiện tai treo","Cầu 3 dầm chủ","Cầu 4 dầm chủ"};
     String arrphiLL[]={"Lưu lượng > 5000","Không biết lưu lượng","Lưu lượng = 1000","Lưu lượng < 100"};
@@ -77,7 +77,13 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
     double Mtype3,Mtype3s2,Mtype33,RFltCD1_type3_legal,RFttCD1_type3_legal,RFltSD2_type3_legal,RFttSD2_type3_legal;
     double RFltCD1_type3s2_legal,RFttCD1_type3s2_legal,RFltSD2_type3s2_legal,RFttSD2_type3s2_legal;
     double RFltCD1_type33_legal,RFttCD1_type33_legal,RFltSD2_type33_legal,RFttSD2_type33_legal;
-    String txtkqRF_legal;
+    double Mtype3s2_4truc,Mtype3s2_3truc,Mtype33_6truc,Mtype33_4truc ;
+    double RFltCD1_type3s2_4truc_legal,RFttCD1_type3s2_4truc_legal,RFltSD2_type3s2_4truc_legal,RFttSD2_type3s2_4truc_legal,RFltCD1_type3s2_3truc_legal,
+            RFttCD1_type3s2_3truc_legal,RFltSD2_type3s2_3truc_legal,RFttSD2_type3s2_3truc_legal;
+    double RFltCD1_type33_6truc_legal,RFttCD1_type33_6truc_legal,RFltSD2_type33_6truc_legal,RFttSD2_type33_6truc_legal,RFltCD1_type33_4truc_legal,
+            RFttCD1_type33_4truc_legal,RFltSD2_type33_4truc_legal,RFttSD2_type33_4truc_legal;
+    String txtkqRF_legal_3,txtkqRF_legal_3s2,txtkqRF_legal_33,txtLegal3,txtLegal3s2,txtLegal33,txtLegal;
+    double Tmax_type3,Tmax_type3s2,Tmax_type33;
 
 
 
@@ -92,7 +98,7 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
     public void addEvents(){
 
         Spinner();
-
+        NhapFie();
         TinhToan();
 
 
@@ -401,15 +407,16 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 NhapLieu();
+
               /// spinner liên hợp hoặc không liên h
                 if(lienhop==1){
                     LienHop();
 
-                }else if(khonglienhop==1){
+                }else if(khonglienhop==2){
                     KhongLienHop();
 
                 }
-                NhapFie();
+
                 kiemdinhHL93_INVENTORY();
                 Intent cauthep_KDintent = new Intent(KiemDinhTheoAASHTO.this, KQ_kiemdinh_cauthep.class);
                 Bundle cauthep_KDbundle = new Bundle();
@@ -417,6 +424,13 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
                 cauthep_KDbundle.putString("txtkqRF_inv",txtkqRF_inv);
                 cauthep_KDbundle.putString("txtHL93_ope",txtHL93_ope);
                 cauthep_KDbundle.putString("txtkqRF_ope",txtkqRF_ope);
+                cauthep_KDbundle.putString("txtLegal3",txtLegal3);
+                cauthep_KDbundle.putString("txtkqRF_legal_3",txtkqRF_legal_3);
+                cauthep_KDbundle.putString("txtLegal3s2",txtLegal3s2);
+                cauthep_KDbundle.putString("txtkqRF_legal_3s2",txtkqRF_legal_3s2);
+                cauthep_KDbundle.putString("txtLegal33",txtLegal33);
+                cauthep_KDbundle.putString("txtkqRF_legal_33",txtkqRF_legal_33);
+                cauthep_KDbundle.putString("txtLegal",txtLegal);
 
                 // LHbundle.putDouble("M4",M4 );
                 cauthep_KDintent.putExtra("cauthep_KDbundle", cauthep_KDbundle);
@@ -425,10 +439,122 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
             }
         });
     }
+    public void LienHop(){
+
+        bi1 = (1000 * Ls) / 4.;
+        bi2 = 12 * ts + Math.max(tw, 0.5 * bft);
+        bi3 = S;
+        bii = Math.min(bi1, bi2);
+        bi = Math.min(bii, bi3);
+        bc1 = 1000 * Ls / 8.;
+        bc2 = 6 * ts + Math.max((tw / 2), (bft / 4));
+        bc3 = de;
+        bcc = Math.min(bc1, bc2);
+        bc = (0.5 * bi) + Math.min(bcc, bc3);
+        be=Math.min(bi,bc);
+
+        Ps=0.85*fc*be*ts;
+        Pc=Fy*bft*tft;
+        Pt= Fy*bfc*tfc;
+        Pw= Fy*Dw*tw;
+        Prt= Fyct* n1* 3.14*dtt*dtt *0.25;
+        Prb= Fyct*n2* 3.14*dtd*dtd *0.25;
+
+        // xác định trục trung hòa dẻo
+        if ((Pt + Pw) > (Ps + Pc + Prt + Prb)) {
+            Dcp = (Dw / 2.) * ((Pt + Pw - Pc - Ps - Prt - Prb) / Pw);
+            Mp=((Ps*(0.5*ts+tv+tft+Dcp)+(Prt*(ts+tv+Dcp-st+tft))+(Prb*(Dcp+tv+sd+tft))+(Pc*(0.5*tft+Dcp))+(Pt*(Dw-Dcp+0.5*tfc))+(Pw*(Math.abs(0.5*Dw-Dcp)))))/(1000000.);
+            //  txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + ">" + "Ps+Pc+Prt+Prb= " + (float) Math.round(((Pt + Pw - Pc - Ps - Prt - Prb) / Pw) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản bụng";
+            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
+        } else if ((Pt + Pw < Ps + Pc + Prt + Prb && Pt + Pw + Pc > Ps + Prt + Prb)) {
+            Dcp = (tft / 2.) * ((Pt + Pw + Pc - Ps - Prt - Prb) / Pc);
+            Mp=((Ps*(0.5*ts+tv+Dcp))+(Prt*(ts+tv+Dcp-st))+(Prb*(Dcp+tv+sd))+(Pc*tft)+(Pt*(tft-Dcp+Dw+0.5*tfc))+(Pw*(tft-Dcp+0.5*Dw)))/(1000000.);
+
+            //  txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + "<" + "Ps+Pc+Prt+Prb= " + (float) Math.round((Ps + Pc + Prt + Prb) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản cánh trên";
+            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
+        } else if ((Pt + Pw + Pc + Ps) > (Prt + Prb)) {
+            Dcp = (ts / 2.) * ((Pt + Pw + Pc + Ps - Prt - Prb) / Ps);
+            Mp=((Ps*Dcp*0.5/ts)+(Prt*(Dcp-st))+(Prb*(ts-Dcp-sd))+(Pc*(ts-Dcp+tv+0.5*tft))+(Pt*(ts-Dcp+tv+tft+Dw+0.5*tfc))+(Pw*(ts-Dcp+tv+tft+0.5*Dw)))/(1000000.);
+            //  txtKT4 = "Trục trung hòa dẻo nằm ở bản bê tông";
+            /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
+        }
+        // momen dẻo
+        //Mp = (Ps * (Dcp + tft + tv + ts / 2.) + Prt * (Dcp + tft + tv + ts - st) + Prb * (Dcp + tft + tv + ts + sd) + Pc * (Dcp + tft / 2.) + Pt * (Dw - Dcp + tfc / 2.) + Pw * (Math.abs(-Dcp + Dw / 2.))) * (1.0 / 1000000.);
+        //double a=  Dcp+1;
+
+        if(fc>= 16. && fc<20.){
+            n=10.;
+        }else if(fc>= 20.&& fc<25.){
+            n=9.;
+        }else if(fc>=25 && fc<32.){
+            n=8;
+        }else if(fc>=32 && fc<= 41){
+            n=7.;
+        }else {
+            n=6.;
+        }
+
+        // nguyên
+        Anc=bft*tft+ Dw*tw+ bfc*tfc;
+        D=Dw+tfc+tft;
+        Snct = (((bft * tft) * (D - (tft / 2.))) + ((Dw * tw) * (D - tft - (Dw / 2.))) + ((bfc * tfc) * (tfc / 2.)));
+        Y1=Yncd = (Snct / Anc);
+        Ynct = (D - Yncd);
+        I1= Inc = ((bft * (Math.pow(tft, 3)) / 12) + (bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (bfc * Math.pow(tfc, 3) / 12) + (bfc * tfc) * Math.pow((Yncd - 0.5 * tfc), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfc - Yncd), 2));
+        Sncd = (Anc * Ynct);
+        //dài
+        BsDT = (bi / (3 * n));
+        BsDN = (bc / (3 * n));
+        AltDT = (Anc + BsDT * ts);
+        AltDN = (Anc + BsDN * ts);
+        SlttDT = (bft * tft * (D - (tft / 2)) + Dw * tw * (tfc + 0.5 * Dw) + bfc * tfc * 0.5 * tfc + BsDT * ts * (D + 0.5 * ts));
+        SlttDN = (bft * tft * (D - (tft / 2)) + Dw * tw * (tfc + 0.5 * Dw) + bfc * tfc * 0.5 * tfc + BsDN * ts * (D + 0.5 * ts));
+        //Yltd
+        YltdDT = (SlttDT / AltDT);
+        YltdDN = (SlttDN / AltDN);
+        //Yltt
+        YlttDT = Math.ceil(D - YltdDT);
+        YlttDN = Math.ceil(D - YltdDN);
+        //Ilt
+        IltDT = Inc + Anc * Math.pow(YltdDT - Yncd, 2) + (BsDT * Math.pow(ts, 3) / 12) + BsDT * ts * Math.pow(0.5 * ts + YlttDT + tv, 2);
+        IltDN = Inc + Anc * Math.pow(YltdDN - Yncd, 2) + (BsDN * Math.pow(ts, 3) / 12) + BsDN * ts * Math.pow(0.5 * ts + YlttDN + tv, 2);
+        ///
+        Y2=Yltd=Math.max(YltdDN,YltdDT);
+        I2=Ilt=Math.max(IltDN,IltDT);
+        //ngắn
+        //Bss
+
+        Ast= Anc+(be/n)*ts;
+        Snct=(bft*tft)*(D-0.5*tft)+(Dw*tw)*(D-tft-0.5*Dw)+(bfc*tfc)*0.5*tfc;
+        Sst=Snct+(be/n)*ts*(D+tv+0.5*ts)+(bft*tv*(0.5*tv+D)/n);
+        Ystd=Sst/Ast;
+        Yltd=Dw+tft+tfc-Ystd;
+        Ist=Inc+Anc*Math.pow(Ystd-Yncd,2)+(be*Math.pow(ts,3)/(12.*n))+(be/n)*ts*Math.pow(0.5*ts+tv+Yltd,2)+(((bft*Math.pow(tv,3)/12.)+bft*tv*(Math.pow(0.5*tv+Yltd,2)))/n);
+
+        I3=Ist;
+        Y3=Ystd;
+        double as=Ist;
+
+    }
+    public void KhongLienHop(){
+        /// KHÔNG KIÊN HỢP
+
+        Mp=Fy*tft*bft*(0.5*(Dw+tft+tfc)-0.5*tft)+Fy*tfc*bfc*(0.5*(Dw+tft+tfc)-0.5*tfc)+2*Fy*tw*Dw*Dw/8.;
+
+        Anc=bft*tft+ Dw*tw+ bfc*tfc;
+        D=Dw+tfc+tft;
+        Snct = (((bft * tft) * (D - (tft / 2.))) + ((Dw * tw) * (D - tft - (Dw / 2.))) + ((bfc * tfc) * (tfc / 2.)));
+        Y3=Y2= Y1=Yncd = (Snct / Anc);
+        Ynct = (D - Yncd);
+        I3=I2 = I1= Inc = ((bft * (Math.pow(tft, 3)) / 12) + (bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (bfc * Math.pow(tfc, 3) / 12) + (bfc * tfc) * Math.pow((Yncd - 0.5 * tfc), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfc - Yncd), 2));
+
+
+
+    }
     public void kiemdinhHL93_INVENTORY(){
 
        // tính DC
-        DC=(bft*tft+tw*Dw+bfc*tfc)*78.5/1000000.;
+        DC=(bft*tft+tw*Dw+bfc*tfc)*78.5*1.1/1000000.;
         // tính momen
         M3truc_lan= (1./4.)*Ls*142.34+(1./2.)*((Ls/2.)-4.267)*142.34+(1./2.)*((Ls/2.)-4.267)*35.59+(93./80.) *Ls*Ls;
         M2truc_lan= (1./4.)*Ls*111.21+0.5*(0.5*Ls-1.219)*111.21+(93./80.)*Ls*Ls;
@@ -721,60 +847,194 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
 
     }
     public void kiemdinhHL93_legal(){
+        txtLegal="Trường hợp xe Legal Load";
+
 
 
       //////////////////TYPE 3
-       Mtype3=(222.5-(71.2*(0.5*Ls-4.0475)+75.65*(0.5*Ls+0.5245)+75.65*(0.5*Ls+1.219+1.7345))/Ls)*(0.5*Ls+0.5245)-71.2*4.572;
+        Mtype3=(222.5-(71.2*(0.5*Ls-4.0475)+75.65*(0.5*Ls+0.5245)+75.65*(0.5*Ls+1.219+1.7345))/Ls)*(0.5*Ls+0.5245)-71.2*4.572;
+
+
         Mtype3s2=(320.4-(44.5*(0.5*Ls-5.698)+68.975*(0.5*Ls-2.345)+68.975*(0.5*Ls- 1.216) +
                 68.975*(0.5*Ls+5.58) +68.975*(0.5*Ls+6.799))/Ls)*(0.5*Ls-1.216)-44.5*4.572-68.975*1.219;
+        Mtype3s2_4truc=(275.9-((68.975*(0.5*Ls-2.8955)+68.975*(0.5*Ls-1.6765)+68.975*(0.5*Ls+5.0295)+68.975*(0.5*Ls+6.2485))/(Ls)))*(0.5*Ls-1.6765)-68.975*1.219;
+        Mtype3s2_3truc=(206.925-((68.975*(0.5*Ls-5.7915)+68.975*(0.5*Ls+0.9145)+68.975*(0.5*Ls+2.1335))/(Ls)))*(0.5*Ls+0.9145)-68.975*6.706;
+
+
+
         Mtype33=(302.6-(53.4*(0.5*Ls-6.00525)+53.4*(0.5*Ls-4.78625)+71.2*(0.5*Ls-0.21425)+62.3*(0.5*Ls+4.66225)+62.3*(0.5*Ls+5.88125))/Ls)*(0.5*Ls-0.21425)-53.4*5.791-53.4*4.572;
+        Mtype33_6truc= (356-((53.4*(0.5*Ls-9.7455)+53.4*(0.5*Ls-5.1735)+53.4*(0.5*Ls-3.9545)+71.2*(0.5*Ls+0.6175)+62.3*(0.5*Ls+5.494)+62.3*(0.5*Ls+6.713))/(Ls)))*(0.5*Ls+0.6175)-53.4*20.726;
+        Mtype33_4truc=(249.2-(53.4*(0.5*Ls-5.4535)+71.2*(0.5*Ls-0.8815)+62.3*(0.5*Ls+3.995)+62.3*(0.5*Ls+5.214))/Ls)*(0.5*Ls-0.8815)-53.4*4.572;
+/////////////////type 3
+
+
         RFltCD1_type3_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype3);
-        RFttCD1_type3_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype3);
-       /// sử dụng
+            /// sử dụng
         RFltSD2_type3_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtype3*Y3*1000000./I3);
         // RF nhập liệu
-        RFttSD2_type3_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtt*Y3*1000000./I3);
+               txtkqRF_legal_3="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3            "+
+                "\n RF TTCĐ1 lý thuyết xe type 3  = "+ (float) Math.round(( RFltCD1_type3_legal) * 100) / 100 +
+                "\n RF TTSD2 lý thuyết xe type 3  = "+ (float) Math.round((  RFltSD2_type3_legal) * 100) / 100
 
-        if(RFltCD1_type3_legal>=1 && RFttCD1_type3_legal>=1){
+        ;
 
-        }else if(RFltCD1_type3_legal>=1 && RFttCD1_type3_legal<1){
+        if( RFltCD1_type3_legal >=1 && RFltSD2_type3_legal >=1){
+             ///cầu ok
+            txtLegal3="Cầu hoạt động bình thường với xe Legal Type 3";
+        }else{
+            // cấm biển tải trọng
 
-        }else if(RFltCD1_type3_legal<1 && RFttCD1_type3_legal>=1){
-
+            Tmax_type3= (222.5*RFltCD1_type3_legal)/9.81;
+            txtLegal3="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3) * 100) / 100+  "T";
         }
 
 
 
+
         //////////////////TYPE 3S2
+////////////////////////////////////////// bổ sung thêm 2 xe của 3s2   Mtype3s2_4truc
+        double RF3s2,RF3s22;
 
 
         RFltCD1_type3s2_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLL*Mtype3s2);
-        RFttCD1_type3s2_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLL*Mtype3s2);
+
         /// sử dụng
-        RFltSD2_type3s2_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtype3*Y3*1000000./I3);
+        RFltSD2_type3s2_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtype3s2*Y3*1000000./I3);
         // RF nhập liệu
-        RFttSD2_type3s2_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtt*Y3*1000000./I3);
+             RFltCD1_type3s2_4truc_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLL*Mtype3s2_4truc);
+
+        /// sử dụng
+        RFltSD2_type3s2_4truc_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtype3s2_4truc*Y3*1000000./I3);
+        // RF nhập liệu
+
+        RFltCD1_type3s2_3truc_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLL*Mtype3s2_3truc);
+
+        /// sử dụng
+        RFltSD2_type3s2_3truc_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtype3s2_3truc*Y3*1000000./I3);
+        RF3s2=Math.min(RFltCD1_type3s2_legal, RFltCD1_type3s2_4truc_legal);
+        RF3s22=Math.min(RF3s2,RFltCD1_type3s2_3truc_legal);
+
+        txtkqRF_legal_3s2="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3S2            "+
+                "\n RF TTCĐ1 lý thuyết xe type 3S2          = "+ (float) Math.round((RFltCD1_type3s2_legal) * 100) / 100 +
+                "\n RF TTSD2 lý thuyết xe type 3S2          = "+ (float) Math.round(( RFltSD2_type3s2_legal) * 100) / 100
+                +
+                "\n RF TTCĐ1 lý thuyết xe type 3S2 - 4truc  = "+ (float) Math.round(( RFltCD1_type3s2_4truc_legal) * 100) / 100 +
+                "\n RF TTSD2 lý thuyết xe type 3S2 - 4truc  = "+ (float) Math.round((RFltSD2_type3s2_4truc_legal) * 100) / 100
+                +
+                "\n RF TTCĐ1 lý thuyết xe type 3S2 - 3truc  = "+ (float) Math.round((RFltCD1_type3s2_3truc_legal) * 100) / 100 +
+                "\n RF TTSD2 lý thuyết xe type 3S2 - 3truc  = "+ (float) Math.round((RFltSD2_type3s2_3truc_legal) * 100) / 100
+
+        ;
+        // RF nhập liệu
+        if(RFltCD1_type3s2_legal>=1){
+            if(RFltSD2_type3s2_legal>=1){
+                if( RFltCD1_type3s2_4truc_legal>=1){
+                    if( RFltSD2_type3s2_4truc_legal>=1){
+                        if(RFltCD1_type3s2_3truc_legal>=1){
+                            if(RFltSD2_type3s2_3truc_legal>=1){
+                                ///cầu bình thường
+                                txtLegal3s2="Cầu hoạt động bình thường với xe Legal 3S2";
+
+                            }else {
+                                Tmax_type3s2= (320.4*RF3s22)/9.81;
+                                txtLegal3s2="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+
+                            }
+                        }else {
+                            Tmax_type3s2= (320.4*RF3s22)/9.81;
+                            txtLegal3s2="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+                        }
+                    }else {
+                        Tmax_type3s2= (320.4*RF3s22)/9.81;
+                        txtLegal3s2="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+                    }
+                }else {
+                    Tmax_type3s2= (320.4*RF3s22)/9.81;
+                    txtLegal3s2="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+                }
+            }else {
+                Tmax_type3s2= (320.4*RF3s22)/9.81;
+                txtLegal3s2="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+            }
+        }else {
+            Tmax_type3s2= (320.4*RF3s22)/9.81;
+            txtLegal3s2="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+        }
+
+
 
 
         ///////TYpe 33
-
+////////////////////////////////////////// bổ sung thêm 2 xe của 33  Mtype33_6truc  Mtype33_4truc
+        double RF33,RF333;
         RFltCD1_type33_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype33);
-        RFttCD1_type33_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype33);
+
         /// sử dụng
-        RFltSD2_type33_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtype3*Y3*1000000./I3);
+        RFltSD2_type33_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtype33*Y3*1000000./I3);
         // RF nhập liệu
-        RFttSD2_type33_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtt*Y3*1000000./I3);
 
+        RFltCD1_type33_6truc_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype33_6truc);
 
+        /// sử dụng
+        RFltSD2_type33_6truc_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtype33_6truc*Y3*1000000./I3);
+        // RF nhập liệu
 
+        RFltCD1_type33_4truc_legal=((phic*phis*phi*Mp)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype33_4truc);
 
+        RFltSD2_type33_4truc_legal=(0.95*Fy-(0.125*DC*Ls*Ls*Y1*1000000./I1)-(0.125*DW*Ls*Ls*Y2*1000000./I2))/(1.3*Nlan*1.33*mgLL*Mtype33_4truc*Y3*1000000./I3);
+        RF33=Math.min(RFltCD1_type33_legal,RFltCD1_type33_6truc_legal);
+        RF333=Math.min(RF33,RFltCD1_type33_4truc_legal);
+
+        txtkqRF_legal_33="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3S2            "+
+                "\n RF TTCĐ1 lý thuyết xe type 33          = "+ (float) Math.round((RFltCD1_type33_legal) * 100) / 100 +
+                "\n RF TTSD2 lý thuyết xe type 33          = "+ (float) Math.round(( RFltSD2_type33_legal) * 100) / 100
+                +
+                "\n RF TTCĐ1 lý thuyết xe type 33 - 6truc  = "+ (float) Math.round((RFltCD1_type33_6truc_legal) * 100) / 100 +
+                "\n RF TTSD2 lý thuyết xe type 33 - 6truc  = "+ (float) Math.round(( RFltSD2_type33_6truc_legal) * 100) / 100
+                +
+                "\n RF TTCĐ1 lý thuyết xe type 33 - 4truc  = "+ (float) Math.round(( RFltCD1_type33_4truc_legal) * 100) / 100 +
+                "\n RF TTSD2 lý thuyết xe type 33 - 4truc  = "+ (float) Math.round((RFltSD2_type33_4truc_legal) * 100) / 100
+
+        ;
+
+        if(RFltCD1_type33_legal>=1){
+            if(RFltSD2_type33_legal>=1){
+                if( RFltCD1_type33_6truc_legal>=1){
+                    if( RFltSD2_type33_6truc_legal>=1){
+                        if(RFltCD1_type33_4truc_legal>=1){
+                            if(RFltSD2_type33_4truc_legal>=1){
+                                ///cầu bình thường
+                                txtLegal33="Cầu hoạt động bình thường với xe Legal 3-3";
+
+                            }else {
+                                Tmax_type33= (320.4*RF333)/9.81;
+                                txtLegal33="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
+
+                            }
+                        }else {
+                            Tmax_type33= (320.4*RF333)/9.81;
+                            txtLegal33="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
+                        }
+                    }else {
+                        Tmax_type33= (320.4*RF333)/9.81;
+                        txtLegal33="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
+                    }
+                }else {
+                    Tmax_type33= (320.4*RF333)/9.81;
+                    txtLegal33="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
+                }
+            }else {
+                Tmax_type33= (320.4*RF333)/9.81;
+                txtLegal33="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
+            }
+        }else {
+            Tmax_type33= (320.4*RF333)/9.81;
+            txtLegal33="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
+        }
 
 
 
     }
-
-
-
 
     public void Spinner(){
         /// Cầu thép
@@ -893,9 +1153,8 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             lastedSelectedcauthep = position;
             if (lastedSelectedcauthep == 0) {
-                //////LIÊN HỢP
-                // tính hữu hiệu
-              lienhop=1;
+
+              lienhop=1.;
 
 
        /* IstDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDT-0.5*tfb),2)))+(BssDT*(Math.pow(ts,3))/12)+(BssDT*ts*(Math.pow((YsttDT+0.5*ts),2))));
@@ -904,7 +1163,7 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
 
                 //  Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
             } else if (lastedSelectedcauthep == 1) {
-                khonglienhop=1;
+                khonglienhop=2.;
                ////
 
 
@@ -945,114 +1204,7 @@ public class KiemDinhTheoAASHTO extends AppCompatActivity {
         }
         //Nếu không chọn gì cả
     }
-    public void LienHop(){
 
-        bi1 = (1000 * Ls) / 4.;
-        bi2 = 12 * ts + Math.max(tw, 0.5 * bft);
-        bi3 = S;
-        bii = Math.min(bi1, bi2);
-        bi = Math.min(bii, bi3);
-        bc1 = 1000 * Ls / 8.;
-        bc2 = 6 * ts + Math.max((tw / 2), (bft / 4));
-        bc3 = de;
-        bcc = Math.min(bc1, bc2);
-        bc = (0.5 * bi) + Math.min(bcc, bc3);
-        be=Math.min(bi,bc);
-
-        Ps=0.85*fc*be*ts;
-        Pc=Fy*bft*tft;
-        Pt= Fy*bfc*tfc;
-        Pw= Fy*Dw*tw;
-        Prt= Fyct* n1* 3.14*dtt*dtt *0.25;
-        Prb= Fyct*n2* 3.14*dtd*dtd *0.25;
-
-        // xác định trục trung hòa dẻo
-        if ((Pt + Pw) > (Ps + Pc + Prt + Prb)) {
-            Dcp = (Dw / 2) * ((Pt + Pw - Pc - Ps - Prt - Prb) / Pw);
-            //  txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + ">" + "Ps+Pc+Prt+Prb= " + (float) Math.round(((Pt + Pw - Pc - Ps - Prt - Prb) / Pw) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản bụng";
-            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
-        } else if ((Pt + Pw < Ps + Pc + Prt + Prb && Pt + Pw + Pc > Ps + Prt + Prb)) {
-            Dcp = (tft / 2) * ((Pt + Pw + Pc - Ps - Prt - Prb) / Pc);
-            //  txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + "<" + "Ps+Pc+Prt+Prb= " + (float) Math.round((Ps + Pc + Prt + Prb) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản cánh trên";
-            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
-        } else if ((Pt + Pw + Pc + Ps) > (Prt + Prb)) {
-            Dcp = (ts / 2) * ((Pt + Pw + Pc + Ps - Prt - Prb) / Ps);
-            //  txtKT4 = "Trục trung hòa dẻo nằm ở bản bê tông";
-            /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
-        }
-        // momen dẻo
-        Mp = (Ps * (Dcp + tft + tv + ts / 2.) + Prt * (Dcp + tft + tv + ts - st) + Prb * (Dcp + tft + tv + ts + sd) + Pc * (Dcp + tft / 2.) + Pt * (Dw - Dcp + tfc / 2.) + Pw * (Math.abs(-Dcp + Dw / 2.))) * (1.0 / 1000000.);
-        //double a=  Dcp+1;
-
-        if(fc>= 16. && fc<20.){
-            n=10.;
-        }else if(fc>= 20.&& fc<25.){
-            n=9.;
-        }else if(fc>=25 && fc<32.){
-            n=8;
-        }else if(fc>=32 && fc<= 41){
-            n=7.;
-        }else {
-            n=6.;
-        }
-
-        // nguyên
-        Anc=bft*tft+ Dw*tw+ bfc*tfc;
-        D=Dw+tfc+tft;
-        Snct = (((bft * tft) * (D - (tft / 2.))) + ((Dw * tw) * (D - tft - (Dw / 2.))) + ((bfc * tfc) * (tfc / 2.)));
-        Y1=Yncd = (Snct / Anc);
-        Ynct = (D - Yncd);
-        I1= Inc = ((bft * (Math.pow(tft, 3)) / 12) + (bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (bfc * Math.pow(tfc, 3) / 12) + (bfc * tfc) * Math.pow((Yncd - 0.5 * tfc), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfc - Yncd), 2));
-        Sncd = (Anc * Ynct);
-        //dài
-        BsDT = (bi / (3 * n));
-        BsDN = (bc / (3 * n));
-        AltDT = (Anc + BsDT * ts);
-        AltDN = (Anc + BsDN * ts);
-        SlttDT = (bft * tft * (D - (tft / 2)) + Dw * tw * (tfc + 0.5 * Dw) + bfc * tfc * 0.5 * tfc + BsDT * ts * (D + 0.5 * ts));
-        SlttDN = (bft * tft * (D - (tft / 2)) + Dw * tw * (tfc + 0.5 * Dw) + bfc * tfc * 0.5 * tfc + BsDN * ts * (D + 0.5 * ts));
-        //Yltd
-        YltdDT = (SlttDT / AltDT);
-        YltdDN = (SlttDN / AltDN);
-        //Yltt
-        YlttDT = Math.ceil(D - YltdDT);
-        YlttDN = Math.ceil(D - YltdDN);
-        //Ilt
-        IltDT = Inc + Anc * Math.pow(YltdDT - Yncd, 2) + (BsDT * Math.pow(ts, 3) / 12) + BsDT * ts * Math.pow(0.5 * ts + YlttDT + tv, 2);
-        IltDN = Inc + Anc * Math.pow(YltdDN - Yncd, 2) + (BsDN * Math.pow(ts, 3) / 12) + BsDN * ts * Math.pow(0.5 * ts + YlttDN + tv, 2);
-        ///
-        Y2=Yltd=Math.max(YltdDN,YltdDT);
-        I2=Ilt=Math.max(IltDN,IltDT);
-        //ngắn
-        //Bss
-
-        Ast= Anc+(be/n)*ts;
-        Snct=(bft*tft)*(D-0.5*tft)+(Dw*tw)*(D-tft-0.5*Dw)+(bfc*tfc)*0.5*tfc;
-        Sst=Snct+(be/n)*ts*(D+tv+0.5*ts)+(bft*tv*(0.5*tv+D)/n);
-        Ystd=Sst/Ast;
-        Yltd=Dw+tft+tfc-Ystd;
-        Ist=Inc+Anc*Math.pow(Ystd-Yncd,2)+(be*Math.pow(ts,3)/(12.*n))+(be/n)*ts*Math.pow(0.5*ts+tv+Yltd,2)+(((bft*Math.pow(tv,3)/12.)+bft*tv*(Math.pow(0.5*tv+Yltd,2)))/n);
-
-        I3=Ist;
-        Y3=Ystd;
-        double as=Ist;
-
-    }
-    public void KhongLienHop(){
-        /// KHÔNG KIÊN HỢP
-
-        Mp=Fy*tft*bft*(0.5*(Dw+tft+tfc)-0.5*tft)+Fy*tfc*bfc*(0.5*(Dw+tft+tfc)-0.5*tfc)+2*Fy*tw*Dw*Dw/8.;
-
-        Anc=bft*tft+ Dw*tw+ bfc*tfc;
-        D=Dw+tfc+tft;
-        Snct = (((bft * tft) * (D - (tft / 2.))) + ((Dw * tw) * (D - tft - (Dw / 2.))) + ((bfc * tfc) * (tfc / 2.)));
-        Y3=Y2= Y1=Yncd = (Snct / Anc);
-        Ynct = (D - Yncd);
-        I3=I2 = I1= Inc = ((bft * (Math.pow(tft, 3)) / 12) + (bft * tft) * Math.pow((Ynct - 0.5 * tft), 2) + (bfc * Math.pow(tfc, 3) / 12) + (bfc * tfc) * Math.pow((Yncd - 0.5 * tfc), 2) + (tw * Math.pow(Dw, 3) / 12) + (tw * Dw) + (tw * Dw) * Math.pow((0.5 * Dw + tfc - Yncd), 2));
-
-
-
-    }
     public void NhapFie(){
         btnNhapFile.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:text="Chọn loại cầu thiết kế"
+        android:text="Chọn loại cầu kiểm định"
         android:textColor="#000"
         android:textSize="20dp"
         android:textStyle="italic" />

@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".KQ_kiemdinh_cauthep">
-
+    tools:context=".KQ_kiemdinh_betong">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,21 +21,21 @@
             //hiển thị kết quả đặt trưng hình học
 
             <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="5dp"-->
-                <!--android:orientation="horizontal">-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:orientation="horizontal">-->
 
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="#99f2171b"-->
-                    <!--android:gravity="center_horizontal"-->
-                    <!--android:text="Kiểm định theo TH HL93"-->
-                    <!--android:textAllCaps="true"-->
-                    <!--android:textColor="#fff"-->
-                    <!--android:textSize="20dp"-->
-                    <!--android:textStyle="bold" />-->
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="#99f2171b"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:text="Kiểm định theo TH HL93"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textStyle="bold" />-->
             <!--</LinearLayout>-->
 
 
@@ -144,12 +143,12 @@
 
 
                 <!--<TextView-->
-                    <!--android:id="@+id/txt1"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="5dp"-->
-                    <!--android:paddingTop="5dp"-->
-                    <!--android:textSize="14dp" />-->
+                <!--android:id="@+id/txt1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:paddingTop="5dp"-->
+                <!--android:textSize="14dp" />-->
 
 
             </LinearLayout>
@@ -189,5 +188,6 @@
         </LinearLayout>
 
     </ScrollView>
+
 
 </LinearLayout>
