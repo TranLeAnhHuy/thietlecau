@@ -53,7 +53,7 @@ public class KQ_kiemdinh_betong extends AppCompatActivity {
         txtLegal=(TextView) findViewById(R.id.txtLegal);
     }
     public void btnTroVe(View view) {
-        Intent iTroVe = new Intent(KQ_kiemdinh_betong.this, KiemDinhTheoAASHTO.class);
+        Intent iTroVe = new Intent(KQ_kiemdinh_betong.this, KiemDinhTheoAASHTO_BTCT.class);
         startActivity(iTroVe);
     }
 }

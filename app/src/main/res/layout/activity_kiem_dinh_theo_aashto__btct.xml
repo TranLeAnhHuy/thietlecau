@@ -188,20 +188,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
-                    android:text="Momen thực tế"
+                    android:text="Trọng lượng dầm-tiện ích"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
                 <EditText
-                    android:id="@+id/edtMtt"
+                    android:id="@+id/edtDC"
                     android:layout_width="104dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="65dp"
+                    android:layout_marginLeft="02dp"
                     android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:hint="0"
+                    android:text="15.206"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -210,10 +210,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
-                    android:text="kN.m"
+                    android:text="kN/m"
                     android:textColor="#6c7070"
                     android:textSize="13dp" />
             </LinearLayout>
+
             //Số làn xe
             <LinearLayout
                 android:layout_width="match_parent"
@@ -238,7 +239,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="17.6"
+                    android:text="20"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -299,7 +300,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
-                    android:text="Hệ số ppn của momen"
+                    android:text="Hệ số ppn thực tế"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
@@ -307,12 +308,48 @@
                     android:id="@+id/edtmgLL"
                     android:layout_width="104dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="17dp"
+                    android:layout_marginLeft="50dp"
                     android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="0.247"
+                    android:text="0.21"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text=""
+                    android:textColor="#6c7070"
+                    android:textSize="13dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Hệ số ppn lý thuyết"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtmgLLlt"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="43dp"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:paddingLeft="10dp"
+                    android:text="0.21"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -368,7 +405,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="12.635"
+                    android:text="7.387"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -480,7 +517,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="25"
+                android:text="32.8"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -515,6 +552,8 @@
                     android:textSize="16dp"
                     android:textStyle="bold" />
             </LinearLayout>
+            // trọng lượng dầm chủ
+
             // khoảng cách dầm chủ
             <LinearLayout
                 android:layout_width="match_parent"
@@ -613,7 +652,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="400"
+                    android:text="500"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -758,7 +797,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="200"
+                    android:text="0"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -794,7 +833,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="400"
+                android:text="0"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1011,7 +1050,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="30"
+                    android:text="148"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -1030,14 +1069,13 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
-
                 <Button
                     android:id="@+id/btnTroVe"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:background="#99f2171b"
-
+                    android:onClick="btnTroVe"
                     android:text="Trở về"
                     android:textAllCaps="true"
                     android:textColor="#fff"

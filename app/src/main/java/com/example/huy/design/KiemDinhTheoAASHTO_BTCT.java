@@ -24,13 +24,13 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
     String arrphiLL[]={"Lưu lượng > 5000","Không biết lưu lượng","Lưu lượng = 1000","Lưu lượng < 100"};
     Button btnTinhToan;
     double damI,damT, ban;
-    EditText edtMtt,edtNlan,edtmgLL,edtts,edtfcbmc,edtfcdc,edtyc,edtFy,edth,edthf,edtbf,  edttw, edthw,edtbe,edtht;
-    EditText edtLs, edtDW, edtdbv,edtds,edtnthep,edtbt;
+    EditText edtNlan,edtmgLL,edtmgLLlt,edtts,edtfcbmc,edtfcdc,edtyc,edtFy,edth,edthf,edtbf,  edttw, edthw,edtbe,edtht;
+    EditText edtLs, edtDW, edtdbv,edtds,edtnthep,edtbt,edtDC;
 
-    double Mtt,Nlan,mgLL,ts,fcbmc,fcdc,yc,Fy,h,hf,bf, tw, hw,be,ht,Ls, DW, dbv,ds,nthep,bt;
+    double Nlan,mgLL,mgLLlt,ts,fcbmc,fcdc,yc,Fy,h,hf,bf, tw, hw,be,ht,Ls, DW, dbv,ds,nthep,bt,DC;
     double Mlt;
     // tính momen
-    double M1,M2,M3,DC;
+    double M3truc_lan,M2truc_lan,M90;
     String txtHL93_inv,txtHL93_ope;
     ///////////inventory
     double RFltCD1_3truc_inventory,RFttCD1_3truc_inventory,RFltCD1_2truc_inventory,RFttCD1_2truc_inventory,RFltCD1_90_inventory,RFttCD1_90_inventory;
@@ -79,9 +79,10 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         //spnphi = (Spinner) findViewById(R.id.spnphi);
         spnphiLL = (Spinner) findViewById(R.id.spnphiL);
 //       dbv,ds,nthep,bt;
-        edtMtt=(EditText)findViewById(R.id.edtMtt);
+//        edtMtt=(EditText)findViewById(R.id.edtMtt);
         edtNlan=(EditText)findViewById(R.id.edtNlan);
         edtmgLL=(EditText)findViewById(R.id.edtmgLL);
+        edtmgLLlt=(EditText)findViewById(R.id.edtmgLLlt);
         edtts=(EditText)findViewById(R.id.edtts);
         edtfcbmc=(EditText)findViewById(R.id.edtfcbmc);
         edtfcdc=(EditText)findViewById(R.id.edtfcdc);
@@ -102,204 +103,180 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         edtds=(EditText)findViewById(R.id.edtds);
         edtnthep=(EditText)findViewById(R.id.edtnthep);
         edtbt=(EditText)findViewById(R.id.edtbt);
+        edtDC=(EditText)findViewById(R.id.edtDC);
 
 
     }
     public void kiemdinhHL93_legal(){
         txtLegal="Trường hợp xe Legal Load";
-            //////////////////TYPE 3
-        Mtype3=(222.5-(71.2*(0.5*Ls-4.0475)+75.65*(0.5*Ls+0.5245)+75.65*(0.5*Ls+1.219+1.7345))/Ls)*(0.5*Ls+0.5245)-71.2*4.572;
-
-
-        Mtype3s2=(320.4-(44.5*(0.5*Ls-5.698)+68.975*(0.5*Ls-2.345)+68.975*(0.5*Ls- 1.216) +
-                68.975*(0.5*Ls+5.58) +68.975*(0.5*Ls+6.799))/Ls)*(0.5*Ls-1.216)-44.5*4.572-68.975*1.219;
-        Mtype3s2_4truc=(275.9-((68.975*(0.5*Ls-2.8955)+68.975*(0.5*Ls-1.6765)+68.975*(0.5*Ls+5.0295)+68.975*(0.5*Ls+6.2485))/(Ls)))*(0.5*Ls-1.6765)-68.975*1.219;
-        Mtype3s2_3truc=(206.925-((68.975*(0.5*Ls-5.7915)+68.975*(0.5*Ls+0.9145)+68.975*(0.5*Ls+2.1335))/(Ls)))*(0.5*Ls+0.9145)-68.975*6.706;
 
 
 
-        Mtype33=(302.6-(53.4*(0.5*Ls-6.00525)+53.4*(0.5*Ls-4.78625)+71.2*(0.5*Ls-0.21425)+62.3*(0.5*Ls+4.66225)+62.3*(0.5*Ls+5.88125))/Ls)*(0.5*Ls-0.21425)-53.4*5.791-53.4*4.572;
-        Mtype33_6truc= (356-((53.4*(0.5*Ls-9.7455)+53.4*(0.5*Ls-5.1735)+53.4*(0.5*Ls-3.9545)+71.2*(0.5*Ls+0.6175)+62.3*(0.5*Ls+5.494)+62.3*(0.5*Ls+6.713))/(Ls)))*(0.5*Ls+0.6175)-53.4*20.726;
-        Mtype33_4truc=(249.2-(53.4*(0.5*Ls-5.4535)+71.2*(0.5*Ls-0.8815)+62.3*(0.5*Ls+3.995)+62.3*(0.5*Ls+5.214))/Ls)*(0.5*Ls-0.8815)-53.4*4.572;
-/////////////////type 3
+        //////////////////TYPE 3
+        if(Ls>8.9){
+            Mtype3=(222.5-(71.2*(0.5*Ls-4.0475)+75.65*(0.5*Ls+0.5245)+75.65*(0.5*Ls+1.7435))/Ls)*(0.5*Ls+0.5245)-71.2*4.572;
+        }else if(Ls<=8.9){
+            Mtype3=(151.3-((75.65*(0.5*Ls-0.30475)+75.65*(0.5*Ls+0.91425))/Ls))*(0.5*Ls-0.30475);
+        }
+        if(Ls>14.138){
+            Mtype3s2=(320.4-(44.5*(0.5*Ls-5.698)+68.975*(0.5*Ls-2.345)+68.975*(0.5*Ls- 1.126) +
+                    68.975*(0.5*Ls+5.85) +68.975*(0.5*Ls+7.069))/Ls)*(0.5*Ls-1.126)-287.5345;
+        }else if(Ls<14.138 && Ls>13.2) {
 
-        RFltCD1_type3_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype3);
-        /// sử dụng
-        // RF nhập liệu
-        txtkqRF_legal_3="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3            "+
-                "\n RF TTCĐ1 lý thuyết xe type 3  = "+ (float) Math.round(( RFltCD1_type3_legal) * 100) / 100
-
-        ;
-
-        if( RFltCD1_type3_legal >=1){
-            ///cầu ok
-            txtLegal3="Cầu hoạt động bình thường với xe Legal Type 3";
-        }else{
-            // cấm biển tải trọng
-
-            Tmax_type3= (222.5*RFltCD1_type3_legal)/9.81;
-            txtLegal3="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3) * 100) / 100+  "T";
+            Mtype3s2 = (275.9 - ((68.975 * (0.5 * Ls - 2.8955) + 68.975 * (0.5 * Ls - 1.6765) + 68.975 * (0.5 * Ls + 5.0295) + 68.975 * (0.5 * Ls + 6.2485)) / (Ls))) * (0.5 * Ls - 1.6765) - 68.975 * 1.219;
+        }else if(Ls<=13.2 && Ls >12.7){
+            Mtype3s2=(206.925-((68.975*(0.5*Ls-5.7915)+68.975*(0.5*Ls+0.9145)+68.975*(0.5*Ls+2.1335))/(Ls)))*(0.5*Ls+0.9145)-68.975*6.706;
+        }else if(Ls<=12.7){
+            Mtype3s2=(137.95-((68.975*(0.5*Ls-0.30475)+68.975*(0.5*Ls+0.91425))/Ls))*(0.5*Ls-0.30475);
         }
 
 
+        if(Ls>19.537){
+            Mtype33= (356-((53.4*(0.5*Ls-9.7685)+53.4*(0.5*Ls-5.1695)+53.4*(0.5*Ls-3.9775)+71.2*(0.5*Ls+0.5945)+62.3*(0.5*Ls+5.4715)+62.3*(0.5*Ls+6.6905))/(Ls)))*(0.5*Ls+0.5945)-53.4*18.9155;
+        }
+        else if(Ls<=19.537 && Ls>15.5)
+        {
+            Mtype33=(302.6-(53.4*(0.5*Ls-6.00525)+53.4*(0.5*Ls-4.78625)+71.2*(0.5*Ls-0.21425)+62.3*(0.5*Ls+4.66225)+62.3*(0.5*Ls+5.88125))/Ls)*(0.5*Ls-0.21425)-53.4*5.791-53.4*4.572;
+        } else if(Ls<=15.5&& Ls> 9.3){
+            Mtype33=(195.8-((71.2*(0.5*Ls-4.1838)+62.3*(0.5*Ls+0.6927+1.9117))/Ls))*(0.5*Ls+0.6927)-71.2*4.8765;
 
+        }else if(Ls<=9.3 ){
+            Mtype33=(124.6-((62.3*(0.5*Ls-0.30475+0.91425))/Ls))*(0.5*Ls-0.30475);
+        }
+        double a=11;
+
+/////////////////type 3
+
+
+        RFltCD1_type3_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLLlt*Mtype3);
+        /// sử dụng
+        RFttCD1_type3_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype3);
+        /// sử dụng
+        // RF nhập liệu
+        txtkqRF_legal_3="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3            "+
+                "\n RF TTCĐ1 lý thuyết xe type 3  = "+ (float) Math.round(( RFltCD1_type3_legal) * 100) / 100 +
+                "\n RF TTCĐ1 thực tế xe type 3  = "+ (float) Math.round(( RFttCD1_type3_legal) * 100) / 100
+        ;
+        ///// chưa sửa
+        if(RFltCD1_type3_legal>=1){
+                if(RFttCD1_type3_legal>=1){
+                        ///cầu ok
+                        txtLegal3="Cầu hoạt động bình thường với xe Legal Type 3";
+
+                    }else{
+                        // cấm biển tải trọng
+                        double mt3,mt31,mt32;
+
+                        mt32=Math.min(RFltCD1_type3_legal,RFttCD1_type3_legal);
+                        Tmax_type3= (222.5*mt32)/9.81;
+                        txtLegal3="Tải trọng tối đa cho phép qua cầu với xe Legal Type 3  "+(float) Math.round((Tmax_type3) * 100) / 100+  "T";
+                    }
+
+                }else{
+                    // cấm biển tải trọng
+                    double mt3,mt31,mt32;
+                    mt32=Math.min(RFltCD1_type3_legal,RFttCD1_type3_legal);
+                    Tmax_type3= (222.5*mt32)/9.81;
+                    txtLegal3="Tải trọng tối đa cho phép qua cầu với xe Legal Type 3  "+(float) Math.round((Tmax_type3) * 100) / 100+  "T";
+                }
 
         //////////////////TYPE 3S2
 ////////////////////////////////////////// bổ sung thêm 2 xe của 3s2   Mtype3s2_4truc
-        double RF3s2,RF3s22;
-
-
-        RFltCD1_type3s2_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLL*Mtype3s2);
-
-        // RF nhập liệu
-        RFltCD1_type3s2_4truc_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLL*Mtype3s2_4truc);
-
-        // RF nhập liệu
-
-        RFltCD1_type3s2_3truc_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLL*Mtype3s2_3truc);
-
+        RFltCD1_type3s2_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLLlt*Mtype3s2);
         /// sử dụng
-        RF3s2=Math.min(RFltCD1_type3s2_legal, RFltCD1_type3s2_4truc_legal);
-        RF3s22=Math.min(RF3s2,RFltCD1_type3s2_3truc_legal);
+        ////////////////////// thực tế
+        RFttCD1_type3s2_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLL*Mtype3s2);
+       /// sử dụng
+        /////////////// chưa
+        double RF3s2,RF3s21,RF3s22;
 
+        RF3s22=Math.min(RFltCD1_type3s2_legal,RFttCD1_type3s2_legal);
         txtkqRF_legal_3s2="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3S2            "+
-                "\n RF TTCĐ1 lý thuyết xe type 3S2 - 5truc  = "+ (float) Math.round((RFltCD1_type3s2_legal) * 100) / 100 +
-
-                "\n RF TTCĐ1 lý thuyết xe type 3S2 - 4truc  = "+ (float) Math.round(( RFltCD1_type3s2_4truc_legal) * 100) / 100 +
-
-                "\n RF TTCĐ1 lý thuyết xe type 3S2 - 3truc  = "+ (float) Math.round((RFltCD1_type3s2_3truc_legal) * 100) / 100
+                "\n RF TTCĐ1 lý thuyết xe type 3S2  = "+ (float) Math.round(( RFltCD1_type3s2_legal) * 100) / 100 +
+                "\n RF TTCĐ1 thực tế xe type 3S2  = "+ (float) Math.round(( RFttCD1_type3s2_legal) * 100) / 100
 
         ;
-        // RF nhập liệu
+        ///// chưa sửa
         if(RFltCD1_type3s2_legal>=1){
-                if( RFltCD1_type3s2_4truc_legal>=1){
-                        if(RFltCD1_type3s2_3truc_legal>=1){
-                                ///cầu bình thường
-                                txtLegal3s2="Cầu hoạt động bình thường với xe Legal 3S2";
 
-                            }else {
-                                Tmax_type3s2= (320.4*RF3s22)/9.81;
-                                txtLegal3s2="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+                if(RFttCD1_type3s2_legal>=1){
 
-                            }
-                        }else {
-                            Tmax_type3s2= (320.4*RF3s22)/9.81;
-                            txtLegal3s2="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
-                        }
-                    }else {
+                        ///cầu ok
+                        txtLegal3s2="Cầu hoạt động bình thường với xe Legal 3S2";
+                    }else{
                         Tmax_type3s2= (320.4*RF3s22)/9.81;
-                        txtLegal3s2="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+                        txtLegal3s2="Tải trọng tối đa cho phép qua cầu với xe Legal 3S2  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
                     }
-
-
-
+                }else{
+                    Tmax_type3s2= (320.4*RF3s22)/9.81;
+                    txtLegal3s2="Tải trọng tối đa cho phép qua cầu với xe Legal 3S2  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+                }
 
         ///////TYpe 33
 ////////////////////////////////////////// bổ sung thêm 2 xe của 33  Mtype33_6truc  Mtype33_4truc
-        double RF33,RF333;
-        RFltCD1_type33_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype33);
-        RFltCD1_type33_6truc_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype33_6truc);
-        RFltCD1_type33_4truc_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype33_4truc);
-        RF33=Math.min(RFltCD1_type33_legal,RFltCD1_type33_6truc_legal);
-        RF333=Math.min(RF33,RFltCD1_type33_4truc_legal);
+        double RF33,RF331,RF332;
+        RFltCD1_type33_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLLlt*Mtype33);
 
-        txtkqRF_legal_33="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3S2            "+
-                "\n RF TTCĐ1 lý thuyết xe type 33          = "+ (float) Math.round((RFltCD1_type33_legal) * 100) / 100
-                +
-                "\n RF TTCĐ1 lý thuyết xe type 33 - 6truc  = "+ (float) Math.round((RFltCD1_type33_6truc_legal) * 100) / 100 +
+        /// sử dụng
+        RFttCD1_type33_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLL*Mtype33);
 
-                "\n RF TTCĐ1 lý thuyết xe type 33 - 4truc  = "+ (float) Math.round(( RFltCD1_type33_4truc_legal) * 100) / 100
+        /// sử dụng
 
+        RF332=Math.min(RFltCD1_type33_legal,RFttCD1_type33_legal);
+
+        txtkqRF_legal_33="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3-3            "+
+                "\n RF TTCĐ1 lý thuyết xe type 3-3  = "+ (float) Math.round(( RFltCD1_type33_legal) * 100) / 100 +
+                "\n RF TTCĐ1 thực tế xe type 3-3  = "+ (float) Math.round(( RFttCD1_type33_legal) * 100) / 100
         ;
-
         if(RFltCD1_type33_legal>=1){
 
-                if( RFltCD1_type33_6truc_legal>=1){
+                if(RFttCD1_type33_legal>=1){
 
-                        if(RFltCD1_type33_4truc_legal>=1){
+                        ///cầu ok
+                        txtLegal33="Cầu hoạt động bình thường với xe Legal 3-3";
 
-                                ///cầu bình thường
-                                txtLegal33="Cầu hoạt động bình thường với xe Legal 3-3";
-
-                            }else {
-                                Tmax_type33= (320.4*RF333)/9.81;
-                                txtLegal33="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
-
-                            }
-                        }else {
-                            Tmax_type33= (320.4*RF333)/9.81;
-                            txtLegal33="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
-                        }
-                    }else {
-                        Tmax_type33= (320.4*RF333)/9.81;
-                        txtLegal33="Tải trọng tối đa cho phép qua cầu  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
+                    }else{
+                        Tmax_type33= (356.*RF332)/9.81;
+                        txtLegal33="Tải trọng tối đa cho phép qua cầu với xe Legal 3-3  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
                     }
+
+                }else{
+                    Tmax_type33= (356.*RF332)/9.81;
+                    txtLegal33="Tải trọng tối đa cho phép qua cầu với xe Legal 3-3  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
+                }
+
+
 
     }
     public void kiemdinhHL93_operating(){
         ///////////   operating
-        // /////////////////////////////////xe 3 trục/////////////////////////////////////
-        // TTGH CD1
-        ////RF thuần túy
+
         RFltCD1_3truc_operating=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                /(1.35*Nlan*1.33*mgLL*M1);
-        ////////////////////////////xe 2 trục///////////////////////////////////////////////////
-        // TTGH CD1
-        ////RF thuần túy
+                /(1.35*Nlan*1.33*mgLLlt*M3truc_lan);
         RFltCD1_2truc_operating=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                /(1.35*Nlan*1.33*mgLL*M2);
-        ///////////////////// 2 xe
-        RFltCD1_90_operating=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                /(1.35*Nlan*1.33*mgLL*M3);
+                /(1.35*Nlan*1.33*mgLLlt*M2truc_lan);
+        RFttCD1_3truc_operating=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
+                /(1.35*Nlan*1.33*mgLL*M3truc_lan);
+        RFttCD1_2truc_operating=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
+                /(1.35*Nlan*1.33*mgLL*M2truc_lan);
+       txtkqRF_ope="                 Kiểm tra tại TH HL93-OPERATING            "+
+                "\n RF TTCĐ1 lý thuyết xe 3 trục  = "+ (float) Math.round(( RFltCD1_3truc_operating) * 100) / 100
+                +"\n RF TTCĐ1 thực tế xe 3 trục   = "+ (float) Math.round(( RFttCD1_3truc_operating) * 100) / 100
+                +"\n RF TTCĐ1 lý thuyết xe 2 trục = "+ (float) Math.round(( RFltCD1_2truc_operating) * 100) / 100
+                +"\n RF TTCĐ1 thực tế xe 2 trục   = "+ (float) Math.round(( RFttCD1_2truc_operating) * 100) / 100
 
 
-        if(Mtt<=0){
-            /// RF nhaajo liệu thực tế
-            RFttCD1_3truc_operating=0;
-            RFttCD1_2truc_operating=0;
-            RFttCD1_90_operating=0;
-
-            txtkqRF_ope="                 Kiểm tra tại TH HL93-OPERATING            "+
-                    "\n Hãy nhập momen thực tế khác 0"
-                    +"\n RF TTCĐ1 lý thuyết xe 3 trục      = "+ (float) Math.round(( RFltCD1_3truc_operating) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế xe 3 trục        = "+ (float) Math.round(( RFttCD1_3truc_operating) * 100) / 100
-                    +"\n RF TTCĐ1 lý thuyết xe 2 trục      = "+ (float) Math.round(( RFltCD1_2truc_operating) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế xe 2 trục        = "+ (float) Math.round(( RFttCD1_2truc_operating) * 100) / 100
-                    +"\n RF TTCĐ1 lý thuyết 2 xe cách 15m  = "+ (float) Math.round(( RFltCD1_90_operating) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế 2 xe cách 15m    = "+ (float) Math.round(( RFttCD1_90_operating) * 100) / 100
-            ;
-
-
-        }else {
-            RFttCD1_3truc_operating=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                    /(1.35*Nlan*1.33*mgLL*M1);
-            RFttCD1_2truc_operating=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                    /(1.35*Nlan*1.33*mgLL*M2);
-            RFttCD1_90_operating=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                    /(1.35*Nlan*1.33*mgLL*M3);
-            txtkqRF_ope="                 Kiểm tra tại TH HL93-OPERATING            "+
-                    "\n Hãy nhập momen thực tế khác 0"
-                    +"\n RF TTCĐ1 lý thuyết xe 3 trục      = "+ (float) Math.round(( RFltCD1_3truc_operating) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế xe 3 trục        = "+ (float) Math.round(( RFttCD1_3truc_operating) * 100) / 100
-                    +"\n RF TTCĐ1 lý thuyết xe 2 trục      = "+ (float) Math.round(( RFltCD1_2truc_operating) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế xe 2 trục        = "+ (float) Math.round(( RFttCD1_2truc_operating) * 100) / 100
-                    +"\n RF TTCĐ1 lý thuyết 2 xe cách 15m  = "+ (float) Math.round(( RFltCD1_90_operating) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế 2 xe cách 15m    = "+ (float) Math.round(( RFttCD1_90_operating) * 100) / 100
-
-            ;
-        }
+        ;
 
 
 //                   //kiemr tra
 
         if(RFltCD1_3truc_operating>1){
             if(RFttCD1_3truc_operating>1){
-                      if(RFltCD1_2truc_operating>1){
+                        if(RFltCD1_2truc_operating>1){
                             if(RFttCD1_2truc_operating>1){
-                                if(RFltCD1_90_operating>1){
-                                    if(RFttCD1_90_operating>1){
 
-                                      /// xuất kết quả đủ
+                                        /// xuất kết quả đủ
                                         //không hạn chế cầu
                                         txtHL93_ope="THỎA trường hợp HL93-OPERATING";
 
@@ -321,88 +298,51 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
                             txtHL93_ope="KHÔNG THỎA trường hợp HL93-OPERATING";
                         }
 
-                    }else{kiemdinhHL93_legal();
-                        txtHL93_ope="KHÔNG THỎA trường hợp HL93-OPERATING";
-                    }
-
-                }else{kiemdinhHL93_legal();
-                    txtHL93_ope="KHÔNG THỎA trường hợp HL93-OPERATING";
-                }
 
     }
 
     public void kiemdinhHL93_INVENTORY(){
 
         // xe 3 trục
-        M1=(Ls*142.34/4.)+(0.5*(0.5*Ls-4.267)*142.34)+(0.5*(0.5*Ls-4.267)*35.59)+(93.*Ls*Ls/80.);
-        // xe 2 trục
-        M2=(Ls*111.21/4.)+(0.5*(0.5*Ls-1.219)*1.219)+(93.*Ls*Ls/80.);
-        // 2 xe cách nhau 15,
-        M3=0.9*((Ls*142.34/4.)+(0.5*(0.5*Ls-4.267)*142.34)+(0.5*(0.5*Ls-8.534)*35.59)+(0.5*(0.5*Ls-15.24)*35.59)
-                +(0.5*(0.5*Ls-19.507)*142.34)+(0.5*(0.5*Ls-23.774)*142.34)+(93.*Ls*Ls/80.));
-        DC=(bf*hf+bt*ht*hw*tw)/1000000.;
-        // tính RF
+        // tính momen
+        if(0.5*Ls-4.3>0){
+            M3truc_lan= (1./4.)*Ls*142.34+(1./2.)*((Ls/2.)-4.267)*142.34+(1./2.)*((Ls/2.)-4.267)*35.59+(93./80.) *Ls*Ls;
+            M2truc_lan= (1./4.)*Ls*111.21+0.5*(0.5*Ls-1.219)*111.21+(93./80.)*Ls*Ls;
+        }else if(0.5*Ls-4.3<=0){
+            M3truc_lan=(0.25*Ls*142.34)+(93.*Ls*Ls/80.);
 
-        // /////////////////////////////////xe 3 trục/////////////////////////////////////
-        // TTGH CD1
-        ////RF thuần túy
-        RFltCD1_3truc_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                /(1.75*Nlan*1.33*mgLL*M1);
-
-        ////////////////////////////xe 2 trục///////////////////////////////////////////////////
-        // TTGH CD1
-        ////RF thuần túy
-        RFltCD1_2truc_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                /(1.75*Nlan*1.33*mgLL*M2);
-        /////////////////////// 2 xe 15m/////////////////
-        RFltCD1_90_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                /(1.75*Nlan*1.33*mgLL*M3);
-        if(Mtt<=0){
-            RFttCD1_3truc_inventory=0;
-            RFttCD1_2truc_inventory=0;
-            RFttCD1_90_inventory=0;
-
-            txtkqRF_inv="                 Kiểm tra tại TH HL93-INVENTORY            "+
-                    "\n Hãy nhập momen thực tế khác 0"
-                    +"\n RF TTCĐ1 lý thuyết xe 3 trục      = "+ (float) Math.round(( RFltCD1_3truc_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế xe 3 trục        = "+ (float) Math.round(( RFttCD1_3truc_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 lý thuyết xe 2 trục      = "+ (float) Math.round(( RFltCD1_2truc_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế xe 2 trục        = "+ (float) Math.round(( RFttCD1_2truc_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 lý thuyết 2 xe cách 15m  = "+ (float) Math.round(( RFltCD1_90_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế 2 xe cách 15m    = "+ (float) Math.round(( RFttCD1_90_inventory) * 100) / 100
-
-            ;
-        }else {
-            RFttCD1_3truc_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                    /(1.75*Nlan*1.33*mgLL*M1);
-            RFttCD1_2truc_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                    /(1.75*Nlan*1.33*mgLL*M2);
-            RFttCD1_90_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
-                    /(1.75*Nlan*1.33*mgLL*M3);
-            txtkqRF_inv="                 Kiểm tra tại TH HL93-INVENTORY            "
-                    +"\n RF TTCĐ1 lý thuyết xe 3 trục      = "+ (float) Math.round(( RFltCD1_3truc_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế xe 3 trục        = "+ (float) Math.round(( RFttCD1_3truc_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 lý thuyết xe 2 trục      = "+ (float) Math.round(( RFltCD1_2truc_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế xe 2 trục        = "+ (float) Math.round(( RFttCD1_2truc_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 lý thuyết 2 xe cách 15m  = "+ (float) Math.round(( RFltCD1_90_inventory) * 100) / 100
-                    +"\n RF TTCĐ1 thực tế 2 xe cách 15m    = "+ (float) Math.round(( RFttCD1_90_inventory) * 100) / 100
-            ;
+        }else if(0.5*Ls-1.2<=0){
+            M2truc_lan=(0.25*Ls*111.21)+(93.*Ls*Ls/80.);
         }
+
+        RFltCD1_3truc_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
+                /(1.75*Nlan*1.33*mgLLlt*M3truc_lan);
+        RFltCD1_2truc_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
+                /(1.75*Nlan*1.33*mgLLlt*M2truc_lan);
+        RFttCD1_3truc_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
+                /(1.75*Nlan*1.33*mgLL*M3truc_lan);
+        RFttCD1_2truc_inventory=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))
+                /(1.75*Nlan*1.33*mgLL*M2truc_lan);
+        txtkqRF_inv="                 Kiểm tra tại TH HL93-INVENTORY            "+
+                "\n RF TTCĐ1 lý thuyết xe 3 trục   = "+ (float) Math.round(( RFltCD1_3truc_inventory) * 100) / 100
+                +"\n RF TTCĐ1 thực tế xe 3 trục    = "+ (float) Math.round(( RFttCD1_3truc_inventory) * 100) / 100
+
+                +"\n RF TTCĐ1 lý thuyết xe 2 trục  = "+ (float) Math.round(( RFltCD1_2truc_inventory) * 100) / 100
+                +"\n RF TTCĐ1 thực tế xe 2 trục    = "+ (float) Math.round(( RFttCD1_2truc_inventory) * 100) / 100
+
+        ;
 
         //kiemr tra
 
 
         if(RFltCD1_3truc_inventory>1){
             if(RFttCD1_3truc_inventory>1){
-                if(RFltCD1_2truc_inventory>1){
-                    if(RFttCD1_2truc_inventory>1){
-                        if(RFltCD1_90_inventory>1){
-                            if(RFttCD1_90_inventory>1){
+                            if(RFltCD1_2truc_inventory>1){
+                                    if(RFttCD1_2truc_inventory>1){
 
                                                         /// xuất kết quả đủ
                                                         //không hạn chế cầu
                                                         txtHL93_inv="THỎA trường hợp HL93-INVENTORY";
-
 
                                                     }else{kiemdinhHL93_operating();
                                                         txtHL93_inv="KHÔNG THỎA trường hợp HL93-INVENTORY";
@@ -421,18 +361,35 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
                                             txtHL93_inv="KHÔNG THỎA trường hợp HL93-INVENTORY";
                                         }
 
-                                    }else{kiemdinhHL93_operating();
-                                        txtHL93_inv="KHÔNG THỎA trường hợp HL93-INVENTORY";
                                     }
-        }else{kiemdinhHL93_operating();
-            txtHL93_inv="KHÔNG THỎA trường hợp HL93-INVENTORY";
-        }
 
-
-
-    }
 
     public void damI(){
+        double beta1;
+        double cquydoi_bancanh,cquydoi_suon;
+
+        if(fcdc <= 28){
+            beta1=0.85;
+        }else {
+            beta1=0.85-(fcdc-28)*0.05/7.;
+        }
+
+        cquydoi_bancanh=(nthep*(3.14*ds*ds/4.)*Fy)/(0.85*beta1*fcdc*be*(Math.sqrt(fcbmc/fcdc)));
+        cquydoi_suon=(nthep*(3.14*ds*ds/4.)*Fy)/(0.85*beta1*fcdc*be*(Math.sqrt(fcbmc/fcdc)));
+
+        if(cquydoi_bancanh<ts){
+            // đi qua bản cánh
+            Mlt=(0.9*nthep*(3.14*ds*ds/4.)*Fy*(h+ts-dbv-(((nthep*(3.14*ds*ds/4.)*Fy)/(0.85*beta1*fcdc*be*(Math.sqrt(fcbmc/fcdc))))*beta1/2.)))/(1000000.);
+
+        }else if(cquydoi_suon>=ts){
+
+            Mlt=0.9*(nthep*(3.14*ds*ds/4.)*Fy*  (h+ts-dbv-0.5*((nthep*(3.14*ds*ds/4.)*Fy-0.85*beta1*fcdc*(be*Math.sqrt(fcbmc/fcdc)-tw)*ts)*beta1/
+                    (0.85*beta1*fcdc*tw)))+0.85*fcdc*(be*Math.sqrt(fcbmc/fcdc)-tw)*ts* (0.5*((nthep*(3.14*ds*ds/4.)*Fy-0.85*beta1*fcdc*(be*Math.sqrt(fcbmc/fcdc)-tw)*ts)*beta1/(0.85*beta1*fcdc*tw))-0.5*ts))/1000000.;
+        }
+        double a=1;
+    }
+    ///ok dam t
+    public void damT(){
         double beta1;
         double cquydoi_bancanh,cquydoi_bau,cquydoi_suon;
 
@@ -455,28 +412,6 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         }else if(cquydoi_suon>ts+ht){
             // đi qua sườn
             Mlt=((0.9*nthep*(3.14*ds*ds/4.)*Fy*(h+ts-dbv-(cquydoi_suon*beta1/2.)))+(0.85*fcdc*(bt-tw)*ht*((cquydoi_suon*beta1/2.)-ts-(0.5*ht)))+(0.85*fcdc*(be*(Math.sqrt(fcbmc)/Math.sqrt(fcdc))-tw)*ts*((cquydoi_suon*beta1/2.)-0.5*ts)))/(1000000.);
-        }
-
-    }
-    public void damT(){
-        double beta1;
-        double cquydoi_bancanh,cquydoi_suon;
-
-        if(fcdc <= 28){
-            beta1=0.85;
-        }else {
-            beta1=0.85-(fcdc-28)*0.05/7.;
-        }
-        cquydoi_bancanh=((nthep*(3.14*ds*ds/4.)*Fy)-(0.85*beta1*fcdc*(be-tw)*ts))/(0.85*beta1*fcdc*tw);
-        cquydoi_suon=((nthep*(3.14*ds*ds/4.)*Fy)-(0.85*beta1*fcdc*(be-tw)*ts))/(0.85*beta1*fcdc*tw);
-
-        if(cquydoi_bancanh<ts){
-            // đi qua bản cánh
-            Mlt=(0.9*nthep*(3.14*ds*ds/4.)*Fy*(h-dbv-(cquydoi_bancanh*beta1/2.)))/(1000000.);
-
-        }else if(cquydoi_suon>=ts){
-            // đi qua sườn
-            Mlt=((0.9*nthep*(3.14*ds*ds/4.)*Fy*(h-dbv-(cquydoi_suon*beta1/2.)))+(0.85*fcdc*(be-tw)*ts*((cquydoi_suon*beta1/2.)-0.5*ts)))/(1000000.);
         }
 
     }
@@ -508,15 +443,16 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
             edtDW.setError("Hãy nhập giá trị");
         }
         try {
-            Mtt = Double.parseDouble(edtMtt.getText().toString());
+            DC = Double.parseDouble(edtDC.getText().toString());
 
-            if (Mtt < 0) {
+            if (DC < 0) {
 
-                edtMtt.setError("Lỗi: Nhập số lớn hơn 0");
+                edtDC.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e) {
-            edtMtt.setError("Hãy nhập giá trị");
+            edtDC.setError("Hãy nhập giá trị");
         }
+
         try {
             Nlan = Double.parseDouble(edtNlan.getText().toString());
 
@@ -538,7 +474,16 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
             edtmgLL.setError("Hãy nhập giá trị");
         }
 
+        try {
+            mgLLlt = Double.parseDouble(edtmgLLlt.getText().toString());
 
+            if (mgLLlt < 0) {
+
+                edtmgLLlt.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e) {
+            edtmgLLlt.setError("Hãy nhập giá trị");
+        }
         try {
             ts= Double.parseDouble(edtts.getText().toString());
 
@@ -730,10 +675,10 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
             public void onClick(View v) {
                 NhapLieu();
                 /// spinner liên hợp hoặc không liên h
-                if(damI==1){
+                if(damI==1.){
                     damI();
 
-                }else if(damT==2){
+                }else if(damT==2.){
                     damT();
 
                 }else if(ban==3){
@@ -821,9 +766,7 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
             else if (lastedSelectedphiLL == 3) {
                 phiLL=1.4;
 
-                //      Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
             }
-
 
         }
 
@@ -938,5 +881,9 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         public void onNothingSelected(AdapterView<?> parent) {
         }
         //Nếu không chọn gì cả
+    }
+    public void btnTroVe(View view) {
+        Intent iTroVe = new Intent(KiemDinhTheoAASHTO_BTCT.this, MainActivity.class);
+        startActivity(iTroVe);
     }
 }

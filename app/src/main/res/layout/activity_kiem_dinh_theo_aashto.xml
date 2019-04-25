@@ -177,43 +177,7 @@
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
             </LinearLayout>
-            //Momen từ sô liệu đo thực tế
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:minWidth="100dp"
-                    android:text="Momen thực tế"
-                    android:textColor="#6c7070"
-                    android:textSize="16dp" />
-
-                <EditText
-                    android:id="@+id/edtMtt"
-                    android:layout_width="104dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="65dp"
-                    android:gravity="center_horizontal"
-                    android:inputType="numberDecimal"
-                    android:minWidth="60dp"
-                    android:paddingLeft="10dp"
-                    android:hint="0"
-                    android:textColor="#fb04069c"
-                    android:textSize="16dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    android:text="kN.m"
-                    android:textColor="#6c7070"
-                    android:textSize="13dp" />
-            </LinearLayout>
             //Số làn xe
             <LinearLayout
                 android:layout_width="match_parent"
@@ -299,7 +263,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
-                    android:text="Hệ số ppn của momen"
+                    android:text="Hệ số ppn thực tế"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
@@ -307,7 +271,7 @@
                     android:id="@+id/edtmgLL"
                     android:layout_width="104dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="17dp"
+                    android:layout_marginLeft="49dp"
                     android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
@@ -324,7 +288,43 @@
                     android:text=""
                     android:textColor="#6c7070"
                     android:textSize="13dp" />
-            </LinearLayout>
+            </LinearLayout> <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:minWidth="100dp"
+                android:text="Hệ số ppn lý thuyết"
+                android:textColor="#6c7070"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/edtmgLLlt"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="49dp"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:minWidth="60dp"
+                android:paddingLeft="10dp"
+                android:text="0.247"
+                android:textColor="#fb04069c"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:text=""
+                android:textColor="#6c7070"
+                android:textSize="13dp" />
+        </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -354,7 +354,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:minWidth="100dp"
-                    android:text="Trọng lượng"
+                    android:text="Trọng lượng lớp phủ"
                     android:textColor="#6c7070"
                     android:textSize="16dp" />
 
@@ -362,7 +362,7 @@
                     android:id="@+id/edtDW"
                     android:layout_width="104dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
+                    android:layout_marginLeft="35dp"
                     android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
@@ -472,7 +472,7 @@
                     android:id="@+id/edtde"
                     android:layout_width="94dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
+                    android:layout_marginLeft="35dp"
                     android:gravity="center_horizontal"
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
@@ -486,7 +486,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
-                    android:text="MPa"
+                    android:text="mm"
                     android:textColor="#6c7070"
                     android:textSize="13dp" />
             </LinearLayout>

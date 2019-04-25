@@ -438,7 +438,7 @@ public class nhaplieuthietke extends AppCompatActivity {
                     tinhNoiLuc5();
                     tinhNoiLuc6();
                     tinhNoiLuc7klh();
-                    tinhBMC();
+//                    tinhBMC();
                     kiemtoanklh();
                     kqKiemToan();
 
@@ -648,22 +648,22 @@ public class nhaplieuthietke extends AppCompatActivity {
                     KLHbundle.putDouble("Q729klh", Q729klh);
                     KLHbundle.putDouble("Q730klh", Q730klh);
                     ////
-                    KLHbundle.putString("txtbmc1", txtbmc1);
-                    KLHbundle.putString("txtbmc2", txtbmc2);
-                    KLHbundle.putString("txtbmc3", txtbmc3);
-                    KLHbundle.putString("txtbmc4", txtbmc4);
-                    KLHbundle.putString("txtbmc5", txtbmc5);
-                    KLHbundle.putString("txtbmc6", txtbmc6);
-                    KLHbundle.putString("txtbmc7", txtbmc7);
-                    KLHbundle.putString("txtbmc8", txtbmc8);
-
-                    KLHbundle.putString("txtBMC1", txtBMC1);
-                    KLHbundle.putString("txtBMC2", txtBMC2);
-                    KLHbundle.putString("txtBMC3", txtBMC3);
-                    KLHbundle.putString("txtBMC4", txtBMC4);
-                    KLHbundle.putString("txtBMC5", txtBMC5);
-                    KLHbundle.putString("txtBMC6", txtBMC6);
-                    KLHbundle.putString("txtBMC7", txtBMC7);
+//                    KLHbundle.putString("txtbmc1", txtbmc1);
+//                    KLHbundle.putString("txtbmc2", txtbmc2);
+//                    KLHbundle.putString("txtbmc3", txtbmc3);
+//                    KLHbundle.putString("txtbmc4", txtbmc4);
+//                    KLHbundle.putString("txtbmc5", txtbmc5);
+//                    KLHbundle.putString("txtbmc6", txtbmc6);
+//                    KLHbundle.putString("txtbmc7", txtbmc7);
+//                    KLHbundle.putString("txtbmc8", txtbmc8);
+//
+//                    KLHbundle.putString("txtBMC1", txtBMC1);
+//                    KLHbundle.putString("txtBMC2", txtBMC2);
+//                    KLHbundle.putString("txtBMC3", txtBMC3);
+//                    KLHbundle.putString("txtBMC4", txtBMC4);
+//                    KLHbundle.putString("txtBMC5", txtBMC5);
+//                    KLHbundle.putString("txtBMC6", txtBMC6);
+//                    KLHbundle.putString("txtBMC7", txtBMC7);
 //                    ///
                     KLHbundle.putString("txtKT1", txtKT1);
                     KLHbundle.putString("txtKT2", txtKT2);
@@ -1243,27 +1243,7 @@ public class nhaplieuthietke extends AppCompatActivity {
     }
 
     public void tinhToanTDChacklh() {
-        ////
-        Ps = 0.85 * fc * bi * ts;
-        Pc = Fy * Bft * tft;
-        Pt = Fy * Bfb * tfb;
-        Pw = Fy * Dw * tw;
-        Prt = 400. * N1 * 3.14 * Dtt * Dtt * 0.25;
-        Prb = 400. * N2 * 3.14 * Dtd * Dtd * 0.25;
-        // xác định trục trung hòa dẻo
-        if ((Pt + Pw) > (Ps + Pc + Prt + Prb)) {
-            Dcp = (Dw / 2) * ((Pt + Pw - Pc - Ps - Prt - Prb) / Pw);
-            txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + ">" + "Ps+Pc+Prt+Prb= " + (float) Math.round(((Pt + Pw - Pc - Ps - Prt - Prb) / Pw) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản bụng";
-            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
-        } else if ((Pt + Pw < Ps + Pc + Prt + Prb && Pt + Pw + Pc > Ps + Prt + Prb)) {
-            Dcp = (tft / 2) * ((Pt + Pw + Pc - Ps - Prt - Prb) / Pc);
-            txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + "<" + "Ps+Pc+Prt+Prb= " + (float) Math.round((Ps + Pc + Prt + Prb) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản cánh trên";
-            // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
-        } else if ((Pt + Pw + Pc + Ps) > (Prt + Prb)) {
-            Dcp = (ts / 2) * ((Pt + Pw + Pc + Ps - Prt - Prb) / Ps);
-            txtKT4 = "Trục trung hòa dẻo nằm ở bản bê tông";
-            /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
-        }
+
         // momen dẻo
         Mpklh = 2.*Fy*tft*Bft*(0.5*D-0.5*tft)+2.*Fy*tw*Dw*Dw/8.;
         //     Toast.makeText(nhaplieuthietke.this,"Mp="+Mp,Toast.LENGTH_LONG).show();
@@ -1285,10 +1265,10 @@ public class nhaplieuthietke extends AppCompatActivity {
         // momen kháng uốn
         Mr = Mn;
         //momen uốn lớn nhất
-        Mu = Math.max(M74, M78);
+        Mu = Math.max(M74klh, M78klh);
         // kiểm tra sức kháng uốn
-        if (Mr - Math.max(M74, M78) > 0) {
-            txtKT5 = "Mr= " + (float) Math.round((Mr) * 1000) / 1000 + " >= Mu= " + (float) Math.round((Mu) * 1000) / 1000 + "\n  Thỏa điều kiện sức kháng uốn";
+        if (Mr - Math.max(M74klh, M78klh) > 0) {
+            txtKT5 = "Mr= " + (float) Math.round((Mr/1000000.) * 1000) / 1000 + " >= Mu= " + (float) Math.round((Mu) * 1000) / 1000 + "\n  Thỏa điều kiện sức kháng uốn";
             txt2 = "Sức kháng uốn TTGH CD1 đảm bảo";
             //   Toast.makeText(nhaplieuthietke.this,"thỏa điều kiện sức kháng uốn",Toast.LENGTH_LONG).show();
         } else {
@@ -1338,9 +1318,9 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         // kiểm tra  lực cắt
         if (Vr - Math.max(Q71, Q76) > 0) {
-            txtKT6 = "Vr= " + (float) Math.round((Vr) * 1000) / 1000 + " > Vu= " + (float) Math.round((Math.max(Q71, Q76)) * 1000) / 1000 + "\n   Dầm thỏa sức kháng cắt";
+            txtKT6 = "Vr= " + (float) Math.round((Vr) * 1000) / 1000 + " > Vu= " + (float) Math.round((Math.max(Q71klh, Q76klh)) * 1000) / 1000 + "\n   Dầm thỏa sức kháng cắt";
             txt3 = "Sức kháng cắt TTGH CD1 đảm bảo";
-        } else if ((Math.max(Q71, Q76) - c * Vp) < 0) {
+        } else if ((Math.max(Q71klh, Q76klh) - c * Vp) < 0) {
             txtKT6 = "c*Vp= " + (float) Math.round((c * Vp) * 1000) / 1000+" > Vu= "+ (float) Math.round((Math.max(Q71, Q76)) * 1000) / 1000+ "\n  Dầm thỏa sức kháng cắt";
             //Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
             txt3 = "Sức kháng cắt TTGH CD1 đảm bảo";
@@ -1372,7 +1352,7 @@ public class nhaplieuthietke extends AppCompatActivity {
             txtKT7 = "-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------" + "\nf= " + (float) Math.round((f) * 1000) / 1000 + " > fcf= " + fcf + "\n  Vách đứng mất ổn định uốn";
         }
 
-        if ((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) <= 0) {
+        if ((((2.0 * Math.max(Q721klh, Q726klh) + Q35) / (Dw * tw)) - 0.58 * c * Fy) <= 0) {
             txtKT8 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " <= 0" + "\n   Vách đứng ổn định lực cắt";
         } else {
             txtKT8 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " > 0" + "\n   Vách đứng mất ổn định lực cắt";
@@ -1442,7 +1422,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         // độ võng tổ hợp trên gây ra
         denta4 = denta2 + denta3;
         /// ///độ võng do hoạt tải
-        denta5 = Math.max(denta1, denta4);
+        denta5 = Math.max(denta1, denta4)/1000000000000000.;
         /// độ võng cho phép của hoạt tải
         denta6 = Ls;
 
