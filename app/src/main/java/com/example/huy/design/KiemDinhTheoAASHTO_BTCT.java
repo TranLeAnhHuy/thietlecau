@@ -824,7 +824,7 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
             lastedSelectedcauthep = position;
             if (lastedSelectedcauthep == 0) {
 
-                damI=1.;
+                damI=2.3;
 
 
        /* IstDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDT-0.5*tfb),2)))+(BssDT*(Math.pow(ts,3))/12)+(BssDT*ts*(Math.pow((YsttDT+0.5*ts),2))));
