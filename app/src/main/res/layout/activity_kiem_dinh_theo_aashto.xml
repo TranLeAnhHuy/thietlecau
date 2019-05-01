@@ -177,6 +177,42 @@
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:minWidth="100dp"
+                    android:text="Trọng lượng dầm-tiện ích"
+                    android:textColor="#6c7070"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edtDC"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="02dp"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:minWidth="60dp"
+                    android:paddingLeft="10dp"
+                    android:text="7.658"
+                    android:textColor="#fb04069c"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:text="kN/m"
+                    android:textColor="#6c7070"
+                    android:textSize="13dp" />
+            </LinearLayout>
 
             //Số làn xe
             <LinearLayout
@@ -367,7 +403,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="3.65"
+                    android:text="3.048"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -441,7 +477,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="215"
+                android:text="180"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -477,7 +513,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="1000"
+                    android:text="1360"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -513,7 +549,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="35"
+                android:text="34.79"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -550,7 +586,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="16"
+                    android:text="0"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -587,7 +623,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="13"
+                    android:text="0"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -623,7 +659,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="150"
+                    android:text="0"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -660,7 +696,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="16"
+                    android:text="0"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -696,7 +732,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="13"
+                    android:text="0"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -732,7 +768,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="150"
+                    android:text="0"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -768,7 +804,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="400"
+                    android:text="0"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -826,7 +862,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="2000"
+                    android:text="1280"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -863,7 +899,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="50"
+                android:text="0"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -900,7 +936,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="450"
+                android:text="290"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -936,7 +972,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="30"
+                android:text="20"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -972,7 +1008,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="20"
+                android:text="14"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1009,7 +1045,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="1680"
+                    android:text="800"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -1045,7 +1081,7 @@
                     android:inputType="numberDecimal"
                     android:minWidth="60dp"
                     android:paddingLeft="10dp"
-                    android:text="600"
+                    android:text="290"
                     android:textColor="#fb04069c"
                     android:textSize="16dp" />
 
@@ -1081,7 +1117,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="40"
+                android:text="20"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1118,7 +1154,7 @@
                 android:inputType="numberDecimal"
                 android:minWidth="60dp"
                 android:paddingLeft="10dp"
-                android:text="345"
+                android:text="170"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 

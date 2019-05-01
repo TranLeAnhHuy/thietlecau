@@ -109,7 +109,7 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
     }
     public void kiemdinhHL93_legal(){
         txtLegal="Trường hợp xe Legal Load";
-
+//        String txtkqRF_legal_3,txtkqRF_legal_3s2,txtkqRF_legal_33,txtLegal3,txtLegal3s2,txtLegal33,txtLegal;
 
 
         //////////////////TYPE 3
@@ -120,10 +120,11 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         }
         if(Ls>14.138){
             Mtype3s2=(320.4-(44.5*(0.5*Ls-5.698)+68.975*(0.5*Ls-2.345)+68.975*(0.5*Ls- 1.126) +
-                    68.975*(0.5*Ls+5.85) +68.975*(0.5*Ls+7.069))/Ls)*(0.5*Ls-1.126)-287.5345;
+                    68.975*(0.5*Ls+5.58) +68.975*(0.5*Ls+6.799))/Ls)*(0.5*Ls-1.126)-287.5345;
         }else if(Ls<14.138 && Ls>13.2) {
 
-            Mtype3s2 = (275.9 - ((68.975 * (0.5 * Ls - 2.8955) + 68.975 * (0.5 * Ls - 1.6765) + 68.975 * (0.5 * Ls + 5.0295) + 68.975 * (0.5 * Ls + 6.2485)) / (Ls))) * (0.5 * Ls - 1.6765) - 68.975 * 1.219;
+            Mtype3s2 = (275.9 - ((68.975 * (0.5 * Ls - 2.8955) + 68.975 * (0.5 * Ls - 1.6765) + 68.975 * (0.5 * Ls + 5.0295) + 68.975 * (0.5 * Ls + 6.2485)) /
+                    (Ls))) * (0.5 * Ls - 1.6765) - 68.975 * 1.219;
         }else if(Ls<=13.2 && Ls >12.7){
             Mtype3s2=(206.925-((68.975*(0.5*Ls-5.7915)+68.975*(0.5*Ls+0.9145)+68.975*(0.5*Ls+2.1335))/(Ls)))*(0.5*Ls+0.9145)-68.975*6.706;
         }else if(Ls<=12.7){
@@ -132,16 +133,18 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
 
 
         if(Ls>19.537){
-            Mtype33= (356-((53.4*(0.5*Ls-9.7685)+53.4*(0.5*Ls-5.1695)+53.4*(0.5*Ls-3.9775)+71.2*(0.5*Ls+0.5945)+62.3*(0.5*Ls+5.4715)+62.3*(0.5*Ls+6.6905))/(Ls)))*(0.5*Ls+0.5945)-53.4*18.9155;
+            Mtype33= (356-((53.4*(0.5*Ls-9.7685)+53.4*(0.5*Ls-5.1695)+53.4*(0.5*Ls-3.9775)+71.2*(0.5*Ls+0.5945)+62.3*(0.5*Ls+5.4715)
+                    +62.3*(0.5*Ls+6.6905))/(Ls)))*(0.5*Ls+0.5945)-53.4*18.9155;
         }
         else if(Ls<=19.537 && Ls>15.5)
         {
-            Mtype33=(302.6-(53.4*(0.5*Ls-6.00525)+53.4*(0.5*Ls-4.78625)+71.2*(0.5*Ls-0.21425)+62.3*(0.5*Ls+4.66225)+62.3*(0.5*Ls+5.88125))/Ls)*(0.5*Ls-0.21425)-53.4*5.791-53.4*4.572;
+            Mtype33=(302.6-(53.4*(0.5*Ls-6.00525)+53.4*(0.5*Ls-4.78625)+71.2*(0.5*Ls-0.21425)+62.3*(0.5*Ls+4.66225)+62.3*(0.5*Ls+5.88125))/Ls)*
+                    (0.5*Ls-0.21425)-53.4*5.791-53.4*4.572;
         } else if(Ls<=15.5&& Ls> 9.3){
-            Mtype33=(195.8-((71.2*(0.5*Ls-4.1838)+62.3*(0.5*Ls+0.6927+1.9117))/Ls))*(0.5*Ls+0.6927)-71.2*4.8765;
+            Mtype33=(195.8-((71.2*(0.5*Ls-4.1838)+62.3*(Ls+0.6927+1.9117))/Ls))*(0.5*Ls+0.6927)-71.2*4.8765;
 
         }else if(Ls<=9.3 ){
-            Mtype33=(124.6-((62.3*(0.5*Ls-0.30475+0.91425))/Ls))*(0.5*Ls-0.30475);
+            Mtype33=(124.6-((62.3*(Ls-0.30475+0.91425))/Ls))*(0.5*Ls-0.30475);
         }
         double a=11;
 
@@ -158,27 +161,25 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
                 "\n RF TTCĐ1 thực tế xe type 3  = "+ (float) Math.round(( RFttCD1_type3_legal) * 100) / 100
         ;
         ///// chưa sửa
-        if(RFltCD1_type3_legal>=1){
-                if(RFttCD1_type3_legal>=1){
-                        ///cầu ok
-                        txtLegal3="Cầu hoạt động bình thường với xe Legal Type 3";
+        if(RFttCD1_type3_legal>=1){
 
-                    }else{
-                        // cấm biển tải trọng
-                        double mt3,mt31,mt32;
+                txtLegal3="Cầu hoạt động bình thường với xe Legal Type 3";
 
-                        mt32=Math.min(RFltCD1_type3_legal,RFttCD1_type3_legal);
-                        Tmax_type3= (222.5*mt32)/9.81;
-                        txtLegal3="Tải trọng tối đa cho phép qua cầu với xe Legal Type 3  "+(float) Math.round((Tmax_type3) * 100) / 100+  "T";
-                    }
+        }else{
 
-                }else{
-                    // cấm biển tải trọng
-                    double mt3,mt31,mt32;
-                    mt32=Math.min(RFltCD1_type3_legal,RFttCD1_type3_legal);
-                    Tmax_type3= (222.5*mt32)/9.81;
-                    txtLegal3="Tải trọng tối đa cho phép qua cầu với xe Legal Type 3  "+(float) Math.round((Tmax_type3) * 100) / 100+  "T";
-                }
+            if(RFttCD1_type3_legal>0.3){
+                // cấm biển tải trọng
+                double mt3,mt31,mt32;
+
+                mt32=RFttCD1_type3_legal;
+                Tmax_type3= (222.5*mt32)/9.81;
+                txtLegal3="Tải trọng tối đa cho phép qua cầu với xe Legal Type 3  "+(float) Math.round((Tmax_type3) * 100) / 100+  "T";
+            }else{
+                txtLegal3="DỪNG KHAI THÁC";
+
+            }
+        }
+
 
         //////////////////TYPE 3S2
 ////////////////////////////////////////// bổ sung thêm 2 xe của 3s2   Mtype3s2_4truc
@@ -188,33 +189,36 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         RFttCD1_type3s2_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8))/(1.35*Nlan*phiLL*mgLL*Mtype3s2);
        /// sử dụng
         /////////////// chưa
-        double RF3s2,RF3s21,RF3s22;
 
-        RF3s22=Math.min(RFltCD1_type3s2_legal,RFttCD1_type3s2_legal);
         txtkqRF_legal_3s2="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3S2            "+
                 "\n RF TTCĐ1 lý thuyết xe type 3S2  = "+ (float) Math.round(( RFltCD1_type3s2_legal) * 100) / 100 +
                 "\n RF TTCĐ1 thực tế xe type 3S2  = "+ (float) Math.round(( RFttCD1_type3s2_legal) * 100) / 100
 
         ;
         ///// chưa sửa
-        if(RFltCD1_type3s2_legal>=1){
+        double RF3s2,RF3s21,RF3s22;
 
-                if(RFttCD1_type3s2_legal>=1){
+        RF3s22=RFttCD1_type3s2_legal;
+//        if(RFltCD1_type3s2_legal>=1){
+//            if(RFltSD2_type3s2_legal>=1){
+        if(RFttCD1_type3s2_legal>=1){
 
-                        ///cầu ok
-                        txtLegal3s2="Cầu hoạt động bình thường với xe Legal 3S2";
-                    }else{
-                        Tmax_type3s2= (320.4*RF3s22)/9.81;
-                        txtLegal3s2="Tải trọng tối đa cho phép qua cầu với xe Legal 3S2  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
-                    }
-                }else{
-                    Tmax_type3s2= (320.4*RF3s22)/9.81;
-                    txtLegal3s2="Tải trọng tối đa cho phép qua cầu với xe Legal 3S2  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
-                }
+                txtLegal3s2="Cầu hoạt động bình thường với xe Legal 3S2";
+
+        }else{
+            if(RFttCD1_type3s2_legal>0.3){
+                // cấm biển tải trọng
+                Tmax_type3s2= (320.4*RF3s22)/9.81;
+                txtLegal3s2="Tải trọng tối đa cho phép qua cầu với xe Legal 3S2  "+(float) Math.round((Tmax_type3s2) * 100) / 100+  "T";
+            }else{
+                txtLegal3s2="DỪNG KHAI THÁC";
+
+            }
+        }
 
         ///////TYpe 33
 ////////////////////////////////////////// bổ sung thêm 2 xe của 33  Mtype33_6truc  Mtype33_4truc
-        double RF33,RF331,RF332;
+
         RFltCD1_type33_legal=((phic*phis*phi*Mlt)-(1.25*DC*Ls*Ls/8.)-(1.5*DW*Ls*Ls/8.))/(1.35*Nlan*phiLL*mgLLlt*Mtype33);
 
         /// sử dụng
@@ -222,28 +226,27 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
 
         /// sử dụng
 
-        RF332=Math.min(RFltCD1_type33_legal,RFttCD1_type33_legal);
 
         txtkqRF_legal_33="                 Kiểm tra tại TH LEGAL LOAD-TYPE 3-3            "+
                 "\n RF TTCĐ1 lý thuyết xe type 3-3  = "+ (float) Math.round(( RFltCD1_type33_legal) * 100) / 100 +
                 "\n RF TTCĐ1 thực tế xe type 3-3  = "+ (float) Math.round(( RFttCD1_type33_legal) * 100) / 100
         ;
-        if(RFltCD1_type33_legal>=1){
+        double RF33,RF331,RF332;
+             RF332=RFttCD1_type33_legal;
 
-                if(RFttCD1_type33_legal>=1){
+        if(RFttCD1_type33_legal>=1){
 
-                        ///cầu ok
-                        txtLegal33="Cầu hoạt động bình thường với xe Legal 3-3";
+                txtLegal33="Cầu hoạt động bình thường với xe Legal 3-3";
 
-                    }else{
-                        Tmax_type33= (356.*RF332)/9.81;
-                        txtLegal33="Tải trọng tối đa cho phép qua cầu với xe Legal 3-3  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
-                    }
+        }else{
+            if(RFttCD1_type33_legal>0.3){
+                // cấm biển tải trọng
+                Tmax_type33= (356.*RF332)/9.81;
+                txtLegal33="Tải trọng tối đa cho phép qua cầu với xe Legal 3-3  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
+            }else{
+                txtLegal33="DỪNG KHAI THÁC";
 
-                }else{
-                    Tmax_type33= (356.*RF332)/9.81;
-                    txtLegal33="Tải trọng tối đa cho phép qua cầu với xe Legal 3-3  "+(float) Math.round((Tmax_type33) * 100) / 100+  "T";
-                }
+            }              }
 
 
 
@@ -271,9 +274,9 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
 
 //                   //kiemr tra
 
-        if(RFltCD1_3truc_operating>1){
+        if(RFttCD1_3truc_operating>1){
             if(RFttCD1_3truc_operating>1){
-                        if(RFltCD1_2truc_operating>1){
+                        if(RFttCD1_2truc_operating>1){
                             if(RFttCD1_2truc_operating>1){
 
                                         /// xuất kết quả đủ
@@ -307,10 +310,13 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         // tính momen
         if(0.5*Ls-4.3>0){
             M3truc_lan= (1./4.)*Ls*142.34+(1./2.)*((Ls/2.)-4.267)*142.34+(1./2.)*((Ls/2.)-4.267)*35.59+(93./80.) *Ls*Ls;
-            M2truc_lan= (1./4.)*Ls*111.21+0.5*(0.5*Ls-1.219)*111.21+(93./80.)*Ls*Ls;
+
         }else if(0.5*Ls-4.3<=0){
             M3truc_lan=(0.25*Ls*142.34)+(93.*Ls*Ls/80.);
 
+        }
+        if(0.5*Ls-1.2>0){
+            M2truc_lan= (1./4.)*Ls*111.21+0.5*(0.5*Ls-1.219)*111.21+(93./80.)*Ls*Ls;
         }else if(0.5*Ls-1.2<=0){
             M2truc_lan=(0.25*Ls*111.21)+(93.*Ls*Ls/80.);
         }
@@ -335,9 +341,9 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         //kiemr tra
 
 
-        if(RFltCD1_3truc_inventory>1){
+        if(RFttCD1_3truc_inventory>1){
             if(RFttCD1_3truc_inventory>1){
-                            if(RFltCD1_2truc_inventory>1){
+                            if(RFttCD1_2truc_inventory>1){
                                     if(RFttCD1_2truc_inventory>1){
 
                                                         /// xuất kết quả đủ
@@ -362,7 +368,6 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
                                         }
 
                                     }
-
 
     public void damI(){
         double beta1;
@@ -398,21 +403,20 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         }else {
             beta1=0.85-(fcdc-28)*0.05/7.;
         }
-        cquydoi_bancanh=((nthep*(3.14*ds*ds/4.)*Fy)/(0.85*beta1*fcdc*tw));
-        cquydoi_bau= ((nthep*(3.14*ds*ds/4.)*Fy-(0.85*beta1*fcdc*(be*(Math.sqrt(fcbmc)/Math.sqrt(fcdc))-tw)*ts))/(0.85*beta1*fcdc*tw));
-        cquydoi_suon=((nthep*(3.14*ds*ds/4.)*Fy)-(0.85*beta1*fcdc*(bt-tw)*ht)-(0.85*beta1*fcdc*(be*(Math.sqrt(fcbmc)/Math.sqrt(fcdc))-tw)*ts))/(0.85*beta1*fcdc*tw);
+        cquydoi_bancanh=((nthep*(3.14*ds*ds/4.)*Fy)-(0.85*beta1*fcdc*(be-tw)*ts))/(0.85*beta1*fcdc*tw);
+      //  cquydoi_bau= ((nthep*(3.14*ds*ds/4.)*Fy-(0.85*beta1*fcdc*(be*(Math.sqrt(fcbmc)/Math.sqrt(fcdc))-tw)*ts))/(0.85*beta1*fcdc*tw));
+        cquydoi_suon=((nthep*(3.14*ds*ds/4.)*Fy)-(0.85*beta1*fcdc*(be-tw)*ts))/(0.85*beta1*fcdc*tw);
 
         if(cquydoi_bancanh<ts){
             // đi qua bản cánh
-            Mlt=(0.9*nthep*(3.14*ds*ds/4.)*Fy*(h+ts-dbv-(cquydoi_bancanh*beta1/2.)))/(1000000.);
+            Mlt=(0.9*nthep*(3.14*ds*ds/4.)*Fy*(h-dbv-(((nthep*(3.14*ds*ds*Fy*beta1/4.))/(0.85*beta1*fcdc*be))/2.)))/(1000000.);
 
-        }else if(ts<cquydoi_bau && cquydoi_bau <ts+ht) {
-            // đi qua bầu
-            Mlt=((0.9*nthep*(3.14*ds*ds/4.)*Fy*(h+ts-dbv-(cquydoi_bau*beta1/2.)))+(0.85*fcdc*(be*(Math.sqrt(fcbmc)/Math.sqrt(fcdc))-tw)*ts*((cquydoi_bau*beta1/2.)-0.5*ts)))/(1000000.);
-        }else if(cquydoi_suon>ts+ht){
-            // đi qua sườn
-            Mlt=((0.9*nthep*(3.14*ds*ds/4.)*Fy*(h+ts-dbv-(cquydoi_suon*beta1/2.)))+(0.85*fcdc*(bt-tw)*ht*((cquydoi_suon*beta1/2.)-ts-(0.5*ht)))+(0.85*fcdc*(be*(Math.sqrt(fcbmc)/Math.sqrt(fcdc))-tw)*ts*((cquydoi_suon*beta1/2.)-0.5*ts)))/(1000000.);
         }
+        else if(cquydoi_suon>=ts){
+            // đi qua sườn
+            Mlt=0.9*(nthep*(3.14*ds*ds/4.)*Fy*(h-dbv-0.5*((nthep*(3.14*ds*ds/4.)*Fy-(0.85*beta1*fcdc*(be-tw)*ts))*beta1/(0.85*beta1*fcdc*tw)))+(0.85*fcdc*(be-tw)*beta1*ts*(0.5*((nthep*(3.14*ds*ds/4.)*Fy-(0.85*beta1*fcdc*(be-tw)*ts))*beta1/(0.85*beta1*fcdc*tw))-(0.5*ts))))/1000000.;
+        }
+
 
     }
     public void ban(){
@@ -428,7 +432,7 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         }
         cquydoi=(nthep*(3.14*ds*ds/4.)*Fy)/(0.85*beta1*fcdc*be);
         Mlt=(0.9*nthep*(3.14*ds*ds/4.)*Fy*(ts-dbv-(cquydoi*beta1/2.)))/(1000000.);
-
+        double a=6;
 
     }
     public void NhapLieu(){
@@ -675,15 +679,14 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
             public void onClick(View v) {
                 NhapLieu();
                 /// spinner liên hợp hoặc không liên h
-                if(damI==1.){
+                if (lastedSelectedcauthep == 0) {
+
                     damI();
-
-                }else if(damT==2.){
+                } else if (lastedSelectedcauthep == 1) {
                     damT();
-
-                }else if(ban==3){
+                    ////
+                }else if (lastedSelectedcauthep == 2) {
                     ban();
-
                 }
 
                 kiemdinhHL93_INVENTORY();
@@ -822,33 +825,17 @@ public class KiemDinhTheoAASHTO_BTCT extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             lastedSelectedcauthep = position;
-            if (lastedSelectedcauthep == 0) {
+//            if(damI==1.){
+//                damI();
+//
+//            }else if(damT==2.){
+//                damT();
+//
+//            }else if(ban==3){
+//                ban();
+//
+//            }
 
-                damI=1.;
-
-
-       /* IstDT=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDT-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDT),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDT-0.5*tfb),2)))+(BssDT*(Math.pow(ts,3))/12)+(BssDT*ts*(Math.pow((YsttDT+0.5*ts),2))));
-        IstDN=((Bft*Math.pow(tft,3)/12)+(Bft*tft)*Math.pow((YsttDN-0.5*tft),2)+(Math.pow(Dw,3)*tw/12)+(Dw*tw*(Math.pow((tfb+0.5*Dw-YstdDN),2)))+(Bfb*(Math.pow(tfb,3))/12)+(Bfb*tfb*(Math.pow((YstdDN-0.5*tfb),2)))+(BssDN*(Math.pow(ts,3))/12)+(BssDN*ts*(Math.pow((YsttDN+0.5*ts),2))));*/
-
-
-                //  Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
-            } else if (lastedSelectedcauthep == 1) {
-                damT=2.;
-                ////
-
-
-
-                //      Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
-
-            }else if (lastedSelectedcauthep == 2) {
-                ban=3.;
-                ////
-
-
-
-                //      Toast.makeText(nhaplieuthietke.this,""+l1234,Toast.LENGTH_LONG).show();
-
-            }
 
         }
 

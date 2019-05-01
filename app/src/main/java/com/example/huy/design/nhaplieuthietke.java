@@ -2403,7 +2403,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         txtKT13 = "Độ vồng ngược cho tất cả các dầm" + "\nDENTA final= " + (float) Math.round((dentafinal) * 1000) / 1000 + "mm";
         txt6 = "Độ vồng ngược cho tất cả các dầm" + "\nDENTA = " + (float) Math.round((dentafinal) * 1000) / 1000 + "mm";
     }
-
+//////////////////////////////////////LIEN HƠP
     public void tinhToanTDChac() {
         ////
         Ps = 0.85 * fc * bi * ts;
@@ -2414,21 +2414,23 @@ public class nhaplieuthietke extends AppCompatActivity {
         Prb = 400. * N2 * 3.14 * Dtd * Dtd * 0.25;
         // xác định trục trung hòa dẻo
         if ((Pt + Pw) > (Ps + Pc + Prt + Prb)) {
-            Dcp = (Dw / 2) * ((Pt + Pw - Pc - Ps - Prt - Prb) / Pw);
-            txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + ">" + "Ps+Pc+Prt+Prb= " + (float) Math.round(((Pt + Pw - Pc - Ps - Prt - Prb) / Pw) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản bụng";
+            Dcp = (Dw / 2.) * ((Pt + Pw - Pc - Ps - Prt - Prb) / Pw);
+            Mp=((Ps*(0.5*ts+Yv+tft+Dcp)+(Prt*(ts+Yv+Dcp-St+tft))+(Prb*(Dcp+Yv+Sd+tft))+(Pc*(0.5*tft+Dcp))+(Pt*(Dw-Dcp+0.5*tfb))+(Pw*(Math.abs(0.5*Dw-Dcp)))))/(1000000.);
+             txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + ">" + "Ps+Pc+Prt+Prb= " + (float) Math.round(((Pt + Pw - Pc - Ps - Prt - Prb) / Pw) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản bụng";
             // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bụng",Toast.LENGTH_LONG).show();
         } else if ((Pt + Pw < Ps + Pc + Prt + Prb && Pt + Pw + Pc > Ps + Prt + Prb)) {
-            Dcp = (tft / 2) * ((Pt + Pw + Pc - Ps - Prt - Prb) / Pc);
-            txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + "<" + "Ps+Pc+Prt+Prb= " + (float) Math.round((Ps + Pc + Prt + Prb) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản cánh trên";
+            Dcp = (tft / 2.) * ((Pt + Pw + Pc - Ps - Prt - Prb) / Pc);
+            Mp=((Ps*(0.5*ts+Yv+Dcp))+(Prt*(ts+Yv+Dcp-St))+(Prb*(Dcp+Yv+Sd))+(Pc*tft)+(Pt*(tft-Dcp+Dw+0.5*tfb))+(Pw*(tft-Dcp+0.5*Dw)))/(1000000.);
+
+           txtKT4 = "Pt+Pw=" + "" + (float) Math.round((Pt + Pw) * 1000) / 1000 + "<" + "Ps+Pc+Prt+Prb= " + (float) Math.round((Ps + Pc + Prt + Prb) * 1000) / 1000 + "\nDcp=" + "" + (float) Math.round((Dcp * 1000) / 1000) + "\n   Trục trung hòa dẻo nằm ở bản cánh trên";
             // Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản cánh trên",Toast.LENGTH_LONG).show();
-        } else if ((Pt + Pw + Pc + Ps) > (Prt + Prb)) {
-            Dcp = (ts / 2) * ((Pt + Pw + Pc + Ps - Prt - Prb) / Ps);
+        } else if (Ps>Pc+Pw+Pt) {
+            Dcp  =(ts/Ps)*(Pc+Pt+Pw);
+            Mp=((Ps*Dcp*Dcp*0.5/ts)+(Prt*(Dcp-St))+(Prb*(ts-Dcp-Sd))+(Pc*(ts-Dcp+Yv+0.5*tft))+(Pt*(ts-Dcp+Yv+tft+Dw+0.5*tfb))+(Pw*(ts-Dcp+Yv+tft+0.5*Dw)))/(1000000.);
             txtKT4 = "Trục trung hòa dẻo nằm ở bản bê tông";
             /// Toast.makeText(nhaplieuthietke.this,"Trục trung hòa dẻo nằm ở bản bê tông",Toast.LENGTH_LONG).show();
         }
-        // momen dẻo
-        Mp = (Ps * (Dcp + tft + Yv + ts / 2.) + Prt * (Dcp + tft + Yv + ts - St) + Prb * (Dcp + tft + Yv + ts + Sd) + Pc * (Dcp + tft / 2.) + Pt * (Dw - Dcp + tfb / 2.) + Pw * (Math.abs(-Dcp + Dw / 2.))) * (1.0 / 1000000.);
-        //     Toast.makeText(nhaplieuthietke.this,"Mp="+Mp,Toast.LENGTH_LONG).show();
+
         Dp = Dcp + tft + Yv + ts;
         if (Fy == 345) {
             Dphay = (0.7 * (D + ts + Yv)) / 7.5;
