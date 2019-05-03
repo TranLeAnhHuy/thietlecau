@@ -1071,11 +1071,11 @@ public class nhaplieuthietke extends AppCompatActivity {
 
     }
     public void tinhToanTCDKhongChacklh() {
-        IstDT=Ist=IstDN=IltDT=IltDN=Inc;
+      //  IstDT=Ist=IstDN=IltDT=IltDN=Inc;
 
 
         // kiểm tra bản cánh chịu nén cần bố trí STC dọc không
-        Dc = D - tft - Yltd;
+        Dc = D - tft - Yncd;
         if (((2.0 * Dc / tw) - 6.7 * Math.sqrt(Es / Fy)) <= 0) {
             txtKT4 = "((2.0*Dc/tw)-6.7*Math.sqrt(Es/Fy))= " + (float) Math.round((((2.0 * Dc / tw) - 6.7 * Math.sqrt(Es / Fy))) * 1000) / 1000 + " <= 0" + "\n   Độ mảnh của bản cánh chịu nén đạt, không cần bố trí STC dọc";
         } else if (((2.0 * Dc / tw) - 11.63 * Math.sqrt(Es / Fy)) <= 0) {
@@ -1137,15 +1137,15 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         //////////////////////////////////////////////////////////////MỎI///////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////// ứng suất nén đàn hồi lớn nhất ở bản biên chịu nén khi uốn do tác dụng của tải trọng dài hạn
-        if ((2.0 * (D - tft - Ystd) / tw) - 5.7 * (Math.sqrt(Es / Fy)) <= 0) {
+        if ((2.0 * (D - tft - Yncd) / tw) - 5.7 * (Math.sqrt(Es / Fy)) <= 0) {
             fcf = Fy;
-        } else if ((2.0 * (D - tft - Ystd) / tw) - 5.7 * (Math.sqrt(Es / Fy)) > 0) {
-            fcf = 32.5 * Es * Math.pow(tw / (2 * (D - tft - Ystd)), 2);
+        } else if ((2.0 * (D - tft - Yncd) / tw) - 5.7 * (Math.sqrt(Es / Fy)) > 0) {
+            fcf = 32.5 * Es * Math.pow(tw / (2 * (D - tft - Yncd)), 2);
         }
         //// tính đc fcf
         /////////////// kiểm ra fcf
         // tính ứng suất
-        f = -f112 - Math.max(f228, f212) - 2 * (1000000 * YlttDT * Math.max(M720, M724)) / IltDT;
+        f = -f112 - Math.max(f228, f212) - 2 * (1000000 * Ynct * Math.max(M720klh, M724klh)) / Inc;
         ///  Toast.makeText(nhaplieuthietke.this, "f= "+f, Toast.LENGTH_LONG).show();
         // kiểm tra ứng suất
         ///kiểm tra ổn định uốn của vách đứng
@@ -1155,13 +1155,13 @@ public class nhaplieuthietke extends AppCompatActivity {
         } else {
             txtKT8 = "-----------------------  KIỂM TOÁN Ở TTGH MỎI  -----------------------" + "\nf= " + (float) Math.round((f) * 1000) / 1000 + " > fcf= " + fcf + "\n  Vách đứng mất ổn định uốn";
         }
-        if ((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) <= 0) {
-            txtKT9 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " <= 0" + "\n   Vách đứng ổn định lực cắt";
+        if ((((2.0 * Math.max(Q721klh, Q726klh) + Q35) / (Dw * tw)) - 0.58 * c * Fy) <= 0) {
+            txtKT9 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721klh, Q726klh) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " <= 0" + "\n   Vách đứng ổn định lực cắt";
         } else {
-            txtKT9 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " > 0" + "\n   Vách đứng mất ổn định lực cắt";
+            txtKT9 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721klh, Q726klh) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " > 0" + "\n   Vách đứng mất ổn định lực cắt";
         }
         // tính biên độ ứng suất do xe tải mỏi gây ra
-        Dentaf = (Ystd * Math.max(M720, M724) * 1000000.0) / (Math.max(IstDT, IstDN));
+        Dentaf = (Yncd * Math.max(M720klh, M724klh) * 1000000.0) / (Inc);
         // tính lượng chu kì ứng suất
         ////////// tính u1 nhịp
         if (L * 1000.0 > 12000) {
@@ -1180,7 +1180,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         /// tính N
         N = 100.0 * 365.0 * u1 * u2 * 2.0 * 10000.0 * l1234;
         ///sức kháng mỏi danh định
-        DentaFn = Math.max((Math.pow(ABCDE, 1 / 3) / N), (0.5 * DentaFTH));
+        DentaFn = Math.max((Math.pow(ABCDE, 1. / 3.) / N), (0.5 * DentaFTH));
         if (DentaFn - Dentaf * 0.75 >= 0) {
             txtKT9 = "DentaFn= " + (float) Math.round(DentaFn * 1000) / 1000 + ">= 0,75.DentaF= " + (float) Math.round(0.75 * Dentaf * 1000) / 1000 + "\n   Đảm bảo TTGH mỏi";
             txt4 = "TTGH mỏi đảm bảo ";
@@ -1197,7 +1197,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         /// ứng suất bản biên dưới của dầm
         fbDC1 = f116;
         fbDC2 = Math.max(Math.abs(f216), Math.abs(f232));
-        fbLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ystt * 1000000.0 / Ist;
+        fbLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ynct * 1000000.0 / Inc;
         fbSH = Math.max(Math.abs(f52), Math.abs(f54)) * 1.2;
         fbsum = Math.abs(fbDC1) + Math.abs(fbDC2) + Math.abs(fbLL_IM) + Math.abs(fbSH);
         // kiểm tra
@@ -1208,7 +1208,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         /// kiểm tra độ vồng ngược
         dentaDC1 = 5.0 * Math.pow(Ls * 1000.0, 4) * DC1 / (384.0 * Es * Inc);
-        dentaDC2 = 5.0 * Math.pow(Ls * 1000.0, 4) * Math.max(DC2DT, DC2DN) / (384.0 * Es * Math.max(IltDN, IltDT));
+        dentaDC2 = 5.0 * Math.pow(Ls * 1000.0, 4) * Math.max(DC2DT, DC2DN) / (384.0 * Es * Inc);
         // độ võng do xe tải thiết kế
         dentaP35 = Math.max(mgDTM, mgDNM) * (35.0 * ((0.5 * Ls * 1000.0) + 4300.0) * (0.5 * Ls * 1000.0) * (Math.pow(Ls * 1000.0, 2) - Math.pow((0.5 * Ls * 1000.0) + 4300.0, 2) - Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Ist * Ls * Es);
         dentaP145G = Math.max(mgDTM, mgDNM) * (145.0 * Math.pow(0.5 * Ls * 1000.0, 2) * (Math.pow(Ls * 1000.0, 2) - 2.0 * Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Ist * Ls * Es);
@@ -1218,7 +1218,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         denta1 = (dentaP35 + dentaP145G + dentaP145S) * 1.25;
         // độ võng do tổ hợp 25 xe tải thiết kế, ttl,
         denta2 = 0.25 * denta1;
-        denta3 = (5. * 9.3 * Math.pow(Ls * 1000., 4) * Math.max(mgDTM, mgDNM)) / (384. * Es * Ist);
+        denta3 = (5. * 9.3 * Math.pow(Ls * 1000., 4) * Math.max(mgDTM, mgDNM)) / (384. * Es * Inc);
         // độ võng tổ hợp trên gây ra
         denta4 = denta2 + denta3;
         /// ///độ võng do hoạt tải
@@ -1317,11 +1317,11 @@ public class nhaplieuthietke extends AppCompatActivity {
             Vr = V2n / 1000.;
         }
         // kiểm tra  lực cắt
-        if (Vr - Math.max(Q71, Q76) > 0) {
+        if (Vr - Math.max(Q71klh, Q76klh) > 0) {
             txtKT6 = "Vr= " + (float) Math.round((Vr) * 1000) / 1000 + " > Vu= " + (float) Math.round((Math.max(Q71klh, Q76klh)) * 1000) / 1000 + "\n   Dầm thỏa sức kháng cắt";
             txt3 = "Sức kháng cắt TTGH CD1 đảm bảo";
         } else if ((Math.max(Q71klh, Q76klh) - c * Vp) < 0) {
-            txtKT6 = "c*Vp= " + (float) Math.round((c * Vp) * 1000) / 1000+" > Vu= "+ (float) Math.round((Math.max(Q71, Q76)) * 1000) / 1000+ "\n  Dầm thỏa sức kháng cắt";
+            txtKT6 = "c*Vp= " + (float) Math.round((c * Vp) * 1000) / 1000+" > Vu= "+ (float) Math.round((Math.max(Q71klh, Q76klh)) * 1000) / 1000+ "\n  Dầm thỏa sức kháng cắt";
             //Toast.makeText(nhaplieuthietke.this,"dầm chịu được khả năng chịu kháng uốn",Toast.LENGTH_LONG).show();
             txt3 = "Sức kháng cắt TTGH CD1 đảm bảo";
         } else {
@@ -1340,7 +1340,7 @@ public class nhaplieuthietke extends AppCompatActivity {
         /////////////// kiểm ra fcf
 
         // tính ứng suất
-        f = -f112 - Math.max(f228, f212) - 2 * (1000000 * YlttDT * Math.max(M720, M724)) / IltDT;
+        f = -f112 - Math.max(f228, f212) - 2 * (1000000 * Ynct * Math.max(M720klh, M724klh)) / Inc;
         ///  Toast.makeText(nhaplieuthietke.this, "f= "+f, Toast.LENGTH_LONG).show();
         // kiểm tra ứng suất
 
@@ -1353,13 +1353,13 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
 
         if ((((2.0 * Math.max(Q721klh, Q726klh) + Q35) / (Dw * tw)) - 0.58 * c * Fy) <= 0) {
-            txtKT8 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " <= 0" + "\n   Vách đứng ổn định lực cắt";
+            txtKT8 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721klh, Q726klh) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " <= 0" + "\n   Vách đứng ổn định lực cắt";
         } else {
-            txtKT8 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721, Q726) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " > 0" + "\n   Vách đứng mất ổn định lực cắt";
+            txtKT8 = "(((2.0*Math.max(Q721,Q726)+Q35)/(Dw*tw))-0.58*c*Fy)= " + (float) Math.round((((2.0 * Math.max(Q721klh, Q726klh) + Q35) / (Dw * tw)) - 0.58 * c * Fy) * 1000) / 1000 + " > 0" + "\n   Vách đứng mất ổn định lực cắt";
         }
 
         // tính biên độ ứng suất do xe tải mỏi gây ra
-        Dentaf = (Ystd * Math.max(M720, M724) * 1000000.0) / (Math.max(IstDT, IstDN));
+        Dentaf = (Yncd * Math.max(M720klh, M724klh) * 1000000.0) / Inc;
         // tính lượng chu kì ứng suất
         ////////// tính u1 nhịp
         if (L * 1000.0 > 12000) {
@@ -1389,13 +1389,13 @@ public class nhaplieuthietke extends AppCompatActivity {
         //////////////////////////////////////////////// SỬ DỤNG/////////////////////////////////////////////////////////
         ftDC1 = f112;
         ftDC2 = Math.max(Math.abs(f212), Math.abs(f228));
-        ftLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ystt * 1000000.0 / Ist;
+        ftLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ynct * 1000000.0 / Inc;
         ftSH = Math.max(Math.abs(f51), Math.abs(f53)) * 1.2;
         ftsum = Math.abs(ftDC1) + Math.abs(ftDC2) + Math.abs(ftLL_IM) + Math.abs(ftSH);
         /// ứng suất bản biên dưới của dầm
         fbDC1 = f116;
         fbDC2 = Math.max(Math.abs(f216), Math.abs(f232));
-        fbLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ystt * 1000000.0 / Ist;
+        fbLL_IM = Math.max((mgDTM * (1.25 * Math.max(m4, m8) + m12 + m16)), (mgDNM * (1.25 * Math.max(m4, m8) + m12 + m16))) * Ynct * 1000000.0 / Inc;
         fbSH = Math.max(Math.abs(f52), Math.abs(f54)) * 1.2;
         fbsum = Math.abs(fbDC1) + Math.abs(fbDC2) + Math.abs(fbLL_IM) + Math.abs(fbSH);
         // kiểm tra
@@ -1408,17 +1408,17 @@ public class nhaplieuthietke extends AppCompatActivity {
         }
         /// kiểm tra độ vồng ngược
         dentaDC1 = 5.0 * Math.pow(Ls * 1000.0, 4) * DC1 / (384.0 * Es * Inc);
-        dentaDC2 = 5.0 * Math.pow(Ls * 1000.0, 4) * Math.max(DC2DT, DC2DN) / (384.0 * Es * Math.max(IltDN, IltDT));
+        dentaDC2 = 5.0 * Math.pow(Ls * 1000.0, 4) * Math.max(DC2DT, DC2DN) / (384.0 * Es * Inc);
         // độ võng do xe tải thiết kế
-        dentaP35 = Math.max(mgDTM, mgDNM) * (35.0 * ((0.5 * Ls * 1000.0) + 4300.0) * (0.5 * Ls * 1000.0) * (Math.pow(Ls * 1000.0, 2) - Math.pow((0.5 * Ls * 1000.0) + 4300.0, 2) - Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Ist * Ls * Es);
-        dentaP145G = Math.max(mgDTM, mgDNM) * (145.0 * Math.pow(0.5 * Ls * 1000.0, 2) * (Math.pow(Ls * 1000.0, 2) - 2.0 * Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Ist * Ls * Es);
-        dentaP145S = Math.max(mgDTM, mgDNM) * (145.0 * ((0.5 * Ls * 1000.) - 4300.) * (0.5 * Ls * 1000.) * ((Math.pow(Ls * 1000., 2)) - (Math.pow((0.5 * Ls * 1000.) - 4300.0, 2)) - (Math.pow(0.5 * 1000. * Ls, 2)))) / (6.0 * Ist * Ls * Es);
+        dentaP35 = Math.max(mgDTM, mgDNM) * (35.0 * ((0.5 * Ls * 1000.0) + 4300.0) * (0.5 * Ls * 1000.0) * (Math.pow(Ls * 1000.0, 2) - Math.pow((0.5 * Ls * 1000.0) + 4300.0, 2) - Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Inc * Ls * Es);
+        dentaP145G = Math.max(mgDTM, mgDNM) * (145.0 * Math.pow(0.5 * Ls * 1000.0, 2) * (Math.pow(Ls * 1000.0, 2) - 2.0 * Math.pow(0.5 * Ls * 1000.0, 2))) / (6.0 * Inc * Ls * Es);
+        dentaP145S = Math.max(mgDTM, mgDNM) * (145.0 * ((0.5 * Ls * 1000.) - 4300.) * (0.5 * Ls * 1000.) * ((Math.pow(Ls * 1000., 2)) - (Math.pow((0.5 * Ls * 1000.) - 4300.0, 2)) - (Math.pow(0.5 * 1000. * Ls, 2)))) / (6.0 * Inc * Ls * Es);
         //double grjfdj=M36;
         //độ võng thiết kế
         denta1 = (dentaP35 + dentaP145G + dentaP145S) * 1.25;
         // độ võng do tổ hợp 25 xe tải thiết kế, ttl,
         denta2 = 0.25 * denta1;
-        denta3 = (5. * 9.3 * Math.pow(Ls * 1000., 4) * Math.max(mgDTM, mgDNM)) / (384. * Es * Ist);
+        denta3 = (5. * 9.3 * Math.pow(Ls * 1000., 4) * Math.max(mgDTM, mgDNM)) / (384. * Es * Inc);
         // độ võng tổ hợp trên gây ra
         denta4 = denta2 + denta3;
         /// ///độ võng do hoạt tải
