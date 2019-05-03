@@ -1400,11 +1400,11 @@ public class nhaplieuthietke extends AppCompatActivity {
         fbsum = Math.abs(fbDC1) + Math.abs(fbDC2) + Math.abs(fbLL_IM) + Math.abs(fbSH);
         // kiểm tra
         if (Math.max(Math.abs(ftsum), Math.abs(fbsum)) <= 0.95 * Fy) {
-
-            txtKT11 = "--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------" + "\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= " + (float) Math.round(Math.max(Math.abs(ftsum), Math.abs(fbsum)) * 1000) / 1000 + " <= 0.95*Fy= " + (float) Math.round(0.95 * Fy * 1000) / 1000 + "\n   Ứng suất cánh trên và cánh dưới đạt";
+            txtKT11="";
+         //   txtKT11 = "--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------" + "\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= " + (float) Math.round(Math.max(Math.abs(ftsum), Math.abs(fbsum)) * 1000) / 1000 + " <= 0.95*Fy= " + (float) Math.round(0.95 * Fy * 1000) / 1000 + "\n   Ứng suất cánh trên và cánh dưới đạt";
         } else {
-
-            txtKT11 = "--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------" + "\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= " + (float) Math.round(Math.max(Math.abs(ftsum), Math.abs(fbsum)) * 1000) / 1000 + " > 0.95*Fy= " + (float) Math.round(0.95 * Fy * 1000) / 1000 + "\n   Ứng suất cánh trên và cánh dưới không đạt";
+            txtKT11="";
+         //   txtKT11 = "--------------------  KIỂM TOÁN TTGH SỬ DỤNG  --------------------" + "\nMath.max(Math.abs(ftsum),Math.abs(fbsum))= " + (float) Math.round(Math.max(Math.abs(ftsum), Math.abs(fbsum)) * 1000) / 1000 + " > 0.95*Fy= " + (float) Math.round(0.95 * Fy * 1000) / 1000 + "\n   Ứng suất cánh trên và cánh dưới không đạt";
         }
         /// kiểm tra độ vồng ngược
         dentaDC1 = 5.0 * Math.pow(Ls * 1000.0, 4) * DC1 / (384.0 * Es * Inc);
@@ -1429,11 +1429,13 @@ public class nhaplieuthietke extends AppCompatActivity {
         ///// (float)Math.round((f)* 1000)/1000
         // kiểm tra độ võng cho phép riêng của hoạt tải
         if (denta5 < denta6) {
-            txtKT12 = "denta5= " + (float) Math.round((denta5) * 1000) / 1000 + " <= denta6= " + (float) Math.round((denta6) * 1000) / 1000 + "\n   Độ võng riêng cho phép của hoạt tải ĐẠT";
+           // txtKT12 = "denta5= " + (float) Math.round((denta5) * 1000) / 1000 + " <= denta6= " + (float) Math.round((denta6) * 1000) / 1000 + "\n   Độ võng riêng cho phép của hoạt tải ĐẠT";
+            txtKT12="";
             txt5 = "Độ võng riêng cho phép của hoạt tải ĐẠT";
 
         } else {
-            txtKT12 = "denta5= " + (float) Math.round((denta5) * 1000) / 1000 + " > denta6= " + (float) Math.round((denta6) * 1000) / 1000 + "\n   Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
+            txtKT12="";
+          //  txtKT12 = "denta5= " + (float) Math.round((denta5) * 1000) / 1000 + " > denta6= " + (float) Math.round((denta6) * 1000) / 1000 + "\n   Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
             txt5 = "Độ võng riêng cho phép của hoạt tải KHÔNG ĐẠT";
 
         }

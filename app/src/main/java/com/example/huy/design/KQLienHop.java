@@ -28,8 +28,8 @@ public class KQLienHop extends AppCompatActivity {
     TextView txtViewMoreMV7;
     TextView txtM74, txtM78, txtM712, txtM716, txtM720, txtM724;
     TextView txtQ71, txtQ76, txtQ711, txtQ716, txtQ721, txtQ726;
-    TextView txtviewNoiLuc, txtViewBMC,txtViewKiemToan;
-    TextView txtbmc1,txtbmc2,txtbmc3,txtbmc4,txtbmc5,txtbmc6,txtbmc7;
+    TextView txtviewNoiLuc,txtViewKiemToan;
+   // TextView txtbmc1,txtbmc2,txtbmc3,txtbmc4,txtbmc5,txtbmc6,txtbmc7;
     TextView  txt1,txt2,txt3,txt4,txt5,txt6,txt7;
 
     @Override
@@ -85,13 +85,13 @@ public class KQLienHop extends AppCompatActivity {
         txtQ716.setText(roundString(KLHbundle.getDouble("Q716klh"), 4));
         txtQ721.setText(roundString(KLHbundle.getDouble("Q721klh"), 4));
         txtQ726.setText(roundString(KLHbundle.getDouble("Q726klh"), 4));
-        txtbmc1.setText(KLHbundle.getString("txtbmc1"));
-        txtbmc2.setText(KLHbundle.getString("txtbmc2"));
-        txtbmc3.setText(KLHbundle.getString("txtbmc3"));
-        txtbmc4.setText(KLHbundle.getString("txtbmc4"));
-        txtbmc5.setText(KLHbundle.getString("txtbmc5"));
-        txtbmc6.setText(KLHbundle.getString("txtbmc6"));
-        txtbmc7.setText(KLHbundle.getString("txtbmc7"));
+//        txtbmc1.setText(KLHbundle.getString("txtbmc1"));
+//        txtbmc2.setText(KLHbundle.getString("txtbmc2"));
+//        txtbmc3.setText(KLHbundle.getString("txtbmc3"));
+//        txtbmc4.setText(KLHbundle.getString("txtbmc4"));
+//        txtbmc5.setText(KLHbundle.getString("txtbmc5"));
+//        txtbmc6.setText(KLHbundle.getString("txtbmc6"));
+//        txtbmc7.setText(KLHbundle.getString("txtbmc7"));
         txt1.setText(KLHbundle.getString("txt1"));
         txt2.setText(KLHbundle.getString("txt2"));
         txt3.setText(KLHbundle.getString("txt3"));
@@ -102,7 +102,7 @@ public class KQLienHop extends AppCompatActivity {
 
         viewNoiLuc7();
         viewNoiLuc();
-        viewBMC();
+        //viewBMC();
         viewKiemToan();
 
     }
@@ -134,29 +134,29 @@ public class KQLienHop extends AppCompatActivity {
             }
         });
     }
-    public void  viewBMC(){
-        txtViewBMC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent KLHintent = getIntent();
-                Bundle KLHbundle = KLHintent.getBundleExtra("KLHbundle");
-
-                Intent ViewBMCbundle = new Intent(KQLienHop.this, ViewMoreBMCklh.class);
-                Bundle BMCBundle = new Bundle();
-                BMCBundle.putString("txtBMC1", KLHbundle.getString("txtBMC1"));
-                BMCBundle.putString("txtBMC2", KLHbundle.getString("txtBMC2"));
-                BMCBundle.putString("txtBMC3", KLHbundle.getString("txtBMC3"));
-                BMCBundle.putString("txtBMC4", KLHbundle.getString("txtBMC4"));
-                BMCBundle.putString("txtBMC5", KLHbundle.getString("txtBMC5"));
-                BMCBundle.putString("txtBMC6", KLHbundle.getString("txtBMC6"));
-                BMCBundle.putString("txtBMC7", KLHbundle.getString("txtBMC7"));
-
-                ViewBMCbundle.putExtra("KLHbundle", BMCBundle);
-                startActivity(ViewBMCbundle);
-
-            }
-        });
-    }
+//    public void  viewBMC(){
+//        txtViewBMC.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent KLHintent = getIntent();
+//                Bundle KLHbundle = KLHintent.getBundleExtra("KLHbundle");
+//
+//                Intent ViewBMCbundle = new Intent(KQLienHop.this, ViewMoreBMCklh.class);
+//                Bundle BMCBundle = new Bundle();
+//                BMCBundle.putString("txtBMC1", KLHbundle.getString("txtBMC1"));
+//                BMCBundle.putString("txtBMC2", KLHbundle.getString("txtBMC2"));
+//                BMCBundle.putString("txtBMC3", KLHbundle.getString("txtBMC3"));
+//                BMCBundle.putString("txtBMC4", KLHbundle.getString("txtBMC4"));
+//                BMCBundle.putString("txtBMC5", KLHbundle.getString("txtBMC5"));
+//                BMCBundle.putString("txtBMC6", KLHbundle.getString("txtBMC6"));
+//                BMCBundle.putString("txtBMC7", KLHbundle.getString("txtBMC7"));
+//
+//                ViewBMCbundle.putExtra("KLHbundle", BMCBundle);
+//                startActivity(ViewBMCbundle);
+//
+//            }
+//        });
+//    }
     public void viewNoiLuc7() {
         txtViewMoreMV7.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -459,13 +459,13 @@ public class KQLienHop extends AppCompatActivity {
         txtQ726 = (TextView) findViewById(R.id.txtQ726);
         txtviewNoiLuc = (TextView) findViewById(R.id.txtviewNoiLuc);
         txtViewMoreMV7 = (TextView) findViewById(R.id.txtViewMoreMV7);
-        txtbmc1 = (TextView) findViewById(R.id.txtbmc1);
-        txtbmc2 = (TextView) findViewById(R.id.txtbmc2);
-        txtbmc3 = (TextView) findViewById(R.id.txtbmc3);
-        txtbmc4 = (TextView) findViewById(R.id.txtbmc4);
-        txtbmc5 = (TextView) findViewById(R.id.txtbmc5);
-        txtbmc6 = (TextView) findViewById(R.id.txtbmc6);
-        txtbmc7 = (TextView) findViewById(R.id.txtbmc7);
+//        txtbmc1 = (TextView) findViewById(R.id.txtbmc1);
+//        txtbmc2 = (TextView) findViewById(R.id.txtbmc2);
+//        txtbmc3 = (TextView) findViewById(R.id.txtbmc3);
+//        txtbmc4 = (TextView) findViewById(R.id.txtbmc4);
+//        txtbmc5 = (TextView) findViewById(R.id.txtbmc5);
+//        txtbmc6 = (TextView) findViewById(R.id.txtbmc6);
+//        txtbmc7 = (TextView) findViewById(R.id.txtbmc7);
         txt1=(TextView)findViewById(R.id.txt1);
         txt2=(TextView)findViewById(R.id.txt2);
         txt3=(TextView)findViewById(R.id.txt3);
@@ -473,7 +473,7 @@ public class KQLienHop extends AppCompatActivity {
         txt5=(TextView)findViewById(R.id.txt5);
         txt6=(TextView)findViewById(R.id.txt6);
 
-        txtViewBMC = (TextView) findViewById(R.id.txtViewBMC);
+        //txtViewBMC = (TextView) findViewById(R.id.txtViewBMC);
         txtViewKiemToan = (TextView) findViewById(R.id.txtViewKiemToan);
 
     }
